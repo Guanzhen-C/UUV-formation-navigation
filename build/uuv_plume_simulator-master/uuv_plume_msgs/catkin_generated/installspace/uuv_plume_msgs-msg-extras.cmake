@@ -1,0 +1,2 @@
+set(uuv_plume_msgs_MESSAGE_FILES "msg/ParticleConcentration.msg;msg/Salinity.msg")
+set(uuv_plume_msgs_SERVICE_FILES "srv/CreatePassiveScalarTurbulentPlume.srv;srv/CreateSpheroidPlume.srv;srv/SetPlumeLimits.srv;srv/SetPlumeConfiguration.srv;srv/GetPlumeConfiguration.srv;srv/DeletePlume.srv;srv/SetPlumeSourcePosition.srv;srv/GetPlumeSourcePosition.srv;srv/GetNumParticles.srv;srv/StorePlumeState.srv;srv/LoadPlumeParticles.srv;srv/SetCurrentDirection.srv;srv/SetCurrentModel.srv;srv/GetCurrentModel.srv;srv/SetCurrentVelocity.srv")

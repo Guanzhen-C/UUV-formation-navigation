@@ -1,0 +1,8 @@
+prefix=/home/qsk/catkin_ws/install
+
+Name: uuv_plume_simulator
+Description: Description of uuv_plume_simulator
+Version: 0.3.3
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

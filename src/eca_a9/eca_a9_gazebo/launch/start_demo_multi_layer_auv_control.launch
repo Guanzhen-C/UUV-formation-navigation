@@ -1,0 +1,643 @@
+<launch>
+  <!-- 多层AUV演示启动文件 - 海面1个+中层8个+海底3个 -->
+  
+  <!-- =========================== 海面层参数 =========================== -->
+  <arg name="surface_x" default="30"/>
+  <arg name="surface_y" default="0"/>
+  <arg name="surface_z" default="-5"/>
+  <arg name="surface_yaw" default="1.5708"/>
+  <arg name="surface_radius" default="30"/>
+  <arg name="surface_center_x" default="0"/>
+  <arg name="surface_center_y" default="0"/>
+  <arg name="surface_center_z" default="-5"/>
+  <arg name="surface_max_forward_speed" default="2.0"/>
+  <arg name="surface_dubins_radius" default="10"/>
+  <arg name="surface_n_points" default="100"/>
+
+  <!-- =========================== 海底层参数 =========================== -->
+  <arg name="bottom_x1" default="50"/>
+  <arg name="bottom_y1" default="0"/>
+  <arg name="bottom_z1" default="-50"/>
+  <arg name="bottom_yaw1" default="1.5708"/>  <!-- 90 deg -->
+  <arg name="bottom_x2" default="-25"/>
+  <arg name="bottom_y2" default="43.3"/>
+  <arg name="bottom_z2" default="-50"/>
+  <arg name="bottom_yaw2" default="3.665"/>   <!-- 210 deg -->
+  <arg name="bottom_x3" default="-25"/>
+  <arg name="bottom_y3" default="-43.3"/>
+  <arg name="bottom_z3" default="-50"/>
+  <arg name="bottom_yaw3" default="5.759"/>   <!-- 330 deg -->
+  <arg name="bottom_radius" default="50"/>
+  <arg name="bottom_center_z" default="-50"/>
+  <arg name="bottom_max_forward_speed" default="2.0"/>
+  <arg name="bottom_dubins_radius" default="10"/>
+  <arg name="bottom_n_points" default="120"/>
+
+  <!-- =========================== 中层参数（原有8个AUV） =========================== -->
+  <arg name="x1" default="80"/>
+  <arg name="y1" default="0"/>
+  <arg name="z1" default="-30"/>
+  <arg name="yaw1" default="1.5708"/>
+  <arg name="x2" default="56.57"/>
+  <arg name="y2" default="56.57"/>
+  <arg name="z2" default="-30"/>
+  <arg name="yaw2" default="2.356"/>
+  <arg name="x3" default="0"/>
+  <arg name="y3" default="80"/>
+  <arg name="z3" default="-30"/>
+  <arg name="yaw3" default="3.1416"/>
+  <arg name="x4" default="-56.57"/>
+  <arg name="y4" default="56.57"/>
+  <arg name="z4" default="-30"/>
+  <arg name="yaw4" default="-2.356"/>
+  <arg name="x5" default="-80"/>
+  <arg name="y5" default="0"/>
+  <arg name="z5" default="-30"/>
+  <arg name="yaw5" default="-1.5708"/>
+  <arg name="x6" default="-56.57"/>
+  <arg name="y6" default="-56.57"/>
+  <arg name="z6" default="-30"/>
+  <arg name="yaw6" default="-0.7854"/>
+  <arg name="x7" default="0"/>
+  <arg name="y7" default="-80"/>
+  <arg name="z7" default="-30"/>
+  <arg name="yaw7" default="0"/>
+  <arg name="x8" default="56.57"/>
+  <arg name="y8" default="-56.57"/>
+  <arg name="z8" default="-30"/>
+  <arg name="yaw8" default="0.7854"/>
+  <arg name="radius" default="80"/>
+  <arg name="center_z" default="-30"/>
+  <arg name="max_forward_speed" default="2.5"/>
+  <arg name="dubins_radius" default="15"/>
+  <arg name="n_points" default="150"/>
+
+  <arg name="record" default="false"/>
+  <arg name="bag_filename" default="dual_recording.bag"/>
+  <arg name="use_ned_frame" default="false"/>
+
+  <!-- =================================================================================== -->
+  <!-- 海面层AUV -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_surface">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_surface
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -x $(arg surface_x) -y $(arg surface_y) -z $(arg surface_z) -R 0 -P 0 -Y $(arg surface_yaw) -model eca_a9_surface -param /eca_a9_surface/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_surface/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_surface"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_surface/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- 中层8个AUV -->
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #1 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_1
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -x $(arg x1) -y $(arg y1) -z $(arg z1) -R 0 -P 0 -Y $(arg yaw1) -model eca_a9_1 -param /eca_a9_1/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_1/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_1"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_1/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #2 (with 3-second delay) -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_2
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 3; $0 $@' "
+          args="-urdf -x $(arg x2) -y $(arg y2) -z $(arg z2) -R 0 -P 0 -Y $(arg yaw2) -model eca_a9_2 -param /eca_a9_2/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_2/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_2"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_2/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #3 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_3">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_3
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 1; $0 $@' "
+          args="-urdf -x $(arg x3) -y $(arg y3) -z $(arg z3) -R 0 -P 0 -Y $(arg yaw3) -model eca_a9_3 -param /eca_a9_3/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_3/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_3"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_3/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #4 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_4">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_4
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 2; $0 $@' "
+          args="-urdf -x $(arg x4) -y $(arg y4) -z $(arg z4) -R 0 -P 0 -Y $(arg yaw4) -model eca_a9_4 -param /eca_a9_4/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_4/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_4"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_4/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #5 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_5">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_5
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 4; $0 $@' "
+          args="-urdf -x $(arg x5) -y $(arg y5) -z $(arg z5) -R 0 -P 0 -Y $(arg yaw5) -model eca_a9_5 -param /eca_a9_5/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_5/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_5"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_5/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #6 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_6">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_6
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 5; $0 $@' "
+          args="-urdf -x $(arg x6) -y $(arg y6) -z $(arg z6) -R 0 -P 0 -Y $(arg yaw6) -model eca_a9_6 -param /eca_a9_6/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_6/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_6"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_6/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #7 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_7">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_7
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 6; $0 $@' "
+          args="-urdf -x $(arg x7) -y $(arg y7) -z $(arg z7) -R 0 -P 0 -Y $(arg yaw7) -model eca_a9_7 -param /eca_a9_7/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_7/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_7"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_7/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #8 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_8">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_8
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 7; $0 $@' "
+          args="-urdf -x $(arg x8) -y $(arg y8) -z $(arg z8) -R 0 -P 0 -Y $(arg yaw8) -model eca_a9_8 -param /eca_a9_8/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_8/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_8"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_8/base_link"/>
+  </include>
+
+  <!-- 启动海面AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_surface"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg surface_radius)"/>
+    <arg name="dubins_radius" value="$(arg surface_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg surface_max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="0.0"/>
+    <arg name="timeout_idle_mode" value="5"/>
+  </include>
+
+  <!-- 启动第一个中层AUV的控制器（不启用内置RViz） -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_1"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>  <!-- 不启用内置RViz，避免冲突 -->
+    <arg name="idle_radius" value="$(arg radius)"/>  <!-- 使用标准idle半径 -->
+    <arg name="dubins_radius" value="$(arg dubins_radius)"/>  <!-- 使用标准Dubins半径 -->
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="0.0"/>  <!-- 零延迟获得最佳响应 -->
+    <arg name="timeout_idle_mode" value="5"/>  <!-- 5秒后进入idle模式 -->
+  </include>
+
+  <!-- 启动第二个AUV的控制器（不启用内置RViz） -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_2"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>  <!-- 不启用内置RViz，避免冲突 -->
+    <arg name="idle_radius" value="$(arg radius)"/>  <!-- 使用标准idle半径 -->
+    <arg name="dubins_radius" value="$(arg dubins_radius)"/>  <!-- 使用标准Dubins半径 -->
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="0.0"/>  <!-- 零延迟获得最佳响应 -->
+    <arg name="timeout_idle_mode" value="5"/>  <!-- 5秒后进入idle模式 -->
+  </include>
+
+  <!-- 启动第三个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_3"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动第四个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_4"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动第五个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_5"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动第六个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_6"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动第七个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_7"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动第八个AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_8"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg radius)"/>
+    <arg name="dubins_radius" value="5"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 启动海底层AUV控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_bottom1"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg bottom_radius)"/>
+    <arg name="dubins_radius" value="$(arg bottom_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg bottom_max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_bottom2"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg bottom_radius)"/>
+    <arg name="dubins_radius" value="$(arg bottom_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg bottom_max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_bottom3"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="gui_on" value="false"/>
+    <arg name="idle_radius" value="$(arg bottom_radius)"/>
+    <arg name="dubins_radius" value="$(arg bottom_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg bottom_max_forward_speed)"/>
+    <arg name="look_ahead_delay" value="1.0"/>
+    <arg name="timeout_idle_mode" value="1"/>
+  </include>
+
+  <!-- 手动启动轨迹标记发布器（用于RViz可视化） -->
+  <!-- 海面层轨迹标记发布器 -->
+  <group ns="eca_a9_surface">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+  
+  <!-- 中层8个AUV轨迹标记发布器 -->
+  <group ns="eca_a9_1">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+  
+  <group ns="eca_a9_2">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_3">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_4">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_5">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_6">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_7">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_8">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <!-- 海底层轨迹标记发布器 -->
+  <group ns="eca_a9_bottom1">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_bottom2">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <group ns="eca_a9_bottom3">
+    <node pkg="uuv_control_utils"
+          type="trajectory_marker_publisher.py"
+          name="trajectory_marker_publisher"
+          output="screen">
+        <remap from="trajectory" to="trajectory"/>
+        <remap from="waypoints" to="waypoints"/>
+    </node>
+  </group>
+
+  <!-- 启动RViz显示多层AUV -->
+  <node name="multi_layer_auv_rviz" pkg="rviz" type="rviz" output="screen" 
+        args="-d $(find eca_a9_control)/rviz/multi_layer_eca_a9_control.rviz"/>
+
+  <!-- 
+    删除所有为AUV启动一次性圆周轨迹的 <include> 块。
+    AUV现在将在启动并等待'timeout_idle_mode'秒后，
+    自动进入以'idle_radius'为半径的循环圆周运动。
+   -->
+
+  <!-- =================================================================================== -->
+  <!-- 海底层3个AUV -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_bottom1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_bottom1
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 1; $0 $@' "
+          args="-urdf -x $(arg bottom_x1) -y $(arg bottom_y1) -z $(arg bottom_z1) -R 0 -P 0 -Y $(arg bottom_yaw1) -model eca_a9_bottom1 -param /eca_a9_bottom1/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_bottom1/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_bottom1"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_bottom1/base_link"/>
+  </include>
+
+  <group ns="eca_a9_bottom2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_bottom2
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 2; $0 $@' "
+          args="-urdf -x $(arg bottom_x2) -y $(arg bottom_y2) -z $(arg bottom_z2) -R 0 -P 0 -Y $(arg bottom_yaw2) -model eca_a9_bottom2 -param /eca_a9_bottom2/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_bottom2/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_bottom2"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_bottom2/base_link"/>
+  </include>
+
+  <group ns="eca_a9_bottom3">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_bottom3
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 3; $0 $@' "
+          args="-urdf -x $(arg bottom_x3) -y $(arg bottom_y3) -z $(arg bottom_z3) -R 0 -P 0 -Y $(arg bottom_yaw3) -model eca_a9_bottom3 -param /eca_a9_bottom3/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_bottom3/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_bottom3"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_bottom3/base_link"/>
+  </include>
+
+  <!-- 初始化多层AUV记录 -->
+  <include file="$(find eca_a9_gazebo)/launch/record_multi_demo.launch">
+    <arg name="record" value="$(arg record)"/>
+    <arg name="use_ned_frame" value="$(arg use_ned_frame)"/>
+    <arg name="bag_filename" value="$(arg bag_filename)"/>
+  </include>
+</launch>

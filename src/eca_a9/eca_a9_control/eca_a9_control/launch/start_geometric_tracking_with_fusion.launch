@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 使用组合导航系统的几何跟踪控制启动文件 -->
+  
+  <!-- 参数配置 -->
+  <arg name="namespace" default="eca_a9"/>
+  <arg name="rate" default="20.0"/>
+  
+  <!-- 轨迹参数 -->
+  <arg name="max_forward_speed" default="2"/>
+  <arg name="dubins_radius" default="10"/>
+  <arg name="idle_radius" default="30"/>
+  <arg name="timeout_idle_mode" default="5"/>
+  
+  <!-- 插值器参数 -->
+  <arg name="dubins_max_pitch" default="0.26"/>
+  <arg name="desired_pitch_limit" default="0.26"/>
+  <arg name="dubins_max_pitch_rate" default="0.1"/>
+  <arg name="dubins_max_forward_speed" default="2"/>
+  <arg name="dubins_max_angular_velocity" default="0.5"/>
+  
+  <!-- 控制器参数 -->
+  <arg name="Kp" default="1.0"/>
+  <arg name="Kd" default="0.5"/>
+  <arg name="Ki" default="0.1"/>
+  
+  <!-- 组合导航参数 -->
+  <arg name="imu_noise_accel" default="0.01"/>
+  <arg name="imu_noise_gyro" default="0.001"/>
+  <arg name="dvl_noise_vel" default="0.05"/>
+  <arg name="pressure_noise_depth" default="0.1"/>
+  <arg name="gps_noise_pos" default="1.0"/>
+  
+  <!-- 启动组合导航系统 -->
+  <include file="$(find eca_a9_control)/launch/start_combined_navigation.launch">
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="rate" value="$(arg rate)"/>
+    <arg name="imu_noise_accel" value="$(arg imu_noise_accel)"/>
+    <arg name="imu_noise_gyro" value="$(arg imu_noise_gyro)"/>
+    <arg name="dvl_noise_vel" value="$(arg dvl_noise_vel)"/>
+    <arg name="pressure_noise_depth" value="$(arg pressure_noise_depth)"/>
+    <arg name="gps_noise_pos" value="$(arg gps_noise_pos)"/>
+  </include>
+  
+  <!-- 启动AUV几何跟踪控制器 -->
+  <node pkg="uuv_trajectory_control" 
+        type="auv_geometric_tracking_controller.py" 
+        name="auv_geometric_tracking_controller" 
+        output="screen">
+    
+    <!-- 基本参数 -->
+    <param name="namespace" value="$(arg namespace)"/>
+    <param name="rate" value="$(arg rate)"/>
+    
+    <!-- 轨迹参数 -->
+    <param name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <param name="dubins_radius" value="$(arg dubins_radius)"/>
+    <param name="idle_radius" value="$(arg idle_radius)"/>
+    <param name="timeout_idle_mode" value="$(arg timeout_idle_mode)"/>
+    
+    <!-- 插值器参数 -->
+    <param name="dubins_max_pitch" value="$(arg dubins_max_pitch)"/>
+    <param name="desired_pitch_limit" value="$(arg desired_pitch_limit)"/>
+    <param name="dubins_max_pitch_rate" value="$(arg dubins_max_pitch_rate)"/>
+    <param name="dubins_max_forward_speed" value="$(arg dubins_max_forward_speed)"/>
+    <param name="dubins_max_angular_velocity" value="$(arg dubins_max_angular_velocity)"/>
+    
+    <!-- 控制器参数 -->
+    <param name="Kp" value="$(arg Kp)"/>
+    <param name="Kd" value="$(arg Kd)"/>
+    <param name="Ki" value="$(arg Ki)"/>
+    
+    <!-- 话题重映射 -->
+    <!-- 使用组合导航系统提供的pose_gt，而不是原始的Pose 3D传感器 -->
+    <remap from="odom" to="$(arg namespace)/pose_gt"/>
+    <remap from="cmd_vel" to="$(arg namespace)/cmd_vel"/>
+    <remap from="reference" to="$(arg namespace)/reference"/>
+    <remap from="error" to="$(arg namespace)/error"/>
+    
+  </node>
+  
+  <!-- 启动轨迹生成器 -->
+  <node pkg="uuv_control_utils" 
+        type="start_circular_trajectory.py" 
+        name="circular_trajectory_generator" 
+        output="screen">
+    
+    <param name="radius" value="50"/>
+    <param name="center" value="[0, 0, -20]"/>
+    <param name="n_points" value="100"/>
+    <param name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <param name="heading_offset" value="0"/>
+    <param name="theta_offset" value="0"/>
+    
+    <!-- 话题重映射 -->
+    <remap from="waypoints" to="$(arg namespace)/waypoints"/>
+    <remap from="trajectory" to="$(arg namespace)/trajectory"/>
+    
+  </node>
+  
+  <!-- 启动轨迹标记发布器 -->
+  <node pkg="uuv_control_utils" 
+        type="trajectory_marker_publisher.py" 
+        name="trajectory_marker_publisher" 
+        output="screen">
+    
+    <param name="namespace" value="$(arg namespace)"/>
+    
+    <!-- 话题重映射 -->
+    <remap from="trajectory" to="$(arg namespace)/trajectory"/>
+    <remap from="waypoints" to="$(arg namespace)/waypoints"/>
+    
+  </node>
+  
+  <!-- 启动航点标记发布器 -->
+  <node pkg="uuv_waypoints" 
+        type="waypoint_marker_publisher.py" 
+        name="waypoint_marker_publisher" 
+        output="screen">
+    
+    <param name="namespace" value="$(arg namespace)"/>
+    
+    <!-- 话题重映射 -->
+    <remap from="waypoints" to="$(arg namespace)/waypoints"/>
+    
+  </node>
+  
+  <!-- 启动导航状态监控 -->
+  <node pkg="rostopic" 
+        type="rostopic" 
+        name="nav_status_monitor" 
+        args="echo /$(arg namespace)/nav_status" 
+        output="screen"/>
+  
+  <!-- 启动传感器状态监控 -->
+  <node pkg="rostopic" 
+        type="rostopic" 
+        name="sensor_status_monitor" 
+        args="echo /$(arg namespace)/sensor_status" 
+        output="screen"/>
+  
+  <!-- 启动位姿监控 -->
+  <node pkg="rostopic" 
+        type="rostopic" 
+        name="pose_monitor" 
+        args="echo /$(arg namespace)/pose_gt" 
+        output="screen"/>
+  
+</launch> 

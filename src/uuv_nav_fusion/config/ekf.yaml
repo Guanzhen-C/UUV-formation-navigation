@@ -1,0 +1,67 @@
+# EKF配置文件 for robot_localization, 针对 sensor_processor.py 的输出进行优化
+# ------------------------------------------
+
+frequency: 30.0
+sensor_timeout: 0.1
+two_d_mode: false
+
+# 坐标系参数已在 uuv_nav.launch 中统一配置
+
+# ------------- IMU 配置 (来自 sensor_processor.py) -------------
+# sensor_processor.py 已经为所有IMU数据提供了很小的协方差，
+# 因此我们信任并融合所有IMU数据：绝对姿态、角速度和线加速度。
+imu0: imu/data
+imu0_config: [false, false, false, # X, Y, Z (IMU不提供绝对位置)
+              true, true, true,  # Roll, Pitch, Yaw (融合绝对姿态)
+              false, false, false, # VX, VY, VZ (IMU不直接测量速度)
+              true,  true,  true,  # VRoll, VPitch, VYaw (融合角速度)
+              true,  true,  true]  # AX, AY, AZ (融合线加速度)
+imu0_nodelay: false
+imu0_differential: false
+# 必须设为false! 仿真IMU通常包含重力, EKF需要自己移除。
+imu_remove_gravitational_acceleration: false
+
+# ------------- DVL (速度) 配置 (来自 sensor_processor.py) -------------
+# DVL提供了可靠的线速度测量。
+twist0: dvl/twist
+# 关键修复：指定DVL传感器的坐标系，让EKF进行TF变换
+twist0_frame_id: dvl_link
+twist0_config: [false, false, false, # X, Y, Z
+                false, false, false, # Roll, Pitch, Yaw
+                true,  true,  true,  # VX, VY, VZ (融合所有线速度)
+                false, false, false, # VRoll, VPitch, VYaw
+                false, false, false] # AX, AY, AZ
+twist0_nodelay: false
+
+# ------------- 深度传感器 (Z轴位置) 配置 (来自 sensor_processor.py) -------------
+# 深度传感器只提供可靠的Z轴位置。
+pose0: depth/pose
+pose0_config: [false, false, true,  # X, Y, Z (只融合Z)
+               false, false, false, # Roll, Pitch, Yaw
+               false, false, false, # VX, VY, VZ
+               false, false, false, # VRoll, VPitch, VYaw
+               false, false, false] # AX, AY, AZ
+pose0_nodelay: false
+pose0_differential: false
+
+# ------------- 过程噪声协方差 -------------
+# 由于我们现在融合了多个带有绝对信息的传感器,
+# 我们可以降低对滤波器自身运动模型的依赖，即增大对测量的信任度。
+# 因此，可以将过程噪声设置得相对较小。
+process_noise_covariance: [
+  1e-5, 0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    1e-5, 0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    1e-5, 0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    1e-4, 0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    1e-4, 0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    1e-4, 0,    0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    5e-3, 0,    0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    5e-3, 0,    0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    5e-3, 0,     0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    2e-3, 0,     0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     2e-3, 0,     0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     2e-3,  0,    0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     5e-4, 0,    0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    5e-4, 0,
+  0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    5e-4
+] 

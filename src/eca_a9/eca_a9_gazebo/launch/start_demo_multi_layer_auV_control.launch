@@ -1,0 +1,45 @@
+<!-- =========================== 海面层参数 =========================== -->
+  <!-- ... existing args ... -->
+  <arg name="surface_max_forward_speed" default="1.2"/>
+  <arg name="surface_dubins_radius" default="4"/>
+
+  <!-- =========================== 海底层参数 =========================== -->
+  <!-- ... existing args ... -->
+  <arg name="bottom_max_forward_speed" default="1.5"/>
+  <arg name="bottom_dubins_radius" default="6"/>
+
+  <!-- =========================== 中层参数（原有8个AUV） =========================== -->
+  <!-- ... existing args ... -->
+  <arg name="max_forward_speed" default="2.0"/>
+  <arg name="dubins_radius" default="10"/>
+
+  <!-- ... existing code ... -->
+
+  <!-- 启动海面AUV的控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_surface"/>
+    <!-- ... other args ... -->
+    <arg name="dubins_radius" value="$(arg surface_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg surface_max_forward_speed)"/>
+    <!-- ... other args ... -->
+  </include>
+
+  <!-- ... middle layer controllers ... -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_1"/>
+    <!-- ... other args ... -->
+    <arg name="dubins_radius" value="$(arg dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <!-- ... other args ... -->
+  </include>
+  <!-- ... more middle layer controllers ... -->
+
+  <!-- 启动海底层AUV控制器 -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_bottom1"/>
+    <!-- ... other args ... -->
+    <arg name="dubins_radius" value="$(arg bottom_dubins_radius)"/>
+    <arg name="max_forward_speed" value="$(arg bottom_max_forward_speed)"/>
+    <!-- ... other args ... -->
+  </include>
+  <!-- ... more bottom layer controllers ... -->

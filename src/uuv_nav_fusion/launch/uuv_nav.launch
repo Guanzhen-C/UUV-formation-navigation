@@ -1,0 +1,51 @@
+<launch>
+    <!-- 
+    通用水下载具导航融合系统
+    支持任意AUV/ROV，只需设置robot_name参数即可
+    
+    使用方法：
+      roslaunch uuv_nav_fusion uuv_nav.launch robot_name:=YOUR_ROBOT_NAME
+    
+    支持的载具示例：eca_a9, rexrov, lauv, desistek_saga 等
+    -->
+    
+    <!-- 核心参数：机器人名称 - 根据实际使用的AUV修改 -->
+    <arg name="robot_name" default="eca_a9"/>
+    
+    <!-- 通用导航参数 - 通常不需要修改 -->
+    <arg name="odom_frame" default="odom"/>
+    <arg name="base_link_frame" default="$(arg robot_name)/base_link"/>
+    <arg name="world_frame" default="odom"/> <!-- 对于纯航位推算, EKF的world_frame就是odom_frame -->
+
+    <!-- 启动传感器数据处理节点 -->
+    <node pkg="uuv_nav_fusion" type="sensor_processor.py" name="sensor_processor" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
+        <param name="base_link_frame" value="$(arg base_link_frame)"/>
+    </node>
+
+    <!-- 启动一个节点, 从Gazebo真值中提取并发布完美的航向信息, 用于EKF融合 (当前已禁用)
+    <node pkg="uuv_nav_fusion" type="yaw_publisher.py" name="yaw_publisher_node" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+    </node>
+    -->
+
+    <!-- 启动扩展卡尔曼滤波器节点 -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_node" clear_params="true">
+        <!-- 从YAML文件加载EKF的核心参数 (传感器融合配置, 过程噪声等) -->
+        <rosparam command="load" file="$(find uuv_nav_fusion)/config/ekf.yaml" />
+
+        <!-- 从launch文件动态传入坐标系参数, 增加灵活性 -->
+        <param name="odom_frame"      value="$(arg odom_frame)"/>
+        <param name="base_link_frame" value="$(arg base_link_frame)"/>
+        <param name="world_frame"     value="$(arg world_frame)"/>
+
+        <!-- 将默认输出的odometry话题名映射为根话题, 方便其他节点订阅 -->
+        <remap from="odometry/filtered" to="/odometry/filtered"/>
+    </node>
+
+    <!-- 启动导航评估器节点 -->
+    <node pkg="uuv_nav_fusion" type="navigation_evaluator.py" name="navigation_evaluator" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+    </node>
+</launch> 

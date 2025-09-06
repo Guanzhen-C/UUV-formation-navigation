@@ -1,0 +1,2 @@
+set(uuv_thruster_manager_MESSAGE_FILES "")
+set(uuv_thruster_manager_SERVICE_FILES "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv")

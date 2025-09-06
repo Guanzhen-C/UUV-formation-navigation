@@ -1,0 +1,8 @@
+prefix=/home/qsk/catkin_ws/install
+
+Name: desistek_saga_gazebo
+Description: Description of desistek_saga_gazebo
+Version: 0.3.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/qsk/catkin_ws/devel
+
+Name: desistek_saga_description
+Description: Description of desistek_saga_description
+Version: 0.3.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,91 @@
+<launch>
+  <!-- ===================================================================================== -->
+  <!-- DUAL AUV DEMO - STAGE 1: SPAWN WORLD AND VEHICLES -->
+  <!-- ===================================================================================== -->
+
+  <!-- AUV 1 (eca_a9_1) Initial Position -->
+  <arg name="x1" default="50"/>
+  <arg name="y1" default="0"/>
+  <arg name="z1" default="-20"/>
+  <arg name="yaw1" default="0"/>
+  
+  <!-- AUV 2 (eca_a9_2) Initial Position -->
+  <arg name="x2" default="-50"/>
+  <arg name="y2" default="0"/>
+  <arg name="z2" default="-20"/>
+  <arg name="yaw2" default="3.14159"/>
+
+  <!-- General settings -->
+  <arg name="gui_on" default="true"/>
+  <arg name="use_ned_frame" default="false"/>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #1 -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_1">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_1
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -x $(arg x1) -y $(arg y1) -z $(arg z1) -R 0 -P 0 -Y $(arg yaw1) -model eca_a9_1 -param /eca_a9_1/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_1/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_1"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_1/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- SPAWN ECA A9 #2 (with 3-second delay to avoid race conditions) -->
+  <!-- =================================================================================== -->
+  <group ns="eca_a9_2">
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_default.urdf.xacro' --inorder
+                    namespace:=eca_a9_2
+                    inertial_reference_frame:=world" />
+
+    <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
+          launch-prefix="bash -c 'sleep 3; $0 $@' "
+          args="-urdf -x $(arg x2) -y $(arg y2) -z $(arg z2) -R 0 -P 0 -Y $(arg yaw2) -model eca_a9_2 -param /eca_a9_2/robot_description"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="robot_description" value="/eca_a9_2/robot_description" />
+    </node>
+  </group>
+
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="eca_a9_2"/>
+    <arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="/eca_a9_2/base_link"/>
+  </include>
+
+  <!-- =================================================================================== -->
+  <!-- START CONTROLLERS (in standby mode) -->
+  <!-- =================================================================================== -->
+  
+  <!-- Start AUV1 Controller (without RViz, we will launch it separately) -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_1"/>
+    <arg name="gui_on" value="false"/>
+  </include>
+
+  <!-- Start AUV2 Controller (without RViz) -->
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="uuv_name" value="eca_a9_2"/>
+    <arg name="gui_on" value="false"/>
+  </include>
+
+  <!-- Start RViz with our custom dual-AUV configuration -->
+  <group if="$(arg gui_on)">
+    <node name="dual_auv_rviz" pkg="rviz" type="rviz" output="screen" 
+          args="-d $(find eca_a9_control)/rviz/dual_eca_a9_control.rviz"/>
+  </group>
+
+</launch>

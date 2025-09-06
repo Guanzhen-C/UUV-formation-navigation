@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 组合导航系统启动文件 -->
+  
+  <!-- 参数配置 -->
+  <arg name="namespace" default="eca_a9"/>
+  <arg name="rate" default="20.0"/>
+  
+  <!-- 传感器融合参数 -->
+  <arg name="imu_noise_accel" default="0.01"/>
+  <arg name="imu_noise_gyro" default="0.001"/>
+  <arg name="dvl_noise_vel" default="0.05"/>
+  <arg name="pressure_noise_depth" default="0.1"/>
+  <arg name="gps_noise_pos" default="1.0"/>
+  
+  <!-- 过程噪声参数 -->
+  <arg name="process_noise_pos" default="0.1"/>
+  <arg name="process_noise_vel" default="0.05"/>
+  <arg name="process_noise_att" default="0.01"/>
+  <arg name="process_noise_bias" default="0.001"/>
+  
+  <!-- 启动组合导航节点 -->
+  <node pkg="eca_a9_control" 
+        type="auv_combined_navigation.py" 
+        name="auv_combined_navigation" 
+        output="screen">
+    
+    <!-- 基本参数 -->
+    <param name="namespace" value="$(arg namespace)"/>
+    <param name="rate" value="$(arg rate)"/>
+    
+    <!-- 传感器噪声参数 -->
+    <param name="imu_noise_accel" value="$(arg imu_noise_accel)"/>
+    <param name="imu_noise_gyro" value="$(arg imu_noise_gyro)"/>
+    <param name="dvl_noise_vel" value="$(arg dvl_noise_vel)"/>
+    <param name="pressure_noise_depth" value="$(arg pressure_noise_depth)"/>
+    <param name="gps_noise_pos" value="$(arg gps_noise_pos)"/>
+    
+    <!-- 过程噪声参数 -->
+    <param name="process_noise_pos" value="$(arg process_noise_pos)"/>
+    <param name="process_noise_vel" value="$(arg process_noise_vel)"/>
+    <param name="process_noise_att" value="$(arg process_noise_att)"/>
+    <param name="process_noise_bias" value="$(arg process_noise_bias)"/>
+    
+    <!-- 话题重映射 -->
+    <remap from="imu" to="$(arg namespace)/imu"/>
+    <remap from="dvl" to="$(arg namespace)/dvl"/>
+    <remap from="pressure" to="$(arg namespace)/pressure"/>
+    <remap from="gps" to="$(arg namespace)/gps"/>
+    
+    <!-- 发布融合后的位姿信息，替代pose_gt -->
+    <remap from="pose_gt" to="$(arg namespace)/pose_gt"/>
+    
+  </node>
+  
+  <!-- 启动传感器状态监控节点 -->
+  <node pkg="rostopic" 
+        type="rostopic" 
+        name="sensor_monitor" 
+        args="echo /$(arg namespace)/sensor_status" 
+        output="screen"/>
+  
+  <!-- 启动导航状态监控节点 -->
+  <node pkg="rostopic" 
+        type="rostopic" 
+        name="nav_monitor" 
+        args="echo /$(arg namespace)/nav_status" 
+        output="screen"/>
+  
+</launch> 

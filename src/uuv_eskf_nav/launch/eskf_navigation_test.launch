@@ -1,0 +1,67 @@
+<launch>
+    <!-- 
+    改进ESKF水下载具导航测试系统
+    - 启动改进ESKF导航
+    - 在RViz中绘制真值与估计轨迹对比
+    - 提供详细的精度分析和可视化
+    
+    使用方法：
+      # 1. 先启动AUV仿真 (在另一个终端)
+      roslaunch eca_a9_gazebo start_pid_demo.launch
+      
+      # 2. 启动ESKF导航测试
+      roslaunch uuv_eskf_nav eskf_navigation_test.launch robot_name:=eca_a9
+    -->
+    
+    <!-- 核心参数：机器人名称 -->
+    <arg name="robot_name" default="eca_a9"/>
+    
+    <!-- 坐标系参数 -->
+    <arg name="odom_frame" default="odom"/>
+    <arg name="base_link_frame" default="$(arg robot_name)/base_link"/>
+    <arg name="world_frame" default="odom"/>
+
+    <!-- 启动改进ESKF导航节点 (替代robot_localization) -->
+    <node pkg="uuv_eskf_nav" type="eskf_navigation_node" name="eskf_navigation_node" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
+        <param name="base_link_frame" value="$(arg base_link_frame)"/>
+        <param name="world_frame" value="$(arg world_frame)"/>
+        
+        <!-- 加载ESKF参数 -->
+        <rosparam command="load" file="$(find uuv_eskf_nav)/config/eskf_params.yaml" />
+        
+        <!-- 将ESKF输出重映射为标准的filtered话题 -->
+        <remap from="eskf/odometry" to="/odometry/filtered"/>
+    </node>
+
+    <!-- 启动增强版导航评估器 (支持RViz轨迹绘制) -->
+    <node pkg="uuv_eskf_nav" type="enhanced_navigation_evaluator.py" name="enhanced_navigation_evaluator" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+        <param name="enable_rviz_visualization" value="true"/>
+        <param name="publish_error_statistics" value="true"/>
+        <param name="trajectory_history_length" value="1000"/>  <!-- 保存1000个轨迹点 -->
+        <param name="evaluation_frequency" value="10.0"/>      <!-- 10Hz评估频率 -->
+    </node>
+    
+    <!-- 可选：启动RViz进行可视化 -->
+    <arg name="start_rviz" default="true"/>
+    <node if="$(arg start_rviz)" 
+          pkg="rviz" type="rviz" name="eskf_navigation_rviz" 
+          args="-d $(find uuv_eskf_nav)/config/navigation_test.rviz"/>
+    
+    <!-- 🎯 关键修复：启动传感器数据预处理节点 (坐标系变换) -->
+    <arg name="use_sensor_processor" default="true"/>
+    <node if="$(arg use_sensor_processor)" 
+          pkg="uuv_nav_fusion" type="sensor_processor.py" name="sensor_processor" output="screen">
+        <param name="robot_name" value="$(arg robot_name)"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
+        <param name="base_link_frame" value="$(arg base_link_frame)"/>
+    </node>
+
+    <!-- 显示启动信息 -->
+    <node pkg="uuv_eskf_nav" type="startup_message.py" name="test_startup_message" output="screen">
+        <param name="message" value="🧪 改进ESKF导航精度测试系统已启动！"/>
+        <param name="robot_name" value="$(arg robot_name)"/>
+    </node>
+</launch>

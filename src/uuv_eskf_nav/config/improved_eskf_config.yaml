@@ -1,0 +1,51 @@
+# 改进版ESKF配置文件
+# 基于KF-GINS标准参数和Joan Solà理论优化
+
+# 噪声参数 (基于实际IMU特性)
+noise_params:
+  # IMU噪声 (参考KF-GINS标准)
+  gyro_noise_std: 0.005     # 陀螺仪噪声标准差 [rad/s] 
+  accel_noise_std: 0.05     # 加速度计噪声标准差 [m/s²]
+  gyro_bias_std: 3.0e-6     # 陀螺仪偏差随机游走 [rad/s] 
+  accel_bias_std: 1.0e-4    # 加速度计偏差随机游走 [m/s²]
+  
+  # 传感器测量噪声 (根据UUV仿真器调整)
+  dvl_noise_std: 0.015      # DVL速度噪声 [m/s] (比默认值更保守)
+  depth_noise_std: 0.008    # 深度测量噪声 [m] (压力传感器精度)
+
+# 初始状态不确定性
+initial_covariance:
+  position_std: [0.1, 0.1, 0.05]     # 位置初始标准差 [m]
+  velocity_std: [0.05, 0.05, 0.02]   # 速度初始标准差 [m/s]
+  attitude_std: [1.0, 1.0, 2.0]      # 姿态初始标准差 [deg]
+  gyro_bias_std: 0.1                  # 陀螺偏差初始标准差 [deg/h]
+  accel_bias_std: 10.0                # 加速度偏差初始标准差 [mGal]
+
+# 数据有效性阈值 (安全边界)
+validation_limits:
+  max_gyro_rate: 8.0        # 最大角速度 [rad/s]
+  max_accel: 30.0           # 最大加速度 [m/s²]
+  max_velocity: 8.0         # 最大速度 [m/s]
+  max_depth: 500.0          # 最大深度 [m]
+  min_depth: -5.0           # 最小深度 [m]
+
+# ESKF算法参数
+algorithm_params:
+  enable_coning_correction: true      # 启用圆锥误差补偿
+  enable_sculling_correction: true    # 启用划桨效应补偿
+  enable_earth_rotation: false       # 短时间水下导航可关闭地球转动
+  
+  # 数值稳定性参数
+  min_eigenvalue_threshold: 1.0e-12  # 协方差矩阵最小特征值
+  max_innovation_threshold: 5.0      # 新息门限 (5-sigma)
+  
+# 传感器同步参数
+synchronization:
+  max_time_difference: 0.1   # 最大时间差 [s]
+  interpolation_enabled: true # 启用时间同步插值
+
+# 调试和统计
+debug:
+  enable_debug_output: false
+  print_statistics_interval: 10.0  # 统计信息打印间隔 [s]
+  log_level: 1                     # 日志级别 0=ERROR, 1=WARN, 2=INFO, 3=DEBUG

@@ -1,0 +1,8 @@
+prefix=/home/qsk/catkin_ws/install
+
+Name: uuv_nav_fusion
+Description: Description of uuv_nav_fusion
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

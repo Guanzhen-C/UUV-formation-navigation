@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/qsk/catkin_ws/install/setup.sh
