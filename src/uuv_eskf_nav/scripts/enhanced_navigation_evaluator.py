@@ -213,6 +213,10 @@ class EnhancedNavigationEvaluator:
                      self.filtered_twist.linear.x,
                      self.filtered_twist.linear.y,
                      self.filtered_twist.linear.z)
+        # 估计姿态（欧拉角，度）
+        filt_r, filt_p, filt_y = self.quaternion_to_euler(self.filtered_pose.orientation)
+        rospy.loginfo("  姿态(欧拉角, 度): [R=%.3f, P=%.3f, Y=%.3f]",
+                      math.degrees(filt_r), math.degrees(filt_p), math.degrees(filt_y))
 
         # 打印AUV地面真值状态
         rospy.loginfo("当前AUV真实状态:")
@@ -224,6 +228,10 @@ class EnhancedNavigationEvaluator:
                      self.gt_twist.linear.x,
                      self.gt_twist.linear.y,
                      self.gt_twist.linear.z)
+        # 真实姿态（欧拉角，度）
+        gt_r, gt_p, gt_y = self.quaternion_to_euler(self.gt_pose.orientation)
+        rospy.loginfo("  姿态(欧拉角, 度): [R=%.3f, P=%.3f, Y=%.3f]",
+                      math.degrees(gt_r), math.degrees(gt_p), math.degrees(gt_y))
 
     def publish_detailed_report(self, event):
         """发布详细的性能报告"""
