@@ -324,7 +324,7 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
     }
     Eigen::Vector3d S_inv_innov = llt_solver.solve(innovation);
     double mahalanobis = innovation.dot(S_inv_innov);
-    const double gate_hi = 16.27; // ~99.9% (dof=3)
+    const double gate_hi = 18.5; // 更宽松的99.95%门限（dof=3）
     if (mahalanobis > gate_hi) {
         // 裁剪创新幅值，并放大R以降低置信度，从而允许更新将状态拉回
         double scale = std::sqrt(gate_hi / std::max(mahalanobis, 1e-9));

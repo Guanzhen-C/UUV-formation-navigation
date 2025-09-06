@@ -70,7 +70,7 @@ void SensorManager::imuRawCallback(const sensor_msgs::Imu::ConstPtr& msg) {
 
     // 可选：从IMU姿态导出航向量测，提供弱航向约束（限频 ~10Hz）
     static double last_heading_pub_time = 0.0;
-    if (heading_callback_ && (imu_data.timestamp - last_heading_pub_time) >= 0.1) {
+    if (heading_callback_ && (imu_data.timestamp - last_heading_pub_time) >= 0.05) {
         // 提取yaw（ZYX，世界->机体通常需考虑磁偏角，这里简化忽略）
         tf2::Quaternion q_tf;
         tf2::fromMsg(msg->orientation, q_tf);
@@ -103,7 +103,8 @@ void SensorManager::dvlRawCallback(const uuv_sensor_ros_plugins_msgs::DVL::Const
     vel_dvl.vector = msg->velocity;
     
     try {
-        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, ros::Time(0));
+        // 使用量测时间戳查询TF，确保与量测时刻对齐
+        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, msg->header.stamp, ros::Duration(0.05));
         tf2::doTransform(vel_dvl, vel_base, T_base_dvl);
     } catch (const tf2::TransformException& ex) {
         ROS_WARN_THROTTLE(1.0, "DVL坐标变换失败: %s", ex.what());
@@ -120,7 +121,7 @@ void SensorManager::dvlRawCallback(const uuv_sensor_ros_plugins_msgs::DVL::Const
     // 从TF获取旋转矩阵
     Eigen::Matrix3d R;
     try {
-        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, ros::Time(0));
+        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, msg->header.stamp, ros::Duration(0.05));
         tf2::Quaternion q_tf;
         tf2::fromMsg(T_base_dvl.transform.rotation, q_tf);
         tf2::Matrix3x3 R_tf(q_tf);
