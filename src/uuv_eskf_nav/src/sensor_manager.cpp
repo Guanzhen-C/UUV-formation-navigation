@@ -1,6 +1,11 @@
 #include "uuv_eskf_nav/sensor_manager.h"
 #include <iostream>
 #include <cmath>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <tf2_ros/transform_listener.h>
+#include <geometry_msgs/Vector3Stamped.h>
 
 namespace uuv_eskf_nav {
 
@@ -62,6 +67,23 @@ void SensorManager::imuRawCallback(const sensor_msgs::Imu::ConstPtr& msg) {
     
     // 调用回调函数
     imu_callback_(imu_data);
+
+    // 可选：从IMU姿态导出航向量测，提供弱航向约束（限频 ~10Hz）
+    static double last_heading_pub_time = 0.0;
+    if (heading_callback_ && (imu_data.timestamp - last_heading_pub_time) >= 0.1) {
+        // 提取yaw（ZYX，世界->机体通常需考虑磁偏角，这里简化忽略）
+        tf2::Quaternion q_tf;
+        tf2::fromMsg(msg->orientation, q_tf);
+        double roll, pitch, yaw;
+        tf2::Matrix3x3(q_tf).getRPY(roll, pitch, yaw);
+        HeadingData hd;
+        hd.yaw = yaw;
+        // 使用较松的噪声以免过强约束（可通过参数化替代）
+        hd.variance = 0.1 * 0.1;
+        hd.timestamp = msg->header.stamp.toSec();
+        heading_callback_(hd);
+        last_heading_pub_time = imu_data.timestamp;
+    }
 }
 
 void SensorManager::dvlRawCallback(const uuv_sensor_ros_plugins_msgs::DVL::ConstPtr& msg) {
@@ -69,33 +91,47 @@ void SensorManager::dvlRawCallback(const uuv_sensor_ros_plugins_msgs::DVL::Const
     
     ROS_DEBUG("收到原始DVL数据 (dvl_link坐标系)");
     
-    // 🎯 关键修复：DVL坐标系到base_link坐标系的转换
-    // 根据eca_a9_sensors.xacro: <origin rpy="0 ${0.5*pi} 0" />
-    // DVL传感器相对于base_link有90度俯仰角旋转
+    // 🎯 使用TF从 dvl_link 到 base_link 的实时旋转，转换速度到base_link坐标系
+    static tf2_ros::Buffer tf_buffer;
+    static tf2_ros::TransformListener tf_listener(tf_buffer);
+    const std::string base_link_frame = robot_name_ + "/base_link";
+    const std::string dvl_link_frame  = robot_name_ + "/dvl_link";
     
-    // DVL坐标系中的速度
-    Eigen::Vector3d dvl_velocity(
-        msg->velocity.x,
-        msg->velocity.y,
-        msg->velocity.z
-    );
+    geometry_msgs::Vector3Stamped vel_dvl, vel_base;
+    vel_dvl.header = msg->header;
+    vel_dvl.header.frame_id = dvl_link_frame;
+    vel_dvl.vector = msg->velocity;
     
-    // DVL坐标系转换 (必须进行，因为ESKF需要base_link坐标系数据)
-    // rpy="0 ${0.5*pi} 0" 表示绕Y轴旋转90度
-    Eigen::Matrix3d R_dvl_to_base;
-    R_dvl_to_base << 0, 0,  1,   // DVL_X ->  base_Z
-                     0, 1,  0,   // DVL_Y ->  base_Y  
-                    -1, 0,  0;   // DVL_Z -> -base_X
+    try {
+        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, ros::Time(0));
+        tf2::doTransform(vel_dvl, vel_base, T_base_dvl);
+    } catch (const tf2::TransformException& ex) {
+        ROS_WARN_THROTTLE(1.0, "DVL坐标变换失败: %s", ex.what());
+        return;
+    }
     
-    // 转换到base_link坐标系
-    Eigen::Vector3d base_velocity = R_dvl_to_base * dvl_velocity;
+    Eigen::Vector3d base_velocity(vel_base.vector.x, vel_base.vector.y, vel_base.vector.z);
     
     DvlData dvl_data;
     dvl_data.velocity = base_velocity;
     
-    // 简化协方差处理
+    // 协方差：使用TF旋转协方差到base_link
     Eigen::Matrix3d dvl_covariance = Eigen::Matrix3d::Identity() * 0.01;
-    dvl_data.covariance = R_dvl_to_base * dvl_covariance * R_dvl_to_base.transpose();
+    // 从TF获取旋转矩阵
+    Eigen::Matrix3d R;
+    try {
+        geometry_msgs::TransformStamped T_base_dvl = tf_buffer.lookupTransform(base_link_frame, dvl_link_frame, ros::Time(0));
+        tf2::Quaternion q_tf;
+        tf2::fromMsg(T_base_dvl.transform.rotation, q_tf);
+        tf2::Matrix3x3 R_tf(q_tf);
+        R << R_tf[0][0], R_tf[0][1], R_tf[0][2],
+             R_tf[1][0], R_tf[1][1], R_tf[1][2],
+             R_tf[2][0], R_tf[2][1], R_tf[2][2];
+    } catch (const tf2::TransformException& ex) {
+        ROS_WARN_THROTTLE(1.0, "DVL协方差旋转TF获取失败: %s", ex.what());
+        R.setIdentity();
+    }
+    dvl_data.covariance = R * dvl_covariance * R.transpose();
     
     dvl_data.timestamp = msg->header.stamp.toSec();
     
@@ -110,7 +146,7 @@ void SensorManager::dvlRawCallback(const uuv_sensor_ros_plugins_msgs::DVL::Const
     
     ROS_DEBUG("DVL速度 (base_link): [%.3f, %.3f, %.3f] m/s (原始: [%.3f, %.3f, %.3f])", 
              base_velocity.x(), base_velocity.y(), base_velocity.z(),
-             dvl_velocity.x(), dvl_velocity.y(), dvl_velocity.z());
+             msg->velocity.x, msg->velocity.y, msg->velocity.z);
     
     // 调用回调函数
     dvl_callback_(dvl_data);

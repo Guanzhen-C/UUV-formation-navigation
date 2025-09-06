@@ -30,6 +30,7 @@ public:
     using ImuCallback = std::function<void(const ImuData&)>;
     using DvlCallback = std::function<void(const DvlData&)>;  
     using DepthCallback = std::function<void(const DepthData&)>;
+    using HeadingCallback = std::function<void(const HeadingData&)>;
 
     /**
      * @brief 构造函数
@@ -68,6 +69,13 @@ public:
     }
 
     /**
+     * @brief 设置航向角回调
+     */
+    void setHeadingCallback(const HeadingCallback& callback) {
+        heading_callback_ = callback;
+    }
+
+    /**
      * @brief 获取传感器数据统计信息
      */
     void printStatistics() const;
@@ -97,6 +105,11 @@ private:
      * @param msg 压力传感器消息
      */
     void pressureRawCallback(const sensor_msgs::FluidPressure::ConstPtr& msg);
+
+    /**
+     * @brief 使用IMU四元数近似为航向量测（可选）
+     */
+    void headingFromImu(const sensor_msgs::Imu::ConstPtr& msg);
 
     // 注意：现在直接处理原始传感器数据，不再使用预处理回调函数
 
@@ -141,6 +154,7 @@ private:
     ImuCallback imu_callback_;
     DvlCallback dvl_callback_;
     DepthCallback depth_callback_;
+    HeadingCallback heading_callback_;
 
     // 传感器数据统计
     struct SensorStats {

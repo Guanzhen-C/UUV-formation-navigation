@@ -103,9 +103,10 @@ bool EskfCore::predictWithImprovedMechanization(
     
     // 修复：正确的机械编排 - 比力投影后加上重力
     // 使用名义与更新后姿态的平均旋转近似，降低时序误差
-    Eigen::Matrix3d R_bn_old = nominal_state_.orientation.toRotationMatrix();
-    Eigen::Matrix3d R_bn_new = new_orientation.toRotationMatrix();
-    Eigen::Matrix3d R_bn = 0.5 * (R_bn_old + R_bn_new);
+    Eigen::Quaterniond q_old = nominal_state_.orientation;
+    Eigen::Quaterniond q_new = new_orientation;
+    Eigen::Quaterniond q_avg = q_old.slerp(0.5, q_new);
+    Eigen::Matrix3d R_bn = q_avg.toRotationMatrix();
     
     // 载体系比力投影到导航系
     Eigen::Vector3d delta_v_n = R_bn * compensated_delta_vel;
@@ -306,33 +307,57 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
     
     std::cout << "DVL观测残差: [" << innovation.transpose() << "] m/s" << std::endl;
     
-    // 4. 观测噪声协方差
-    Eigen::Matrix3d R = dvl_data.covariance;
-    
-    // 5. 计算卡尔曼增益 (修复：使用数值稳定的求解方法)
-    // K = P * H^T * (H * P * H^T + R)^(-1)
-    Eigen::MatrixXd S = H * P_ * H.transpose() + R; // 新息协方差
+    // 4. 观测噪声协方差（与配置保持一致，忽略上游默认常量）
+    Eigen::Matrix3d R_base = Eigen::Matrix3d::Identity() * (noise_params_.dvl_noise_std * noise_params_.dvl_noise_std);
+
+    // 5. 计算卡尔曼增益，加入“软门限”：对于大残差，裁剪创新并自适应放大R，避免直接拒绝
+    // 基本形式：K = P * H^T * (H * P * H^T + R)^(-1)
     Eigen::MatrixXd PHt = P_ * H.transpose();
+    Eigen::Matrix3d R_eff = R_base;
+    Eigen::Vector3d innovation_used = innovation;
     
-    // 使用LLT分解求解，避免直接求逆
+    Eigen::MatrixXd S = H * P_ * H.transpose() + R_eff; // 新息协方差
     Eigen::LLT<Eigen::MatrixXd> llt_solver(S);
     if (llt_solver.info() != Eigen::Success) {
         std::cerr << "DVL新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
-    
-    // 6. 误差状态更新
-    // δx = δx + K * (z - H * δx) = K * z (因为δx=0)
-    Eigen::VectorXd delta_error = K * innovation;
-    error_state_ = delta_error;
-    
-    std::cout << "更新后误差状态范数: " << error_state_.norm() << std::endl;
-    
-    // 7. 协方差更新 (Joseph形式，保证数值稳定性)
-    // P = (I - K*H) * P * (I - K*H)^T + K * R * K^T
-    Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
-    P_ = I_KH * P_ * I_KH.transpose() + K * R * K.transpose();
+    Eigen::Vector3d S_inv_innov = llt_solver.solve(innovation);
+    double mahalanobis = innovation.dot(S_inv_innov);
+    const double gate_hi = 16.27; // ~99.9% (dof=3)
+    if (mahalanobis > gate_hi) {
+        // 裁剪创新幅值，并放大R以降低置信度，从而允许更新将状态拉回
+        double scale = std::sqrt(gate_hi / std::max(mahalanobis, 1e-9));
+        innovation_used = innovation * scale;
+        double inflate = 1.0 / (scale * scale);
+        R_eff = R_base * inflate;
+
+        // 以放大后的R重新计算增益
+        S = H * P_ * H.transpose() + R_eff;
+        Eigen::LLT<Eigen::MatrixXd> llt_solver2(S);
+        if (llt_solver2.info() != Eigen::Success) {
+            std::cerr << "DVL新息协方差矩阵不可逆(自适应阶段)!" << std::endl;
+            return false;
+        }
+        Eigen::MatrixXd K = llt_solver2.solve(PHt.transpose()).transpose();
+
+        // 6. 误差状态更新
+        Eigen::VectorXd delta_error = K * innovation_used;
+        error_state_ = delta_error;
+        std::cout << "更新后误差状态范数(裁剪): " << error_state_.norm() << std::endl;
+
+        // 7. 协方差更新 (Joseph形式)
+        Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
+        P_ = I_KH * P_ * I_KH.transpose() + K * R_eff * K.transpose();
+    } else {
+        // 正常更新路径
+        Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
+        Eigen::VectorXd delta_error = K * innovation_used;
+        error_state_ = delta_error;
+        std::cout << "更新后误差状态范数: " << error_state_.norm() << std::endl;
+        Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
+        P_ = I_KH * P_ * I_KH.transpose() + K * R_eff * K.transpose();
+    }
     
     // 8. 误差状态注入主状态
     injectErrorState(error_state_);
@@ -368,8 +393,8 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     
     std::cout << "深度观测残差: " << innovation << " m" << std::endl;
     
-    // 3. 观测噪声方差
-    double R = depth_data.variance;
+    // 3. 观测噪声方差（与配置保持一致）
+    double R = noise_params_.depth_noise_std * noise_params_.depth_noise_std;
     
     // 4. 计算卡尔曼增益 (修复：使用数值稳定的求解方法)
     Eigen::MatrixXd S = H * P_ * H.transpose();
@@ -380,6 +405,13 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     Eigen::LLT<Eigen::MatrixXd> llt_solver(S);
     if (llt_solver.info() != Eigen::Success) {
         std::cerr << "深度新息协方差矩阵不可逆!" << std::endl;
+        return false;
+    }
+    // 4.1 门限检测（1自由度）: 99%阈值≈6.635，95%≈3.841
+    double S_scalar = S(0,0);
+    double mahalanobis = (innovation * innovation) / S_scalar;
+    if (mahalanobis > 6.635) {
+        std::cerr << "深度量测被门限拒绝，马氏距离=" << mahalanobis << std::endl;
         return false;
     }
     Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
@@ -404,6 +436,68 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     
     std::cout << "✅ 改进ESKF深度量测更新完成!" << std::endl;
     
+    return true;
+}
+
+static inline double normalizeAngle(double a) {
+    while (a > M_PI) a -= 2.0 * M_PI;
+    while (a < -M_PI) a += 2.0 * M_PI;
+    return a;
+}
+
+bool EskfCore::updateWithHeading(const HeadingData& heading_data) {
+    if (!initialized_) {
+        std::cerr << "改进ESKF航向更新失败: 滤波器未初始化!" << std::endl;
+        return false;
+    }
+
+    // 1. 观测模型：z = ψ_meas - ψ_pred，ψ_pred = yaw(q)
+    // 从四元数提取yaw（ZYX顺序）
+    const Eigen::Quaterniond& q = nominal_state_.orientation;
+    double siny_cosp = 2.0 * (q.w() * q.z() + q.x() * q.y());
+    double cosy_cosp = 1.0 - 2.0 * (q.y() * q.y() + q.z() * q.z());
+    double yaw_pred = std::atan2(siny_cosp, cosy_cosp);
+
+    double innovation = normalizeAngle(heading_data.yaw - yaw_pred);
+
+    // 2. 雅可比 H：∂ψ/∂δθ ≈ [0, 0, 1]（小角度近似，yaw对z轴小转角最敏感）
+    Eigen::MatrixXd H = buildHeadingObservationMatrix(); // 1x15
+
+    // 3. 观测噪声方差
+    double R = heading_data.variance;
+
+    // 4. 计算卡尔曼增益并门限
+    Eigen::MatrixXd S = H * P_ * H.transpose();
+    S(0,0) += R;
+    Eigen::MatrixXd PHt = P_ * H.transpose();
+    Eigen::LLT<Eigen::MatrixXd> llt_solver(S);
+    if (llt_solver.info() != Eigen::Success) {
+        std::cerr << "航向新息协方差矩阵不可逆!" << std::endl;
+        return false;
+    }
+    double S_scalar = S(0,0);
+    double mahalanobis = (innovation * innovation) / S_scalar;
+    if (mahalanobis > 6.635) {
+        std::cerr << "航向量测被门限拒绝，马氏距离=" << mahalanobis << std::endl;
+        return false;
+    }
+    Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
+
+    // 5. 更新
+    Eigen::VectorXd innovation_vec(1);
+    innovation_vec(0) = innovation;
+    Eigen::VectorXd delta_error = K * innovation_vec;
+    error_state_ = delta_error;
+
+    Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
+    P_ = I_KH * P_ * I_KH.transpose() + K * R * K.transpose();
+
+    // 6. 注入与重置
+    injectErrorState(error_state_);
+    Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
+    Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
+    resetErrorState(G);
+
     return true;
 }
 
@@ -437,6 +531,13 @@ Eigen::MatrixXd EskfCore::buildDepthObservationMatrix() {
     // ∂(-p_z)/∂δp_z = -1
     H(0, StateIndex::DP + 2) = -1.0;  // z坐标在位置误差的第3个分量
     
+    return H;
+}
+
+Eigen::MatrixXd EskfCore::buildHeadingObservationMatrix() {
+    Eigen::MatrixXd H = Eigen::MatrixXd::Zero(1, STATE_SIZE);
+    // 小角度线性化下，yaw对δθ的灵敏度主要在z轴
+    H(0, StateIndex::DTHETA + 2) = 1.0;
     return H;
 }
 

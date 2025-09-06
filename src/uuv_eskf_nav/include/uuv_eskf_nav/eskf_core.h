@@ -75,6 +75,11 @@ public:
     bool updateWithDepth(const DepthData& depth_data);
 
     /**
+     * @brief 航向角量测更新（例如磁罗盘/IMU yaw）
+     */
+    bool updateWithHeading(const HeadingData& heading_data);
+
+    /**
      * @brief 获取当前误差状态协方差
      * @return 15x15协方差矩阵
      */
@@ -157,6 +162,11 @@ private:
      * @return 1x15观测矩阵
      */
     Eigen::MatrixXd buildDepthObservationMatrix();
+
+    /**
+     * @brief 构建航向角观测雅可比（1x15）
+     */
+    Eigen::MatrixXd buildHeadingObservationMatrix();
 
     /**
      * @brief 应用误差状态到主状态 (误差状态注入)

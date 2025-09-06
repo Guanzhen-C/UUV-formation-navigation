@@ -33,18 +33,18 @@
       parent_link="${parent_link}"
       imu_topic="imu"
       mass_imu_sensor="0.015"
-      gyroscope_noise_density="0.00003394"
-      gyroscope_random_walk="0.0000038785"
+      gyroscope_noise_density="0.000015"
+      gyroscope_random_walk="0.0000010"
       gyroscope_bias_correlation_time="1000.0"
       gyroscope_turn_on_bias_sigma="0.0087"
-      accelerometer_noise_density="0.0004"
-      accelerometer_random_walk="0.0006"
+      accelerometer_noise_density="0.00010"
+      accelerometer_random_walk="0.00020"
       accelerometer_bias_correlation_time="300.0"
       accelerometer_turn_on_bias_sigma="0.1960"
-      orientation_noise="0.01"
+      orientation_noise="0.005"
       enable_local_ned_frame="false"
       reference_frame="world"
-      update_rate="50">
+      update_rate="100">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <xacro:insert_block name="origin" />
     </xacro:imu_plugin_macro>
@@ -77,18 +77,18 @@
       parent_link="${parent_link}"
       imu_topic="imu"
       mass_imu_sensor="0.015"
-      gyroscope_noise_density="0.00003394"
-      gyroscope_random_walk="0.0000038785"
+      gyroscope_noise_density="0.000015"
+      gyroscope_random_walk="0.0000010"
       gyroscope_bias_correlation_time="1000.0"
       gyroscope_turn_on_bias_sigma="0.0087"
-      accelerometer_noise_density="0.0004"
-      accelerometer_random_walk="0.0006"
+      accelerometer_noise_density="0.00010"
+      accelerometer_random_walk="0.00020"
       accelerometer_bias_correlation_time="300.0"
       accelerometer_turn_on_bias_sigma="0.1960"
-      orientation_noise="0.01"
+      orientation_noise="0.005"
       enable_local_ned_frame="false"
       reference_frame="world"
-      update_rate="50">
+      update_rate="100">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <xacro:insert_block name="origin" />>
     </xacro:imu_plugin_macro>
@@ -102,18 +102,18 @@
       parent_link="${parent_link}"
       imu_topic="imu"
       mass_imu_sensor="0.015"
-      gyroscope_noise_density="0.00003394"
-      gyroscope_random_walk="0.0000038785"
+      gyroscope_noise_density="0.000015"
+      gyroscope_random_walk="0.0000010"
       gyroscope_bias_correlation_time="1000.0"
       gyroscope_turn_on_bias_sigma="0.0087"
-      accelerometer_noise_density="0.0004"
-      accelerometer_random_walk="0.0006"
+      accelerometer_noise_density="0.00010"
+      accelerometer_random_walk="0.00020"
       accelerometer_bias_correlation_time="300.0"
       accelerometer_turn_on_bias_sigma="0.1960"
-      orientation_noise="0.01"
+      orientation_noise="0.005"
       enable_local_ned_frame="true"
       reference_frame="world_ned"
-      update_rate="50">
+      update_rate="100">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <xacro:insert_block name="origin" />
     </xacro:imu_plugin_macro>

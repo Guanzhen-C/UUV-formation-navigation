@@ -137,6 +137,21 @@ struct DepthData {
 };
 
 /**
+ * @brief 航向角（偏航角）量测数据
+ */
+struct HeadingData {
+    double yaw;                 // 航向角 [rad], 取值范围[-pi, pi]
+    double variance;            // 测量方差 [rad^2]
+    double timestamp;           // 时间戳
+    
+    HeadingData() {
+        yaw = 0.0;
+        variance = 0.1 * 0.1; // 合理默认方差
+        timestamp = 0.0;
+    }
+};
+
+/**
  * @brief ESKF噪声参数
  */
 struct NoiseParams {

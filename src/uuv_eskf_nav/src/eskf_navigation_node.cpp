@@ -47,6 +47,8 @@ public:
             std::bind(&EskfNavigationNode::onDvlData, this, std::placeholders::_1));
         sensor_manager_->setDepthCallback(
             std::bind(&EskfNavigationNode::onDepthData, this, std::placeholders::_1));
+        sensor_manager_->setHeadingCallback(
+            std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
         
         // 初始化发布器
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/eskf/odometry/filtered", 10);
@@ -94,6 +96,8 @@ private:
         nh_.param<double>("imu/accel_bias_std", noise_params_.accel_bias_std, 1e-4);
         nh_.param<double>("dvl/noise_std", noise_params_.dvl_noise_std, 0.02);
         nh_.param<double>("depth/noise_std", noise_params_.depth_noise_std, 0.01);
+        // 航向噪声
+        nh_.param<double>("heading/noise_std", heading_noise_std_, 0.1);
         
         // 初始状态参数
         std::vector<double> init_pos, init_vel, init_att;
@@ -140,6 +144,8 @@ private:
         // 其他参数
         nh_.param<bool>("publish_tf", publish_tf_, true);
         nh_.param<double>("max_initialization_time", max_init_time_, 10.0);
+        // 将heading噪声传入ESKF（通过回调构造量测时使用）
+        heading_variance_ = heading_noise_std_ * heading_noise_std_;
         
         ROS_INFO("参数加载完成:");
         ROS_INFO("  噪声参数: gyro_std=%.4f, accel_std=%.4f, dvl_std=%.4f, depth_std=%.4f",
@@ -290,6 +296,10 @@ private:
         // 发布导航结果 (以IMU频率发布)
         publishNavigationResult(imu_data.timestamp);
     }
+
+    // 航向噪声（标准差与方差）
+    double heading_noise_std_ = 0.1;
+    double heading_variance_ = 0.01;
     
     void onDvlData(const DvlData& dvl_data) {
         if (!is_initialized_ || !eskf_->isInitialized()) return;
@@ -314,6 +324,14 @@ private:
         }
         
         ROS_DEBUG("深度更新完成: 深度=%.3f m", depth_data.depth);
+    }
+
+    void onHeadingData(const HeadingData& heading_data) {
+        if (!is_initialized_ || !eskf_->isInitialized()) return;
+        if (!eskf_->updateWithHeading(heading_data)) {
+            ROS_WARN_THROTTLE(1.0, "ESKF航向更新失败");
+            return;
+        }
     }
     
     void publishNavigationResult(double timestamp) {
