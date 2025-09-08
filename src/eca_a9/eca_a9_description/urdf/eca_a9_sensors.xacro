@@ -30,7 +30,7 @@
       scale="0.62"
       noise_sigma="0"
       noise_amplitude="0"
-      update_rate="7"
+      update_rate="20"
       reference_frame="world">
       <origin xyz="0.4785 0.0 -0.0825" rpy="0 ${0.5*pi} 0" />
     </xacro:dvl_plugin_macro>
@@ -84,10 +84,28 @@
       power_load="5"
       topic="${namespace}/pressure/state"/>
 
-    <!-- IMU  -->
-    <xacro:default_imu namespace="${namespace}" parent_link="${namespace}/base_link">
+    <!-- IMU (navigation-grade override) -->
+    <xacro:imu_plugin_macro
+      namespace="${namespace}"
+      imu_suffix=""
+      parent_link="${namespace}/base_link"
+      imu_topic="imu"
+      mass_imu_sensor="0.015"
+      gyroscope_noise_density="0.000003"                 
+      gyroscope_random_walk="0.0000003"                  
+      gyroscope_bias_correlation_time="3600.0"          
+      gyroscope_turn_on_bias_sigma="0.0020"             
+      accelerometer_noise_density="0.00003"             
+      accelerometer_random_walk="0.000050"              
+      accelerometer_bias_correlation_time="3600.0"     
+      accelerometer_turn_on_bias_sigma="0.0500"        
+      orientation_noise="0.002"
+      enable_local_ned_frame="false"
+      reference_frame="world"
+      update_rate="200">
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </xacro:default_imu>
+    </xacro:imu_plugin_macro>
 
     <xacro:switchable_battery_consumer_macro
       link_name="${namespace}/imu_link"

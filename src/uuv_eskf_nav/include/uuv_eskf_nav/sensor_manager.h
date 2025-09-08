@@ -183,6 +183,10 @@ private:
     mutable SensorStats dvl_stats_;
     mutable SensorStats depth_stats_;
 
+    // 最近一次IMU角速度缓存（用于DVL杠杆臂补偿）
+    Eigen::Vector3d latest_imu_omega_ = Eigen::Vector3d::Zero();
+    ros::Time latest_imu_time_ = ros::Time(0);
+
     // 物理常数 (与原uuv_nav_fusion保持一致)
     static constexpr double GRAVITY = 9.81;              // 重力加速度 [m/s²]
     static constexpr double WATER_DENSITY = 1025.0;      // 海水密度 [kg/m³]

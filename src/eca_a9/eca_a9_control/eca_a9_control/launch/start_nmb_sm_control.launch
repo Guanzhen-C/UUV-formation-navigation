@@ -4,6 +4,9 @@
 
     <arg name="use_ned_frame" default="false"/>
 
+    <!-- Make Dubins radius configurable (was hardcoded to 25) -->
+    <arg name="dubins_radius" default="100"/>
+
     <arg name="teleop_on" default="false"/>
     <arg name="joy_id" default="0"/>
     <arg name="axis_yaw" default="0"/>
@@ -48,7 +51,7 @@
           look_ahead_delay: $(arg look_ahead_delay)
           min_thrust: $(arg min_thrust)
           dubins: 
-            radius: 25
+            radius: $(arg dubins_radius)
             max_pitch: 0.09
         </rosparam>
       </node>
@@ -80,7 +83,7 @@
           look_ahead_delay: $(arg look_ahead_delay)
           min_thrust: $(arg min_thrust)
           dubins: 
-            radius: 25
+            radius: $(arg dubins_radius)
             max_pitch: 0.09
         </rosparam>
       </node>

@@ -3,7 +3,7 @@
   <arg name="gui_on" default="true"/>
 
   <arg name="max_forward_speed" default="2"/>
-  <arg name="dubins_radius" default="25"/>
+  <arg name="dubins_radius" default="10"/>
   <arg name="min_thrust" default="0"/>
   <arg name="max_thrust" default="120"/>
   <arg name="thrust_p_gain" default="5.0"/>

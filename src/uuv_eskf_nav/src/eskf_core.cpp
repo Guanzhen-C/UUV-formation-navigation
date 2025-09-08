@@ -78,67 +78,83 @@ bool EskfCore::predictWithImprovedMechanization(
     corrected_previous.angular_velocity -= nominal_state_.gyro_bias;
     corrected_previous.linear_acceleration -= nominal_state_.accel_bias;
     
+    // 圆周运动检测和处理
+    double omega_norm = corrected_current.angular_velocity.norm();
+    static double max_omega_seen = 0.0;
+    max_omega_seen = std::max(max_omega_seen, omega_norm);
+    
+    // 如果检测到高旋转率，限制角速度防止发散
+    if (omega_norm > 1.0) { // rad/s
+        double scale = 1.0 / omega_norm;
+        corrected_current.angular_velocity *= scale;
+        corrected_previous.angular_velocity *= scale;
+    }
+    
     // 转换为积分数据格式（使用补偿后的数据）
     ImuIntegralData imu_curr_integral = ImuIntegralData::fromInstantaneous(
         corrected_current, corrected_previous, dt);
     
-    // 1. 改进的姿态更新（包含圆锥误差补偿 + 简化导航系转动）
+    // 保存前一时刻状态用于F和Q计算
+    NominalState previous_state = nominal_state_;
+    
+    // ========= 按照KF-GINS标准顺序执行机械编排 =========
+    // 注意：必须按照 速度→位置→姿态 的顺序更新，不可调换！
+    
+    // 1. 速度更新 (参考KF-GINS velUpdate)
+    Eigen::Vector3d new_velocity;
+    velocityUpdate(previous_state, new_velocity, imu_curr_integral, dt);
+    
+    // 2. 位置更新 (参考KF-GINS posUpdate) 
+    Eigen::Vector3d new_position;
+    positionUpdate(previous_state, new_position, new_velocity, dt);
+    
+    // 3. 姿态更新 (参考KF-GINS attUpdate)
     Eigen::Quaterniond new_orientation;
-    if (has_previous_imu_) {
-        new_orientation = improvedAttitudeUpdate(imu_curr_integral, previous_imu_integral_);
-    } else {
-        // 第一帧，使用简单方法
-        Eigen::Vector3d rotation_vector = imu_curr_integral.delta_theta;
-        Eigen::Quaterniond dq = rotationVectorToQuaternion(rotation_vector);
-        new_orientation = (nominal_state_.orientation * dq).normalized();
-    }
-    
-    // 2. 速度更新（修复机械编排顺序）
-    Eigen::Vector3d compensated_delta_vel = imu_curr_integral.delta_velocity;
-    if (has_previous_imu_) {
-        compensated_delta_vel += scullingCorrection(
-            imu_curr_integral.delta_theta, 
-            imu_curr_integral.delta_velocity);
-    }
-    
-    // 修复：正确的机械编排 - 比力投影后加上重力
-    // 使用名义与更新后姿态的平均旋转近似，降低时序误差
-    Eigen::Quaterniond q_old = nominal_state_.orientation;
-    Eigen::Quaterniond q_new = new_orientation;
-    Eigen::Quaterniond q_avg = q_old.slerp(0.5, q_new);
-    Eigen::Matrix3d R_bn = q_avg.toRotationMatrix();
-    
-    // 载体系比力投影到导航系
-    Eigen::Vector3d delta_v_n = R_bn * compensated_delta_vel;
-    
-    // 根据配置决定是否添加重力
-    Eigen::Vector3d gravity_term;
-    if (accel_includes_gravity_) {
-        gravity_term.setZero();
-    } else {
-        gravity_term = GRAVITY_ENU * dt;
-    }
-    Eigen::Vector3d new_velocity = nominal_state_.velocity + delta_v_n + gravity_term;
-    
-    // 3. 位置更新（梯形积分）
-    Eigen::Vector3d avg_velocity = 0.5 * (nominal_state_.velocity + new_velocity);
-    Eigen::Vector3d new_position = nominal_state_.position + avg_velocity * dt;
+    attitudeUpdate(previous_state, new_orientation, new_velocity, new_position, imu_curr_integral, dt);
     
     // 4. 偏差保持不变（随机游走模型）
     Eigen::Vector3d new_gyro_bias = nominal_state_.gyro_bias;
     Eigen::Vector3d new_accel_bias = nominal_state_.accel_bias;
     
-    // 5. 协方差预测 (修复：在状态更新前基于前一时刻状态)
-    // 构建状态转移矩阵和过程噪声矩阵 - 使用真实测量值（含偏差）
-    ImuData raw_imu_current = imu_current;  // 使用原始测量值
-    
-    // 保存前一时刻状态用于F和Q计算
-    NominalState previous_state = nominal_state_;
-    Eigen::MatrixXd F = buildStateTransitionMatrix(dt, raw_imu_current, previous_state);
+    // 5. 协方差预测 (基于前一时刻状态)
+    Eigen::MatrixXd F = buildStateTransitionMatrix(dt, imu_current, previous_state);
     Eigen::MatrixXd Q = buildProcessNoiseMatrix(dt, previous_state);
     
-    // 协方差预测: P = F * P * F^T + Q (标准卡尔曼滤波公式)
+    // 协方差预测: P = F * P * F^T + Q
+    // 添加数值稳定性保护
     P_ = F * P_ * F.transpose() + Q;
+    
+    // 强制对称性和正定性
+    P_ = 0.5 * (P_ + P_.transpose());
+    
+    // 限制协方差增长，防止数值发散
+    double max_variance = 100.0;  // 最大方差限制
+    
+    // 圆周运动时更严格的协方差限制
+    if (omega_norm > 0.3) {
+        max_variance = 50.0;  // 圆周运动时减小最大方差
+    }
+    
+    for (int i = 0; i < STATE_SIZE; ++i) {
+        if (P_(i, i) > max_variance) {
+            P_(i, i) = max_variance;
+        }
+        if (P_(i, i) < 1e-9) {
+            P_(i, i) = 1e-9;  // 保持最小方差
+        }
+    }
+    
+    // 特别限制姿态和速度协方差
+    for (int i = StateIndex::DV; i < StateIndex::DV + 3; ++i) {
+        if (P_(i, i) > 10.0) {
+            P_(i, i) = 10.0;  // 速度协方差上限
+        }
+    }
+    for (int i = StateIndex::DTHETA; i < StateIndex::DTHETA + 3; ++i) {
+        if (P_(i, i) > 0.1) {
+            P_(i, i) = 0.1;  // 姿态协方差上限
+        }
+    }
     
     // 6. 更新状态 (在协方差预测之后)
     nominal_state_.position = new_position;
@@ -152,57 +168,103 @@ bool EskfCore::predictWithImprovedMechanization(
     previous_imu_integral_ = imu_curr_integral;
     has_previous_imu_ = true;
     
-    std::cout << "改进ESKF预测完成，姿态四元数: [" 
-              << new_orientation.w() << ", " << new_orientation.x() << ", " 
-              << new_orientation.y() << ", " << new_orientation.z() << "]" << std::endl;
-    
     return true;
 }
 
-Eigen::Quaterniond EskfCore::improvedAttitudeUpdate(
-    const ImuIntegralData& imu_curr,
-    const ImuIntegralData& imu_prev) {
+void EskfCore::velocityUpdate(
+    const NominalState& state_prev,
+    Eigen::Vector3d& velocity_curr,
+    const ImuIntegralData& imu_integral,
+    double dt) {
     
-    // 1. 二阶圆锥误差补偿（基于KF-GINS第181行）
-    Eigen::Vector3d corrected_rotation = coningCorrection(
-        imu_curr.delta_theta, 
-        imu_prev.delta_theta);
-    
-    // 2. 载体系旋转四元数
-    Eigen::Quaterniond q_bb = rotationVectorToQuaternion(corrected_rotation);
-    
-    // 3. 简化的导航系转动补偿（对于水下短时导航）
-    Eigen::Quaterniond q_nn = navigationFrameRotation(
-        nominal_state_.velocity, 
-        nominal_state_.position, 
-        imu_curr.dt);
-    
-    // 4. 完整的姿态更新：q_new = q_old * q_bb (载体系旋转)
-    // 注意：这里简化了导航系效应，主要保留圆锥补偿
-    // 正确顺序：先有名义姿态，再应用载体系旋转增量
-    Eigen::Quaterniond new_orientation = (nominal_state_.orientation * q_bb).normalized();
-    
-    return new_orientation;
-}
-
-Eigen::Vector3d EskfCore::coningCorrection(
-    const Eigen::Vector3d& delta_theta_curr,
-    const Eigen::Vector3d& delta_theta_prev) {
-    
-    // KF-GINS标准二阶圆锥误差补偿公式（第181行）
-    // temp1 = imucur.dtheta + imupre.dtheta.cross(imucur.dtheta) / 12
-    Eigen::Vector3d coning_correction = delta_theta_prev.cross(delta_theta_curr) / 12.0;
-    
-    Eigen::Vector3d corrected_rotation = delta_theta_curr + coning_correction;
-    
-    // 输出补偿量用于调试
-    if (coning_correction.norm() > 1e-6) {
-        std::cout << "圆锥误差补偿: " << coning_correction.transpose() * 180.0 / M_PI 
-                  << " [mdeg]" << std::endl;
+    // 计算旋转和划桨效应补偿（参考KF-GINS第56-59行）
+    Eigen::Vector3d temp1, temp2, temp3;
+    if (has_previous_imu_) {
+        temp1 = imu_integral.delta_theta.cross(imu_integral.delta_velocity) / 2.0;
+        temp2 = previous_imu_integral_.delta_theta.cross(imu_integral.delta_velocity) / 12.0;
+        temp3 = previous_imu_integral_.delta_velocity.cross(imu_integral.delta_theta) / 12.0;
+    } else {
+        temp1 = imu_integral.delta_theta.cross(imu_integral.delta_velocity) / 2.0;
+        temp2.setZero();
+        temp3.setZero();
     }
     
-    return corrected_rotation;
+    // b系比力积分项
+    Eigen::Vector3d d_vfb = imu_integral.delta_velocity + temp1 + temp2 + temp3;
+    
+    // 重要修复：精确计算中间时刻的姿态（参考KF-GINS）
+    // 使用前一时刻姿态和当前角增量的一半来近似中间时刻姿态
+    Eigen::Vector3d mid_theta = imu_integral.delta_theta * 0.5;
+    Eigen::Quaterniond q_mid = rotationVectorToQuaternion(mid_theta);
+    Eigen::Matrix3d R_bn_mid = (state_prev.orientation * q_mid).toRotationMatrix();
+    
+    // 比力积分项投影到n系（使用中间时刻姿态）
+    Eigen::Vector3d d_vfn = R_bn_mid * d_vfb;
+    
+    // 重力/哥氏积分项（对于水下AUV，哥氏力可忽略）
+    Eigen::Vector3d gravity_coriolis_term;
+    if (accel_includes_gravity_) {
+        gravity_coriolis_term.setZero();
+    } else {
+        // 只考虑重力，不考虑哥氏力
+        gravity_coriolis_term = GRAVITY_ENU * dt;
+    }
+    
+    // 速度更新完成
+    velocity_curr = state_prev.velocity + d_vfn + gravity_coriolis_term;
 }
+
+void EskfCore::positionUpdate(
+    const NominalState& state_prev,
+    Eigen::Vector3d& position_curr,
+    const Eigen::Vector3d& velocity_curr,
+    double dt) {
+    
+    // 使用梯形积分法（参考KF-GINS第120-121行）
+    Eigen::Vector3d midvel = (velocity_curr + state_prev.velocity) / 2.0;
+    position_curr = state_prev.position + midvel * dt;
+}
+
+void EskfCore::attitudeUpdate(
+    const NominalState& state_prev,
+    Eigen::Quaterniond& orientation_curr,
+    const Eigen::Vector3d& velocity_curr,
+    const Eigen::Vector3d& position_curr,
+    const ImuIntegralData& imu_integral,
+    double dt) {
+    
+    // 计算b系旋转四元数，补偿二阶圆锥误差（参考KF-GINS第178-182行）
+    Eigen::Vector3d temp1;
+    if (has_previous_imu_) {
+        // 完整的圆锥补偿
+        temp1 = imu_integral.delta_theta + 
+                previous_imu_integral_.delta_theta.cross(imu_integral.delta_theta) / 12.0;
+    } else {
+        temp1 = imu_integral.delta_theta;
+    }
+    
+    // 增加数值稳定性检查
+    double rotation_angle = temp1.norm();
+    if (rotation_angle > M_PI) {
+        // 防止大角度旋转导致的数值问题
+        temp1 = temp1 * (M_PI / rotation_angle) * 0.95; // 限制在π以内
+    }
+    
+    Eigen::Quaterniond qbb = rotationVectorToQuaternion(temp1);
+    
+    // 姿态更新（参考KF-GINS第186行）
+    // 对于水下AUV短距离导航，忽略导航系转动qnn
+    orientation_curr = (state_prev.orientation * qbb).normalized();
+    
+    // 检查四元数有效性
+    if (!orientation_curr.coeffs().allFinite() || std::abs(orientation_curr.norm() - 1.0) > 0.01) {
+        std::cerr << "姿态更新异常，保持原姿态" << std::endl;
+        orientation_curr = state_prev.orientation;
+    }
+}
+
+// 圆锥补偿已集成到attitudeUpdate中，这个函数不再需要
+// Coning correction is now integrated into attitudeUpdate
 
 Eigen::Vector3d EskfCore::scullingCorrection(
     const Eigen::Vector3d& delta_theta_curr,
@@ -228,11 +290,6 @@ Eigen::Vector3d EskfCore::scullingCorrection(
         sculling_correction += sculling_correction_2 + sculling_correction_3;
     }
     
-    if (sculling_correction.norm() > 1e-6) {
-        std::cout << "划桨效应补偿: " << sculling_correction.transpose() 
-                  << " [mm/s]" << std::endl;
-    }
-    
     return sculling_correction;
 }
 
@@ -241,21 +298,10 @@ Eigen::Quaterniond EskfCore::navigationFrameRotation(
     const Eigen::Vector3d& position,
     double dt) {
     
-    // 简化的导航系转动（适用于水下短距离导航）
-    // 完整版本需要地球椭球参数和重力场模型
-    
-    // 地球自转角速度 (简化，只考虑Z轴分量)
-    double omega_ie = 7.2921151467e-5; // [rad/s]
-    
-    // 简化的导航系转动角速度（忽略高阶项）
-    Eigen::Vector3d omega_en_simplified;
-    omega_en_simplified << 0, 0, -omega_ie;
-    
-    // 导航系转动角增量
-    Eigen::Vector3d nav_rotation = omega_en_simplified * dt;
-    
-    // 转换为四元数（取负号因为是n(k-1)相对n(k)的旋转）
-    return rotationVectorToQuaternion(-nav_rotation);
+    // 对于水下AUV短距离导航，导航系转动可以忽略
+    // 地球自转和载体运动引起的导航系转动在短时间内影响很小
+    // 直接返回单位四元数，不进行导航系转动补偿
+    return Eigen::Quaterniond::Identity();
 }
 
 Eigen::Quaterniond EskfCore::rotationVectorToQuaternion(
@@ -289,28 +335,23 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
         return false;
     }
     
-    std::cout << "执行改进ESKF DVL量测更新..." << std::endl;
-    
     // 1. 构建观测模型（在body坐标系中进行对比）
-    // 观测模型: h(x) = R_nb * v_nominal，其中R_nb = R_bn^T
-    // 注意：DVL速度已在SensorManager中转换至base_link坐标系
     Eigen::Matrix3d R_bn = nominal_state_.orientation.toRotationMatrix();
     Eigen::Matrix3d R_nb = R_bn.transpose();
     
     // 2. 计算观测残差 (新息)
-    // z = v_body_measured - R_nb * v_nav
     Eigen::Vector3d predicted_body_velocity = R_nb * nominal_state_.velocity;
     Eigen::Vector3d innovation = dvl_data.velocity - predicted_body_velocity;
+    
     
     // 3. 动态构建观测雅可比矩阵 H
     Eigen::MatrixXd H = buildDvlObservationMatrix(); // 3x15矩阵，内部基于当前名义状态构建
     
-    std::cout << "DVL观测残差: [" << innovation.transpose() << "] m/s" << std::endl;
-    
-    // 4. 观测噪声协方差（与配置保持一致，忽略上游默认常量）
-    Eigen::Matrix3d R_base = Eigen::Matrix3d::Identity() * (noise_params_.dvl_noise_std * noise_params_.dvl_noise_std);
+    // 4. 观测噪声协方差（固定，不随旋转率缩放）
+    Eigen::Matrix3d R_base = Eigen::Matrix3d::Identity() * 
+        (noise_params_.dvl_noise_std * noise_params_.dvl_noise_std);
 
-    // 5. 计算卡尔曼增益，加入“软门限”：对于大残差，裁剪创新并自适应放大R，避免直接拒绝
+    // 5. 计算卡尔曼增益，动态门限
     // 基本形式：K = P * H^T * (H * P * H^T + R)^(-1)
     Eigen::MatrixXd PHt = P_ * H.transpose();
     Eigen::Matrix3d R_eff = R_base;
@@ -322,42 +363,19 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
         std::cerr << "DVL新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    Eigen::Vector3d S_inv_innov = llt_solver.solve(innovation);
-    double mahalanobis = innovation.dot(S_inv_innov);
-    const double gate_hi = 18.5; // 更宽松的99.95%门限（dof=3）
-    if (mahalanobis > gate_hi) {
-        // 裁剪创新幅值，并放大R以降低置信度，从而允许更新将状态拉回
-        double scale = std::sqrt(gate_hi / std::max(mahalanobis, 1e-9));
-        innovation_used = innovation * scale;
-        double inflate = 1.0 / (scale * scale);
-        R_eff = R_base * inflate;
-
-        // 以放大后的R重新计算增益
-        S = H * P_ * H.transpose() + R_eff;
-        Eigen::LLT<Eigen::MatrixXd> llt_solver2(S);
-        if (llt_solver2.info() != Eigen::Success) {
-            std::cerr << "DVL新息协方差矩阵不可逆(自适应阶段)!" << std::endl;
-            return false;
-        }
-        Eigen::MatrixXd K = llt_solver2.solve(PHt.transpose()).transpose();
-
-        // 6. 误差状态更新
-        Eigen::VectorXd delta_error = K * innovation_used;
-        error_state_ = delta_error;
-        std::cout << "更新后误差状态范数(裁剪): " << error_state_.norm() << std::endl;
-
-        // 7. 协方差更新 (Joseph形式)
-        Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
-        P_ = I_KH * P_ * I_KH.transpose() + K * R_eff * K.transpose();
-    } else {
-        // 正常更新路径
-        Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
-        Eigen::VectorXd delta_error = K * innovation_used;
-        error_state_ = delta_error;
-        std::cout << "更新后误差状态范数: " << error_state_.norm() << std::endl;
-        Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
-        P_ = I_KH * P_ * I_KH.transpose() + K * R_eff * K.transpose();
-    }
+    // 取消马氏距离门限，始终接受DVL量测
+    
+    // 正常更新
+    Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
+    
+    // 取消增益缩放（不随旋转率调整）
+    
+    Eigen::VectorXd delta_error = K * innovation;
+    error_state_ = delta_error;
+    
+    // 协方差更新 (Joseph形式)
+    Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
+    P_ = I_KH * P_ * I_KH.transpose() + K * R_eff * K.transpose();
     
     // 8. 误差状态注入主状态
     injectErrorState(error_state_);
@@ -367,8 +385,6 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
     Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
     resetErrorState(G);
     
-    std::cout << "✅ 改进ESKF DVL量测更新完成!" << std::endl;
-    
     return true;
 }
 
@@ -377,8 +393,6 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
         std::cerr << "改进ESKF深度更新失败: 滤波器未初始化!" << std::endl;
         return false;
     }
-    
-    std::cout << "执行改进ESKF深度量测更新..." << std::endl;
     
     // 1. 构建观测模型
     // h(x) = -p_z (深度 = -z坐标，因为z轴向下为正时深度为正)
@@ -391,38 +405,43 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     double predicted_depth = -nominal_state_.position.z();
     double innovation = depth_data.depth - predicted_depth;
     
-    std::cout << "深度观测残差: " << innovation << " m" << std::endl;
-    
-    // 3. 观测噪声方差（与配置保持一致）
+    // 3. 观测噪声方差（圆周运动时减小噪声，增强深度约束）
     double R = noise_params_.depth_noise_std * noise_params_.depth_noise_std;
     
-    // 4. 计算卡尔曼增益 (修复：使用数值稳定的求解方法)
-    Eigen::MatrixXd S = H * P_ * H.transpose();
-    S(0,0) += R;
-    Eigen::MatrixXd PHt = P_ * H.transpose();
+    // 检测圆周运动，增强深度约束
+    static double avg_omega_for_depth = 0.0;
+    if (has_previous_imu_) {
+        double omega_norm = previous_imu_integral_.delta_theta.norm() / previous_imu_integral_.dt;
+        avg_omega_for_depth = 0.1 * omega_norm + 0.9 * avg_omega_for_depth;
+        
+        // 圆周运动时减小深度噪声，增强约束
+        if (avg_omega_for_depth > 0.3) {
+            R *= 0.5; // 减半噪声，加倍权重
+        }
+    }
     
-    // 使用LLT分解求解，避免直接求逆
+    // 4. 计算卡尔曼增益 (数值稳定) —— 取消一切门限，始终接受深度量测
+    Eigen::MatrixXd PHt = P_ * H.transpose();
+    Eigen::MatrixXd S = H * P_ * H.transpose();
+    double R_eff = R;
+    double innovation_used = innovation;
+
+    // 初次求解S
+    S(0,0) += R_eff;
     Eigen::LLT<Eigen::MatrixXd> llt_solver(S);
     if (llt_solver.info() != Eigen::Success) {
         std::cerr << "深度新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    // 4.1 门限检测（1自由度）: 99%阈值≈6.635，95%≈3.841
-    double S_scalar = S(0,0);
-    double mahalanobis = (innovation * innovation) / S_scalar;
-    if (mahalanobis > 6.635) {
-        std::cerr << "深度量测被门限拒绝，马氏距离=" << mahalanobis << std::endl;
-        return false;
-    }
+    
+    // 正常更新
     Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
     
-    // 5. 误差状态更新
     Eigen::VectorXd innovation_vec(1);
     innovation_vec(0) = innovation;
     Eigen::VectorXd delta_error = K * innovation_vec;
     error_state_ = delta_error;
     
-    // 6. 协方差更新
     Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
     P_ = I_KH * P_ * I_KH.transpose() + K * R * K.transpose();
     
@@ -433,8 +452,6 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
     Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
     resetErrorState(G);
-    
-    std::cout << "✅ 改进ESKF深度量测更新完成!" << std::endl;
     
     return true;
 }
@@ -475,12 +492,7 @@ bool EskfCore::updateWithHeading(const HeadingData& heading_data) {
         std::cerr << "航向新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    double S_scalar = S(0,0);
-    double mahalanobis = (innovation * innovation) / S_scalar;
-    if (mahalanobis > 6.635) {
-        std::cerr << "航向量测被门限拒绝，马氏距离=" << mahalanobis << std::endl;
-        return false;
-    }
+    // 无条件信任航向量测：不做马氏距离门限
     Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
 
     // 5. 更新
@@ -507,7 +519,7 @@ Eigen::MatrixXd EskfCore::buildDvlObservationMatrix() {
     // 其中：
     //   ∂/∂δp = 0
     //   ∂/∂δv = R_nb
-    //   ∂/∂δθ ≈ -R_nb * [v]×   (基于小角度近似与左乘误差注入)
+    //   ∂/∂δθ = [R_nb * v_n]×   （右乘、机体系误差）
     Eigen::MatrixXd H = Eigen::MatrixXd::Zero(3, STATE_SIZE);
     
     Eigen::Matrix3d R_bn = nominal_state_.orientation.toRotationMatrix();
@@ -516,9 +528,11 @@ Eigen::MatrixXd EskfCore::buildDvlObservationMatrix() {
     // 速度对误差速度的偏导
     H.block<3,3>(0, StateIndex::DV) = R_nb;
     
-    // 对姿态误差的偏导: -R_nb * [v]_x  (左乘误差注入的一阶线性化)
+    // 对姿态误差的偏导: [R_nb * v_n]_x = R_nb * [v_n]_x * R_nb^T
+    // 推导：右乘、机体系误差下，h = Exp(-δθ_b) R_nb v ≈ R_nb v - [δθ_b]_x (R_nb v)
+    //      δh = [R_nb v]_x δθ_b
     Eigen::Matrix3d v_skew = skewSymmetric(nominal_state_.velocity);
-    H.block<3,3>(0, StateIndex::DTHETA) = -R_nb * v_skew;
+    H.block<3,3>(0, StateIndex::DTHETA) = R_nb * v_skew * R_nb.transpose();
     
     return H;
 }
@@ -542,15 +556,13 @@ Eigen::MatrixXd EskfCore::buildHeadingObservationMatrix() {
 }
 
 void EskfCore::injectErrorState(const Eigen::VectorXd& error_state) {
-    std::cout << "误差状态注入: 误差范数 = " << error_state.norm() << std::endl;
-    
     // 1. 位置误差注入
     nominal_state_.position += error_state.segment<3>(StateIndex::DP);
     
     // 2. 速度误差注入
     nominal_state_.velocity += error_state.segment<3>(StateIndex::DV);
     
-    // 3. 姿态误差注入 (四元数复合) - 关键改进点！
+    // 3. 姿态误差注入 (四元数复合)
     Eigen::Vector3d delta_theta = error_state.segment<3>(StateIndex::DTHETA);
     double angle = delta_theta.norm();
     
@@ -562,21 +574,33 @@ void EskfCore::injectErrorState(const Eigen::VectorXd& error_state) {
                              std::sin(half_angle) * axis.x(),
                              std::sin(half_angle) * axis.y(), 
                              std::sin(half_angle) * axis.z());
-        // 修复：正确的四元数乘法顺序 q_true = δq ⊗ q_nominal
-        nominal_state_.orientation = dq * nominal_state_.orientation;
+        // 右乘误差模型: q_true = q_nominal ⊗ δq (与雅可比矩阵推导一致)
+        nominal_state_.orientation = nominal_state_.orientation * dq;
     } else {
         // 小角度近似
         Eigen::Quaterniond dq(1.0, 0.5 * delta_theta.x(), 0.5 * delta_theta.y(), 0.5 * delta_theta.z());
-        // 修复：正确的四元数乘法顺序
-        nominal_state_.orientation = dq * nominal_state_.orientation;
+        nominal_state_.orientation = nominal_state_.orientation * dq;
     }
     nominal_state_.orientation.normalize();
     
-    // 4. 偏差误差注入
-    nominal_state_.gyro_bias += error_state.segment<3>(StateIndex::DBG);
-    nominal_state_.accel_bias += error_state.segment<3>(StateIndex::DBA);
+    // 4. 偏差误差注入（增加限制防止发散）
+    Eigen::Vector3d new_gyro_bias = nominal_state_.gyro_bias + error_state.segment<3>(StateIndex::DBG);
+    Eigen::Vector3d new_accel_bias = nominal_state_.accel_bias + error_state.segment<3>(StateIndex::DBA);
     
-    std::cout << "主状态更新后位置: [" << nominal_state_.position.transpose() << "]" << std::endl;
+    // 限制陀螺偏差范围（典型MEMS陀螺偏差 < 0.1 rad/s）
+    const double MAX_GYRO_BIAS = 0.1; // rad/s
+    for (int i = 0; i < 3; ++i) {
+        new_gyro_bias(i) = std::max(-MAX_GYRO_BIAS, std::min(MAX_GYRO_BIAS, new_gyro_bias(i)));
+    }
+    
+    // 限制加速度计偏差范围（典型MEMS加速度计偏差 < 1.0 m/s²）
+    const double MAX_ACCEL_BIAS = 1.0; // m/s²
+    for (int i = 0; i < 3; ++i) {
+        new_accel_bias(i) = std::max(-MAX_ACCEL_BIAS, std::min(MAX_ACCEL_BIAS, new_accel_bias(i)));
+    }
+    
+    nominal_state_.gyro_bias = new_gyro_bias;
+    nominal_state_.accel_bias = new_accel_bias;
 }
 
 void EskfCore::resetErrorState(const Eigen::MatrixXd& G) {
@@ -585,8 +609,6 @@ void EskfCore::resetErrorState(const Eigen::MatrixXd& G) {
     
     // 更新协方差矩阵: P = G * P * G^T
     P_ = G * P_ * G.transpose();
-    
-    std::cout << "误差状态已重置, 协方差矩阵迹: " << P_.trace() << std::endl;
 }
 
 Eigen::MatrixXd EskfCore::buildErrorResetMatrix(const Eigen::Vector3d& delta_theta) {
@@ -607,12 +629,12 @@ Eigen::MatrixXd EskfCore::buildErrorResetMatrix(const Eigen::Vector3d& delta_the
 Eigen::MatrixXd EskfCore::buildStateTransitionMatrix(double dt, const ImuData& raw_imu_data, const NominalState& previous_state) {
     Eigen::MatrixXd F = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE);
     
-    // 修复：使用前一时刻的姿态旋转矩阵
-    Eigen::Matrix3d R = previous_state.orientation.toRotationMatrix();
+    // 使用前一时刻的姿态矩阵
+    Eigen::Matrix3d R_bn_prev = previous_state.orientation.toRotationMatrix();
     
-    // 修复：使用去偏后的IMU测量值（specific force与角速度）
+    // 使用去偏后的IMU测量值
     Eigen::Vector3d omega_unbiased = raw_imu_data.angular_velocity - previous_state.gyro_bias;
-    Eigen::Vector3d accel_unbiased = raw_imu_data.linear_acceleration - previous_state.accel_bias; // specific force
+    Eigen::Vector3d accel_unbiased = raw_imu_data.linear_acceleration - previous_state.accel_bias;
     Eigen::Matrix3d accel_skew = skewSymmetric(accel_unbiased);
     Eigen::Matrix3d omega_skew = skewSymmetric(omega_unbiased);
     
@@ -620,14 +642,13 @@ Eigen::MatrixXd EskfCore::buildStateTransitionMatrix(double dt, const ImuData& r
     // δp = δp + δv * dt
     F.block<3,3>(StateIndex::DP, StateIndex::DV) = Eigen::Matrix3d::Identity() * dt;
     
-    // δv = δv + (-R * [a_m]× * δθ - R * δba + [g]× * δθ) * dt
-    // 其中a_m是含偏差的测量加速度，g是重力向量
-    Eigen::Matrix3d gravity_skew = skewSymmetric(GRAVITY_ENU);
-    F.block<3,3>(StateIndex::DV, StateIndex::DTHETA) = (-R * accel_skew + gravity_skew) * dt;
-    F.block<3,3>(StateIndex::DV, StateIndex::DBA) = -R * dt;
+    // δv = δv + (-R_bn * [a_unbiased]× * δθ - R_bn * δba) * dt
+    // 使用去偏后的加速度值计算状态转移矩阵
+    F.block<3,3>(StateIndex::DV, StateIndex::DTHETA) = -R_bn_prev * accel_skew * dt;
+    F.block<3,3>(StateIndex::DV, StateIndex::DBA) = -R_bn_prev * dt;
     
-    // δθ = δθ - [ω_m]× * δθ * dt - δbg * dt  
-    // 其中ω_m是含偏差的测量角速度 (关键修复！)
+    // δθ = δθ - [ω_unbiased]× * δθ * dt - δbg * dt
+    // 使用去偏后的角速度构建状态转移矩阵（关键修复！）
     F.block<3,3>(StateIndex::DTHETA, StateIndex::DTHETA) = Eigen::Matrix3d::Identity() - omega_skew * dt;
     F.block<3,3>(StateIndex::DTHETA, StateIndex::DBG) = -Eigen::Matrix3d::Identity() * dt;
     
@@ -641,13 +662,14 @@ Eigen::MatrixXd EskfCore::buildStateTransitionMatrix(double dt, const ImuData& r
 Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState& previous_state) {
     Eigen::MatrixXd Q = Eigen::MatrixXd::Zero(STATE_SIZE, STATE_SIZE);
     
-    // 修复：使用前一时刻的姿态旋转矩阵
+    // 使用前一时刻的姿态旋转矩阵
     Eigen::Matrix3d R = previous_state.orientation.toRotationMatrix();
     
-    // 构建连续时间过程噪声功率谱密度矩阵
+    // 构建离散时间过程噪声矩阵
     double dt2 = dt * dt;
     double dt3 = dt2 * dt;
     double dt4 = dt3 * dt;
+    double dt5 = dt4 * dt;
     
     // IMU噪声方差
     double gyro_var = noise_params_.gyro_noise_std * noise_params_.gyro_noise_std;
@@ -655,22 +677,38 @@ Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState&
     double gyro_bias_var = noise_params_.gyro_bias_std * noise_params_.gyro_bias_std;  
     double accel_bias_var = noise_params_.accel_bias_std * noise_params_.accel_bias_std;
     
-    // 修复：正确的过程噪声矩阵构建（基于前一时刻姿态）
-    // 位置噪声 (由加速度噪声积分得到)
-    Q.block<3,3>(StateIndex::DP, StateIndex::DP) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt4 / 4.0;
-    Q.block<3,3>(StateIndex::DP, StateIndex::DV) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt3 / 2.0;
+    // 动态调整偏差噪声：高旋转率时增加偏差噪声，允许更快的偏差跟踪
+    static double avg_rotation_rate = 0.0;
+    static int rotation_samples = 0;
+    if (has_previous_imu_) {
+        double omega_norm = previous_imu_integral_.delta_theta.norm() / previous_imu_integral_.dt;
+        avg_rotation_rate = (avg_rotation_rate * rotation_samples + omega_norm) / (rotation_samples + 1);
+        rotation_samples = std::min(rotation_samples + 1, 100);
+        
+        // 高旋转率时增加偏差噪声
+        if (avg_rotation_rate > 0.5) { // rad/s
+            double bias_scale = 1.0 + 2.0 * (avg_rotation_rate - 0.5);
+            bias_scale = std::min(bias_scale, 5.0);
+            gyro_bias_var *= bias_scale;
+            accel_bias_var *= bias_scale;
+        }
+    }
+    
+    // 位置噪声 (由速度噪声积分得到)
+    Q.block<3,3>(StateIndex::DP, StateIndex::DP) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt3 / 3.0;
+    Q.block<3,3>(StateIndex::DP, StateIndex::DV) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt2 / 2.0;
     Q.block<3,3>(StateIndex::DV, StateIndex::DP) = Q.block<3,3>(StateIndex::DP, StateIndex::DV).transpose();
     
-    // 速度噪声
-    Q.block<3,3>(StateIndex::DV, StateIndex::DV) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt2;
+    // 速度噪声 (由加速度噪声得到)
+    Q.block<3,3>(StateIndex::DV, StateIndex::DV) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt;
     
-    // 姿态噪声
-    Q.block<3,3>(StateIndex::DTHETA, StateIndex::DTHETA) = Eigen::Matrix3d::Identity() * gyro_var * dt2;
+    // 姿态噪声 (由角速度噪声得到)
+    Q.block<3,3>(StateIndex::DTHETA, StateIndex::DTHETA) = Eigen::Matrix3d::Identity() * gyro_var * dt;
     
-    // 陀螺偏差噪声 
+    // 陀螺偏差噪声 (随机游走)
     Q.block<3,3>(StateIndex::DBG, StateIndex::DBG) = Eigen::Matrix3d::Identity() * gyro_bias_var * dt;
     
-    // 加速度计偏差噪声
+    // 加速度计偏差噪声 (随机游走)
     Q.block<3,3>(StateIndex::DBA, StateIndex::DBA) = Eigen::Matrix3d::Identity() * accel_bias_var * dt;
     
     return Q;

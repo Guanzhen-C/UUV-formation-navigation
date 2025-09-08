@@ -9,6 +9,9 @@
   <arg name="bag_filename" default="recording.bag"/>
 
   <arg name="use_ned_frame" default="false"/>
+  <!-- Expose path radius controls to the included controller launch -->
+  <arg name="dubins_radius" default="50"/>
+  <arg name="idle_radius" default="100"/>
 
   <include file="$(find eca_a9_description)/launch/upload_eca_a9.launch">
     <arg name="x" value="$(arg x)"/>
@@ -17,7 +20,10 @@
     <arg name="yaw" value="$(arg yaw)"/>
   </include>
 
-  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch"/>
+  <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+    <arg name="dubins_radius" value="$(arg dubins_radius)"/>
+    <arg name="idle_radius" value="$(arg idle_radius)"/>
+  </include>
     
   <!-- Initialize the recording fo the simulation according to the record flag  -->
   <include file="$(find eca_a9_gazebo)/launch/record_demo.launch">

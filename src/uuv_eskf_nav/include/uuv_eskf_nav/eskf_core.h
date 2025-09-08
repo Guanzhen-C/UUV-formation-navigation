@@ -103,24 +103,47 @@ public:
 
 private:
     /**
-     * @brief 改进的姿态更新 - 基于KF-GINS方法
-     * @param imu_curr 当前积分IMU数据
-     * @param imu_prev 前一积分IMU数据
-     * @return 更新后的姿态四元数
+     * @brief 速度更新 - 基于KF-GINS velUpdate
+     * @param state_prev 前一时刻状态
+     * @param velocity_curr 输出的当前速度
+     * @param imu_integral 当前IMU积分数据
+     * @param dt 时间间隔
      */
-    Eigen::Quaterniond improvedAttitudeUpdate(
-        const ImuIntegralData& imu_curr,
-        const ImuIntegralData& imu_prev);
-
+    void velocityUpdate(
+        const NominalState& state_prev,
+        Eigen::Vector3d& velocity_curr,
+        const ImuIntegralData& imu_integral,
+        double dt);
+    
     /**
-     * @brief 二阶圆锥误差补偿
-     * @param delta_theta_curr 当前角增量
-     * @param delta_theta_prev 前一角增量  
-     * @return 补偿后的等效旋转向量
+     * @brief 位置更新 - 基于KF-GINS posUpdate
+     * @param state_prev 前一时刻状态
+     * @param position_curr 输出的当前位置
+     * @param velocity_curr 当前速度
+     * @param dt 时间间隔
      */
-    Eigen::Vector3d coningCorrection(
-        const Eigen::Vector3d& delta_theta_curr,
-        const Eigen::Vector3d& delta_theta_prev);
+    void positionUpdate(
+        const NominalState& state_prev,
+        Eigen::Vector3d& position_curr,
+        const Eigen::Vector3d& velocity_curr,
+        double dt);
+    
+    /**
+     * @brief 姿态更新 - 基于KF-GINS attUpdate
+     * @param state_prev 前一时刻状态
+     * @param orientation_curr 输出的当前姿态
+     * @param velocity_curr 当前速度
+     * @param position_curr 当前位置
+     * @param imu_integral 当前IMU积分数据
+     * @param dt 时间间隔
+     */
+    void attitudeUpdate(
+        const NominalState& state_prev,
+        Eigen::Quaterniond& orientation_curr,
+        const Eigen::Vector3d& velocity_curr,
+        const Eigen::Vector3d& position_curr,
+        const ImuIntegralData& imu_integral,
+        double dt);
 
     /**
      * @brief 旋转和划桨效应补偿
