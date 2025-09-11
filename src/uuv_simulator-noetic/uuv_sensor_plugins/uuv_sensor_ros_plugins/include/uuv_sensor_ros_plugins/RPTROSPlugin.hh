@@ -55,10 +55,13 @@ namespace gazebo
     protected: bool advertise_enabled_ = false;
     protected: bool subscribe_enabled_ = false;
     protected: bool processing_enabled_ = false;
+    protected: double auto_repeat_period_ = 0.0; // [s], 0 disables periodic auto-TX
+    protected: double last_auto_tx_sim_time_ = -1.0;
 
     protected: double sound_speed_ = 1500.0;
     protected: double max_range_ = 12000.0;
     protected: std::string target_link_name_ = "base_link";
+    protected: std::string default_target_ns_;
 
     protected: struct TimedPose { double t; ignition::math::Vector3d p; };
     protected: std::deque<TimedPose> self_pose_buf_;

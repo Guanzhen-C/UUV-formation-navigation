@@ -32,6 +32,9 @@
   <xacro:property name="area" value="0.04155"/>
   <xacro:property name="length" value="1.98"/>
 
+  <!-- Global RPT auto repeat period (seconds) for reuse -->
+  <xacro:property name="rpt_auto_repeat_period" value="5.0"/>
+
   <xacro:property name="visual_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9.dae"/>
   <xacro:property name="collision_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9.stl"/>
   <xacro:property name="prop_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9_propeller.dae"/>

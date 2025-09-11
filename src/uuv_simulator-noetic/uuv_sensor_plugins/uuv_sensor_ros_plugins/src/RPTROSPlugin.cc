@@ -59,6 +59,16 @@ void RPTROSPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   GetSDFParam<bool>(_sdf, "processing_enabled", processing_enabled, false);
   std::string default_target_ns;
   GetSDFParam<std::string>(_sdf, "default_target_ns", default_target_ns, "");
+  GetSDFParam<double>(_sdf, "auto_repeat_period", this->auto_repeat_period_, 0.0);
+  // Allow runtime override via ROS param under sensor topic namespace
+  if (this->rosNode)
+  {
+    std::string ar_key = this->sensorOutputTopic + std::string("/auto_repeat_period");
+    this->rosNode->param(ar_key, this->auto_repeat_period_, this->auto_repeat_period_);
+  }
+  // Fallback default to 5.0s if not provided
+  if (this->auto_repeat_period_ <= 0.0)
+    this->auto_repeat_period_ = 5.0;
   this->advertise_enabled_ = advertise_enabled;
   this->subscribe_enabled_ = subscribe_enabled;
   this->processing_enabled_ = processing_enabled;
@@ -69,6 +79,7 @@ void RPTROSPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     this->tx_req_sub_ = this->rosNode->subscribe(this->sensorOutputTopic + "/tx_request", 10, &RPTROSPlugin::onTxRequest, this);
 
   // If default target provided, schedule a pending exchange automatically
+  this->default_target_ns_ = default_target_ns;
   if (!default_target_ns.empty())
   {
     Pending p; p.target_ns = default_target_ns; p.request_id = "auto";
@@ -94,6 +105,24 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   if (this->processing_enabled_ && this->IsOn())
   {
     double t = _info.simTime.Double();
+    // Auto periodic trigger if configured
+    if (this->auto_repeat_period_ > 0.0 && !this->default_target_ns_.empty())
+    {
+      if (this->last_auto_tx_sim_time_ < 0.0 || (t - this->last_auto_tx_sim_time_) >= this->auto_repeat_period_)
+      {
+        Pending px; px.target_ns = this->default_target_ns_; px.request_id = "auto_repeat";
+        px.t0 = t;
+#if GAZEBO_MAJOR_VERSION >= 8
+        px.p1_t0 = this->link->WorldPose().Pos();
+#else
+        px.p1_t0 = this->link->GetWorldPose().Ign().Pos();
+#endif
+        px.stage = STAGE_FWD_WAIT; px.done = false; px.fwd_has_prev = false; px.bwd_has_prev = false;
+        this->pending_.push_back(px);
+        this->last_auto_tx_sim_time_ = t;
+      }
+    }
+
 #if GAZEBO_MAJOR_VERSION >= 8
     ignition::math::Pose3d poseSelf = this->link->WorldPose();
 #else
@@ -199,6 +228,27 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
 
   if (!this->EnableMeasurement(_info))
     return false;
+
+  // On update-rate tick, enqueue one TWTT TX if enabled and no pending
+  if (this->processing_enabled_ && this->IsOn() && !this->default_target_ns_.empty())
+  {
+    bool hasPending = false;
+    for (const auto& q : this->pending_)
+      if (!q.done) { hasPending = true; break; }
+    if (!hasPending)
+    {
+      Pending p; p.target_ns = this->default_target_ns_; p.request_id = "update_rate";
+#if GAZEBO_MAJOR_VERSION >= 8
+      p.t0 = this->model->GetWorld()->SimTime().Double();
+      p.p1_t0 = this->link->WorldPose().Pos();
+#else
+      p.t0 = this->model->GetWorld()->GetSimTime().Double();
+      p.p1_t0 = this->link->GetWorldPose().Ign().Pos();
+#endif
+      p.stage = STAGE_FWD_WAIT; p.done = false; p.fwd_has_prev = false; p.bwd_has_prev = false;
+      this->pending_.push_back(p);
+    }
+  }
 
   // True position
   // TODO This is a temporary implementation, next step includes making

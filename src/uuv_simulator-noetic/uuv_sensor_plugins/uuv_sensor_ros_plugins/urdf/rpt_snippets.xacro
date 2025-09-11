@@ -25,7 +25,7 @@
     </collision>
   </xacro:macro>
 
-  <xacro:macro name="default_rpt" params="namespace parent_link *origin sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:=''"><!-- default_target_ns empty string by default -->
+  <xacro:macro name="default_rpt" params="namespace parent_link *origin update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0"><!-- default_target_ns empty string by default -->
     <xacro:rpt_plugin_macro
       namespace="${namespace}"
       suffix=""
@@ -33,18 +33,20 @@
       noise_amplitude="0.0"
       noise_sigma="0.0"
       topic="rpt"
+      update_rate="${update_rate}"
       sound_speed="${sound_speed}"
       max_range="${max_range}"
       advertise_enabled="${advertise_enabled}"
       subscribe_enabled="${subscribe_enabled}"
       processing_enabled="${processing_enabled}"
-      default_target_ns="${default_target_ns}">
+      default_target_ns="${default_target_ns}"
+      auto_repeat_period="${auto_repeat_period}">
       <xacro:insert_block name="origin" />
     </xacro:rpt_plugin_macro>
   </xacro:macro>
 
   <xacro:macro name="rpt_plugin_macro"
-    params="namespace suffix parent_link topic noise_sigma noise_amplitude sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' *origin">
+    params="namespace suffix parent_link topic noise_sigma noise_amplitude update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0 *origin">
     <link name="${namespace}/rpt${suffix}_link">
       <inertial>
         <mass value="0.001" />  <!-- [kg] -->
@@ -73,7 +75,7 @@
         <link_name>${namespace}/rpt${suffix}_link</link_name> <!-- sensor link name -->
         <static_reference_frame>world</static_reference_frame> <!-- name of the reference frame of all position measurements -->
         <sensor_topic>${topic}</sensor_topic> <!-- name of the sensor output topic and prefix of service name -->
-        <update_rate>30</update_rate>
+        <update_rate>${update_rate}</update_rate>
         <noise_sigma>${noise_sigma}</noise_sigma> <!-- std dev of position estimates in x, y, z [m] -->
         <noise_amplitude>${noise_amplitude}</noise_amplitude>
         <enable_gazebo_messages>false</enable_gazebo_messages>

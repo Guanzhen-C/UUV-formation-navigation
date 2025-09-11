@@ -77,7 +77,8 @@
         advertise_enabled="true"
         subscribe_enabled="true"
         processing_enabled="true"
-        default_target_ns="eca_a9_2">
+        default_target_ns="eca_a9_2"
+        auto_repeat_period="${rpt_auto_repeat_period}">
         <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:default_rpt>
     </xacro:if>
