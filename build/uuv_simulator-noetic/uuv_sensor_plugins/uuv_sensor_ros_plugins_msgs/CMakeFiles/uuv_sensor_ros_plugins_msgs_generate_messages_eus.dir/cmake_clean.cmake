@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/manifest.l"
+  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.l"
+  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.l"
   "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.l"
   "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.l"
   "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.l"

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py"
+  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py"
   "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_ChemicalParticleConcentration.py"
   "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py"
   "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py"

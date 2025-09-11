@@ -13,6 +13,8 @@ add_message_files(
   PositionWithCovarianceStamped.msg
   ChemicalParticleConcentration.msg
   Salinity.msg
+  AcousticTxRequest.msg
+  AcousticRangeTWTT.msg
 )
 
 add_service_files(

@@ -45,6 +45,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg"
     "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.msg"
     "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Salinity.msg"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.msg"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg"
     )
 endif()
 

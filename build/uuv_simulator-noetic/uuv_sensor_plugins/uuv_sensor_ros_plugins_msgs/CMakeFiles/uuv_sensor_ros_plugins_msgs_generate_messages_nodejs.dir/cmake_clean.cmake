@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js"
+  "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.js"
   "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js"
   "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js"
   "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js"

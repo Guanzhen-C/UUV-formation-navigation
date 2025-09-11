@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticRangeTWTT.h"
+  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticTxRequest.h"
   "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorState.h"
   "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.h"
   "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVL.h"

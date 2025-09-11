@@ -1,6 +1,10 @@
 (cl:defpackage uuv_sensor_ros_plugins_msgs-msg
   (:use )
   (:export
+   "<ACOUSTICRANGETWTT>"
+   "ACOUSTICRANGETWTT"
+   "<ACOUSTICTXREQUEST>"
+   "ACOUSTICTXREQUEST"
    "<CHEMICALPARTICLECONCENTRATION>"
    "CHEMICALPARTICLECONCENTRATION"
    "<DVL>"

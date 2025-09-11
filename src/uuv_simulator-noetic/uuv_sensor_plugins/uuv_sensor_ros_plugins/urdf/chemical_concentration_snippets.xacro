@@ -124,6 +124,7 @@
        <gain>${gain}</gain>
        <noise_sigma>${noise_sigma}</noise_sigma>
        <noise_amplitude>${noise_amplitude}</noise_amplitude>
+       <is_on>true</is_on>
      </plugin>
    </gazebo>
   </xacro:macro>

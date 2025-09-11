@@ -67,10 +67,20 @@
       power_load="25"
       topic="${namespace}/sonarright/state"/>
 
-    <!-- RPT
-    <xacro:default_rpt namespace="${namespace}" parent_link="${namespace}/base_link">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </xacro:default_rpt>  -->
+    <!-- RPT: enable TWTT only for eca_a9_1 targeting eca_a9_2 -->
+    <xacro:if value="${namespace == 'eca_a9_1'}">
+      <xacro:default_rpt
+        namespace="${namespace}"
+        parent_link="${namespace}/base_link"
+        sound_speed="1500.0"
+        max_range="12000.0"
+        advertise_enabled="true"
+        subscribe_enabled="true"
+        processing_enabled="true"
+        default_target_ns="eca_a9_2">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:default_rpt>
+    </xacro:if>
 
     <!-- Pressure -->
     <xacro:default_pressure namespace="${namespace}" parent_link="${namespace}/base_link">
@@ -152,4 +162,6 @@
     <xacro:default_chemical_concentration_sensor namespace="${namespace}" parent_link="${namespace}/base_link">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:default_chemical_concentration_sensor>
+
+    <!-- Acoustic modem (removed) -->
 </robot>

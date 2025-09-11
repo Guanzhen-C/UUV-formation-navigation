@@ -221,6 +221,8 @@ target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${catkin_LIBRARIE
 add_dependencies(image_sonar_ros_plugin ${catkin_EXPORTED_TARGETS})
 list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST image_sonar_ros_plugin)
 
+###############################################################################
+
 
 #############
 ## Install ##

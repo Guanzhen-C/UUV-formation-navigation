@@ -1,3 +1,5 @@
+from ._AcousticRangeTWTT import *
+from ._AcousticTxRequest import *
 from ._ChemicalParticleConcentration import *
 from ._DVL import *
 from ._DVLBeam import *

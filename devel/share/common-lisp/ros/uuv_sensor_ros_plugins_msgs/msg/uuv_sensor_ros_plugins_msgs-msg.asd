@@ -6,6 +6,10 @@
                :std_msgs-msg
 )
   :components ((:file "_package")
+    (:file "AcousticRangeTWTT" :depends-on ("_package_AcousticRangeTWTT"))
+    (:file "_package_AcousticRangeTWTT" :depends-on ("_package"))
+    (:file "AcousticTxRequest" :depends-on ("_package_AcousticTxRequest"))
+    (:file "_package_AcousticTxRequest" :depends-on ("_package"))
     (:file "ChemicalParticleConcentration" :depends-on ("_package_ChemicalParticleConcentration"))
     (:file "_package_ChemicalParticleConcentration" :depends-on ("_package"))
     (:file "DVL" :depends-on ("_package_DVL"))

@@ -59,6 +59,8 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/Salinity.js
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.js
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.js
 
 
@@ -66,21 +68,21 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/DVL.msg"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
 
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/DVLBeam.msg"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
 
@@ -92,16 +94,16 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/PositionWithCovarianceStamped.msg"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
 
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.msg
-/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.msg"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
 
@@ -111,9 +113,24 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/Salinity.msg"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Salinity.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
 
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/AcousticTxRequest.msg"
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
+
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/AcousticRangeTWTT.msg"
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg
+
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.js: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/ChangeSensorState.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from uuv_sensor_ros_plugins_msgs/ChangeSensorState.srv"
 	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv -Iuuv_sensor_ros_plugins_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/srv
 
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs
@@ -123,6 +140,8 @@ uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.js
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.js
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/Salinity.js
+uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.js
+uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.js
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: /home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.js
 uuv_sensor_ros_plugins_msgs_generate_messages_nodejs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_nodejs.dir/build.make
 
