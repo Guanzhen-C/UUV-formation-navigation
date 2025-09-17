@@ -95,22 +95,22 @@
       power_load="5"
       topic="${namespace}/pressure/state"/>
 
-    <!-- IMU (navigation-grade override) -->
+    <!-- IMU (陀螺常值零偏严格0.001°/h高精度惯导) -->
     <xacro:imu_plugin_macro
       namespace="${namespace}"
       imu_suffix=""
       parent_link="${namespace}/base_link"
       imu_topic="imu"
       mass_imu_sensor="0.015"
-      gyroscope_noise_density="0.000003"                 
-      gyroscope_random_walk="0.0000003"                  
-      gyroscope_bias_correlation_time="3600.0"          
-      gyroscope_turn_on_bias_sigma="0.0020"             
-      accelerometer_noise_density="0.00003"             
-      accelerometer_random_walk="0.000050"              
-      accelerometer_bias_correlation_time="3600.0"     
-      accelerometer_turn_on_bias_sigma="0.0500"        
-      orientation_noise="0.002"
+      gyroscope_noise_density="0.00000029088"
+      gyroscope_random_walk="0.00000029088"
+      gyroscope_bias_correlation_time="3600.0"
+      gyroscope_turn_on_bias_sigma="0.000004848"
+      accelerometer_noise_density="0.000010"
+      accelerometer_random_walk="0.000010"
+      accelerometer_bias_correlation_time="3600.0"
+      accelerometer_turn_on_bias_sigma="0.0098"
+      orientation_noise="0.001"
       enable_local_ned_frame="false"
       reference_frame="world"
       update_rate="200">

@@ -26,7 +26,7 @@
     <geometry>
       <mesh>
         <uri>file://Media/models/sea_surface_1000m_x_1000m.dae</uri>
-        <scale>2 2 2</scale>
+        <scale>100 100 2</scale>
       </mesh>
     </geometry>
     <material>
@@ -43,7 +43,7 @@
     <geometry>
       <mesh>
         <uri>file://Media/models/sea_surface_1000m_x_1000m.dae</uri>
-        <scale>2 2 2</scale>
+        <scale>100 100 2</scale>
       </mesh>
     </geometry>
     <material>
@@ -56,10 +56,10 @@
 
   <visual name="seafloor">
     <cast_shadows>false</cast_shadows>
-    <pose>0 0 -100 0 0 0</pose>
+    <pose>0 0 -6000 0 0 0</pose>
     <geometry>
       <box>
-        <size>2000 2000 .1</size>
+        <size>100000 100000 .1</size>
       </box>
     </geometry>
     <material>
@@ -74,17 +74,17 @@
   </visual>
 
   <collision name="seafloor">
-    <pose>0 0 -100 0 0 0</pose>
+    <pose>0 0 -6000 0 0 0</pose>
     <geometry>
       <box>
-        <size>2000 2000 .1</size>
+        <size>100000 100000 .1</size>
       </box>
     </geometry>
   </collision>
 
   <visual name="north">
-    <pose>1000 0 -50 0 -1.5708 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>100 2000</size></plane></geometry>
+    <pose>50000 0 -3000 0 -1.5708 0</pose>
+    <geometry><plane><normal>0 0 1</normal><size>6000 100000</size></plane></geometry>
     <material>
       <script>
         <uri>file://Media/materials/scripts/water.material</uri>
@@ -97,8 +97,8 @@
   </visual>
 
   <visual name="south">
-    <pose>-1000 0 -50 0 1.5708 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>100 2000</size></plane></geometry>
+    <pose>-50000 0 -3000 0 1.5708 0</pose>
+    <geometry><plane><normal>0 0 1</normal><size>6000 100000</size></plane></geometry>
     <material>
       <script>
         <uri>file://Media/materials/scripts/water.material</uri>
@@ -111,8 +111,8 @@
   </visual>
 
   <visual name="west">
-    <pose>0 1000 -50 1.5708 0 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>2000 100</size></plane></geometry>
+    <pose>0 50000 -3000 1.5708 0 0</pose>
+    <geometry><plane><normal>0 0 1</normal><size>100000 6000</size></plane></geometry>
     <material>
       <script>
         <uri>file://Media/materials/scripts/water.material</uri>
@@ -125,8 +125,8 @@
   </visual>
 
   <visual name="east">
-    <pose>0 -1000 -50 -1.5708 0 0</pose>
-    <geometry><plane><normal>0 0 1</normal><size>2000 100</size></plane></geometry>
+    <pose>0 -50000 -3000 -1.5708 0 0</pose>
+    <geometry><plane><normal>0 0 1</normal><size>100000 6000</size></plane></geometry>
     <material>
       <script>
         <uri>file://Media/materials/scripts/water.material</uri>
