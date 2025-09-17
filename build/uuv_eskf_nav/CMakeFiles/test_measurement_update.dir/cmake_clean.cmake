@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/uuv_eskf_nav/test_measurement_update"
-  "/home/qsk/catkin_ws/devel/lib/uuv_eskf_nav/test_measurement_update.pdb"
+  "/home/cgz/catkin_ws/devel/lib/uuv_eskf_nav/test_measurement_update"
+  "/home/cgz/catkin_ws/devel/lib/uuv_eskf_nav/test_measurement_update.pdb"
   "CMakeFiles/test_measurement_update.dir/src/test_measurement_update.cpp.o"
 )
 

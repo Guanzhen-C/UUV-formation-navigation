@@ -1,13 +1,13 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticRangeTWTT.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticTxRequest.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorState.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVL.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVLBeam.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/PositionWithCovariance.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/PositionWithCovarianceStamped.h"
-  "/home/qsk/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/Salinity.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticRangeTWTT.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/AcousticTxRequest.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorState.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVL.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVLBeam.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/PositionWithCovariance.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/PositionWithCovarianceStamped.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/Salinity.h"
   "CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_cpp"
 )
 

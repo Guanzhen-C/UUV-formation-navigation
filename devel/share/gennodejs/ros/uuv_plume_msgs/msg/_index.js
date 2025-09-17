@@ -1,10 +1,10 @@
 
 "use strict";
 
-let ParticleConcentration = require('./ParticleConcentration.js');
 let Salinity = require('./Salinity.js');
+let ParticleConcentration = require('./ParticleConcentration.js');
 
 module.exports = {
-  ParticleConcentration: ParticleConcentration,
   Salinity: Salinity,
+  ParticleConcentration: ParticleConcentration,
 };

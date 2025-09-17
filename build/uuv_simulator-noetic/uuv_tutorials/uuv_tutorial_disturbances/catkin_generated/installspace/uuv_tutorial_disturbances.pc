@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/install
+prefix=/home/cgz/catkin_ws/install
 
 Name: uuv_tutorial_disturbances
 Description: Description of uuv_tutorial_disturbances

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for geometry_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_m
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
 

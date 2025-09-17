@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for clean_test_results_uuv_descriptions.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
 include uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/progress.make
 
 uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/qsk/catkin_ws/build/test_results/uuv_descriptions
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/cgz/catkin_ws/build/test_results/uuv_descriptions
 
 clean_test_results_uuv_descriptions: uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions
 clean_test_results_uuv_descriptions: uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/build.make
@@ -67,10 +67,10 @@ uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descript
 .PHONY : uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/build
 
 uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_uuv_descriptions.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_uuv_descriptions.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/clean
 
 uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_descriptions /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_descriptions /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_descriptions/CMakeFiles/clean_test_results_uuv_descriptions.dir/depend
 

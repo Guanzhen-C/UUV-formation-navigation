@@ -1,22 +1,22 @@
 
 "use strict";
 
-let SetCurrentVelocity = require('./SetCurrentVelocity.js')
+let TransformToSphericalCoord = require('./TransformToSphericalCoord.js')
+let GetCurrentModel = require('./GetCurrentModel.js')
+let SetCurrentDirection = require('./SetCurrentDirection.js')
 let TransformFromSphericalCoord = require('./TransformFromSphericalCoord.js')
+let SetCurrentVelocity = require('./SetCurrentVelocity.js')
 let GetOriginSphericalCoord = require('./GetOriginSphericalCoord.js')
 let SetOriginSphericalCoord = require('./SetOriginSphericalCoord.js')
-let TransformToSphericalCoord = require('./TransformToSphericalCoord.js')
 let SetCurrentModel = require('./SetCurrentModel.js')
-let SetCurrentDirection = require('./SetCurrentDirection.js')
-let GetCurrentModel = require('./GetCurrentModel.js')
 
 module.exports = {
-  SetCurrentVelocity: SetCurrentVelocity,
+  TransformToSphericalCoord: TransformToSphericalCoord,
+  GetCurrentModel: GetCurrentModel,
+  SetCurrentDirection: SetCurrentDirection,
   TransformFromSphericalCoord: TransformFromSphericalCoord,
+  SetCurrentVelocity: SetCurrentVelocity,
   GetOriginSphericalCoord: GetOriginSphericalCoord,
   SetOriginSphericalCoord: SetOriginSphericalCoord,
-  TransformToSphericalCoord: TransformToSphericalCoord,
   SetCurrentModel: SetCurrentModel,
-  SetCurrentDirection: SetCurrentDirection,
-  GetCurrentModel: GetCurrentModel,
 };

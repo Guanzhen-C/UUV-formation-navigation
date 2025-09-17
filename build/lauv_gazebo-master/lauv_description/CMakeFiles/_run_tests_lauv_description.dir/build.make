@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for _run_tests_lauv_description.
 
@@ -63,10 +63,10 @@ lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/b
 .PHONY : lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/build
 
 lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/clean:
-	cd /home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_lauv_description.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_lauv_description.dir/cmake_clean.cmake
 .PHONY : lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/clean
 
 lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description /home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description /home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lauv_gazebo-master/lauv_description/CMakeFiles/_run_tests_lauv_description.dir/depend
 

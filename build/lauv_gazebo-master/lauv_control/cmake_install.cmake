@@ -1,8 +1,8 @@
-# Install script for directory: /home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_control
+# Install script for directory: /home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,24 +38,24 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_control/cmake" TYPE FILE FILES
-    "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_controlConfig.cmake"
-    "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_controlConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_controlConfig.cmake"
+    "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_control/catkin_generated/installspace/lauv_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_control" TYPE FILE FILES "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_control" TYPE FILE FILES "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_control" TYPE DIRECTORY FILES
-    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_control/launch"
-    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_control/rviz"
+    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_control/launch"
+    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_control/rviz"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.so"
   "CMakeFiles/uuv_cpc_ros_sensor.dir/src/CPCSensor.cc.o"
 )
 

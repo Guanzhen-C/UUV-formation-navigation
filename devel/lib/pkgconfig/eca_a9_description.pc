@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/devel
+prefix=/home/cgz/catkin_ws/devel
 
 Name: eca_a9_description
 Description: Description of eca_a9_description

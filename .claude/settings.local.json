@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rospack list:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

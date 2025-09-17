@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/install
+prefix=/home/cgz/catkin_ws/install
 
 Name: uuv_world_ros_plugins_msgs
 Description: Description of uuv_world_ros_plugins_msgs

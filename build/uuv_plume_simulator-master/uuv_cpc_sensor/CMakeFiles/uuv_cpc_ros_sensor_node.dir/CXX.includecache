@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/qsk/catkin_ws/devel/include/uuv_plume_msgs/ParticleConcentration.h
+/home/cgz/catkin_ws/devel/include/uuv_plume_msgs/ParticleConcentration.h
 string
 -
 vector
@@ -28,7 +28,7 @@ geometry_msgs/Vector3.h
 geographic_msgs/GeoPoint.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_plume_msgs/Salinity.h
+/home/cgz/catkin_ws/devel/include/uuv_plume_msgs/Salinity.h
 string
 -
 vector
@@ -50,7 +50,7 @@ geometry_msgs/Vector3.h
 geographic_msgs/GeoPoint.h
 -
 
-/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include/uuv_cpc_sensor/CPCSensor.hh
+/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include/uuv_cpc_sensor/CPCSensor.hh
 ros/ros.h
 -
 boost/bind.hpp
@@ -88,7 +88,7 @@ chrono
 random
 -
 
-/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensorNode.cc
+/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensorNode.cc
 ros/ros.h
 -
 uuv_cpc_sensor/CPCSensor.hh

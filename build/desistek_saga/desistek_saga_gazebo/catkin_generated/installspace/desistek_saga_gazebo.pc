@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/install
+prefix=/home/cgz/catkin_ws/install
 
 Name: desistek_saga_gazebo
 Description: Description of desistek_saga_gazebo

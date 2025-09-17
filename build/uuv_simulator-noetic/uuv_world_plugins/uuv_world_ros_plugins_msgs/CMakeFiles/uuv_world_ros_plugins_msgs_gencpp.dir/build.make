@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for uuv_world_ros_plugins_msgs_gencpp.
 
@@ -63,10 +63,10 @@ uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv
 .PHONY : uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/build
 
 uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/clean
 
 uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins_msgs/CMakeFiles/uuv_world_ros_plugins_msgs_gencpp.dir/depend
 

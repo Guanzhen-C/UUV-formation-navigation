@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/liblinear_battery_ros_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/liblinear_battery_ros_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/liblinear_battery_ros_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/liblinear_battery_ros_plugin.so"
   "CMakeFiles/linear_battery_ros_plugin.dir/src/LinearBatteryROSPlugin.cc.o"
 )
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_underwater_current_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_underwater_current_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_underwater_current_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_underwater_current_plugin.so"
   "CMakeFiles/uuv_underwater_current_plugin.dir/src/GaussMarkovProcess.cc.o"
   "CMakeFiles/uuv_underwater_current_plugin.dir/src/UnderwaterCurrentPlugin.cc.o"
 )

@@ -1,8 +1,8 @@
-# Install script for directory: /home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,50 +38,50 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/safe_execute_install.cmake")
+  include("/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulator.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulator.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_simulator/cmake" TYPE FILE FILES
-    "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulatorConfig.cmake"
-    "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulatorConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulatorConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/uuv_plume_simulatorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_simulator" TYPE FILE FILES "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_simulator" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/plume_server")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/plume_server")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/set_turbulent_plume")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/set_turbulent_plume")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/load_plume_particles")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/load_plume_particles")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/current_velocity_server")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_simulator/catkin_generated/installspace/current_velocity_server")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_simulator" TYPE DIRECTORY FILES "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/launch" REGEX "/[^/]*\\~$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_simulator" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/launch" REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_plume_simulator" TYPE PROGRAM FILES
-    "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_turbulent_plume"
-    "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_spheroid_plume"
-    "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_current_vel"
-    "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_current_vel_gazebo"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_turbulent_plume"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_spheroid_plume"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_current_vel"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_simulator/scripts/set_demo_current_vel_gazebo"
     )
 endif()
 

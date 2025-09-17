@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libcustom_battery_consumer_ros_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libcustom_battery_consumer_ros_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/libcustom_battery_consumer_ros_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libcustom_battery_consumer_ros_plugin.so"
   "CMakeFiles/custom_battery_consumer_ros_plugin.dir/src/CustomBatteryConsumerROSPlugin.cc.o"
 )
 

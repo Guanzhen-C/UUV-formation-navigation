@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_ros_gps_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_ros_gps_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_gps_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_gps_plugin.so"
   "CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/GPSROSPlugin.cc.o"
   "CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBasePlugin.cc.o"
   "CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.o"

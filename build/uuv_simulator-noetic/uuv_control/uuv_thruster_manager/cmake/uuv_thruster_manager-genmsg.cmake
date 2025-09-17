@@ -17,24 +17,24 @@ add_custom_target(uuv_thruster_manager_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_custom_target(_uuv_thruster_manager_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" ""
 )
 
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_custom_target(_uuv_thruster_manager_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" ""
 )
 
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_custom_target(_uuv_thruster_manager_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" ""
 )
 
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_custom_target(_uuv_thruster_manager_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_thruster_manager" "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" ""
 )
 
 #
@@ -46,25 +46,25 @@ add_custom_target(_uuv_thruster_manager_generate_messages_check_deps_${_filename
 
 ### Generating Services
 _generate_srv_cpp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_cpp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_cpp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_cpp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uuv_thruster_manager
@@ -82,13 +82,13 @@ add_custom_target(uuv_thruster_manager_generate_messages_cpp
 add_dependencies(uuv_thruster_manager_generate_messages uuv_thruster_manager_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_cpp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_cpp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_cpp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_cpp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -103,25 +103,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uuv_thruster_manager_generate_messa
 
 ### Generating Services
 _generate_srv_eus(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_eus(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_eus(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_eus(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uuv_thruster_manager
@@ -139,13 +139,13 @@ add_custom_target(uuv_thruster_manager_generate_messages_eus
 add_dependencies(uuv_thruster_manager_generate_messages uuv_thruster_manager_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_eus _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_eus _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_eus _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_eus _uuv_thruster_manager_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -160,25 +160,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uuv_thruster_manager_generate_messa
 
 ### Generating Services
 _generate_srv_lisp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_lisp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_lisp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_lisp(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uuv_thruster_manager
@@ -196,13 +196,13 @@ add_custom_target(uuv_thruster_manager_generate_messages_lisp
 add_dependencies(uuv_thruster_manager_generate_messages uuv_thruster_manager_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_lisp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_lisp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_lisp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_lisp _uuv_thruster_manager_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -217,25 +217,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uuv_thruster_manager_generate_messa
 
 ### Generating Services
 _generate_srv_nodejs(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_nodejs(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_nodejs(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_nodejs(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uuv_thruster_manager
@@ -253,13 +253,13 @@ add_custom_target(uuv_thruster_manager_generate_messages_nodejs
 add_dependencies(uuv_thruster_manager_generate_messages uuv_thruster_manager_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_nodejs _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_nodejs _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_nodejs _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_nodejs _uuv_thruster_manager_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -274,25 +274,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uuv_thruster_manager_generate_messa
 
 ### Generating Services
 _generate_srv_py(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_py(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_py(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uuv_thruster_manager
 )
 _generate_srv_py(uuv_thruster_manager
-  "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+  "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uuv_thruster_manager
@@ -310,13 +310,13 @@ add_custom_target(uuv_thruster_manager_generate_messages_py
 add_dependencies(uuv_thruster_manager_generate_messages uuv_thruster_manager_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_py _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_py _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_py _uuv_thruster_manager_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
+get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv" NAME_WE)
 add_dependencies(uuv_thruster_manager_generate_messages_py _uuv_thruster_manager_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

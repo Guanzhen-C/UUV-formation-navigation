@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensorNode.cc" "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor_node.dir/src/CPCSensorNode.cc.o"
+  "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensorNode.cc" "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor_node.dir/src/CPCSensorNode.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,15 +17,15 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include"
-  "/home/qsk/catkin_ws/devel/include"
+  "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include"
+  "/home/cgz/catkin_ws/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor.dir/DependInfo.cmake"
+  "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

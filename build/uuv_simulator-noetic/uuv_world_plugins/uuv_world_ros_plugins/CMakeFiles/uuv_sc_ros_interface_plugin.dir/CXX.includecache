@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoord.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoord.h
 ros/service_traits.h
 -
 uuv_world_ros_plugins_msgs/GetOriginSphericalCoordRequest.h
@@ -14,7 +14,7 @@ uuv_world_ros_plugins_msgs/GetOriginSphericalCoordRequest.h
 uuv_world_ros_plugins_msgs/GetOriginSphericalCoordResponse.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoordRequest.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoordRequest.h
 string
 -
 vector
@@ -30,7 +30,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoordResponse.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoordResponse.h
 string
 -
 vector
@@ -46,7 +46,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoord.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoord.h
 ros/service_traits.h
 -
 uuv_world_ros_plugins_msgs/SetOriginSphericalCoordRequest.h
@@ -54,7 +54,7 @@ uuv_world_ros_plugins_msgs/SetOriginSphericalCoordRequest.h
 uuv_world_ros_plugins_msgs/SetOriginSphericalCoordResponse.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoordRequest.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoordRequest.h
 string
 -
 vector
@@ -70,7 +70,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoordResponse.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoordResponse.h
 string
 -
 vector
@@ -86,7 +86,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoord.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoord.h
 ros/service_traits.h
 -
 uuv_world_ros_plugins_msgs/TransformFromSphericalCoordRequest.h
@@ -94,7 +94,7 @@ uuv_world_ros_plugins_msgs/TransformFromSphericalCoordRequest.h
 uuv_world_ros_plugins_msgs/TransformFromSphericalCoordResponse.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoordRequest.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoordRequest.h
 string
 -
 vector
@@ -110,7 +110,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoordResponse.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoordResponse.h
 string
 -
 vector
@@ -128,7 +128,7 @@ ros/message_operations.h
 geometry_msgs/Vector3.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoord.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoord.h
 ros/service_traits.h
 -
 uuv_world_ros_plugins_msgs/TransformToSphericalCoordRequest.h
@@ -136,7 +136,7 @@ uuv_world_ros_plugins_msgs/TransformToSphericalCoordRequest.h
 uuv_world_ros_plugins_msgs/TransformToSphericalCoordResponse.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoordRequest.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoordRequest.h
 string
 -
 vector
@@ -154,7 +154,7 @@ ros/message_operations.h
 geometry_msgs/Vector3.h
 -
 
-/home/qsk/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoordResponse.h
+/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoordResponse.h
 string
 -
 vector
@@ -170,7 +170,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins/include/uuv_world_ros_plugins/SphericalCoordinatesROSInterfacePlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins/include/uuv_world_ros_plugins/SphericalCoordinatesROSInterfacePlugin.hh
 boost/scoped_ptr.hpp
 -
 gazebo/gazebo.hh
@@ -198,7 +198,7 @@ map
 string
 -
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins/src/SphericalCoordinatesROSInterfacePlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_ros_plugins/src/SphericalCoordinatesROSInterfacePlugin.cc
 uuv_world_ros_plugins/SphericalCoordinatesROSInterfacePlugin.hh
 -
 
