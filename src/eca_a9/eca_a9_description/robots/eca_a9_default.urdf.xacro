@@ -18,12 +18,15 @@
   <xacro:arg name="debug" default="0"/>
   <xacro:arg name="namespace" default="eca_a9"/>
   <xacro:arg name="inertial_reference_frame" default="world"/>
+  <!-- Mission latitude in radians for Earth Coriolis force calculation -->
+  <xacro:arg name="mission_latitude" default="0.3183"/>  <!-- 18.25 degrees North (Sanya) by default -->
   <!-- Include the UUV macro file -->
   <xacro:include filename="$(find eca_a9_description)/urdf/eca_a9_base.xacro"/>
   <!-- Create the eca_a9 -->
   <xacro:eca_a9_base 
     namespace="$(arg namespace)" 
     debug="$(arg debug)"
+    mission_latitude="$(arg mission_latitude)"
     inertial_reference_frame="$(arg inertial_reference_frame)"/>
 
   <!-- Joint state publisher plugin -->

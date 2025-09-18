@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 include uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory.dir/progress.make
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_control_msgs /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv std_msgs/Time:geometry_msgs/Point
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_control_msgs /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv geometry_msgs/Point:std_msgs/Time
 
 _uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory
 _uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_InitHelicalTrajectory.dir/build.make

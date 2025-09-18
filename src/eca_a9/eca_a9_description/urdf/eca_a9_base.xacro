@@ -40,7 +40,7 @@
   <xacro:property name="prop_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9_propeller.dae"/>
   <xacro:property name="fin_mesh_file" value="file://$(find eca_a9_description)/mesh/eca_a9_fin.dae"/>
 
-  <xacro:macro name="eca_a9_base" params="namespace debug inertial_reference_frame">
+  <xacro:macro name="eca_a9_base" params="namespace debug inertial_reference_frame mission_latitude:=0.3183">
     <link name="${namespace}/base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -77,6 +77,11 @@
           <neutrally_buoyant>0</neutrally_buoyant>
           <hydrodynamic_model>
             <type>fossen</type>
+            <!-- Enable Earth rotation Coriolis force for long-duration navigation (170 hours) -->
+            <enable_earth_coriolis>true</enable_earth_coriolis>
+            <!-- Vehicle latitude in radians (passed from launch parameters) -->
+            <!-- This should be set based on your actual mission area -->
+            <vehicle_latitude>${mission_latitude}</vehicle_latitude>
             <added_mass>
               4   0   0   0   0   0
               0   95  0   0   0   0

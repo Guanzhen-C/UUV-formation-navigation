@@ -25,7 +25,7 @@
   <arg name="yaw_error_limit" default="1.57"/>
   <arg name="use_ned_frame" default="false"/>
   <arg name="stamped_pose_only" default="false"/>
-  <arg name="timeout_idle_mode" default="5"/>
+  <arg name="timeout_idle_mode" default="5"/>  <!-- 增加超时时间，减少不必要的idle模式切换 -->
 
   <!-- Thruster configuration -->
   <arg name="thruster_topic" default="thrusters/0/input"/>

@@ -34,6 +34,8 @@
 #define UUV_DAMPING_TORQUE          "damping_torque"
 #define UUV_ADDED_CORIOLIS_FORCE    "coriolis_force"
 #define UUV_ADDED_CORIOLIS_TORQUE   "coriolis_torque"
+#define UUV_EARTH_CORIOLIS_FORCE    "earth_coriolis_force"
+#define UUV_EARTH_CORIOLIS_TORQUE   "earth_coriolis_torque"
 #define UUV_ADDED_MASS_FORCE        "added_mass_force"
 #define UUV_ADDED_MASS_TORQUE       "added_mass_torque"
 

@@ -10,7 +10,9 @@ EskfCore::EskfCore(const NoiseParams& noise_params, bool accel_includes_gravity)
     , P_(Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) * 1e-6)
     , initialized_(false)
     , has_previous_imu_(false)
-    , accel_includes_gravity_(accel_includes_gravity) {
+    , accel_includes_gravity_(accel_includes_gravity)
+    , enable_earth_rotation_(true)  // 默认关闭地球自转补偿
+    , mission_latitude_(0.3183) {    // 默认纬度18.25°N (三亚)
 }
 
 bool EskfCore::initialize(const NominalState& initial_state,
@@ -78,17 +80,8 @@ bool EskfCore::predictWithImprovedMechanization(
     corrected_previous.angular_velocity -= nominal_state_.gyro_bias;
     corrected_previous.linear_acceleration -= nominal_state_.accel_bias;
     
-    // 圆周运动检测和处理
+    // 圆周运动检测
     double omega_norm = corrected_current.angular_velocity.norm();
-    static double max_omega_seen = 0.0;
-    max_omega_seen = std::max(max_omega_seen, omega_norm);
-    
-    // 如果检测到高旋转率，限制角速度防止发散
-    if (omega_norm > 1.0) { // rad/s
-        double scale = 1.0 / omega_norm;
-        corrected_current.angular_velocity *= scale;
-        corrected_previous.angular_velocity *= scale;
-    }
     
     // 转换为积分数据格式（使用补偿后的数据）
     ImuIntegralData imu_curr_integral = ImuIntegralData::fromInstantaneous(
@@ -127,34 +120,7 @@ bool EskfCore::predictWithImprovedMechanization(
     // 强制对称性和正定性
     P_ = 0.5 * (P_ + P_.transpose());
     
-    // 限制协方差增长，防止数值发散
-    double max_variance = 100.0;  // 最大方差限制
-    
-    // 圆周运动时更严格的协方差限制
-    if (omega_norm > 0.3) {
-        max_variance = 50.0;  // 圆周运动时减小最大方差
-    }
-    
-    for (int i = 0; i < STATE_SIZE; ++i) {
-        if (P_(i, i) > max_variance) {
-            P_(i, i) = max_variance;
-        }
-        if (P_(i, i) < 1e-9) {
-            P_(i, i) = 1e-9;  // 保持最小方差
-        }
-    }
-    
-    // 特别限制姿态和速度协方差
-    for (int i = StateIndex::DV; i < StateIndex::DV + 3; ++i) {
-        if (P_(i, i) > 10.0) {
-            P_(i, i) = 10.0;  // 速度协方差上限
-        }
-    }
-    for (int i = StateIndex::DTHETA; i < StateIndex::DTHETA + 3; ++i) {
-        if (P_(i, i) > 0.1) {
-            P_(i, i) = 0.1;  // 姿态协方差上限
-        }
-    }
+    // 协方差预测完成
     
     // 6. 更新状态 (在协方差预测之后)
     nominal_state_.position = new_position;
@@ -201,13 +167,28 @@ void EskfCore::velocityUpdate(
     // 比力积分项投影到n系（使用中间时刻姿态）
     Eigen::Vector3d d_vfn = R_bn_mid * d_vfb;
     
-    // 重力/哥氏积分项（对于水下AUV，哥氏力可忽略）
+    // 重力/哥氏积分项（参考KF-GINS第71-74行）
     Eigen::Vector3d gravity_coriolis_term;
     if (accel_includes_gravity_) {
         gravity_coriolis_term.setZero();
     } else {
-        // 只考虑重力，不考虑哥氏力
-        gravity_coriolis_term = GRAVITY_ENU * dt;
+        // 重力项
+        Eigen::Vector3d gl(0, 0, GRAVITY_ENU.z());  // 重力只有垂直分量
+        
+        // 哥氏力项（如果启用地球自转补偿）
+        Eigen::Vector3d coriolis_term = Eigen::Vector3d::Zero();
+        if (enable_earth_rotation_) {
+            // 使用实时纬度计算地球自转角速度和导航系转动角速度
+            double current_latitude = state_prev.position[0]; // 实时纬度
+            Eigen::Vector3d wie_n = computeEarthRotationRate(current_latitude);
+            Eigen::Vector3d wen_n = computeNavigationFrameRate(state_prev.velocity, 
+                                                              state_prev.position);
+            
+            // 哥氏力: -2*(wie_n + wen_n) × vel (参考KF-GINS第74行)
+            coriolis_term = -(2 * wie_n + wen_n).cross(state_prev.velocity);
+        }
+        
+        gravity_coriolis_term = (gl + coriolis_term) * dt;
     }
     
     // 速度更新完成
@@ -243,12 +224,7 @@ void EskfCore::attitudeUpdate(
         temp1 = imu_integral.delta_theta;
     }
     
-    // 增加数值稳定性检查
-    double rotation_angle = temp1.norm();
-    if (rotation_angle > M_PI) {
-        // 防止大角度旋转导致的数值问题
-        temp1 = temp1 * (M_PI / rotation_angle) * 0.95; // 限制在π以内
-    }
+    // 姿态更新计算
     
     Eigen::Quaterniond qbb = rotationVectorToQuaternion(temp1);
     
@@ -298,10 +274,32 @@ Eigen::Quaterniond EskfCore::navigationFrameRotation(
     const Eigen::Vector3d& position,
     double dt) {
     
-    // 对于水下AUV短距离导航，导航系转动可以忽略
-    // 地球自转和载体运动引起的导航系转动在短时间内影响很小
-    // 直接返回单位四元数，不进行导航系转动补偿
-    return Eigen::Quaterniond::Identity();
+    // 如果未启用地球自转补偿，返回单位四元数
+    if (!enable_earth_rotation_) {
+        return Eigen::Quaterniond::Identity();
+    }
+    
+    // 计算导航系转动角速度 (参考KF-GINS第67-68行)
+    // 使用实时纬度而非固定任务区域纬度
+    double current_latitude = position[0]; // 实时纬度
+    Eigen::Vector3d wie_n = computeEarthRotationRate(current_latitude);
+    Eigen::Vector3d wen_n = computeNavigationFrameRate(velocity, position);
+    
+    // 总的导航系转动角速度
+    Eigen::Vector3d omega_nn = wie_n + wen_n;
+    
+    // 转动角增量
+    Eigen::Vector3d delta_theta_nn = omega_nn * dt;
+    
+    // 使用中间时刻角速度进行补偿 (参考KF-GINS第67行)
+    Eigen::Vector3d temp1 = delta_theta_nn / 2;
+    Eigen::Matrix3d cnn = Eigen::Matrix3d::Identity() - skewSymmetric(temp1);
+    
+    // 将旋转矩阵转换为四元数
+    Eigen::Quaterniond qnn(cnn);
+    qnn.normalize();
+    
+    return qnn;
 }
 
 Eigen::Quaterniond EskfCore::rotationVectorToQuaternion(
@@ -351,7 +349,7 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
     Eigen::Matrix3d R_base = Eigen::Matrix3d::Identity() * 
         (noise_params_.dvl_noise_std * noise_params_.dvl_noise_std);
 
-    // 5. 计算卡尔曼增益，动态门限
+    // 5. 计算卡尔曼增益
     // 基本形式：K = P * H^T * (H * P * H^T + R)^(-1)
     Eigen::MatrixXd PHt = P_ * H.transpose();
     Eigen::Matrix3d R_eff = R_base;
@@ -363,7 +361,7 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
         std::cerr << "DVL新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    // 取消马氏距离门限，始终接受DVL量测
+    // 正常更新
     
     // 正常更新
     Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
@@ -408,19 +406,9 @@ bool EskfCore::updateWithDepth(const DepthData& depth_data) {
     // 3. 观测噪声方差（圆周运动时减小噪声，增强深度约束）
     double R = noise_params_.depth_noise_std * noise_params_.depth_noise_std;
     
-    // 检测圆周运动，增强深度约束
-    static double avg_omega_for_depth = 0.0;
-    if (has_previous_imu_) {
-        double omega_norm = previous_imu_integral_.delta_theta.norm() / previous_imu_integral_.dt;
-        avg_omega_for_depth = 0.1 * omega_norm + 0.9 * avg_omega_for_depth;
-        
-        // 圆周运动时减小深度噪声，增强约束
-        if (avg_omega_for_depth > 0.3) {
-            R *= 0.5; // 减半噪声，加倍权重
-        }
-    }
+    // 使用标准观测噪声
     
-    // 4. 计算卡尔曼增益 (数值稳定) —— 取消一切门限，始终接受深度量测
+    // 4. 计算卡尔曼增益
     Eigen::MatrixXd PHt = P_ * H.transpose();
     Eigen::MatrixXd S = H * P_ * H.transpose();
     double R_eff = R;
@@ -492,7 +480,7 @@ bool EskfCore::updateWithHeading(const HeadingData& heading_data) {
         std::cerr << "航向新息协方差矩阵不可逆!" << std::endl;
         return false;
     }
-    // 无条件信任航向量测：不做马氏距离门限
+    // 正常更新
     Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
 
     // 5. 更新
@@ -583,21 +571,9 @@ void EskfCore::injectErrorState(const Eigen::VectorXd& error_state) {
     }
     nominal_state_.orientation.normalize();
     
-    // 4. 偏差误差注入（增加限制防止发散）
+    // 4. 偏差误差注入
     Eigen::Vector3d new_gyro_bias = nominal_state_.gyro_bias + error_state.segment<3>(StateIndex::DBG);
     Eigen::Vector3d new_accel_bias = nominal_state_.accel_bias + error_state.segment<3>(StateIndex::DBA);
-    
-    // 限制陀螺偏差范围（典型MEMS陀螺偏差 < 0.1 rad/s）
-    const double MAX_GYRO_BIAS = 0.1; // rad/s
-    for (int i = 0; i < 3; ++i) {
-        new_gyro_bias(i) = std::max(-MAX_GYRO_BIAS, std::min(MAX_GYRO_BIAS, new_gyro_bias(i)));
-    }
-    
-    // 限制加速度计偏差范围（典型MEMS加速度计偏差 < 1.0 m/s²）
-    const double MAX_ACCEL_BIAS = 1.0; // m/s²
-    for (int i = 0; i < 3; ++i) {
-        new_accel_bias(i) = std::max(-MAX_ACCEL_BIAS, std::min(MAX_ACCEL_BIAS, new_accel_bias(i)));
-    }
     
     nominal_state_.gyro_bias = new_gyro_bias;
     nominal_state_.accel_bias = new_accel_bias;
@@ -677,22 +653,7 @@ Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState&
     double gyro_bias_var = noise_params_.gyro_bias_std * noise_params_.gyro_bias_std;  
     double accel_bias_var = noise_params_.accel_bias_std * noise_params_.accel_bias_std;
     
-    // 动态调整偏差噪声：高旋转率时增加偏差噪声，允许更快的偏差跟踪
-    static double avg_rotation_rate = 0.0;
-    static int rotation_samples = 0;
-    if (has_previous_imu_) {
-        double omega_norm = previous_imu_integral_.delta_theta.norm() / previous_imu_integral_.dt;
-        avg_rotation_rate = (avg_rotation_rate * rotation_samples + omega_norm) / (rotation_samples + 1);
-        rotation_samples = std::min(rotation_samples + 1, 100);
-        
-        // 高旋转率时增加偏差噪声
-        if (avg_rotation_rate > 0.5) { // rad/s
-            double bias_scale = 1.0 + 2.0 * (avg_rotation_rate - 0.5);
-            bias_scale = std::min(bias_scale, 5.0);
-            gyro_bias_var *= bias_scale;
-            accel_bias_var *= bias_scale;
-        }
-    }
+    // 使用标准偏差噪声参数
     
     // 位置噪声 (由速度噪声积分得到)
     Q.block<3,3>(StateIndex::DP, StateIndex::DP) = R * Eigen::Matrix3d::Identity() * R.transpose() * accel_var * dt3 / 3.0;
@@ -712,6 +673,55 @@ Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState&
     Q.block<3,3>(StateIndex::DBA, StateIndex::DBA) = Eigen::Matrix3d::Identity() * accel_bias_var * dt;
     
     return Q;
+}
+
+Eigen::Vector3d EskfCore::computeEarthRotationRate(double latitude) {
+    // 地球自转角速度在导航系(NED)中的投影 (参考KF-GINS第50行)
+    // wie_n << WGS84_WIE * cos(latitude), 0, -WGS84_WIE * sin(latitude);
+    Eigen::Vector3d wie_n;
+    wie_n << WGS84_WIE * cos(latitude), 0, -WGS84_WIE * sin(latitude);
+    return wie_n;
+}
+
+Eigen::Vector3d EskfCore::computeNavigationFrameRate(
+    const Eigen::Vector3d& velocity, 
+    const Eigen::Vector3d& position) {
+    
+    // 计算子午圈和卯酉圈半径
+    Eigen::Vector2d rmrn = computeEarthRadii(position[0]); // position[0] 是纬度
+    
+    // 导航系相对地球系的转动角速度 (参考KF-GINS第51-52行)
+    // wen_n << vel[1] / (rmrn[1] + pos[2]), -vel[0] / (rmrn[0] + pos[2]),
+    //          -vel[1] * tan(pos[0]) / (rmrn[1] + pos[2]);
+    Eigen::Vector3d wen_n;
+    double rmh = rmrn[0] + position[2]; // 子午圈半径 + 高度
+    double rnh = rmrn[1] + position[2]; // 卯酉圈半径 + 高度
+    
+    wen_n[0] = velocity[1] / rnh;                                    // 东向速度引起的北向转动
+    wen_n[1] = -velocity[0] / rmh;                                   // 北向速度引起的东向转动
+    wen_n[2] = -velocity[1] * tan(position[0]) / rnh;                // 东向速度引起的天向转动
+    
+    return wen_n;
+}
+
+Eigen::Vector2d EskfCore::computeEarthRadii(double latitude) {
+    // 计算子午圈半径(M)和卯酉圈半径(N) (参考KF-GINS Earth::meridianPrimeVerticalRadius)
+    double sin_lat = sin(latitude);
+    double cos_lat = cos(latitude);
+    double sin2_lat = sin_lat * sin_lat;
+    
+    // 第一偏心率平方
+    double e2 = WGS84_E1;
+    double temp = 1.0 - e2 * sin2_lat;
+    double sqrt_temp = sqrt(temp);
+    
+    // 卯酉圈半径 N = a / sqrt(1 - e2 * sin²(lat))
+    double N = WGS84_RA / sqrt_temp;
+    
+    // 子午圈半径 M = a * (1 - e2) / (1 - e2 * sin²(lat))^(3/2)
+    double M = WGS84_RA * (1.0 - e2) / (temp * sqrt_temp);
+    
+    return Eigen::Vector2d(M, N);
 }
 
 } // namespace uuv_eskf_nav

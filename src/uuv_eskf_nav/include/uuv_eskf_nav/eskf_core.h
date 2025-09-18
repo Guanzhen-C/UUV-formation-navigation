@@ -5,6 +5,12 @@
 
 namespace uuv_eskf_nav {
 
+// WGS84椭球模型参数 (参考KF-GINS)
+const double WGS84_WIE = 7.2921151467E-5;       // 地球自转角速度 [rad/s]
+const double WGS84_RA  = 6378137.0000000000;    // 长半轴a [m]
+const double WGS84_RB  = 6356752.3142451793;    // 短半轴b [m]
+const double WGS84_E1  = 0.0066943799901413156; // 第一偏心率平方
+
 /**
  * @brief 改进的ESKF核心算法 - 基于KF-GINS标准机械编排
  * 
@@ -101,6 +107,21 @@ public:
      */
     void setImuToBaseRotation(const Eigen::Matrix3d& R_imu_to_base) { R_imu_to_base_ = R_imu_to_base; }
 
+    /**
+     * @brief 设置地球自转补偿开关和任务纬度
+     * @param enable_earth_rotation 是否启用地球自转补偿
+     * @param latitude_rad 任务区域纬度 [弧度]
+     */
+    void setEarthRotationParams(bool enable_earth_rotation, double latitude_rad = 0.3183) {
+        enable_earth_rotation_ = enable_earth_rotation;
+        mission_latitude_ = latitude_rad;
+    }
+
+    // 测试函数访问权限
+    Eigen::Vector3d computeEarthRotationRate(double latitude);
+    Eigen::Vector2d computeEarthRadii(double latitude);
+    Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position);
+
 private:
     /**
      * @brief 速度更新 - 基于KF-GINS velUpdate
@@ -174,6 +195,7 @@ private:
      */
     Eigen::Quaterniond rotationVectorToQuaternion(const Eigen::Vector3d& rotation_vector);
 
+
     /**
      * @brief 构建DVL观测模型的雅可比矩阵
      * @return 3x15观测矩阵
@@ -239,6 +261,10 @@ private:
     bool initialized_;
     bool accel_includes_gravity_;
     Eigen::Matrix3d R_imu_to_base_ = Eigen::Matrix3d::Identity();
+    
+    // 地球自转补偿参数
+    bool enable_earth_rotation_;
+    double mission_latitude_;  // 任务区域纬度 [弧度]
 };
 
 } // namespace uuv_eskf_nav

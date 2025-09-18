@@ -1,0 +1,21 @@
+[35m[1mScanning dependencies of target uuv_eskf_nav[0m
+[  9%] [32mBuilding CXX object CMakeFiles/uuv_eskf_nav.dir/src/eskf_core.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o[0m
+[ 27%] [32m[1mLinking CXX shared library /home/cgz/catkin_ws/devel/.private/uuv_eskf_nav/lib/libuuv_eskf_nav.so[0m
+[ 27%] Built target uuv_eskf_nav
+[35m[1mScanning dependencies of target eskf_navigation_node[0m
+[35m[1mScanning dependencies of target test_eskf[0m
+[35m[1mScanning dependencies of target test_earth_rotation[0m
+[35m[1mScanning dependencies of target test_measurement_update[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/test_earth_rotation.dir/src/test_earth_rotation.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/test_eskf.dir/src/test_eskf.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/test_measurement_update.dir/src/test_measurement_update.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/eskf_navigation_node.dir/src/eskf_navigation_node.cpp.o[0m
+[ 72%] [32m[1mLinking CXX executable /home/cgz/catkin_ws/devel/.private/uuv_eskf_nav/lib/uuv_eskf_nav/test_earth_rotation[0m
+[ 72%] Built target test_earth_rotation
+[ 81%] [32m[1mLinking CXX executable /home/cgz/catkin_ws/devel/.private/uuv_eskf_nav/lib/uuv_eskf_nav/test_eskf[0m
+[ 81%] Built target test_eskf
+[ 90%] [32m[1mLinking CXX executable /home/cgz/catkin_ws/devel/.private/uuv_eskf_nav/lib/uuv_eskf_nav/test_measurement_update[0m
+[ 90%] Built target test_measurement_update
+[100%] [32m[1mLinking CXX executable /home/cgz/catkin_ws/devel/.private/uuv_eskf_nav/lib/uuv_eskf_nav/eskf_navigation_node[0m
+[100%] Built target eskf_navigation_node

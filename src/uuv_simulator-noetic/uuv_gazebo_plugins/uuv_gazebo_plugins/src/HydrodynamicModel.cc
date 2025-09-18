@@ -304,6 +304,30 @@ HMFossen::HMFossen(sdf::ElementPtr _sdf,
   // Set the offset of the linear damping coefficients to default value
   this->offsetNonLinDamping = 0.0;
 
+  // Initialize Earth rotation Coriolis force parameters
+  this->enableEarthCoriolis = false;
+  this->vehicleLatitude = 0.0; // Default to equator
+
+  // Check if Earth Coriolis force is enabled in SDF
+  if (modelParams->HasElement("enable_earth_coriolis"))
+  {
+    this->enableEarthCoriolis = modelParams->Get<bool>("enable_earth_coriolis");
+    gzmsg << "HMFossen: Earth Coriolis force " 
+          << (this->enableEarthCoriolis ? "ENABLED" : "DISABLED") << std::endl;
+  }
+
+  // Get initial vehicle latitude for Coriolis calculation
+  if (modelParams->HasElement("vehicle_latitude"))
+  {
+    this->vehicleLatitude = modelParams->Get<double>("vehicle_latitude");
+    gzmsg << "HMFossen: Vehicle latitude set to " << this->vehicleLatitude 
+          << " radians (" << this->vehicleLatitude * 180.0 / M_PI << " degrees)" << std::endl;
+  }
+
+  // Add Earth Coriolis parameters to the parameter list
+  this->params.push_back("enable_earth_coriolis");
+  this->params.push_back("vehicle_latitude");
+
   // Adding the volume to the parameter list
   this->params.push_back("volume");
   // Add volume's scaling factor to the parameter list
@@ -411,8 +435,15 @@ void HMFossen::ApplyHydrodynamicForces(
   // Added Coriolis term
   Eigen::Vector6d cor = -this->Ca * velRel;
 
+  // Earth rotation Coriolis force (for long-duration navigation)
+  Eigen::Vector6d earthCor;
+  this->ComputeEarthCoriolisForce(velRel, pose, earthCor);
+  
+  // Update geographic position for Coriolis calculations (if needed)
+  this->UpdateGeographicPosition(pose);
+
   // All additional (compared to standard rigid body) Fossen terms combined.
-  Eigen::Vector6d tau = damping + added + cor;
+  Eigen::Vector6d tau = damping + added + cor + earthCor;
 
   GZ_ASSERT(!std::isnan(tau.norm()), "Hydrodynamic forces vector is nan");
 
@@ -442,6 +473,9 @@ void HMFossen::ApplyHydrodynamicForces(
 
     this->StoreVector(UUV_ADDED_CORIOLIS_FORCE, Vec3dToGazebo(cor.head<3>()));
     this->StoreVector(UUV_ADDED_CORIOLIS_TORQUE, Vec3dToGazebo(cor.tail<3>()));
+
+    this->StoreVector(UUV_EARTH_CORIOLIS_FORCE, Vec3dToGazebo(earthCor.head<3>()));
+    this->StoreVector(UUV_EARTH_CORIOLIS_TORQUE, Vec3dToGazebo(earthCor.tail<3>()));
   }
 }
 
@@ -1127,5 +1161,96 @@ void HMBox::Print(std::string _paramName, std::string _message)
     }
     else
       HMFossen::Print(_paramName, _message);
+}
+
+/////////////////////////////////////////////////
+void HMFossen::ComputeEarthCoriolisForce(const Eigen::Vector6d& _vel,
+                                         const ignition::math::Pose3d& _pose,
+                                         Eigen::Vector6d& _earthCoriolis) const
+{
+  _earthCoriolis.setZero();
+  
+  if (!this->enableEarthCoriolis)
+    return;
+    
+  // IMPORTANT: _vel is already in NED frame (converted by ToNED in Update() function)
+  Eigen::Vector3d nedLinVel = _vel.head<3>();  // Linear velocity [u, v, w] already in NED frame
+  Eigen::Vector3d nedAngVel = _vel.tail<3>();  // Angular velocity [p, q, r] already in NED frame
+  
+  // Earth rotation rate components in navigation frame (NED)
+  // wie_n = [WIE*cos(lat), 0, -WIE*sin(lat)]
+  double cosLat = cos(this->vehicleLatitude);
+  double sinLat = sin(this->vehicleLatitude);
+  
+  Eigen::Vector3d wie_n;
+  wie_n << WGS84_WIE * cosLat, 0.0, -WGS84_WIE * sinLat;
+  
+  // Compute Coriolis acceleration in NED frame: -2*wie_n × v_n
+  Eigen::Vector3d coriolisAccel_n = -2.0 * wie_n.cross(nedLinVel);
+  
+  // Get proper mass values instead of assuming 1 kg
+  // Extract diagonal elements of added mass matrix
+  Eigen::Vector6d addedMass = this->GetAddedMass().diagonal();
+  
+  // Estimate rigid body mass from physics (typical AUV mass ~70kg)
+  // For translation: use actual vehicle mass distributed across DOFs
+  Eigen::Vector3d rigidBodyMass;
+  rigidBodyMass << 69.7, 69.7, 69.7;  // ECA A9 mass: 69.7 kg
+  
+  // For rotation: use moment of inertia estimates (typical values for AUV)
+  Eigen::Vector3d rigidBodyInertia;
+  rigidBodyInertia << 0.6, 5.0, 5.0;  // Based on ECA A9 inertia properties
+  
+  // Total mass for each DOF
+  Eigen::Vector6d totalMass;
+  totalMass.head<3>() = rigidBodyMass + addedMass.head<3>();
+  totalMass.tail<3>() = rigidBodyInertia + addedMass.tail<3>();
+  
+  // Apply Coriolis force (F = ma) - result is already in NED frame
+  _earthCoriolis.head<3>() = coriolisAccel_n.cwiseProduct(totalMass.head<3>());
+  
+  // For angular motion, Earth rotation creates a gyroscopic effect
+  // This is much smaller than linear Coriolis force for typical AUV operations
+  // Angular Coriolis: -wie_n × L where L is angular momentum
+  Eigen::Vector3d angularMomentum = totalMass.tail<3>().cwiseProduct(nedAngVel);
+  _earthCoriolis.tail<3>() = -wie_n.cross(angularMomentum);
+}
+
+/////////////////////////////////////////////////
+void HMFossen::UpdateGeographicPosition(const ignition::math::Pose3d& _pose)
+{
+  // 实时更新纬度用于地球自转科里奥利力计算
+  // 假设仿真世界坐标系中：
+  // - X轴指向北（North）
+  // - Y轴指向东（East）  
+  // - Z轴向下（Down）
+  
+  // 获取当前世界坐标位置
+  ignition::math::Vector3d worldPos = _pose.Pos();
+  
+  // 简化的坐标转换：假设起始点为任务区域中心纬度
+  // 对于长距离导航，这里应该使用更精确的大地坐标转换
+  // 当前实现：根据北向位移估算纬度变化
+  
+  // WGS84椭球长半轴（与ESKF保持一致）
+  const double WGS84_RA = 6378137.0; // WGS84椭球长半轴 [m]
+  
+  // 根据北向位移计算纬度变化 (简化球面模型)
+  // Δlat = Δy_north / R_earth （弧度）
+  double latitude_change = worldPos.X() / WGS84_RA; // X轴为北向
+  
+  // 更新当前纬度：初始纬度 + 纬度变化
+  // 注意：这里假设vehicleLatitude初始值是任务起始纬度
+  static double initial_latitude = this->vehicleLatitude; // 保存初始纬度
+  static bool first_call = true;
+  if (first_call) {
+    initial_latitude = this->vehicleLatitude;
+    first_call = false;
+  }
+  
+  this->vehicleLatitude = initial_latitude + latitude_change;
+  
+  // 限制纬度范围在 [-π/2, π/2]
+  this->vehicleLatitude = std::max(-M_PI/2.0, std::min(M_PI/2.0, this->vehicleLatitude));
 }
 }

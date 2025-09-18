@@ -19,6 +19,10 @@
 
   <arg name="use_ned_frame" default="true"/>
 
+  <!-- Mission latitude in radians for Earth Coriolis force calculation -->
+  <!-- Default: 18.25 degrees North (0.3183 rad) Sanya - adjust for your mission area -->
+  <arg name="mission_latitude" default="0.3183" doc="Mission latitude in radians for Coriolis force calculation"/>
+
   <!-- Mode to open different robot configurations as set the in file
   nomenclature standard for the files in /robots
 
@@ -35,6 +39,7 @@
              command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_$(arg mode).urdf.xacro' --inorder
                       debug:=$(arg debug)
                       namespace:=$(arg namespace)
+                      mission_latitude:=$(arg mission_latitude)
                       inertial_reference_frame:=world_ned" />
     </group>
 
@@ -43,6 +48,7 @@
              command="$(find xacro)/xacro '$(find eca_a9_description)/robots/eca_a9_$(arg mode).urdf.xacro' --inorder
                       debug:=$(arg debug)
                       namespace:=$(arg namespace)
+                      mission_latitude:=$(arg mission_latitude)
                       inertial_reference_frame:=world" />
     </group>
 

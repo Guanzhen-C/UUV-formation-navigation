@@ -37,6 +37,18 @@ public:
         nh_.param<bool>("imu/accel_includes_gravity", imu_accel_includes_gravity, false);
         eskf_ = std::make_unique<EskfCore>(noise_params_, imu_accel_includes_gravity);
         
+        // 设置地球自转补偿参数
+        bool enable_earth_rotation = false;
+        double mission_latitude_deg = 18.25;  // 三亚纬度
+        nh_.param<bool>("algorithm_params/enable_earth_rotation", enable_earth_rotation, false);
+        nh_.param<double>("algorithm_params/mission_latitude_deg", mission_latitude_deg, 30.0);
+        
+        double mission_latitude_rad = mission_latitude_deg * M_PI / 180.0;
+        eskf_->setEarthRotationParams(enable_earth_rotation, mission_latitude_rad);
+        
+        ROS_INFO("地球自转补偿: %s, 任务纬度: %.1f°", 
+                 enable_earth_rotation ? "启用" : "关闭", mission_latitude_deg);
+        
         // 初始化传感器管理器
         sensor_manager_ = std::make_unique<SensorManager>(nh_, robot_name_);
         

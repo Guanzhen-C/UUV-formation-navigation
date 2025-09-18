@@ -12,6 +12,8 @@
   <arg name="bag_filename" default="recording.bag"/>
 
   <arg name="use_ned_frame" default="false"/>
+  <!-- Mission latitude in radians for Earth Coriolis force calculation -->
+  <arg name="mission_latitude" default="0.3183" doc="Mission latitude in radians (default: 18.25°N Sanya)"/>
 
   <arg name="joy_id" default="0"/>
 
@@ -21,6 +23,7 @@
     <arg name="y" value="$(arg y)"/>
     <arg name="z" value="$(arg z)"/>
     <arg name="yaw" value="$(arg yaw)"/>
+    <arg name="mission_latitude" value="$(arg mission_latitude)"/>
   </include>
 
   <!-- This node just reads the trajectory and waypoint topics and publishes

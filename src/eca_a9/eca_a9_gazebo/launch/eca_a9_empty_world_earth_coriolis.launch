@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Earth Coriolis force demo launch file for ECA A9 -->
+  <!-- Vehicle namespace -->
+  <arg name="namespace" default="eca_a9"/>
+  <!-- 
+    Demonstration for 170-hour long duration underwater navigation 
+    with Earth rotation Coriolis force enabled
+  -->
+  
+  <!-- Vehicle's initial position -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="-20"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+
+  <!-- Mission location (example coordinates) -->
+  <!-- North Sea: 56.0° N, 3.0° E -->
+  <!-- Mediterranean: 36.0° N, 15.0° E -->
+  <!-- Pacific: 35.0° N, 140.0° E -->
+  <arg name="mission_latitude_deg" default="56.0" doc="Mission latitude in degrees"/>
+  
+  <!-- Enable debug output -->
+  <arg name="debug" default="0"/>
+
+  <!-- Start Gazebo with empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find uuv_gazebo_worlds)/worlds/empty_underwater_world.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="false"/>
+  </include>
+
+  <!-- Load robot description with Earth Coriolis enabled -->
+  <group ns="$(arg namespace)">
+    <!-- Calculate latitude in radians for the mission area -->
+    <param name="robot_description" 
+           command="$(find xacro)/xacro $(find eca_a9_description)/urdf/eca_a9_default.xacro 
+                    --inorder
+                    namespace:=$(arg namespace)
+                    debug:=$(arg debug)
+                    mission_latitude:=$(eval 3.14159265359 * arg('mission_latitude_deg') / 180.0)"/>
+
+    <!-- Spawn the vehicle -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) 
+                -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) 
+                -model $(arg namespace) -param robot_description"/>
+
+    <!-- Load the joint controller configurations -->
+    <rosparam file="$(find eca_a9_control)/config/joint_control.yaml" command="load"/>
+    
+    <!-- Load and start the joint state controller and the thruster manager -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          respawn="false" output="screen"
+          args="joint_state_controller thruster_manager"/>
+
+    <!-- Load robot_state_publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen">
+      <remap from="/joint_states" to="joint_states"/>
+    </node>
+  </group>
+
+  <!-- Monitor Earth Coriolis forces -->
+  <node name="earth_coriolis_monitor" pkg="rostopic" type="rostopic" output="screen"
+        args="echo /$(arg namespace)/hydrodynamics/earth_coriolis_force"/>
+
+  <!-- Optional: Display information about Earth rotation effects -->
+  <node name="earth_rotation_info" pkg="rostopic" type="rostopic" output="screen"
+        args="echo -p 'Earth rotation effects enabled for mission at latitude: $(arg mission_latitude_deg) degrees'"/>
+
+</launch>

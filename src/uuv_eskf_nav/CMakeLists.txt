@@ -63,6 +63,10 @@ target_link_libraries(test_eskf ${PROJECT_NAME} ${catkin_LIBRARIES})
 add_executable(test_measurement_update src/test_measurement_update.cpp)
 target_link_libraries(test_measurement_update ${PROJECT_NAME} ${catkin_LIBRARIES})
 
+## Build Earth Rotation Compensation Test
+add_executable(test_earth_rotation src/test_earth_rotation.cpp)
+target_link_libraries(test_earth_rotation ${PROJECT_NAME} ${catkin_LIBRARIES})
+
 ## Install Python scripts
 catkin_install_python(PROGRAMS
   scripts/navigation_evaluator.py

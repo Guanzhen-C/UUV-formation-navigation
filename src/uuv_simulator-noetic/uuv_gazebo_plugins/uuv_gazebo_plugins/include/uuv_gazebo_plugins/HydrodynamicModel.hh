@@ -252,6 +252,24 @@ class HMFossen : public HydrodynamicModel
 
   /// \brief Quadratic damping coefficients
   protected: std::vector<double> quadDampCoef;
+
+  // Earth rotation Coriolis force parameters and methods
+  /// \brief Enable/disable Earth rotation Coriolis force
+  protected: bool enableEarthCoriolis;
+
+  /// \brief Vehicle's latitude in radians
+  protected: double vehicleLatitude;
+
+  /// \brief WGS84 Earth rotation rate (rad/s)
+  protected: static constexpr double WGS84_WIE = 7.2921151467E-5;
+
+  /// \brief Computes Earth rotation Coriolis force and torque
+  protected: void ComputeEarthCoriolisForce(const Eigen::Vector6d& _vel,
+                                            const ignition::math::Pose3d& _pose,
+                                            Eigen::Vector6d& _earthCoriolis) const;
+
+  /// \brief Updates vehicle's geographic position for Coriolis computation
+  protected: void UpdateGeographicPosition(const ignition::math::Pose3d& _pose);
 };
 
 //////////////////////////////////////////////////////////////////////////////
