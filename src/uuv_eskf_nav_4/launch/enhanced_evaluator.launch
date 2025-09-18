@@ -1,0 +1,67 @@
+<launch>
+    <!--
+    增强版ESKF导航评估器启动文件
+    
+    此文件专门用于启动增强版导航评估器，用于实时评估ESKF系统性能
+    
+    功能：
+    - 实时计算位置、速度、姿态误差
+    - 统计误差趋势和分布
+    - 评估导航收敛性和稳定性
+    - 发布详细的性能指标
+    
+    使用方法:
+      roslaunch uuv_eskf_nav enhanced_evaluator.launch
+      
+      # 使用自定义配置文件
+      roslaunch uuv_eskf_nav enhanced_evaluator.launch config_file:=/path/to/your/config.yaml
+      
+      # 使用自定义机器人名称
+      roslaunch uuv_eskf_nav enhanced_evaluator.launch robot_name:=your_robot_name
+    -->
+    
+    <!-- ================================ -->
+    <!-- 参数设置 -->
+    <!-- ================================ -->
+    
+    <!-- 配置文件路径 -->
+    <arg name="config_file" default="$(find uuv_eskf_nav_4)/config/eskf_params.yaml"/>
+    
+    <!-- 机器人名称 (优先级：启动参数 > 配置文件) -->
+    <arg name="robot_name" default=""/>
+    
+    <!-- ESKF滤波结果话题 -->
+    <arg name="filtered_odom_topic" default="/eskf/odometry/filtered"/>
+    
+    <!-- 地面真值话题 (如果不指定，将使用 /[robot_name]/pose_gt) -->
+    <arg name="ground_truth_topic" default=""/>
+    
+    <!-- ================================ -->
+    <!-- 增强版导航评估器 -->
+    <!-- ================================ -->
+    
+    <node pkg="uuv_eskf_nav_4" type="enhanced_navigation_evaluator.py" 
+          name="enhanced_navigation_evaluator" output="screen">
+        
+        <!-- 加载配置文件获取robot_name和其他参数 -->
+        <rosparam command="load" file="$(arg config_file)"/>
+        
+        <!-- 如果启动时指定了robot_name，则覆盖配置文件中的值 -->
+        <param name="robot_name" value="$(arg robot_name)" if="$(eval arg('robot_name') != '')"/>
+        
+        <!-- 设置话题参数 -->
+        <param name="filtered_odom_topic" value="$(arg filtered_odom_topic)"/>
+        <param name="ground_truth_topic" value="$(arg ground_truth_topic)" if="$(eval arg('ground_truth_topic') != '')"/>
+        
+    </node>
+    
+    <!-- ================================ -->
+    <!-- 信息显示 -->
+    <!-- ================================ -->
+    
+    <node name="evaluator_info" pkg="rostopic" type="rostopic" 
+          args="echo -n 1 /rosout" output="screen" launch-prefix="echo '增强版ESKF导航评估器已启动，请查看上方的性能评估信息';">
+        <remap from="/rosout" to="/dev/null"/>
+    </node>
+
+</launch>

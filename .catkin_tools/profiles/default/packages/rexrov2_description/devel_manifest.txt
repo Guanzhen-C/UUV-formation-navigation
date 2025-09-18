@@ -1,0 +1,4 @@
+rexrov2-master/rexrov2_description
+/home/cgz/catkin_ws/devel/.private/rexrov2_description/share/rexrov2_description/cmake/rexrov2_descriptionConfig.cmake /home/cgz/catkin_ws/devel/share/rexrov2_description/cmake/rexrov2_descriptionConfig.cmake
+/home/cgz/catkin_ws/devel/.private/rexrov2_description/share/rexrov2_description/cmake/rexrov2_descriptionConfig-version.cmake /home/cgz/catkin_ws/devel/share/rexrov2_description/cmake/rexrov2_descriptionConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/rexrov2_description/lib/pkgconfig/rexrov2_description.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/rexrov2_description.pc

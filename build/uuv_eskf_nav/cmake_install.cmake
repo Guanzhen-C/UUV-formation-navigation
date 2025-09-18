@@ -53,10 +53,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/navigation_evaluator.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/startup_message.py")
 endif()
 

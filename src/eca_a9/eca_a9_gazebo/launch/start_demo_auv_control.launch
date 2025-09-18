@@ -14,8 +14,8 @@
   <!-- Mission latitude in radians for Earth Coriolis force calculation -->
   <arg name="mission_latitude" default="0.3183" doc="Mission latitude in radians (default: 18.25°N Sanya)"/>
   <!-- Expose path radius controls to the included controller launch -->
-  <arg name="dubins_radius" default="10000"/>
-  <arg name="idle_radius" default="50000"/>
+  <arg name="dubins_radius" default="1000"/>
+  <arg name="idle_radius" default="1000"/>
 
   <include file="$(find eca_a9_description)/launch/upload_eca_a9.launch">
     <arg name="x" value="$(arg x)"/>

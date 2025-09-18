@@ -47,6 +47,11 @@ add_library(${PROJECT_NAME}
   src/sensor_manager.cpp
 )
 
+add_dependencies(${PROJECT_NAME} 
+  ${catkin_EXPORTED_TARGETS}
+  uuv_sensor_ros_plugins_msgs_generate_messages_cpp
+)
+
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
 )
@@ -55,21 +60,10 @@ target_link_libraries(${PROJECT_NAME}
 add_executable(eskf_navigation_node src/eskf_navigation_node.cpp)
 target_link_libraries(eskf_navigation_node ${PROJECT_NAME} ${catkin_LIBRARIES})
 
-## Build Test Node for ESKF
-add_executable(test_eskf src/test_eskf.cpp)
-target_link_libraries(test_eskf ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-## Build Test Node for Measurement Update
-add_executable(test_measurement_update src/test_measurement_update.cpp)
-target_link_libraries(test_measurement_update ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-## Build Earth Rotation Compensation Test
-add_executable(test_earth_rotation src/test_earth_rotation.cpp)
-target_link_libraries(test_earth_rotation ${PROJECT_NAME} ${catkin_LIBRARIES})
+# 测试文件已删除，如需测试功能请重新添加相应的测试文件
 
 ## Install Python scripts
 catkin_install_python(PROGRAMS
-  scripts/navigation_evaluator.py
   scripts/startup_message.py
   scripts/enhanced_navigation_evaluator.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

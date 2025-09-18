@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD='/home/cgz/catkin_ws/build'
-export ROS_PACKAGE_PATH='/home/cgz/catkin_ws/src:/opt/ros/noetic/share'

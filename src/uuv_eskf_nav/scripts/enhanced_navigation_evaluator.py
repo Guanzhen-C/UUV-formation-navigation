@@ -24,7 +24,10 @@ class EnhancedNavigationEvaluator:
         rospy.loginfo("增强版ESKF导航评估器启动")
 
         # 参数配置
-        self.robot_name = rospy.get_param('~robot_name', 'eca_a9')
+        self.robot_name = rospy.get_param('robot_name', 'eca_a9')  # 默认机器人名称
+        if not self.robot_name:
+            rospy.logwarn("robot_name参数未设置，使用默认值: 'eca_a9'")
+            self.robot_name = 'eca_a9'
         self.filtered_odom_topic = rospy.get_param('~filtered_odom_topic', '/eskf/odometry/filtered')
         self.ground_truth_topic = rospy.get_param('~ground_truth_topic', '/%s/pose_gt' % self.robot_name)
         

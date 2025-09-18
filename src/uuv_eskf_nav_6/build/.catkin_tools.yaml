@@ -1,0 +1,6 @@
+devel_space: /home/cgz/catkin_ws/src/uuv_eskf_nav/devel
+install: false
+install_space: /home/cgz/catkin_ws/src/uuv_eskf_nav/install
+profile: default
+source_space: /home/cgz/catkin_ws/src/uuv_eskf_nav/src
+workspace: /home/cgz/catkin_ws/src/uuv_eskf_nav

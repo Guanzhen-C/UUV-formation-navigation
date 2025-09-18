@@ -1,0 +1,5 @@
+uuv_simulator-noetic/uuv_descriptions
+/home/cgz/catkin_ws/devel/.private/uuv_descriptions/share/uuv_descriptions/cmake/uuv_descriptionsConfig-version.cmake /home/cgz/catkin_ws/devel/share/uuv_descriptions/cmake/uuv_descriptionsConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_descriptions/share/uuv_descriptions/cmake/uuv_descriptionsConfig.cmake /home/cgz/catkin_ws/devel/share/uuv_descriptions/cmake/uuv_descriptionsConfig.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_descriptions/lib/pkgconfig/uuv_descriptions.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/uuv_descriptions.pc
+/home/cgz/catkin_ws/devel/.private/uuv_descriptions/lib/uuv_descriptions/spawn_model /home/cgz/catkin_ws/devel/lib/uuv_descriptions/spawn_model

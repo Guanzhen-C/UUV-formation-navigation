@@ -12,8 +12,12 @@ import os
 def main():
     rospy.init_node('startup_message', anonymous=True)
     
-    # 获取参数
-    robot_name = rospy.get_param('~robot_name', 'unknown')
+    # 获取参数 - 首先尝试从私有命名空间读取，然后从全局命名空间读取
+    robot_name = rospy.get_param('~robot_name', rospy.get_param('robot_name', ''))
+    if not robot_name:
+        rospy.logfatal("必须在配置文件中定义robot_name参数!")
+        rospy.signal_shutdown("缺少robot_name参数")
+        return
     config_file = rospy.get_param('~config_file', 'unknown')
     
     # 显示启动信息

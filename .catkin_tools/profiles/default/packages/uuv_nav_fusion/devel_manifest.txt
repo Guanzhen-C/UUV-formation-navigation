@@ -1,0 +1,4 @@
+uuv_nav_fusion
+/home/cgz/catkin_ws/devel/.private/uuv_nav_fusion/share/uuv_nav_fusion/cmake/uuv_nav_fusionConfig.cmake /home/cgz/catkin_ws/devel/share/uuv_nav_fusion/cmake/uuv_nav_fusionConfig.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_nav_fusion/share/uuv_nav_fusion/cmake/uuv_nav_fusionConfig-version.cmake /home/cgz/catkin_ws/devel/share/uuv_nav_fusion/cmake/uuv_nav_fusionConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_nav_fusion/lib/pkgconfig/uuv_nav_fusion.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/uuv_nav_fusion.pc

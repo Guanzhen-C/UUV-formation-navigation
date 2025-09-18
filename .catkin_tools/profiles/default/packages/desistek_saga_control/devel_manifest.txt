@@ -1,0 +1,4 @@
+desistek_saga/desistek_saga_control
+/home/cgz/catkin_ws/devel/.private/desistek_saga_control/share/desistek_saga_control/cmake/desistek_saga_controlConfig-version.cmake /home/cgz/catkin_ws/devel/share/desistek_saga_control/cmake/desistek_saga_controlConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/desistek_saga_control/share/desistek_saga_control/cmake/desistek_saga_controlConfig.cmake /home/cgz/catkin_ws/devel/share/desistek_saga_control/cmake/desistek_saga_controlConfig.cmake
+/home/cgz/catkin_ws/devel/.private/desistek_saga_control/lib/pkgconfig/desistek_saga_control.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/desistek_saga_control.pc

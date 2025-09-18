@@ -1,0 +1,96 @@
+<launch>
+    <!--
+    ESKF水下导航系统启动文件
+    
+    基于误差状态卡尔曼滤波(Error-State Kalman Filter)的水下载具导航系统
+    
+    功能特点:
+    - 15维误差状态估计 (位置、速度、姿态、IMU偏差)
+    - 融合IMU、DVL、深度传感器数据
+    - 实时导航状态估计和协方差传播
+    - 支持任意UUV载具 (在配置文件中修改robot_name参数)
+    
+    使用方法:
+      # 使用默认配置文件 (robot_name在配置文件中定义)
+      roslaunch uuv_eskf_nav eskf_navigation.launch
+      
+      # 使用自定义配置文件 (在配置文件中修改robot_name)
+      roslaunch uuv_eskf_nav eskf_navigation.launch config_file:=/path/to/your/config.yaml
+    -->
+    
+    <!-- ================================ -->
+    <!-- 核心参数 -->
+    <!-- ================================ -->
+    
+    <!-- 配置文件路径 -->
+    <arg name="config_file" default="$(find uuv_eskf_nav_9)/config/eskf_params.yaml"/>
+    
+    <!-- 是否启用rviz可视化 -->
+    <arg name="enable_rviz" default="false"/>
+    
+    <!-- 是否启用导航评估器 -->
+    <arg name="enable_evaluator" default="true"/>
+    
+    <!-- ================================ -->
+    <!-- 坐标系参数 -->  
+    <!-- ================================ -->
+    
+    <!-- 世界坐标系名称 -->
+    <arg name="world_frame" default="odom"/>
+    
+    <!-- ================================ -->
+    <!-- ESKF导航节点 -->
+    <!-- ================================ -->
+    
+    <node pkg="uuv_eskf_nav_9" type="eskf_navigation_node_9" name="eskf_navigation_9" output="screen">
+        <!-- 加载配置文件 (所有参数从配置文件中读取) -->
+        <rosparam command="load" file="$(arg config_file)"/>
+        
+        <!-- 动态设置参数 (仅覆盖非robot_name的参数) -->
+        <param name="world_frame" value="$(arg world_frame)"/>
+        <!-- IMU线加速度是否包含重力：本环境设为false，由ESKF在传播端加g -->
+        <param name="imu/accel_includes_gravity" value="false"/>
+        
+        <!-- 重映射话题 -->
+        <remap from="/odometry/filtered" to="/eskf/odometry/filtered"/>
+        <remap from="/eskf/pose" to="/eskf/pose"/>
+    </node>
+    
+    <!-- ================================ -->
+    <!-- 可选：导航评估器 -->
+    <!-- ================================ -->
+    
+    <group if="$(arg enable_evaluator)">
+        <node pkg="uuv_eskf_nav_9" type="enhanced_navigation_evaluator.py" name="eskf_navigation_evaluator_9" output="screen">
+            <!-- 从配置文件中读取robot_name，不在这里重复定义 -->
+            <rosparam command="load" file="$(arg config_file)"/>
+            <param name="filtered_odom_topic" value="/eskf/odometry/filtered"/>
+        </node>
+    </group>
+    
+    <!-- ================================ -->
+    <!-- 可选：RViz可视化 -->
+    <!-- ================================ -->
+    
+    <group if="$(arg enable_rviz)">
+        <node name="rviz_9" pkg="rviz" type="rviz" 
+              args="-d $(find uuv_eskf_nav_9)/config/eskf_visualization.rviz"
+              output="screen" />
+    </group>
+    
+    <!-- ================================ -->
+    <!-- 信息显示 -->
+    <!-- ================================ -->
+    
+    <node name="launch_info_9" pkg="rostopic" type="rostopic" 
+          args="echo -n 1 /rosout" output="screen">
+        <remap from="/rosout" to="/dev/null"/>
+    </node>
+    
+    <!-- 在终端显示启动信息 -->
+    <node name="startup_message_9" pkg="uuv_eskf_nav_9" type="startup_message.py" output="screen">
+        <!-- 从配置文件中读取robot_name，不在这里重复定义 -->
+        <param name="config_file" value="$(arg config_file)"/>
+    </node>
+
+</launch>

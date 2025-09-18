@@ -8,25 +8,19 @@
     - 15维误差状态估计 (位置、速度、姿态、IMU偏差)
     - 融合IMU、DVL、深度传感器数据
     - 实时导航状态估计和协方差传播
-    - 支持任意UUV载具 (只需修改robot_name参数)
+    - 支持任意UUV载具 (在配置文件中修改robot_name参数)
     
     使用方法:
-      # 使用默认载具 (eca_a9)
+      # 使用默认配置文件 (robot_name在配置文件中定义)
       roslaunch uuv_eskf_nav eskf_navigation.launch
       
-      # 指定载具名称
-      roslaunch uuv_eskf_nav eskf_navigation.launch robot_name:=rexrov2
-      
-      # 使用自定义配置文件
+      # 使用自定义配置文件 (在配置文件中修改robot_name)
       roslaunch uuv_eskf_nav eskf_navigation.launch config_file:=/path/to/your/config.yaml
     -->
     
     <!-- ================================ -->
     <!-- 核心参数 -->
     <!-- ================================ -->
-    
-    <!-- 机器人名称 - 必须与仿真中的载具命名空间一致 -->
-    <arg name="robot_name" default="eca_a9"/>
     
     <!-- 配置文件路径 -->
     <arg name="config_file" default="$(find uuv_eskf_nav)/config/eskf_params.yaml"/>
@@ -44,21 +38,16 @@
     <!-- 世界坐标系名称 -->
     <arg name="world_frame" default="odom"/>
     
-    <!-- 机器人基座坐标系名称 -->
-    <arg name="base_link_frame" default="$(arg robot_name)/base_link"/>
-    
     <!-- ================================ -->
     <!-- ESKF导航节点 -->
     <!-- ================================ -->
     
     <node pkg="uuv_eskf_nav" type="eskf_navigation_node" name="eskf_navigation" output="screen">
-        <!-- 加载配置文件 -->
+        <!-- 加载配置文件 (所有参数从配置文件中读取) -->
         <rosparam command="load" file="$(arg config_file)"/>
         
-        <!-- 动态设置参数 (覆盖配置文件中的对应参数) -->
-        <param name="robot_name" value="$(arg robot_name)"/>
+        <!-- 动态设置参数 (仅覆盖非robot_name的参数) -->
         <param name="world_frame" value="$(arg world_frame)"/>
-        <param name="base_link_frame" value="$(arg base_link_frame)"/>
         <!-- IMU线加速度是否包含重力：本环境设为false，由ESKF在传播端加g -->
         <param name="imu/accel_includes_gravity" value="false"/>
         
@@ -72,10 +61,10 @@
     <!-- ================================ -->
     
     <group if="$(arg enable_evaluator)">
-        <node pkg="uuv_eskf_nav" type="navigation_evaluator.py" name="eskf_navigation_evaluator" output="screen">
-            <param name="robot_name" value="$(arg robot_name)"/>
+        <node pkg="uuv_eskf_nav" type="enhanced_navigation_evaluator.py" name="eskf_navigation_evaluator" output="screen">
+            <!-- 从配置文件中读取robot_name，不在这里重复定义 -->
+            <rosparam command="load" file="$(arg config_file)"/>
             <param name="filtered_odom_topic" value="/eskf/odometry/filtered"/>
-            <param name="ground_truth_topic" value="/$(arg robot_name)/pose_gt"/>
         </node>
     </group>
     
@@ -100,7 +89,7 @@
     
     <!-- 在终端显示启动信息 -->
     <node name="startup_message" pkg="uuv_eskf_nav" type="startup_message.py" output="screen">
-        <param name="robot_name" value="$(arg robot_name)"/>
+        <!-- 从配置文件中读取robot_name，不在这里重复定义 -->
         <param name="config_file" value="$(arg config_file)"/>
     </node>
 

@@ -212,6 +212,8 @@ uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/eskf_core.cpp.o: /usr/include/eigen
 uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/eskf_core.cpp.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/eskf_core.cpp.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
+uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o: /home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVL.h
+uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o: /home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/DVLBeam.h
 uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o: /home/cgz/catkin_ws/src/uuv_eskf_nav/include/uuv_eskf_nav/eskf_types.h
 uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o: /home/cgz/catkin_ws/src/uuv_eskf_nav/include/uuv_eskf_nav/sensor_manager.h
 uuv_eskf_nav/CMakeFiles/uuv_eskf_nav.dir/src/sensor_manager.cpp.o: /home/cgz/catkin_ws/src/uuv_eskf_nav/src/sensor_manager.cpp

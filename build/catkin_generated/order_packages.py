@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
 source_root_dir = '/home/cgz/catkin_ws/src'
-whitelisted_packages = 'uuv_eskf_nav;uuv_sensor_ros_plugins_msgs'.split(';') if 'uuv_eskf_nav;uuv_sensor_ros_plugins_msgs' != '' else []
+whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
 underlay_workspaces = '/home/cgz/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/cgz/catkin_ws/devel;/opt/ros/noetic' != '' else []

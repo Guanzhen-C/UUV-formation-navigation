@@ -1,0 +1,6 @@
+uuv_plume_simulator-master/uuv_cpc_sensor
+/home/cgz/catkin_ws/devel/.private/uuv_cpc_sensor/share/uuv_cpc_sensor/cmake/uuv_cpc_sensorConfig-version.cmake /home/cgz/catkin_ws/devel/share/uuv_cpc_sensor/cmake/uuv_cpc_sensorConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_cpc_sensor/share/uuv_cpc_sensor/cmake/uuv_cpc_sensorConfig.cmake /home/cgz/catkin_ws/devel/share/uuv_cpc_sensor/cmake/uuv_cpc_sensorConfig.cmake
+/home/cgz/catkin_ws/devel/.private/uuv_cpc_sensor/lib/libuuv_cpc_ros_sensor.so /home/cgz/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.so
+/home/cgz/catkin_ws/devel/.private/uuv_cpc_sensor/lib/pkgconfig/uuv_cpc_sensor.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/uuv_cpc_sensor.pc
+/home/cgz/catkin_ws/devel/.private/uuv_cpc_sensor/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node /home/cgz/catkin_ws/devel/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node

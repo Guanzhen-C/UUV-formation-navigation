@@ -1,0 +1,4 @@
+lauv_gazebo-master/lauv_gazebo
+/home/cgz/catkin_ws/devel/.private/lauv_gazebo/share/lauv_gazebo/cmake/lauv_gazeboConfig-version.cmake /home/cgz/catkin_ws/devel/share/lauv_gazebo/cmake/lauv_gazeboConfig-version.cmake
+/home/cgz/catkin_ws/devel/.private/lauv_gazebo/share/lauv_gazebo/cmake/lauv_gazeboConfig.cmake /home/cgz/catkin_ws/devel/share/lauv_gazebo/cmake/lauv_gazeboConfig.cmake
+/home/cgz/catkin_ws/devel/.private/lauv_gazebo/lib/pkgconfig/lauv_gazebo.pc /home/cgz/catkin_ws/devel/lib/pkgconfig/lauv_gazebo.pc
