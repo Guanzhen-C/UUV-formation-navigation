@@ -1,9 +1,9 @@
 <launch>
   <!-- Vehicle's initial position -->
-  <arg name="x" default="0"/>
+  <arg name="x" default="1000"/>
   <arg name="y" default="0"/>
   <arg name="z" default="-1000"/>
-  <arg name="yaw" default="0"/>
+  <arg name="yaw" default="1.57"/>
 
   <arg name="record" default="false"/>
   <arg name="bag_filename" default="recording.bag"/>

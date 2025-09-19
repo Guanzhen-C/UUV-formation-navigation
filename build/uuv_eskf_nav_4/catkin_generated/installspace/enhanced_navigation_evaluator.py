@@ -29,7 +29,16 @@ class EnhancedNavigationEvaluator:
         if not self.robot_name:
             rospy.logwarn("robot_name参数未设置，使用默认值: 'eca_a9'")
             self.robot_name = 'eca_a9'
-        self.filtered_odom_topic = rospy.get_param('~filtered_odom_topic', '/eskf/odometry/filtered')
+        # 解析ESKF里程计话题：优先~私有参数；其次绝对参数；最后回退到按robot命名空间
+        filtered_odom_private = rospy.get_param('~filtered_odom_topic', None)
+        if filtered_odom_private:
+            self.filtered_odom_topic = filtered_odom_private
+        else:
+            filtered_odom_abs = rospy.get_param('/eskf_navigation_evaluator_4/filtered_odom_topic', None)
+            if filtered_odom_abs:
+                self.filtered_odom_topic = filtered_odom_abs
+            else:
+                self.filtered_odom_topic = '/%s/eskf/odometry/filtered' % self.robot_name
         self.ground_truth_topic = rospy.get_param('~ground_truth_topic', '/%s/pose_gt' % self.robot_name)
         
         rospy.loginfo("评估器配置:")

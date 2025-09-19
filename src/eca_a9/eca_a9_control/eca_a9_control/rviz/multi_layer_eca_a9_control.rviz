@@ -135,6 +135,15 @@ Visualization Manager:
     - Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
+      Name: RobotModel AUV9
+      Robot Description: eca_a9_9/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
       Name: RobotModel Bottom1
       Robot Description: eca_a9_bottom1/robot_description
       TF Prefix: ""
@@ -485,6 +494,40 @@ Visualization Manager:
         Value: true
       Enabled: true
       Keep: 100
+      Name: Odometry AUV9
+      Position Tolerance: 0.100000001
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.100000001
+        Color: 255; 0; 255
+        Head Length: 0.300000012
+        Head Radius: 0.100000001
+        Shaft Length: 1
+        Shaft Radius: 0.0500000007
+        Value: Arrow
+      Topic: /eca_a9_9/pose_gt
+      Unreliable: false
+      Value: true
+    - Angle Tolerance: 0.100000001
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.300000012
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 100
       Name: Odometry Bottom1
       Position Tolerance: 0.100000001
       Queue Size: 10
@@ -731,6 +774,14 @@ Visualization Manager:
       Enabled: true
       Marker Topic: /eca_a9_8/waypoint_markers
       Name: Waypoints AUV8
+      Namespaces:
+        "": true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /eca_a9_9/waypoint_markers
+      Name: Waypoints AUV9
       Namespaces:
         "": true
       Queue Size: 100

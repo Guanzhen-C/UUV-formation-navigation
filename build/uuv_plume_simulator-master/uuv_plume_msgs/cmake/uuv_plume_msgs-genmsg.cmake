@@ -29,7 +29,7 @@ add_custom_target(_uuv_plume_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv" NAME_WE)
 add_custom_target(_uuv_plume_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_plume_msgs" "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv" "geometry_msgs/Point:geometry_msgs/Vector3"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uuv_plume_msgs" "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv" "geometry_msgs/Vector3:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreateSpheroidPlume.srv" NAME_WE)
@@ -125,7 +125,7 @@ _generate_msg_cpp(uuv_plume_msgs
 _generate_srv_cpp(uuv_plume_msgs
   "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uuv_plume_msgs
 )
 _generate_srv_cpp(uuv_plume_msgs
@@ -286,7 +286,7 @@ _generate_msg_eus(uuv_plume_msgs
 _generate_srv_eus(uuv_plume_msgs
   "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uuv_plume_msgs
 )
 _generate_srv_eus(uuv_plume_msgs
@@ -447,7 +447,7 @@ _generate_msg_lisp(uuv_plume_msgs
 _generate_srv_lisp(uuv_plume_msgs
   "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uuv_plume_msgs
 )
 _generate_srv_lisp(uuv_plume_msgs
@@ -608,7 +608,7 @@ _generate_msg_nodejs(uuv_plume_msgs
 _generate_srv_nodejs(uuv_plume_msgs
   "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uuv_plume_msgs
 )
 _generate_srv_nodejs(uuv_plume_msgs
@@ -769,7 +769,7 @@ _generate_msg_py(uuv_plume_msgs
 _generate_srv_py(uuv_plume_msgs
   "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uuv_plume_msgs
 )
 _generate_srv_py(uuv_plume_msgs

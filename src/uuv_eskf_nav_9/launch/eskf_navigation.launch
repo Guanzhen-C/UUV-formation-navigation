@@ -51,9 +51,9 @@
         <!-- IMU线加速度是否包含重力：本环境设为false，由ESKF在传播端加g -->
         <param name="imu/accel_includes_gravity" value="false"/>
         
-        <!-- 重映射话题 -->
-        <remap from="/odometry/filtered" to="/eskf/odometry/filtered"/>
-        <remap from="/eskf/pose" to="/eskf/pose"/>
+        <!-- 重映射话题：为eca_a9_9提供专属命名空间，避免多AUV串扰 -->
+        <remap from="/eskf/odometry/filtered" to="/eca_a9_9/eskf/odometry/filtered"/>
+        <remap from="/eskf/pose" to="/eca_a9_9/eskf/pose"/>
     </node>
     
     <!-- ================================ -->
@@ -64,7 +64,8 @@
         <node pkg="uuv_eskf_nav_9" type="enhanced_navigation_evaluator.py" name="eskf_navigation_evaluator_9" output="screen">
             <!-- 从配置文件中读取robot_name，不在这里重复定义 -->
             <rosparam command="load" file="$(arg config_file)"/>
-            <param name="filtered_odom_topic" value="/eskf/odometry/filtered"/>
+            <!-- 订阅eca_a9_9的ESKF输出 -->
+            <param name="filtered_odom_topic" value="/eca_a9_9/eskf/odometry/filtered"/>
         </node>
     </group>
     
