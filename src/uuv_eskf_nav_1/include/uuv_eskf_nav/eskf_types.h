@@ -3,6 +3,7 @@
 
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
+#include <string>
 
 namespace uuv_eskf_nav {
 
@@ -147,6 +148,35 @@ struct HeadingData {
     HeadingData() {
         yaw = 0.0;
         variance = 0.1 * 0.1; // 合理默认方差
+        timestamp = 0.0;
+    }
+};
+
+/**
+ * @brief 一程声学测距(OWTT)数据
+ *
+ * 说明:
+ * - 发送端在 t_tx 时刻的位姿估计与3x3位置协方差
+ * - 本端在 t_rx 时刻接收的单程距离量测以及量测方差
+ * - 可选的发送端误差状态与其位置的互协方差(15x3)，当前更新未使用
+ */
+struct OwttData {
+    std::string peer_ns;                        // 发送端命名空间（对端ID）
+    Eigen::Vector3d tx_position;                 // 发送端位置(世界系)
+    Eigen::Matrix3d tx_position_covariance;      // 发送端位置协方差(世界系)
+    Eigen::Matrix<double, STATE_SIZE, 3> tx_cross_cov_x_p; // 发送端δx与p的互协(未使用)
+
+    double range;          // 单程距离量测 [m]
+    double variance;       // 单程距离量测方差 [m^2]
+    double timestamp;      // 接收时刻时间戳 (t_rx) [s]
+
+    OwttData() {
+        peer_ns.clear();
+        tx_position.setZero();
+        tx_position_covariance.setIdentity();
+        tx_cross_cov_x_p.setZero();
+        range = 0.0;
+        variance = 1.0;
         timestamp = 0.0;
     }
 };

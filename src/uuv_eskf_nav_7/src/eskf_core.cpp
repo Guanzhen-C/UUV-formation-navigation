@@ -724,4 +724,84 @@ Eigen::Vector2d EskfCore::computeEarthRadii(double latitude) {
     return Eigen::Vector2d(M, N);
 }
 
+Eigen::MatrixXd EskfCore::buildOwttObservationMatrix(const Eigen::Vector3d& unit_vec) {
+    Eigen::MatrixXd H = Eigen::MatrixXd::Zero(1, STATE_SIZE);
+    H(0, StateIndex::DP + 0) = unit_vec.x();
+    H(0, StateIndex::DP + 1) = unit_vec.y();
+    H(0, StateIndex::DP + 2) = unit_vec.z();
+    return H;
+}
+
+bool EskfCore::updateWithOwttRange(const OwttData& owtt_data) {
+    if (!initialized_) {
+        std::cerr << "改进ESKF OWTT更新失败: 滤波器未初始化!" << std::endl;
+        return false;
+    }
+
+    const Eigen::Vector3d& p_i = nominal_state_.position;
+    Eigen::Vector3d diff = p_i - owtt_data.tx_position;
+    double r_pred = diff.norm();
+    if (r_pred < 1e-6) {
+        std::cerr << "OWTT更新失败: 预测距离过小" << std::endl;
+        return false;
+    }
+    Eigen::Vector3d u = diff / r_pred; // 从tx指向self
+
+    double innovation = owtt_data.range - r_pred;
+
+    Eigen::MatrixXd H_i = buildOwttObservationMatrix(u); // 1x15
+
+    double R_base = owtt_data.variance;
+
+    // 发送端位置不确定性投影项 u^T P_{p_j,p_j} u
+    double proj_tx = u.transpose() * owtt_data.tx_position_covariance * u;
+
+    // 局部自有项 H_i P_{ii} H_i^T
+    double Si_local = (H_i * P_ * H_i.transpose())(0,0);
+
+    // 互相关修正项：利用本地维护的 P_{x_i, p_j}
+    Eigen::Matrix<double, STATE_SIZE, 3> P_xi_pj = Eigen::Matrix<double, STATE_SIZE, 3>::Zero();
+    auto it = cross_cov_xi_p_peer_.find(owtt_data.peer_ns);
+    if (it != cross_cov_xi_p_peer_.end()) {
+        P_xi_pj = it->second;
+    }
+
+    Eigen::Matrix<double, STATE_SIZE, 1> P_aug_Ht = P_ * H_i.transpose(); // = P_{:,p_i} * u
+    P_aug_Ht -= P_xi_pj * u; // - P_{:,p_j} * u
+
+    Eigen::Matrix3d P_pi_pj = P_xi_pj.block<3,3>(StateIndex::DP, 0);
+    double proj_cross = u.transpose() * P_pi_pj * u;
+
+    double S_scalar = Si_local + proj_tx - 2.0 * proj_cross + R_base;
+    if (!(S_scalar > 0)) S_scalar = R_base > 0 ? R_base : 1.0;
+
+    Eigen::Matrix<double, STATE_SIZE, 1> K_local = P_aug_Ht / S_scalar;
+
+    Eigen::VectorXd delta_error = K_local * innovation;
+    error_state_ = delta_error;
+
+    P_ = P_ - (K_local * S_scalar) * K_local.transpose();
+    P_ = 0.5 * (P_ + P_.transpose());
+
+    injectErrorState(error_state_);
+    Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
+    Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
+    resetErrorState(G);
+
+    // 互相关更新（维护 P_{x_i,p_j}）: P_{x_i,p_j,new} = P_{x_i,p_j} - K_local * (H_i P_{x_i,p_j} - u^T P_{p_j,p_j})
+    // 推导自方法三的增广协方差更新在位置列块上的等价形式
+    // 首先计算 h_i_pj = H_i * P_{x_i,p_j}，这是 1x3 行向量
+    Eigen::RowVector3d h_i_pj = (H_i * P_xi_pj).row(0);
+    // 等价右项（1x3）: h_i_pj - u^T P_{p_j,p_j}
+    Eigen::RowVector3d rhs = h_i_pj - (u.transpose() * owtt_data.tx_position_covariance);
+    // K_local (15x1) * rhs (1x3) => (15x3)
+    Eigen::Matrix<double, STATE_SIZE, 3> delta_cross = K_local * rhs;
+    Eigen::Matrix<double, STATE_SIZE, 3> P_xi_pj_new = P_xi_pj - delta_cross;
+    // 与本地误差状态重置保持一致：P_{x_i,p_j} <- G * P_{x_i,p_j}
+    P_xi_pj_new = G * P_xi_pj_new;
+    cross_cov_xi_p_peer_[owtt_data.peer_ns] = P_xi_pj_new;
+
+    return true;
+}
+
 } // namespace uuv_eskf_nav

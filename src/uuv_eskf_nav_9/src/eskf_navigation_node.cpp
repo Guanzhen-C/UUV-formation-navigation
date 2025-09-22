@@ -7,6 +7,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <uuv_sensor_ros_plugins_msgs/AcousticRangeOWTT.h>
 
 #include <memory>
 #include <string>
@@ -70,6 +71,10 @@ public:
         std::string gt_topic = "/" + robot_name_ + "/pose_gt";
         gt_pose_sub_ = nh_.subscribe(gt_topic, 10, &EskfNavigationNode::gtPoseCallback, this);
         
+        // 订阅OWTT单程测距
+        std::string owtt_topic = "/" + robot_name_ + "/rpt/range_owtt";
+        owtt_sub_ = nh_.subscribe(owtt_topic, 10, &EskfNavigationNode::owttCallback, this);
+
         // 初始化TF广播器
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>();
         
@@ -341,6 +346,42 @@ private:
         ROS_DEBUG("深度更新完成: 深度=%.3f m", depth_data.depth);
     }
 
+    void owttCallback(const uuv_sensor_ros_plugins_msgs::AcousticRangeOWTT::ConstPtr& msg) {
+        if (!is_initialized_ || !eskf_->isInitialized()) return;
+
+        // 构造OwttData（与 nav_1 对齐）
+        OwttData owtt;
+        owtt.peer_ns = msg->from_ns;
+        owtt.range = msg->range;
+        owtt.variance = msg->variance;
+        owtt.timestamp = msg->t_rx.toSec();
+
+        // 发送端位置与协方差（行优先）
+        owtt.tx_position.x() = msg->tx_pos.pos.pos.x;
+        owtt.tx_position.y() = msg->tx_pos.pos.pos.y;
+        owtt.tx_position.z() = msg->tx_pos.pos.pos.z;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                owtt.tx_position_covariance(i, j) = msg->tx_pos.pos.covariance[i * 3 + j];
+            }
+        }
+        // 可选：拷贝15x3互协(当前更新未使用)
+        if (msg->tx_cross_cov_x_p.size() == 45) {
+            for (int r = 0; r < STATE_SIZE; ++r) {
+                for (int c = 0; c < 3; ++c) {
+                    owtt.tx_cross_cov_x_p(r, c) = msg->tx_cross_cov_x_p[r * 3 + c];
+                }
+            }
+        } else {
+            owtt.tx_cross_cov_x_p.setZero();
+        }
+
+        if (!eskf_->updateWithOwttRange(owtt)) {
+            ROS_WARN_THROTTLE(1.0, "ESKF OWTT更新失败");
+            return;
+        }
+    }
+
     void onHeadingData(const HeadingData& heading_data) {
         if (!is_initialized_ || !eskf_->isInitialized()) return;
         if (!eskf_->updateWithHeading(heading_data)) {
@@ -445,6 +486,7 @@ private:
     // ROS发布器和广播器
     ros::Publisher odom_pub_;
     ros::Publisher pose_pub_;
+    ros::Subscriber owtt_sub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     
     // 定时器

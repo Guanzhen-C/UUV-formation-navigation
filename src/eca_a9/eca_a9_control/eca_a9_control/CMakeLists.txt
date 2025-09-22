@@ -8,3 +8,9 @@ catkin_package()
 install(DIRECTORY launch
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
         PATTERN "*~" EXCLUDE)
+
+catkin_install_python(PROGRAMS
+  scripts/acoustic_router.py
+  scripts/acoustic_scheduler.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

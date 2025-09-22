@@ -2,6 +2,8 @@
 #define UUV_ESKF_NAV_ESKF_CORE_H
 
 #include "eskf_types.h"
+#include <unordered_map>
+#include <string>
 
 namespace uuv_eskf_nav {
 
@@ -86,6 +88,11 @@ public:
     bool updateWithHeading(const HeadingData& heading_data);
 
     /**
+     * @brief OWTT单程测距量测更新
+     */
+    bool updateWithOwttRange(const OwttData& owtt_data);
+
+    /**
      * @brief 获取当前误差状态协方差
      * @return 15x15协方差矩阵
      */
@@ -123,6 +130,8 @@ public:
     Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position);
 
 private:
+    // 维护本端误差状态与各对端位置的互协方差(15x3)
+    std::unordered_map<std::string, Eigen::Matrix<double, STATE_SIZE, 3>> cross_cov_xi_p_peer_;
     /**
      * @brief 速度更新 - 基于KF-GINS velUpdate
      * @param state_prev 前一时刻状态
@@ -212,6 +221,11 @@ private:
      * @brief 构建航向角观测雅可比（1x15）
      */
     Eigen::MatrixXd buildHeadingObservationMatrix();
+
+    /**
+     * @brief 构建OWTT观测雅可比（1x15），仅对位置误差敏感
+     */
+    Eigen::MatrixXd buildOwttObservationMatrix(const Eigen::Vector3d& unit_vec);
 
     /**
      * @brief 应用误差状态到主状态 (误差状态注入)

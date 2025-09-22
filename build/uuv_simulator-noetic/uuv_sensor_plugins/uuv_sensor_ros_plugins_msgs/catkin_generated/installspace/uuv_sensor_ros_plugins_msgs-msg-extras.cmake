@@ -1,2 +1,2 @@
-set(uuv_sensor_ros_plugins_msgs_MESSAGE_FILES "msg/DVL.msg;msg/DVLBeam.msg;msg/PositionWithCovariance.msg;msg/PositionWithCovarianceStamped.msg;msg/ChemicalParticleConcentration.msg;msg/Salinity.msg;msg/AcousticTxRequest.msg;msg/AcousticRangeTWTT.msg")
+set(uuv_sensor_ros_plugins_msgs_MESSAGE_FILES "msg/DVL.msg;msg/DVLBeam.msg;msg/PositionWithCovariance.msg;msg/PositionWithCovarianceStamped.msg;msg/ChemicalParticleConcentration.msg;msg/Salinity.msg;msg/AcousticTxRequest.msg;msg/AcousticRangeTWTT.msg;msg/AcousticRangeOWTT.msg;msg/Method3SenderState.msg;msg/AcousticBroadcastMethod3.msg")
 set(uuv_sensor_ros_plugins_msgs_SERVICE_FILES "srv/ChangeSensorState.srv")

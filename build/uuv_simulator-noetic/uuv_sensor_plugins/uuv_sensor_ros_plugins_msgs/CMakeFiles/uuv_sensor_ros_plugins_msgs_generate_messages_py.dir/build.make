@@ -61,6 +61,9 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Salinity.py
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py
@@ -68,23 +71,23 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/DVL"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/DVLBeam"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
 
@@ -96,8 +99,8 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/PositionWithCovarianceStamped"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
@@ -122,17 +125,44 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/AcousticRangeTWTT"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
 
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeOWTT.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/AcousticRangeOWTT"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeOWTT.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
+
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Method3SenderState.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/Method3SenderState"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Method3SenderState.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
+
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticBroadcastMethod3.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python from MSG uuv_sensor_ros_plugins_msgs/AcousticBroadcastMethod3"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticBroadcastMethod3.msg -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg
+
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python code from SRV uuv_sensor_ros_plugins_msgs/ChangeSensorState"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python code from SRV uuv_sensor_ros_plugins_msgs/ChangeSensorState"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv -Iuuv_sensor_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_sensor_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -144,8 +174,11 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Salinity.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python msg __init__.py for uuv_sensor_ros_plugins_msgs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Python msg __init__.py for uuv_sensor_ros_plugins_msgs"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg --initpy
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -157,8 +190,11 @@ uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/u
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Salinity.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python srv __init__.py for uuv_sensor_ros_plugins_msgs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Python srv __init__.py for uuv_sensor_ros_plugins_msgs"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv --initpy
 
 uuv_sensor_ros_plugins_msgs_generate_messages_py: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/CMakeFiles/uuv_sensor_ros_plugins_msgs_generate_messages_py
@@ -170,6 +206,9 @@ uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Salinity.py
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py
+uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py
+uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py
+uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/_ChangeSensorState.py
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/__init__.py
 uuv_sensor_ros_plugins_msgs_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/srv/__init__.py

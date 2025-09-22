@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/noetic/lib;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu/gazebo-11/plugins")
+set(ORDERED_PATHS "/home/cgz/catkin_ws/devel/lib;/opt/ros/noetic/lib;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu/gazebo-11/plugins")

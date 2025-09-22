@@ -1,0 +1,36 @@
+<launch>
+  <!-- Parameters -->
+  <arg name="interval" default="20.0"/>
+  <arg name="use_sim_time" default="true"/>
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+
+  <!-- Router node with private params -->
+  <node pkg="eca_a9_control" type="acoustic_router.py" name="acoustic_router" output="screen">
+    <rosparam param="tx_to_allowed_rx">
+      eca_a9_1: [eca_a9_2, eca_a9_4, eca_a9_5]
+      eca_a9_2: [eca_a9_1, eca_a9_3, eca_a9_5]
+      eca_a9_3: [eca_a9_2, eca_a9_5, eca_a9_6]
+      eca_a9_4: [eca_a9_1, eca_a9_5, eca_a9_7]
+      eca_a9_5: [eca_a9_1, eca_a9_2, eca_a9_3, eca_a9_4, eca_a9_6, eca_a9_7, eca_a9_8, eca_a9_9]
+      eca_a9_6: [eca_a9_3, eca_a9_5, eca_a9_9]
+      eca_a9_7: [eca_a9_4, eca_a9_5, eca_a9_8]
+      eca_a9_8: [eca_a9_5, eca_a9_7, eca_a9_9]
+      eca_a9_9: [eca_a9_5, eca_a9_6, eca_a9_8]
+    </rosparam>
+    <rosparam param="tx_list">
+      [eca_a9_1, eca_a9_2, eca_a9_3, eca_a9_4, eca_a9_5, eca_a9_6, eca_a9_7, eca_a9_8, eca_a9_9]
+    </rosparam>
+  </node>
+
+  <!-- Scheduler to round-robin enable each transmitter's RPT sensor -->
+  <node pkg="eca_a9_control" type="acoustic_scheduler.py" name="acoustic_scheduler" output="screen">
+    <param name="interval" value="$(arg interval)" />
+    <rosparam param="sequence">
+      [eca_a9_1, eca_a9_2, eca_a9_3, eca_a9_4, eca_a9_5, eca_a9_6, eca_a9_7, eca_a9_8, eca_a9_9]
+    </rosparam>
+  </node>
+
+</launch>
+
+
+

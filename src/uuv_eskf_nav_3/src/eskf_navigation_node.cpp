@@ -8,6 +8,10 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
+#include <uuv_sensor_ros_plugins_msgs/AcousticRangeOWTT.h>
+#include <uuv_sensor_ros_plugins_msgs/Method3SenderState.h>
+#include <uuv_sensor_ros_plugins_msgs/PositionWithCovarianceStamped.h>
+
 #include <memory>
 #include <string>
 
@@ -65,10 +69,15 @@ public:
         // 初始化发布器
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/eskf/odometry/filtered", 10);
         pose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/eskf/pose", 10);
+        method3_pub_ = nh_.advertise<uuv_sensor_ros_plugins_msgs::Method3SenderState>("/" + robot_name_ + "/rpt/method3_sender_state", 10);
         
         // 初始化地面真值订阅器 (用于动态初始化)
         std::string gt_topic = "/" + robot_name_ + "/pose_gt";
         gt_pose_sub_ = nh_.subscribe(gt_topic, 10, &EskfNavigationNode::gtPoseCallback, this);
+
+        // 订阅OWTT单程测距
+        std::string owtt_topic = "/" + robot_name_ + "/rpt/range_owtt";
+        owtt_sub_ = nh_.subscribe(owtt_topic, 10, &EskfNavigationNode::owttCallback, this);
         
         // 初始化TF广播器
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>();
@@ -273,6 +282,9 @@ private:
                              state.position.x(), state.position.y(), state.position.z(), pos_uncertainty,
                              state.velocity.x(), state.velocity.y(), state.velocity.z(), vel_uncertainty,
                              att_uncertainty);
+
+            // 定期发布Method3 发送端状态（1Hz）
+            publishMethod3SenderState(ros::Time::now().toSec());
         }
     }
     
@@ -348,6 +360,41 @@ private:
             return;
         }
     }
+
+    void owttCallback(const uuv_sensor_ros_plugins_msgs::AcousticRangeOWTT::ConstPtr& msg) {
+        if (!is_initialized_ || !eskf_->isInitialized()) return;
+
+        // 构造OwttData
+        OwttData owtt;
+        owtt.peer_ns = msg->from_ns;
+        owtt.range = msg->range;
+        owtt.variance = msg->variance;
+        owtt.timestamp = msg->t_rx.toSec();
+
+        // 发送端位置与协方差（行优先）
+        owtt.tx_position.x() = msg->tx_pos.pos.pos.x;
+        owtt.tx_position.y() = msg->tx_pos.pos.pos.y;
+        owtt.tx_position.z() = msg->tx_pos.pos.pos.z;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                owtt.tx_position_covariance(i, j) = msg->tx_pos.pos.covariance[i * 3 + j];
+            }
+        }
+        if (msg->tx_cross_cov_x_p.size() == 45) {
+            for (int r = 0; r < STATE_SIZE; ++r) {
+                for (int c = 0; c < 3; ++c) {
+                    owtt.tx_cross_cov_x_p(r, c) = msg->tx_cross_cov_x_p[r * 3 + c];
+                }
+            }
+        } else {
+            owtt.tx_cross_cov_x_p.setZero();
+        }
+
+        if (!eskf_->updateWithOwttRange(owtt)) {
+            ROS_WARN_THROTTLE(1.0, "ESKF OWTT更新失败");
+            return;
+        }
+    }
     
     void publishNavigationResult(double timestamp) {
         if (!eskf_->isInitialized()) return;
@@ -420,6 +467,35 @@ private:
             tf_broadcaster_->sendTransform(transform);
         }
     }
+
+    void publishMethod3SenderState(double timestamp) {
+        if (!eskf_ || !eskf_->isInitialized()) return;
+
+        const NominalState& state = eskf_->getNominalState();
+        const Eigen::MatrixXd& P = eskf_->getCovariance();
+
+        uuv_sensor_ros_plugins_msgs::Method3SenderState m3;
+        m3.header.stamp = ros::Time(timestamp);
+        m3.header.frame_id = world_frame_;
+        m3.ns = robot_name_;
+
+        m3.pos.header = m3.header;
+        m3.pos.pos.pos.x = state.position.x();
+        m3.pos.pos.pos.y = state.position.y();
+        m3.pos.pos.pos.z = state.position.z();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                m3.pos.pos.covariance[i * 3 + j] = P(StateIndex::DP + i, StateIndex::DP + j);
+            }
+        }
+        for (int r = 0; r < STATE_SIZE; ++r) {
+            for (int c = 0; c < 3; ++c) {
+                m3.cross_cov_x_p[r * 3 + c] = P(r, StateIndex::DP + c);
+            }
+        }
+
+        method3_pub_.publish(m3);
+    }
     
     // 私有成员变量
     ros::NodeHandle nh_;
@@ -445,6 +521,8 @@ private:
     // ROS发布器和广播器
     ros::Publisher odom_pub_;
     ros::Publisher pose_pub_;
+    ros::Publisher method3_pub_;
+    ros::Subscriber owtt_sub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     
     // 定时器

@@ -1,9 +1,12 @@
 file(REMOVE_RECURSE
+  "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticBroadcastMethod3.py"
+  "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeOWTT.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticRangeTWTT.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_AcousticTxRequest.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_ChemicalParticleConcentration.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVL.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_DVLBeam.py"
+  "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Method3SenderState.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovariance.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_PositionWithCovarianceStamped.py"
   "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs/msg/_Salinity.py"

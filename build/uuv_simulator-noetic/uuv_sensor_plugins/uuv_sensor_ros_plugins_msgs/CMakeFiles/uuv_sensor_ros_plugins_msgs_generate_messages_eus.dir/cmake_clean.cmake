@@ -1,10 +1,13 @@
 file(REMOVE_RECURSE
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/manifest.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticBroadcastMethod3.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeOWTT.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/DVL.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/Method3SenderState.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.l"
   "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs/msg/Salinity.l"

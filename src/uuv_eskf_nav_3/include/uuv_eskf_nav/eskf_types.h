@@ -152,6 +152,28 @@ struct HeadingData {
 };
 
 /**
+ * @brief 一程声学测距(OWTT)数据
+ */
+struct OwttData {
+    std::string peer_ns;
+    Eigen::Vector3d tx_position;
+    Eigen::Matrix3d tx_position_covariance;
+    Eigen::Matrix<double, STATE_SIZE, 3> tx_cross_cov_x_p;
+    double range;
+    double variance;
+    double timestamp;
+    OwttData() {
+        peer_ns.clear();
+        tx_position.setZero();
+        tx_position_covariance.setIdentity();
+        tx_cross_cov_x_p.setZero();
+        range = 0.0;
+        variance = 1.0;
+        timestamp = 0.0;
+    }
+};
+
+/**
  * @brief ESKF噪声参数
  */
 struct NoiseParams {

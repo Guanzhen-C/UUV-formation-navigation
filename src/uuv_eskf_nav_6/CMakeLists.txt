@@ -58,6 +58,7 @@ target_link_libraries(${PROJECT_NAME}
 ## Build Navigation Node
 add_executable(eskf_navigation_node_6 src/eskf_navigation_node.cpp)
 target_link_libraries(eskf_navigation_node_6 ${PROJECT_NAME} ${catkin_LIBRARIES})
+add_dependencies(eskf_navigation_node_6 ${catkin_EXPORTED_TARGETS} uuv_sensor_ros_plugins_msgs_generate_messages_cpp)
 
 # 测试文件已删除，如需测试功能请重新添加相应的测试文件
 

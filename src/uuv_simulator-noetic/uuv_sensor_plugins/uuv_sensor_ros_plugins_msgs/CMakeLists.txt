@@ -15,6 +15,9 @@ add_message_files(
   Salinity.msg
   AcousticTxRequest.msg
   AcousticRangeTWTT.msg
+  AcousticRangeOWTT.msg
+  Method3SenderState.msg
+  AcousticBroadcastMethod3.msg
 )
 
 add_service_files(
