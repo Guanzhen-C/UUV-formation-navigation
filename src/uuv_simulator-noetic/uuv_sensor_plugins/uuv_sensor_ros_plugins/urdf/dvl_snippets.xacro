@@ -36,6 +36,7 @@
       topic="dvl"
       noise_sigma="0"
       noise_amplitude="0"
+      relative_velocity_three_sigma="0.1"
       scale="1">
       <xacro:insert_block name="origin" />
     </xacro:dvl_plugin_macro>
@@ -70,6 +71,7 @@
       topic="dvl"
       noise_sigma="0"
       noise_amplitude="0"
+      relative_velocity_three_sigma="0.1"
       scale="1">
       <xacro:insert_block name="origin" />
     </xacro:dvl_plugin_macro>
@@ -135,7 +137,7 @@
 
   <xacro:macro name="dvl_plugin_macro"
     params="namespace suffix parent_link topic scale *origin update_rate
-    reference_frame noise_sigma noise_amplitude">
+    reference_frame noise_sigma noise_amplitude relative_velocity_three_sigma">
     <link name="${namespace}/dvl${suffix}_link">
       <inertial>
         <mass value="0.001" />  <!-- [kg] -->
@@ -186,6 +188,7 @@
         <update_rate>${update_rate}</update_rate> <!-- Update period [s] -->
         <noise_sigma>${noise_sigma}</noise_sigma> <!-- std dev of position estimates in x, y, z [m/s] -->
         <noise_amplitude>${noise_amplitude}</noise_amplitude>
+        <relative_velocity_three_sigma>${relative_velocity_three_sigma}</relative_velocity_three_sigma>
         <enable_gazebo_messages>false</enable_gazebo_messages>
         <enable_local_ned_frame>false</enable_local_ned_frame>
         <static_reference_frame>${reference_frame}</static_reference_frame>

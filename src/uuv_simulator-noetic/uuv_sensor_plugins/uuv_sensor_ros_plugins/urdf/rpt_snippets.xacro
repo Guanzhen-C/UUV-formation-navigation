@@ -25,7 +25,7 @@
     </collision>
   </xacro:macro>
 
-  <xacro:macro name="default_rpt" params="namespace parent_link *origin update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0"><!-- default_target_ns empty string by default -->
+  <xacro:macro name="default_rpt" params="namespace parent_link *origin update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0 range_noise_sigma:=0.0 range_noise_sigma_ratio:=0.0 range_noise_sigma_min:=0.0 range_noise_additive:=true range_noise_clip_ratio:=0.0"><!-- default_target_ns empty string by default -->
     <xacro:rpt_plugin_macro
       namespace="${namespace}"
       suffix=""
@@ -40,13 +40,18 @@
       subscribe_enabled="${subscribe_enabled}"
       processing_enabled="${processing_enabled}"
       default_target_ns="${default_target_ns}"
-      auto_repeat_period="${auto_repeat_period}">
+      auto_repeat_period="${auto_repeat_period}"
+      range_noise_sigma="${range_noise_sigma}"
+      range_noise_sigma_ratio="${range_noise_sigma_ratio}"
+      range_noise_sigma_min="${range_noise_sigma_min}"
+      range_noise_additive="${range_noise_additive}"
+      range_noise_clip_ratio="${range_noise_clip_ratio}">
       <xacro:insert_block name="origin" />
     </xacro:rpt_plugin_macro>
   </xacro:macro>
 
   <xacro:macro name="rpt_plugin_macro"
-    params="namespace suffix parent_link topic noise_sigma noise_amplitude update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0 *origin">
+    params="namespace suffix parent_link topic noise_sigma noise_amplitude update_rate:=0.2 sound_speed:=1500.0 max_range:=12000.0 advertise_enabled:=false subscribe_enabled:=false processing_enabled:=false default_target_ns:='' auto_repeat_period:=0.0 range_noise_sigma:=0.0 range_noise_sigma_ratio:=0.0 range_noise_sigma_min:=0.0 range_noise_additive:=true range_noise_clip_ratio:=0.0 *origin">
     <link name="${namespace}/rpt${suffix}_link">
       <inertial>
         <mass value="0.001" />  <!-- [kg] -->
@@ -86,6 +91,12 @@
         <subscribe_enabled>${subscribe_enabled}</subscribe_enabled>
         <processing_enabled>${processing_enabled}</processing_enabled>
         <default_target_ns>${default_target_ns}</default_target_ns>
+        <!-- Proportional OWTT range noise (sigma and optional clipping) -->
+        <range_noise_sigma>${range_noise_sigma}</range_noise_sigma>
+        <range_noise_sigma_ratio>${range_noise_sigma_ratio}</range_noise_sigma_ratio>
+        <range_noise_sigma_min>${range_noise_sigma_min}</range_noise_sigma_min>
+        <range_noise_additive>${range_noise_additive}</range_noise_additive>
+        <range_noise_clip_ratio>${range_noise_clip_ratio}</range_noise_clip_ratio>
       </plugin>
     </gazebo>
   </xacro:macro>

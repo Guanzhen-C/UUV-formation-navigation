@@ -8,6 +8,8 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import Float64MultiArray
 import tf.transformations as tft
+import os
+import xlsxwriter
 
 class EnhancedNavigationEvaluator:
     """
@@ -78,6 +80,25 @@ class EnhancedNavigationEvaluator:
 
         # 发布器 - 发布详细的误差信息
         self.error_pub = rospy.Publisher('/eskf/navigation_errors', Float64MultiArray, queue_size=10)
+        
+        # Excel日志配置
+        self.excel_log_dir = rospy.get_param('~excel_log_dir', '/home/cgz/catkin_ws/logs/excel')
+        if not os.path.exists(self.excel_log_dir):
+            try:
+                os.makedirs(self.excel_log_dir)
+            except Exception as e:
+                rospy.logerr("创建日志目录失败: %s", str(e))
+        self.auv_log_dir = os.path.join(self.excel_log_dir, self.robot_name)
+        if not os.path.exists(self.auv_log_dir):
+            try:
+                os.makedirs(self.auv_log_dir)
+            except Exception as e:
+                rospy.logerr("创建AUV日志子目录失败: %s", str(e))
+        self.workbook = None
+        self.worksheet = None
+        self.excel_row_index = 1
+        self.current_hour_index = None
+        rospy.on_shutdown(self._close_workbook)
         
         # 定时器 - 每秒计算和显示误差
         rospy.Timer(rospy.Duration(1.0), self.evaluate_navigation)
@@ -166,6 +187,91 @@ class EnhancedNavigationEvaluator:
             angle += 2 * np.pi
         return angle
 
+    def _get_hour_index(self, sim_sec):
+        """返回当前仿真时间所在的小时索引，从0开始。"""
+        return int(sim_sec // 3600)
+
+    def _ensure_workbook(self, sim_sec):
+        """确保当前仿真小时的工作簿已打开，若切换则新建。"""
+        hour_index = self._get_hour_index(sim_sec)
+        if self.current_hour_index is None or hour_index != self.current_hour_index:
+            self._open_new_workbook(hour_index)
+
+    def _open_new_workbook(self, hour_index):
+        """打开一个新的Excel工作簿，并写入表头。"""
+        self._close_workbook()
+        filename = '%s_simh%04d.xlsx' % (self.robot_name, hour_index)
+        filepath = os.path.join(self.auv_log_dir, filename)
+        try:
+            self.workbook = xlsxwriter.Workbook(filepath)
+            self.worksheet = self.workbook.add_worksheet('Data')
+            self.excel_row_index = 1
+            self.current_hour_index = hour_index
+
+            headers = [
+                't_sec',
+                'est_x_m', 'est_y_m', 'est_z_m',
+                'est_vx_mps', 'est_vy_mps', 'est_vz_mps',
+                'est_roll_deg', 'est_pitch_deg', 'est_yaw_deg',
+                'gt_x_m', 'gt_y_m', 'gt_z_m',
+                'gt_vx_mps', 'gt_vy_mps', 'gt_vz_mps',
+                'gt_roll_deg', 'gt_pitch_deg', 'gt_yaw_deg',
+                'pos_error_m', 'vel_error_mps', 'att_error_deg'
+            ]
+            for col_idx, header in enumerate(headers):
+                self.worksheet.write(0, col_idx, header)
+            rospy.loginfo("Excel日志开启: %s", filepath)
+        except Exception as e:
+            rospy.logerr("无法创建Excel日志文件: %s", str(e))
+            self.workbook = None
+            self.worksheet = None
+            self.current_hour_index = None
+
+    def _close_workbook(self):
+        """关闭当前Excel工作簿。"""
+        try:
+            if self.workbook is not None:
+                self.workbook.close()
+                rospy.loginfo("Excel日志已关闭")
+        except Exception as e:
+            rospy.logerr("关闭Excel日志失败: %s", str(e))
+        finally:
+            self.workbook = None
+            self.worksheet = None
+
+    def _write_row(self, sim_sec, pos_error, vel_error, att_error):
+        """写入一行数据。"""
+        if self.worksheet is None:
+            return
+
+        # 估计姿态（欧拉角，度）
+        filt_r, filt_p, filt_y = self.quaternion_to_euler(self.filtered_pose.orientation)
+        # 真实姿态（欧拉角，度）
+        gt_r, gt_p, gt_y = self.quaternion_to_euler(self.gt_pose.orientation)
+
+        data = [
+            sim_sec,
+            self.filtered_pose.position.x,
+            self.filtered_pose.position.y,
+            self.filtered_pose.position.z,
+            self.filtered_twist.linear.x,
+            self.filtered_twist.linear.y,
+            self.filtered_twist.linear.z,
+            math.degrees(filt_r), math.degrees(filt_p), math.degrees(filt_y),
+            self.gt_pose.position.x,
+            self.gt_pose.position.y,
+            self.gt_pose.position.z,
+            self.gt_twist.linear.x,
+            self.gt_twist.linear.y,
+            self.gt_twist.linear.z,
+            math.degrees(gt_r), math.degrees(gt_p), math.degrees(gt_y),
+            pos_error, vel_error, att_error
+        ]
+
+        for col_idx, value in enumerate(data):
+            self.worksheet.write(self.excel_row_index, col_idx, value)
+        self.excel_row_index += 1
+
     def evaluate_navigation(self, event):
         """主要评估函数"""
         if not (self.gt_pose and self.filtered_pose):
@@ -209,7 +315,13 @@ class EnhancedNavigationEvaluator:
                          self.avg_position_error, self.avg_velocity_error, self.avg_attitude_error]
         self.error_pub.publish(error_msg)
 
+        # 写入Excel日志（按仿真小时切换文件）
+        sim_sec = current_time.to_sec()
+        self._ensure_workbook(sim_sec)
+        self._write_row(sim_sec, pos_error, vel_error, att_error)
+
         # 实时显示
+        rospy.loginfo("AUV名称: %s", self.robot_name)
         rospy.loginfo("============================================================")
         rospy.loginfo("ESKF导航系统实时性能评估")
         rospy.loginfo("------------------------------------------------------------")

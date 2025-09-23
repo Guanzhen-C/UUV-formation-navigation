@@ -14,6 +14,8 @@
 // limitations under the License.
 
 #include <uuv_sensor_ros_plugins/DVLROSPlugin.hh>
+#include <cmath>
+#include <random>
 
 namespace gazebo
 {
@@ -21,6 +23,7 @@ namespace gazebo
 DVLROSPlugin::DVLROSPlugin() : ROSBaseModelPlugin()
 {
   this->beamTransformsInitialized = false;
+  this->relativeVelocityThreeSigma = 0.1;
 }
 
 /////////////////////////////////////////////////
@@ -115,6 +118,10 @@ void DVLROSPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     this->twistROSMsg.header.frame_id = this->link->GetName();
   }
 
+  // Read relative velocity noise level (3-sigma as fraction of speed)
+  GetSDFParam<double>(_sdf, "relative_velocity_three_sigma",
+    this->relativeVelocityThreeSigma, 0.1);
+
   double variance = this->noiseSigma * this->noiseSigma;
 
   // Set covariance
@@ -169,9 +176,28 @@ bool DVLROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   bodyVel = this->link->GetRelativeLinearVel().Ign();
 #endif
 
-  bodyVel.X() += this->GetGaussianNoise(this->noiseAmp);
-  bodyVel.Y() += this->GetGaussianNoise(this->noiseAmp);
-  bodyVel.Z() += this->GetGaussianNoise(this->noiseAmp);
+  // Add per-axis speed-proportional Gaussian noise:
+  // 3σ_i = relativeVelocityThreeSigma * |v_i| for i in {x, y, z}
+  // Use true (pre-noise) component speeds to scale noise independently
+  const ignition::math::Vector3d trueBodyVel = bodyVel;
+  const double sigmaX = (this->relativeVelocityThreeSigma / 3.0) * std::fabs(trueBodyVel.X());
+  const double sigmaY = (this->relativeVelocityThreeSigma / 3.0) * std::fabs(trueBodyVel.Y());
+  const double sigmaZ = (this->relativeVelocityThreeSigma / 3.0) * std::fabs(trueBodyVel.Z());
+  if (sigmaX > 0.0)
+  {
+    std::normal_distribution<double> distX(0.0, sigmaX);
+    bodyVel.X() += distX(this->rndGen);
+  }
+  if (sigmaY > 0.0)
+  {
+    std::normal_distribution<double> distY(0.0, sigmaY);
+    bodyVel.Y() += distY(this->rndGen);
+  }
+  if (sigmaZ > 0.0)
+  {
+    std::normal_distribution<double> distZ(0.0, sigmaZ);
+    bodyVel.Z() += distZ(this->rndGen);
+  }
 
   if (this->enableLocalNEDFrame)
     bodyVel = this->localNEDFrame.Rot().RotateVector(bodyVel);
@@ -179,12 +205,19 @@ bool DVLROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   if (this->gazeboMsgEnabled)
   {
     sensor_msgs::msgs::Dvl dvlGazeboMsg;
-    double variance = this->noiseSigma * this->noiseSigma;
+    // Dynamic variance per axis based on true component speeds
+    const double varX = sigmaX * sigmaX;
+    const double varY = sigmaY * sigmaY;
+    const double varZ = sigmaZ * sigmaZ;
 
     for (int i = 0; i < 9; i++)
     {
-      if (i == 0 || i == 4 || i == 8)
-        dvlGazeboMsg.add_linear_velocity_covariance(variance);
+      if (i == 0)
+        dvlGazeboMsg.add_linear_velocity_covariance(varX);
+      else if (i == 4)
+        dvlGazeboMsg.add_linear_velocity_covariance(varY);
+      else if (i == 8)
+        dvlGazeboMsg.add_linear_velocity_covariance(varZ);
       else
         dvlGazeboMsg.add_linear_velocity_covariance(0.0);
     }
@@ -209,6 +242,18 @@ bool DVLROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   this->dvlROSMsg.velocity.x = bodyVel.X();
   this->dvlROSMsg.velocity.y = bodyVel.Y();
   this->dvlROSMsg.velocity.z = bodyVel.Z();
+
+  // Update velocity covariance dynamically (per-axis, diagonal only)
+  {
+    const double varX = sigmaX * sigmaX;
+    const double varY = sigmaY * sigmaY;
+    const double varZ = sigmaZ * sigmaZ;
+    for (int i = 0; i < 9; i++)
+      this->dvlROSMsg.velocity_covariance[i] = 0.0;
+    this->dvlROSMsg.velocity_covariance[0] = varX;
+    this->dvlROSMsg.velocity_covariance[4] = varY;
+    this->dvlROSMsg.velocity_covariance[8] = varZ;
+  }
   this->rosSensorOutputPub.publish(this->dvlROSMsg);
 
   this->twistROSMsg.header.stamp = this->dvlROSMsg.header.stamp;
@@ -216,6 +261,21 @@ bool DVLROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   this->twistROSMsg.twist.twist.linear.x = bodyVel.X();
   this->twistROSMsg.twist.twist.linear.y = bodyVel.Y();
   this->twistROSMsg.twist.twist.linear.z = bodyVel.Z();
+
+  // Update twist covariance dynamically for linear components (per-axis); keep angular as unavailable (-1)
+  {
+    const double varX = sigmaX * sigmaX;
+    const double varY = sigmaY * sigmaY;
+    const double varZ = sigmaZ * sigmaZ;
+    for (int i = 0; i < 36; i++)
+      this->twistROSMsg.twist.covariance[i] = 0.0;
+    this->twistROSMsg.twist.covariance[0] = varX;
+    this->twistROSMsg.twist.covariance[7] = varY;
+    this->twistROSMsg.twist.covariance[14] = varZ;
+    this->twistROSMsg.twist.covariance[21] = -1;  // not available
+    this->twistROSMsg.twist.covariance[28] = -1;  // not available
+    this->twistROSMsg.twist.covariance[35] = -1;  // not available
+  }
 
   this->twistPub.publish(this->twistROSMsg);
 

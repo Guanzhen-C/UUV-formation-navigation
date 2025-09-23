@@ -19,6 +19,12 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>uuv_sensor_ros_plugins_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+
   <exec_depend>uuv_teleop</exec_depend>
   <exec_depend>uuv_trajectory_control</exec_depend>
 </package>

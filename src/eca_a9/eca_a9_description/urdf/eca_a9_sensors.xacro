@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 2016 The UUV Simulator Authors.
      All rights reserved.
 
@@ -31,7 +31,8 @@
       noise_sigma="0"
       noise_amplitude="0"
       update_rate="20"
-      reference_frame="world">
+      reference_frame="world"
+      relative_velocity_three_sigma="0.1">
       <origin xyz="0.4785 0.0 -0.0825" rpy="0 ${0.5*pi} 0" />
     </xacro:dvl_plugin_macro>
 
@@ -43,6 +44,7 @@
       topic="${namespace}/dvl/state"/>
 
     <!-- Side scan sonar left -->
+    <xacro:if value="${0}">
     <xacro:sidescan_sonar namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
       <origin xyz="0.41225 0.1498 -0.04615" rpy="${0.5*pi} ${-5*d2r+pi/3.0} ${0.5*pi}" />
     </xacro:sidescan_sonar>
@@ -53,8 +55,10 @@
       battery_name="${namespace}/battery"
       power_load="25"
       topic="${namespace}/sonarleft/state"/>
+    </xacro:if>
 
     <!-- Side scan sonar right -->
+    <xacro:if value="${0}">
     <xacro:sidescan_sonar
       namespace="${namespace}" parent_link="${namespace}/base_link" suffix="right">
       <origin xyz="0.41225 -0.1498 -0.04615" rpy="${0.5*pi} ${-5*d2r+pi/3.0} ${-0.5*pi}" />
@@ -66,23 +70,35 @@
       battery_name="${namespace}/battery"
       power_load="25"
       topic="${namespace}/sonarright/state"/>
+    </xacro:if>
 
     <!-- RPT: enable OWTT for all vehicles; subscribe to per-vehicle router -->
     <xacro:default_rpt
       namespace="${namespace}"
       parent_link="${namespace}/base_link"
       sound_speed="1500.0"
-      max_range="12000.0"
+      max_range="120000.0"
       advertise_enabled="true"
       subscribe_enabled="true"
       processing_enabled="true"
       default_target_ns="router_${namespace}"
-      auto_repeat_period="${rpt_auto_repeat_period}">
+      auto_repeat_period="${rpt_auto_repeat_period}"
+      range_noise_sigma_ratio="0.001"
+      range_noise_sigma_min="0.0"
+      range_noise_additive="true"
+      range_noise_clip_ratio="0.003"> <!-- clip at +/- 0.3% of true range -->
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:default_rpt>
 
-    <!-- Pressure -->
-    <xacro:default_pressure namespace="${namespace}" parent_link="${namespace}/base_link">
+    <!-- Pressure: configure for +/- 1 m depth accuracy (3 sigma) -->
+    <!-- With kPaPerM=9.80638 kPa/m, 1 m depth corresponds to 9.80638 kPa change.
+         Set noise_sigma so that 3 sigma ~= 9.80638 kPa => sigma ~= 3.268793 kPa.
+         Use zero-mean white noise: noise_amplitude=1.0 scales the Gaussian draw. -->
+    <xacro:default_pressure
+      namespace="${namespace}"
+      parent_link="${namespace}/base_link"
+      noise_sigma="3.268793"
+      noise_amplitude="1.0">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:default_pressure>
 
@@ -93,7 +109,7 @@
       power_load="5"
       topic="${namespace}/pressure/state"/>
 
-    <!-- IMU (陀螺常值零偏严格0.001°/h高精度惯导) -->
+    <!-- IMU (high-precision INS, gyro bias 0.001 deg/h) -->
     <xacro:imu_plugin_macro
       namespace="${namespace}"
       imu_suffix=""
@@ -124,6 +140,7 @@
       topic="${namespace}/imu/state"/>
 
     <!-- Mount a camera -->
+    <xacro:if value="${0}">
     <xacro:regular_camera_plugin_macro
         namespace="${namespace}"
         suffix=""
@@ -146,8 +163,10 @@
       battery_name="${namespace}/battery"
       power_load="25"
       topic=""/>
+    </xacro:if>
 
     <!-- Mount a GPS. -->
+    <xacro:if value="${0}">
     <xacro:default_gps namespace="${namespace}" parent_link="${namespace}/base_link" />
 
     <xacro:switchable_battery_consumer_macro
@@ -156,11 +175,14 @@
       battery_name="${namespace}/battery"
       power_load="5"
       topic=""/>
+    </xacro:if>
 
     <!-- Mount the chemical concentration sensor -->
+    <xacro:if value="${0}">
     <xacro:default_chemical_concentration_sensor namespace="${namespace}" parent_link="${namespace}/base_link">
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:default_chemical_concentration_sensor>
+    </xacro:if>
 
     <!-- Acoustic modem (removed) -->
 </robot>

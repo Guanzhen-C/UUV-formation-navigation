@@ -1034,6 +1034,8 @@ class DPControllerLocalPlanner(object):
         `uuv_waypoints.WaypointSet`: Set of waypoints for idle mode
         """
         pose = deepcopy(self._vehicle_pose)
+        # Force the number of points and number of turns as requested
+        n_points = 5100
         if self._idle_circle_center is None:
             # MODIFICATION: Force the center of the idle circle to be (0, 0) 
             # in the x-y plane, instead of calculating it dynamically based
@@ -1042,8 +1044,9 @@ class DPControllerLocalPlanner(object):
             self._idle_circle_center = np.array([0.0, 0.0, pose.pos[2]])
             self._idle_z = pose.pos[2]
 
-        phi = lambda u: 2 * np.pi * u + pose.rot[2] - np.pi / 2
-        u = lambda angle: (angle - pose.rot[2] + np.pi / 2) / (2 * np.pi)
+        phi = lambda u: 2 * np.pi * u * 17  + pose.rot[2] - np.pi / 2
+        # Keep the starting point aligned with the current bearing when using 17 turns
+        u = lambda angle: (angle - pose.rot[2] + np.pi / 2) / (2 * np.pi * 17)
 
         vec = pose.pos - self._idle_circle_center
         vec /= np.linalg.norm(vec)
@@ -1057,7 +1060,7 @@ class DPControllerLocalPlanner(object):
                 x=self._idle_circle_center[0] + radius * np.cos(phi(i)),
                 y=self._idle_circle_center[1] + radius * np.sin(phi(i)),
                 z=self._idle_z,
-                max_forward_speed=0.8 * self._max_forward_speed,
+                max_forward_speed= self._max_forward_speed,
                 inertial_frame_id=self.inertial_frame_id)
             wp_set.add_waypoint(wp)
         return wp_set

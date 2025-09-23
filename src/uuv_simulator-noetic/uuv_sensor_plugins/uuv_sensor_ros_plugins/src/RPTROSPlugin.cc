@@ -54,6 +54,11 @@ void RPTROSPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   GetSDFParam<double>(_sdf, "sound_speed", this->sound_speed_, 1500.0);
   GetSDFParam<double>(_sdf, "max_range", this->max_range_, 12000.0);
   GetSDFParam<double>(_sdf, "range_noise_sigma", this->range_noise_sigma_, 0.0);
+  // Proportional noise parameters (optional)
+  GetSDFParam<double>(_sdf, "range_noise_sigma_ratio", this->range_noise_sigma_ratio_, 0.0);
+  GetSDFParam<double>(_sdf, "range_noise_sigma_min", this->range_noise_sigma_min_, 0.0);
+  GetSDFParam<bool>(_sdf, "range_noise_additive", this->range_noise_additive_, true);
+  GetSDFParam<double>(_sdf, "range_noise_clip_ratio", this->range_noise_clip_ratio_, 0.0);
   bool advertise_enabled = false, subscribe_enabled = false, processing_enabled = false;
   GetSDFParam<bool>(_sdf, "advertise_enabled", advertise_enabled, false);
   GetSDFParam<bool>(_sdf, "subscribe_enabled", subscribe_enabled, false);
@@ -190,7 +195,30 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
         alpha = std::min(std::max(alpha, 0.0), 1.0);
         double t_rx = q.prev_t + alpha * (t - q.prev_t);
         ignition::math::Vector3d p_self_trx = InterpPose(this->self_pose_buf_, t_rx);
-        double range = (p_self_trx - q.p_tx_ttx).Length();
+        double geom_range = (p_self_trx - q.p_tx_ttx).Length();
+
+        // Build measurement with optional proportional Gaussian noise
+        double sigma = this->range_noise_sigma_;
+        if (this->range_noise_sigma_ratio_ > 0.0)
+          sigma = this->range_noise_sigma_ratio_ * geom_range;
+        if (this->range_noise_sigma_min_ > 0.0)
+          sigma = std::max(sigma, this->range_noise_sigma_min_);
+
+        double measured_range = geom_range;
+        if (this->range_noise_additive_ && sigma > 0.0)
+        {
+          std::normal_distribution<double> dist(0.0, sigma);
+          measured_range += dist(this->rndGen);
+        }
+        if (this->range_noise_clip_ratio_ > 0.0)
+        {
+          double clip_abs = this->range_noise_clip_ratio_ * geom_range;
+          double min_allowed = std::max(0.0, geom_range - clip_abs);
+          double max_allowed = geom_range + clip_abs;
+          if (measured_range < min_allowed) measured_range = min_allowed;
+          if (measured_range > max_allowed) measured_range = max_allowed;
+        }
+        if (measured_range < 0.0) measured_range = 0.0;
 
         if (this->owtt_pub_)
         {
@@ -199,8 +227,8 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
           owtt.to_ns = this->robotNamespace;
           owtt.t_tx.fromSec(q.t_tx);
           owtt.t_rx.fromSec(t_rx);
-          owtt.range = range;
-          owtt.variance = this->range_noise_sigma_ * this->range_noise_sigma_;
+          owtt.range = measured_range;
+          owtt.variance = sigma * sigma;
           owtt.tx_pos = q.tx_pos;
           owtt.tx_cross_cov_x_p = q.tx_cross_cov_x_p;
           this->owtt_pub_.publish(owtt);

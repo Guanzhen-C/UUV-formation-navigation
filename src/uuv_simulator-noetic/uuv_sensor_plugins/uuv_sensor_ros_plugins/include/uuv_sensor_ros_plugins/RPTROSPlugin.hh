@@ -63,10 +63,15 @@ namespace gazebo
     protected: double last_auto_tx_sim_time_ = -1.0; // kept for backward compat, unused
 
     protected: double sound_speed_ = 1500.0;
-    protected: double max_range_ = 12000.0;
+    protected: double max_range_ = 120000.0;
     protected: std::string target_link_name_ = "base_link";
     protected: std::string default_target_ns_;
     protected: double range_noise_sigma_ = 0.0; // optional additive noise on range
+    // Proportional range noise parameters (sigma = max(min, ratio * range))
+    protected: double range_noise_sigma_ratio_ = 0.0;
+    protected: double range_noise_sigma_min_ = 0.0;
+    protected: bool range_noise_additive_ = true;
+    protected: double range_noise_clip_ratio_ = 0.0; // if > 0, clip |measured-range| <= clip_ratio * range
 
     protected: struct TimedPose { double t; ignition::math::Vector3d p; };
     protected: std::deque<TimedPose> self_pose_buf_;

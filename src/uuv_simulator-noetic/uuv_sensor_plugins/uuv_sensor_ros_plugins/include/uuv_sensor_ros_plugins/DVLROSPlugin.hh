@@ -101,6 +101,10 @@ namespace gazebo
       sensor_msgs::Range>> beamSub3;
 
     protected: tf::TransformListener transformListener;
+
+    /// \brief Relative velocity noise level as a 3-sigma fraction per axis
+    /// For example, 0.1 means 3σ_x = 10%·|v_x|, and similarly for y, z
+    protected: double relativeVelocityThreeSigma;
   };
 }
 

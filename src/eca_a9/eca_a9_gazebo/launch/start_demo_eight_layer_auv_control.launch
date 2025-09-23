@@ -47,13 +47,21 @@
   <arg name="radius_8" default="30000"/>
   <arg name="radius_9" default="31181"/>
 
+  <arg name="max_forward_speed_1" default="5"/>
+  <arg name="max_forward_speed_2" default="4.92023"/>
+  <arg name="max_forward_speed_3" default="5"/>
+  <arg name="max_forward_speed_4" default="4.12744"/>
+  <arg name="max_forward_speed_5" default="4.03040"/>
+  <arg name="max_forward_speed_6" default="4.12744"/>
+  <arg name="max_forward_speed_7" default="3.26421"/>
+  <arg name="max_forward_speed_8" default="3.14057"/>
+  <arg name="max_forward_speed_9" default="3.26421"/>
+
 
 
   <arg name="center_z" default="-2000"/>
-  <arg name="max_forward_speed" default="5"/>
   <arg name="dubins_radius" default="100000"/>
-  <arg name="n_points" default="1500000"/>
-
+  <arg name="n_points" default="40000"/>
   <arg name="record" default="false"/>
   <arg name="bag_filename" default="dual_recording.bag"/>
   <arg name="use_ned_frame" default="false"/>
@@ -95,7 +103,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 3; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x2) -y $(arg y2) -z $(arg z2) -R 0 -P 0 -Y $(arg yaw2) -model eca_a9_2 -param /eca_a9_2/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -119,7 +127,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 1; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x3) -y $(arg y3) -z $(arg z3) -R 0 -P 0 -Y $(arg yaw3) -model eca_a9_3 -param /eca_a9_3/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -143,7 +151,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 2; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x4) -y $(arg y4) -z $(arg z4) -R 0 -P 0 -Y $(arg yaw4) -model eca_a9_4 -param /eca_a9_4/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -167,7 +175,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 4; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x5) -y $(arg y5) -z $(arg z5) -R 0 -P 0 -Y $(arg yaw5) -model eca_a9_5 -param /eca_a9_5/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -191,7 +199,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 5; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x6) -y $(arg y6) -z $(arg z6) -R 0 -P 0 -Y $(arg yaw6) -model eca_a9_6 -param /eca_a9_6/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -215,7 +223,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 6; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x7) -y $(arg y7) -z $(arg z7) -R 0 -P 0 -Y $(arg yaw7) -model eca_a9_7 -param /eca_a9_7/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -239,7 +247,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 7; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x8) -y $(arg y8) -z $(arg z8) -R 0 -P 0 -Y $(arg yaw8) -model eca_a9_8 -param /eca_a9_8/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -263,7 +271,7 @@
                     inertial_reference_frame:=world" />
 
     <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"
-          launch-prefix="bash -c 'sleep 7; $0 $@' "
+          launch-prefix="bash -c 'sleep 0; $0 $@' "
           args="-urdf -x $(arg x9) -y $(arg y9) -z $(arg z9) -R 0 -P 0 -Y $(arg yaw9) -model eca_a9_9 -param /eca_a9_9/robot_description"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
@@ -286,9 +294,9 @@
     <arg name="gui_on" value="false"/>  <!-- 不启用内置RViz，避免冲突 -->
     <arg name="idle_radius" value="$(arg radius_1)"/>  <!-- 使用标准idle半径 -->
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>  <!-- 使用标准Dubins半径 -->
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_1)"/>
     <arg name="look_ahead_delay" value="0.0"/>  <!-- 零延迟获得最佳响应 -->
-    <arg name="timeout_idle_mode" value="1"/>  <!-- 5秒后进入idle模式 -->
+    <arg name="timeout_idle_mode" value="5"/>  <!-- 5秒后进入idle模式 -->
   </include>
 
   <!-- 启动第二个AUV的控制器（不启用内置RViz） -->
@@ -298,9 +306,9 @@
     <arg name="gui_on" value="false"/>  <!-- 不启用内置RViz，避免冲突 -->
     <arg name="idle_radius" value="$(arg radius_2)"/>  <!-- 使用标准idle半径 -->
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>  <!-- 使用标准Dubins半径 -->
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_2)"/>
     <arg name="look_ahead_delay" value="0.0"/>  <!-- 零延迟获得最佳响应 -->
-    <arg name="timeout_idle_mode" value="1"/>  <!-- 5秒后进入idle模式 -->
+    <arg name="timeout_idle_mode" value="5"/>  <!-- 5秒后进入idle模式 -->
   </include>
 
   <!-- 启动第三个AUV的控制器 -->
@@ -310,9 +318,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_3)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_3)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第四个AUV的控制器 -->
@@ -322,9 +330,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_4)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_4)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第五个AUV的控制器 -->
@@ -334,9 +342,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_5)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_5)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第六个AUV的控制器 -->
@@ -346,9 +354,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_6)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_6)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第七个AUV的控制器 -->
@@ -358,9 +366,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_7)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_7)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第八个AUV的控制器 -->
@@ -370,9 +378,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_8)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_8)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
   <!-- 启动第九个AUV的控制器 -->
@@ -382,9 +390,9 @@
     <arg name="gui_on" value="false"/>
     <arg name="idle_radius" value="$(arg radius_9)"/>
     <arg name="dubins_radius" value="$(arg dubins_radius)"/>
-    <arg name="max_forward_speed" value="$(arg max_forward_speed)"/>
+    <arg name="max_forward_speed" value="$(arg max_forward_speed_9)"/>
     <arg name="look_ahead_delay" value="0.0"/>
-    <arg name="timeout_idle_mode" value="1"/>
+    <arg name="timeout_idle_mode" value="5"/>
   </include>
 
 
