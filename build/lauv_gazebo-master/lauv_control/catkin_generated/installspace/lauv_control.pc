@@ -1,4 +1,4 @@
-prefix=/home/cgz/catkin_ws/install
+prefix=/home/qsk/catkin_ws/install
 
 Name: lauv_control
 Description: Description of lauv_control

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libuuv_dynamics.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libuuv_dynamics.so"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_dynamics.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_dynamics.so"
   "CMakeFiles/uuv_dynamics.dir/src/Dynamics.cc.o"
 )
 

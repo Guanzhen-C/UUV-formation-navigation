@@ -1,9 +1,0 @@
-Symlinking /home/cgz/catkin_ws/devel/share/uuv_plume_simulator/cmake/uuv_plume_simulatorConfig-version.cmake
-Symlinking /home/cgz/catkin_ws/devel/share/uuv_plume_simulator/cmake/uuv_plume_simulatorConfig.cmake
-Symlinking /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_gm_process/__init__.py
-Symlinking /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_plume_model/__init__.py
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_plume_simulator/load_plume_particles
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_plume_simulator/current_velocity_server
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_plume_simulator/plume_server
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_plume_simulator/set_turbulent_plume
-Symlinking /home/cgz/catkin_ws/devel/lib/pkgconfig/uuv_plume_simulator.pc

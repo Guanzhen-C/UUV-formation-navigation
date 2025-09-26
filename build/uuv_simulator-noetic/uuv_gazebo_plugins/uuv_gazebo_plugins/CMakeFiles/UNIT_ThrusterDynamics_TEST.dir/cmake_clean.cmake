@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/uuv_gazebo_plugins/UNIT_ThrusterDynamics_TEST"
-  "/home/cgz/catkin_ws/devel/lib/uuv_gazebo_plugins/UNIT_ThrusterDynamics_TEST.pdb"
+  "/home/qsk/catkin_ws/devel/lib/uuv_gazebo_plugins/UNIT_ThrusterDynamics_TEST"
+  "/home/qsk/catkin_ws/devel/lib/uuv_gazebo_plugins/UNIT_ThrusterDynamics_TEST.pdb"
   "CMakeFiles/UNIT_ThrusterDynamics_TEST.dir/src/ThrusterDynamics_TEST.cc.o"
 )
 

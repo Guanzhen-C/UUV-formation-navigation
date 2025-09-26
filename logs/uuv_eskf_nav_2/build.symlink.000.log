@@ -1,7 +1,0 @@
-Symlinking /home/cgz/catkin_ws/devel/share/uuv_eskf_nav_2/cmake/uuv_eskf_nav_2Config-version.cmake
-Symlinking /home/cgz/catkin_ws/devel/share/uuv_eskf_nav_2/cmake/uuv_eskf_nav_2Config.cmake
-Symlinking /home/cgz/catkin_ws/devel/lib/libuuv_eskf_nav_2.so
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_eskf_nav_2/eskf_navigation_node_2
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_eskf_nav_2/startup_message.py
-Symlinking /home/cgz/catkin_ws/devel/lib/uuv_eskf_nav_2/enhanced_navigation_evaluator.py
-Symlinking /home/cgz/catkin_ws/devel/lib/pkgconfig/uuv_eskf_nav_2.pc

@@ -1,8 +1,8 @@
-prefix=/home/cgz/catkin_ws/devel
+prefix=/home/qsk/catkin_ws/devel
 
 Name: uuv_cpc_sensor
 Description: Description of uuv_cpc_sensor
 Version: 0.3.3
-Cflags: -I/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include -I/usr/include
-Libs: -L${prefix}/lib -luuv_cpc_ros_sensor /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+Cflags: -I/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include -I/usr/include
+Libs: -L${prefix}/lib -luuv_cpc_ros_sensor /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
 Requires: sensor_msgs std_msgs nav_msgs uuv_plume_msgs geometry_msgs

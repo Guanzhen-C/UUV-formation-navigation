@@ -67,14 +67,14 @@ set(uuv_cpc_sensor_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(uuv_cpc_sensor_SOURCE_PREFIX /home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor)
-  set(uuv_cpc_sensor_DEVEL_PREFIX /home/cgz/catkin_ws/devel)
+  set(uuv_cpc_sensor_SOURCE_PREFIX /home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor)
+  set(uuv_cpc_sensor_DEVEL_PREFIX /home/qsk/catkin_ws/devel)
   set(uuv_cpc_sensor_INSTALL_PREFIX "")
   set(uuv_cpc_sensor_PREFIX ${uuv_cpc_sensor_DEVEL_PREFIX})
 else()
   set(uuv_cpc_sensor_SOURCE_PREFIX "")
   set(uuv_cpc_sensor_DEVEL_PREFIX "")
-  set(uuv_cpc_sensor_INSTALL_PREFIX /home/cgz/catkin_ws/install)
+  set(uuv_cpc_sensor_INSTALL_PREFIX /home/qsk/catkin_ws/install)
   set(uuv_cpc_sensor_PREFIX ${uuv_cpc_sensor_INSTALL_PREFIX})
 endif()
 
@@ -116,7 +116,7 @@ if(NOT "include;/usr/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "uuv_cpc_ros_sensor;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0")
+set(libraries "uuv_cpc_ros_sensor;/usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0")
 foreach(library ${libraries})
   # keep build configuration keywords, generator expressions, target names, and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cgz/catkin_ws/install/lib;/home/cgz/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/qsk/catkin_ws/install/lib;/home/qsk/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

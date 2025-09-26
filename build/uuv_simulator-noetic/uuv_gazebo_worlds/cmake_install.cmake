@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds
+# Install script for directory: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,26 +38,26 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worlds.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worlds.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_gazebo_worlds/cmake" TYPE FILE FILES
-    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worldsConfig.cmake"
-    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worldsConfig-version.cmake"
+    "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worldsConfig.cmake"
+    "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_worlds/catkin_generated/installspace/uuv_gazebo_worldsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_gazebo_worlds" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_gazebo_worlds" TYPE FILE FILES "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_gazebo_worlds" TYPE DIRECTORY FILES
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/launch"
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/Media"
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/worlds"
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/models"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/launch"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/Media"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/worlds"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_worlds/models"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

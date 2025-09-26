@@ -1,4 +1,4 @@
-prefix=/home/cgz/catkin_ws/install
+prefix=/home/qsk/catkin_ws/install
 
 Name: uuv_plume_simulator
 Description: Description of uuv_plume_simulator

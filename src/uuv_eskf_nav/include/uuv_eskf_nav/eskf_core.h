@@ -118,9 +118,10 @@ public:
     }
 
     // 测试函数访问权限
-    Eigen::Vector3d computeEarthRotationRate(double latitude);
-    Eigen::Vector2d computeEarthRadii(double latitude);
-    Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position);
+    Eigen::Vector3d computeEarthRotationRate(double latitude) const;
+    Eigen::Vector2d computeEarthRadii(double latitude) const;
+    Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position) const;
+    double computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position) const;
 
 private:
     /**

@@ -125,9 +125,9 @@ public:
     }
 
     // 测试函数访问权限
-    Eigen::Vector3d computeEarthRotationRate(double latitude);
-    Eigen::Vector2d computeEarthRadii(double latitude);
-    Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position);
+    Eigen::Vector3d computeEarthRotationRate(double latitude) const;
+    Eigen::Vector2d computeEarthRadii(double latitude) const;
+    Eigen::Vector3d computeNavigationFrameRate(const Eigen::Vector3d& velocity, const Eigen::Vector3d& position) const;
 
 private:
     // Per-peer cross-covariance between local error state and peer position (15x3)
@@ -275,6 +275,9 @@ private:
     // 地球自转补偿参数
     bool enable_earth_rotation_;
     double mission_latitude_;  // 任务区域纬度 [弧度]
+
+    // 根据ENU北向位移实时估计纬度（相对任务原点纬度）
+    double computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position) const;
 };
 
 } // namespace uuv_eskf_nav

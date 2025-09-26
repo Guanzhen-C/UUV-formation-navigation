@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz/catkin_ws/src/desistek_saga/desistek_saga_control
+# Install script for directory: /home/qsk/catkin_ws/src/desistek_saga/desistek_saga_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,24 +38,24 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/desistek_saga_control/cmake" TYPE FILE FILES
-    "/home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_controlConfig.cmake"
-    "/home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_controlConfig-version.cmake"
+    "/home/qsk/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_controlConfig.cmake"
+    "/home/qsk/catkin_ws/build/desistek_saga/desistek_saga_control/catkin_generated/installspace/desistek_saga_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/desistek_saga_control" TYPE FILE FILES "/home/cgz/catkin_ws/src/desistek_saga/desistek_saga_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/desistek_saga_control" TYPE FILE FILES "/home/qsk/catkin_ws/src/desistek_saga/desistek_saga_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/desistek_saga_control" TYPE DIRECTORY FILES
-    "/home/cgz/catkin_ws/src/desistek_saga/desistek_saga_control/config"
-    "/home/cgz/catkin_ws/src/desistek_saga/desistek_saga_control/launch"
+    "/home/qsk/catkin_ws/src/desistek_saga/desistek_saga_control/config"
+    "/home/qsk/catkin_ws/src/desistek_saga/desistek_saga_control/launch"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.so"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.so"
   "Accel.pb.cc"
   "Accel.pb.h"
   "CMakeFiles/uuv_gazebo_plugins_msgs.dir/Accel.pb.cc.o"

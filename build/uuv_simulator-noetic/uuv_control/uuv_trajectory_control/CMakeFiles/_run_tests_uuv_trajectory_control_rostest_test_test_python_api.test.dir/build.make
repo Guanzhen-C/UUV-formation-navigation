@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
+CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
 
 # Utility rule file for _run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 include uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/progress.make
 
 uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/cgz/catkin_ws/build/test_results/uuv_trajectory_control/rostest-test_test_python_api.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control --package=uuv_trajectory_control --results-filename test_test_python_api.xml --results-base-dir \"/home/cgz/catkin_ws/build/test_results\" /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/test/test_python_api.test "
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/qsk/catkin_ws/build/test_results/uuv_trajectory_control/rostest-test_test_python_api.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control --package=uuv_trajectory_control --results-filename test_test_python_api.xml --results-base-dir \"/home/qsk/catkin_ws/build/test_results\" /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/test/test_python_api.test "
 
 _run_tests_uuv_trajectory_control_rostest_test_test_python_api.test: uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test
 _run_tests_uuv_trajectory_control_rostest_test_test_python_api.test: uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/build.make
@@ -67,10 +67,10 @@ uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uu
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/clean:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/cmake_clean.cmake
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/depend:
-	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_trajectory_control/CMakeFiles/_run_tests_uuv_trajectory_control_rostest_test_test_python_api.test.dir/depend
 

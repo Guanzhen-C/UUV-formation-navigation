@@ -1,4 +1,4 @@
-prefix=/home/cgz/catkin_ws/install
+prefix=/home/qsk/catkin_ws/install
 
 Name: uuv_eskf_nav
 Description: Description of uuv_eskf_nav

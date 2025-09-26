@@ -82,7 +82,7 @@ class EnhancedNavigationEvaluator:
         self.error_pub = rospy.Publisher('/eskf/navigation_errors', Float64MultiArray, queue_size=10)
         
         # Excel日志配置
-        self.excel_log_dir = rospy.get_param('~excel_log_dir', '/home/cgz/catkin_ws/logs/excel')
+        self.excel_log_dir = rospy.get_param('~excel_log_dir', os.path.expanduser('~/catkin_ws/logs/excel'))
         if not os.path.exists(self.excel_log_dir):
             try:
                 os.makedirs(self.excel_log_dir)
@@ -98,6 +98,7 @@ class EnhancedNavigationEvaluator:
         self.worksheet = None
         self.excel_row_index = 1
         self.current_hour_index = None
+        self.file_suffix = rospy.get_param('~file_suffix', 'eval1')
         rospy.on_shutdown(self._close_workbook)
         
         # 定时器 - 每秒计算和显示误差
@@ -200,7 +201,7 @@ class EnhancedNavigationEvaluator:
     def _open_new_workbook(self, hour_index):
         """打开一个新的Excel工作簿，并写入表头。"""
         self._close_workbook()
-        filename = '%s_simh%04d.xlsx' % (self.robot_name, hour_index)
+        filename = '%s_%s_simh%04d.xlsx' % (self.robot_name, self.file_suffix, hour_index)
         filepath = os.path.join(self.auv_log_dir, filename)
         try:
             self.workbook = xlsxwriter.Workbook(filepath)

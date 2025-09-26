@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
+CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
 
 # Utility rule file for _uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 include uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/progress.make
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_thruster_manager /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv 
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_thruster_manager /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv 
 
 _uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig: uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig
 _uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig: uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/build.make
@@ -67,10 +67,10 @@ uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_m
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/clean:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/cmake_clean.cmake
+	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/depend:
-	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/_uuv_thruster_manager_generate_messages_check_deps_GetThrusterManagerConfig.dir/depend
 

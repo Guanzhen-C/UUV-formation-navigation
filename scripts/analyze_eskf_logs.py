@@ -6,6 +6,7 @@ import glob
 import math
 from datetime import datetime
 from typing import Dict, List
+from pathlib import Path
 
 import pandas as pd
 import numpy as np
@@ -18,7 +19,7 @@ import seaborn as sns
 from tabulate import tabulate
 
 
-BASE_DIR = "/home/cgz/catkin_ws"
+BASE_DIR = str(Path(__file__).resolve().parent.parent)
 EXCEL_ROOT = os.path.join(BASE_DIR, "logs", "excel")
 PLOT_DIR = os.path.join(BASE_DIR, "logs", "plots")
 REPORT_DIR = os.path.join(BASE_DIR, "logs", "report")

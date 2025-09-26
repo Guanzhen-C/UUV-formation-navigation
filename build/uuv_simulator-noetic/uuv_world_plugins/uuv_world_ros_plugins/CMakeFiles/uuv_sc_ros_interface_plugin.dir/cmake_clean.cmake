@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libuuv_sc_ros_interface_plugin.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libuuv_sc_ros_interface_plugin.so"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_sc_ros_interface_plugin.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_sc_ros_interface_plugin.so"
   "CMakeFiles/uuv_sc_ros_interface_plugin.dir/src/SphericalCoordinatesROSInterfacePlugin.cc.o"
 )
 

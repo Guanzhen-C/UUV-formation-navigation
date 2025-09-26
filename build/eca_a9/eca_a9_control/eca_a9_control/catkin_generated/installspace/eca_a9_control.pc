@@ -1,4 +1,4 @@
-prefix=/home/cgz/catkin_ws/install
+prefix=/home/qsk/catkin_ws/install
 
 Name: eca_a9_control
 Description: Description of eca_a9_control

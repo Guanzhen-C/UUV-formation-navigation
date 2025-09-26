@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils
+# Install script for directory: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,68 +38,68 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utils.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utils.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_control_utils/cmake" TYPE FILE FILES
-    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utilsConfig.cmake"
-    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utilsConfig-version.cmake"
+    "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utilsConfig.cmake"
+    "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/uuv_control_utilsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_control_utils" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_control_utils" TYPE FILE FILES "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_timed_current_perturbation.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_timed_current_perturbation.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/apply_body_wrench.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/apply_body_wrench.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/disturbance_manager.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/disturbance_manager.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/start_helical_trajectory.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/start_helical_trajectory.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/start_circular_trajectory.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/start_circular_trajectory.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_thruster_state.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_thruster_state.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/trajectory_marker_publisher.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/trajectory_marker_publisher.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_thruster_output_efficiency.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_thruster_output_efficiency.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/send_waypoint_file.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/send_waypoint_file.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_gm_current_perturbation.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_gm_current_perturbation.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_scalar_parameter.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_control_utils" TYPE PROGRAM FILES "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_utils/catkin_generated/installspace/set_scalar_parameter.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_control_utils" TYPE DIRECTORY FILES
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/launch"
-    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/config"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/launch"
+    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_utils/config"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

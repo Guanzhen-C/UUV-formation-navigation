@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_camera_plugin.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_camera_plugin.so"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_ros_camera_plugin.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_gazebo_ros_camera_plugin.so"
   "CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/src/UnderwaterCameraROSPlugin.cc.o"
 )
 

@@ -1,36 +1,36 @@
 
 "use strict";
 
-let GetPlumeSourcePosition = require('./GetPlumeSourcePosition.js')
-let GetCurrentModel = require('./GetCurrentModel.js')
-let GetPlumeConfiguration = require('./GetPlumeConfiguration.js')
-let GetNumParticles = require('./GetNumParticles.js')
-let SetPlumeLimits = require('./SetPlumeLimits.js')
-let SetCurrentDirection = require('./SetCurrentDirection.js')
-let SetPlumeConfiguration = require('./SetPlumeConfiguration.js')
-let SetCurrentVelocity = require('./SetCurrentVelocity.js')
-let CreatePassiveScalarTurbulentPlume = require('./CreatePassiveScalarTurbulentPlume.js')
-let CreateSpheroidPlume = require('./CreateSpheroidPlume.js')
 let DeletePlume = require('./DeletePlume.js')
+let SetPlumeSourcePosition = require('./SetPlumeSourcePosition.js')
 let StorePlumeState = require('./StorePlumeState.js')
+let SetCurrentVelocity = require('./SetCurrentVelocity.js')
+let CreateSpheroidPlume = require('./CreateSpheroidPlume.js')
 let LoadPlumeParticles = require('./LoadPlumeParticles.js')
 let SetCurrentModel = require('./SetCurrentModel.js')
-let SetPlumeSourcePosition = require('./SetPlumeSourcePosition.js')
+let SetPlumeConfiguration = require('./SetPlumeConfiguration.js')
+let SetPlumeLimits = require('./SetPlumeLimits.js')
+let GetPlumeSourcePosition = require('./GetPlumeSourcePosition.js')
+let GetNumParticles = require('./GetNumParticles.js')
+let CreatePassiveScalarTurbulentPlume = require('./CreatePassiveScalarTurbulentPlume.js')
+let SetCurrentDirection = require('./SetCurrentDirection.js')
+let GetPlumeConfiguration = require('./GetPlumeConfiguration.js')
+let GetCurrentModel = require('./GetCurrentModel.js')
 
 module.exports = {
-  GetPlumeSourcePosition: GetPlumeSourcePosition,
-  GetCurrentModel: GetCurrentModel,
-  GetPlumeConfiguration: GetPlumeConfiguration,
-  GetNumParticles: GetNumParticles,
-  SetPlumeLimits: SetPlumeLimits,
-  SetCurrentDirection: SetCurrentDirection,
-  SetPlumeConfiguration: SetPlumeConfiguration,
-  SetCurrentVelocity: SetCurrentVelocity,
-  CreatePassiveScalarTurbulentPlume: CreatePassiveScalarTurbulentPlume,
-  CreateSpheroidPlume: CreateSpheroidPlume,
   DeletePlume: DeletePlume,
+  SetPlumeSourcePosition: SetPlumeSourcePosition,
   StorePlumeState: StorePlumeState,
+  SetCurrentVelocity: SetCurrentVelocity,
+  CreateSpheroidPlume: CreateSpheroidPlume,
   LoadPlumeParticles: LoadPlumeParticles,
   SetCurrentModel: SetCurrentModel,
-  SetPlumeSourcePosition: SetPlumeSourcePosition,
+  SetPlumeConfiguration: SetPlumeConfiguration,
+  SetPlumeLimits: SetPlumeLimits,
+  GetPlumeSourcePosition: GetPlumeSourcePosition,
+  GetNumParticles: GetNumParticles,
+  CreatePassiveScalarTurbulentPlume: CreatePassiveScalarTurbulentPlume,
+  SetCurrentDirection: SetCurrentDirection,
+  GetPlumeConfiguration: GetPlumeConfiguration,
+  GetCurrentModel: GetCurrentModel,
 };

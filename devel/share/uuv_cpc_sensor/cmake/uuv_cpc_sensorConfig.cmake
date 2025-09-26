@@ -67,14 +67,14 @@ set(uuv_cpc_sensor_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(uuv_cpc_sensor_SOURCE_PREFIX /home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor)
-  set(uuv_cpc_sensor_DEVEL_PREFIX /home/cgz/catkin_ws/devel)
+  set(uuv_cpc_sensor_SOURCE_PREFIX /home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor)
+  set(uuv_cpc_sensor_DEVEL_PREFIX /home/qsk/catkin_ws/devel)
   set(uuv_cpc_sensor_INSTALL_PREFIX "")
   set(uuv_cpc_sensor_PREFIX ${uuv_cpc_sensor_DEVEL_PREFIX})
 else()
   set(uuv_cpc_sensor_SOURCE_PREFIX "")
   set(uuv_cpc_sensor_DEVEL_PREFIX "")
-  set(uuv_cpc_sensor_INSTALL_PREFIX /home/cgz/catkin_ws/install)
+  set(uuv_cpc_sensor_INSTALL_PREFIX /home/qsk/catkin_ws/install)
   set(uuv_cpc_sensor_PREFIX ${uuv_cpc_sensor_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(uuv_cpc_sensor_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include;/usr/include " STREQUAL " ")
+if(NOT "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include;/usr/include " STREQUAL " ")
   set(uuv_cpc_sensor_INCLUDE_DIRS "")
-  set(_include_dirs "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include;/usr/include")
+  set(_include_dirs "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include;/usr/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/includ
         message(FATAL_ERROR "Project 'uuv_cpc_sensor' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'uuv_cpc_sensor' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'uuv_cpc_sensor' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/${idir}'.  ${_report}")
     endif()
     _list_append_unique(uuv_cpc_sensor_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "uuv_cpc_ros_sensor;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0")
+set(libraries "uuv_cpc_ros_sensor;/usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0")
 foreach(library ${libraries})
   # keep build configuration keywords, generator expressions, target names, and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cgz/catkin_ws/devel/lib;/home/cgz/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/qsk/catkin_ws/devel/lib;/home/qsk/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

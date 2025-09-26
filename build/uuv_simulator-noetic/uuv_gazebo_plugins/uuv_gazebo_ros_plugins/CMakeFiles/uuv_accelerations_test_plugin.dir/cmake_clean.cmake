@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libuuv_accelerations_test_plugin.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libuuv_accelerations_test_plugin.so"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_accelerations_test_plugin.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libuuv_accelerations_test_plugin.so"
   "CMakeFiles/uuv_accelerations_test_plugin.dir/src/AccelerationsTestPlugin.cc.o"
 )
 

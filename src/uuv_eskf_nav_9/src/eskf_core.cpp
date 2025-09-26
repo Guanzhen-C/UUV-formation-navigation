@@ -178,14 +178,12 @@ void EskfCore::velocityUpdate(
         // 哥氏力项（如果启用地球自转补偿）
         Eigen::Vector3d coriolis_term = Eigen::Vector3d::Zero();
         if (enable_earth_rotation_) {
-            // 使用实时纬度计算地球自转角速度和导航系转动角速度
-            double current_latitude = state_prev.position[0]; // 实时纬度
-            Eigen::Vector3d wie_n = computeEarthRotationRate(current_latitude);
-            Eigen::Vector3d wen_n = computeNavigationFrameRate(state_prev.velocity, 
-                                                              state_prev.position);
-            
-            // 哥氏力: -2*(wie_n + wen_n) × vel (参考KF-GINS第74行)
-            coriolis_term = -(2 * wie_n + wen_n).cross(state_prev.velocity);
+            // 使用实时纬度计算地球自转角速度和导航系转动角速度（ENU坐标系）
+            double current_latitude = computeRealtimeLatitudeRad(state_prev.position);
+            Eigen::Vector3d wie_enu = computeEarthRotationRate(current_latitude);
+            Eigen::Vector3d wen_enu = computeNavigationFrameRate(state_prev.velocity, state_prev.position);
+            // 哥氏力: -2*(wie + wen) × v  （ENU表达）
+            coriolis_term = -(2 * wie_enu + wen_enu).cross(state_prev.velocity);
         }
         
         gravity_coriolis_term = (gl + coriolis_term) * dt;
@@ -224,14 +222,13 @@ void EskfCore::attitudeUpdate(
         temp1 = imu_integral.delta_theta;
     }
     
-    // 姿态更新计算
-    
-    Eigen::Quaterniond qbb = rotationVectorToQuaternion(temp1);
-    
-    // 姿态更新（参考KF-GINS第186行）
-    // 对于水下AUV短距离导航，忽略导航系转动qnn
-    orientation_curr = (state_prev.orientation * qbb).normalized();
-    
+     // 姿态更新计算
+     Eigen::Quaterniond qbb = rotationVectorToQuaternion(temp1);
+     //Eigen::Quaterniond qnn = navigationFrameRotation(velocity_curr, position_curr, dt);
+     
+     // 姿态更新（参考KF-GINS第186行），包含导航系转动 qnn
+     orientation_curr = (state_prev.orientation * qbb).normalized();
+     
     // 检查四元数有效性
     if (!orientation_curr.coeffs().allFinite() || std::abs(orientation_curr.norm() - 1.0) > 0.01) {
         std::cerr << "姿态更新异常，保持原姿态" << std::endl;
@@ -280,8 +277,8 @@ Eigen::Quaterniond EskfCore::navigationFrameRotation(
     }
     
     // 计算导航系转动角速度 (参考KF-GINS第67-68行)
-    // 使用实时纬度而非固定任务区域纬度
-    double current_latitude = position[0]; // 实时纬度
+    // 使用实时纬度（ENU）而非固定任务区域纬度
+    double current_latitude = computeRealtimeLatitudeRad(position);
     Eigen::Vector3d wie_n = computeEarthRotationRate(current_latitude);
     Eigen::Vector3d wen_n = computeNavigationFrameRate(velocity, position);
     
@@ -683,36 +680,43 @@ Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState&
     return Q;
 }
 
-Eigen::Vector3d EskfCore::computeEarthRotationRate(double latitude) {
-    // 地球自转角速度在导航系(NED)中的投影 (参考KF-GINS第50行)
-    // wie_n << WGS84_WIE * cos(latitude), 0, -WGS84_WIE * sin(latitude);
-    Eigen::Vector3d wie_n;
-    wie_n << WGS84_WIE * cos(latitude), 0, -WGS84_WIE * sin(latitude);
-    return wie_n;
+Eigen::Vector3d EskfCore::computeEarthRotationRate(double latitude) const {
+    // 地球自转角速度在ENU中的投影：[0, ω*cosφ, ω*sinφ]
+    Eigen::Vector3d wie_enu;
+    wie_enu << 0.0, WGS84_WIE * cos(latitude), WGS84_WIE * sin(latitude);
+    return wie_enu;
 }
 
 Eigen::Vector3d EskfCore::computeNavigationFrameRate(
     const Eigen::Vector3d& velocity, 
-    const Eigen::Vector3d& position) {
-    
-    // 计算子午圈和卯酉圈半径
-    Eigen::Vector2d rmrn = computeEarthRadii(position[0]); // position[0] 是纬度
-    
-    // 导航系相对地球系的转动角速度 (参考KF-GINS第51-52行)
-    // wen_n << vel[1] / (rmrn[1] + pos[2]), -vel[0] / (rmrn[0] + pos[2]),
-    //          -vel[1] * tan(pos[0]) / (rmrn[1] + pos[2]);
-    Eigen::Vector3d wen_n;
-    double rmh = rmrn[0] + position[2]; // 子午圈半径 + 高度
-    double rnh = rmrn[1] + position[2]; // 卯酉圈半径 + 高度
-    
-    wen_n[0] = velocity[1] / rnh;                                    // 东向速度引起的北向转动
-    wen_n[1] = -velocity[0] / rmh;                                   // 北向速度引起的东向转动
-    wen_n[2] = -velocity[1] * tan(position[0]) / rnh;                // 东向速度引起的天向转动
-    
-    return wen_n;
+    const Eigen::Vector3d& position) const {
+    // ENU表达：w_en = [ -v_N / (M+h), v_E / (N+h), v_E * tan(φ) / (N+h) ]
+    double phi = computeRealtimeLatitudeRad(position);
+    Eigen::Vector2d rmrn = computeEarthRadii(phi);
+    double rmh = rmrn[0] + position[2];
+    double rnh = rmrn[1] + position[2];
+    double vE = velocity[0];
+    double vN = velocity[1];
+    Eigen::Vector3d w_en_enu;
+    w_en_enu[0] = -vN / rmh;
+    w_en_enu[1] =  vE / rnh;
+    w_en_enu[2] =  vE * std::tan(phi) / rnh;
+    return w_en_enu;
 }
 
-Eigen::Vector2d EskfCore::computeEarthRadii(double latitude) {
+double EskfCore::computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position) const {
+    Eigen::Vector2d rmrn0 = computeEarthRadii(mission_latitude_);
+    double rmh0 = rmrn0[0] + enu_position[2];
+    double denom = (rmh0 > 1.0 ? rmh0 : 1.0);
+    double dphi = enu_position[1] / denom;
+    double phi = mission_latitude_ + dphi;
+    const double lim = 1.4844222297453323; // ~85°
+    if (phi > lim) phi = lim;
+    if (phi < -lim) phi = -lim;
+    return phi;
+}
+
+Eigen::Vector2d EskfCore::computeEarthRadii(double latitude) const {
     // 计算子午圈半径(M)和卯酉圈半径(N) (参考KF-GINS Earth::meridianPrimeVerticalRadius)
     double sin_lat = sin(latitude);
     double cos_lat = cos(latitude);

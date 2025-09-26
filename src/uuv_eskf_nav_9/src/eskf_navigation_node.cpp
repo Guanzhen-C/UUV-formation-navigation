@@ -8,6 +8,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <uuv_sensor_ros_plugins_msgs/AcousticRangeOWTT.h>
+#include <uuv_sensor_ros_plugins_msgs/Method3SenderState.h>
 
 #include <memory>
 #include <string>
@@ -56,16 +57,21 @@ public:
         // 设置传感器数据回调
         sensor_manager_->setImuCallback(
             std::bind(&EskfNavigationNode::onImuData, this, std::placeholders::_1));
-        sensor_manager_->setDvlCallback(
-            std::bind(&EskfNavigationNode::onDvlData, this, std::placeholders::_1));
+        if (enable_dvl_) {
+            sensor_manager_->setDvlCallback(
+                std::bind(&EskfNavigationNode::onDvlData, this, std::placeholders::_1));
+        }
         sensor_manager_->setDepthCallback(
             std::bind(&EskfNavigationNode::onDepthData, this, std::placeholders::_1));
-        sensor_manager_->setHeadingCallback(
-            std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
+        if (enable_heading_) {
+            sensor_manager_->setHeadingCallback(
+                std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
+        }
         
         // 初始化发布器
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/eskf/odometry/filtered", 10);
         pose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/eskf/pose", 10);
+        method3_pub_ = nh_.advertise<uuv_sensor_ros_plugins_msgs::Method3SenderState>("/" + robot_name_ + "/rpt/method3_sender_state", 10);
         
         // 初始化地面真值订阅器 (用于动态初始化)
         std::string gt_topic = "/" + robot_name_ + "/pose_gt";
@@ -164,6 +170,8 @@ private:
         // 其他参数
         nh_.param<bool>("publish_tf", publish_tf_, true);
         nh_.param<double>("max_initialization_time", max_init_time_, 10.0);
+        nh_.param<bool>("sensors/enable_dvl", enable_dvl_, true);
+        nh_.param<bool>("sensors/enable_heading", enable_heading_, true);
         // 将heading噪声传入ESKF（通过回调构造量测时使用）
         heading_variance_ = heading_noise_std_ * heading_noise_std_;
         
@@ -171,6 +179,7 @@ private:
         ROS_INFO("  噪声参数: gyro_std=%.4f, accel_std=%.4f, dvl_std=%.4f, depth_std=%.4f",
                 noise_params_.gyro_noise_std, noise_params_.accel_noise_std,
                 noise_params_.dvl_noise_std, noise_params_.depth_noise_std);
+        ROS_INFO("  传感器开关: DVL=%s, Heading=%s", enable_dvl_?"ON":"OFF", enable_heading_?"ON":"OFF");
         
         return true;
     }
@@ -278,6 +287,9 @@ private:
                              state.position.x(), state.position.y(), state.position.z(), pos_uncertainty,
                              state.velocity.x(), state.velocity.y(), state.velocity.z(), vel_uncertainty,
                              att_uncertainty);
+
+            // 周期性发布Method3发送端状态，供RPT插件嵌入到广播
+            publishMethod3SenderState(ros::Time::now().toSec());
         }
     }
     
@@ -390,6 +402,38 @@ private:
         }
     }
     
+    void publishMethod3SenderState(double timestamp) {
+        if (!eskf_ || !eskf_->isInitialized()) return;
+
+        const NominalState& state = eskf_->getNominalState();
+        const Eigen::MatrixXd& P = eskf_->getCovariance();
+
+        uuv_sensor_ros_plugins_msgs::Method3SenderState m3;
+        m3.header.stamp = ros::Time(timestamp);
+        m3.header.frame_id = world_frame_;
+        m3.ns = robot_name_;
+
+        // 位置与协方差
+        m3.pos.header = m3.header;
+        m3.pos.pos.pos.x = state.position.x();
+        m3.pos.pos.pos.y = state.position.y();
+        m3.pos.pos.pos.z = state.position.z();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                m3.pos.pos.covariance[i * 3 + j] = P(StateIndex::DP + i, StateIndex::DP + j);
+            }
+        }
+
+        // 15x3 交叉协方差 P_{δx, δp}
+        for (int r = 0; r < STATE_SIZE; ++r) {
+            for (int c = 0; c < 3; ++c) {
+                m3.cross_cov_x_p[r * 3 + c] = P(r, StateIndex::DP + c);
+            }
+        }
+
+        method3_pub_.publish(m3);
+    }
+
     void publishNavigationResult(double timestamp) {
         if (!eskf_->isInitialized()) return;
         
@@ -471,6 +515,8 @@ private:
     std::string base_link_frame_;
     bool publish_tf_;
     double max_init_time_;
+    bool enable_dvl_ = true;
+    bool enable_heading_ = true;
     
     // ESKF相关
     std::unique_ptr<EskfCore> eskf_;
@@ -486,6 +532,7 @@ private:
     // ROS发布器和广播器
     ros::Publisher odom_pub_;
     ros::Publisher pose_pub_;
+    ros::Publisher method3_pub_;
     ros::Subscriber owtt_sub_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     

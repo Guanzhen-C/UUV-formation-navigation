@@ -23,6 +23,14 @@ class AcousticScheduler(object):
         ])
         self.interval = float(rospy.get_param('~interval', 20.0))
         self.rpt_topic = rospy.get_param('~rpt_topic', 'rpt')
+        self.cycle_period = float(rospy.get_param('~cycle_period', 0.0))
+
+        # Compute idle phase length to satisfy the requested cycle period
+        # Idle happens after the last transmitter in the sequence
+        self.idle_duration = 0.0
+        if self.cycle_period > 0.0:
+            active_time = len(self.sequence) * self.interval
+            self.idle_duration = max(0.0, self.cycle_period - active_time)
 
         # Import service lazily
         from uuv_sensor_ros_plugins_msgs.srv import ChangeSensorState
@@ -44,6 +52,10 @@ class AcousticScheduler(object):
                 rospy.logwarn(f'Service {srv_name} not available yet; will keep trying during loop')
 
         rospy.loginfo('AcousticScheduler initialized')
+        rospy.loginfo(
+            'Scheduling: N=%d, interval=%.3fs, cycle_period=%.3fs, idle=%.3fs',
+            len(self.sequence), self.interval, self.cycle_period, self.idle_duration
+        )
 
     def set_state(self, ns, on):
         try:
@@ -62,18 +74,36 @@ class AcousticScheduler(object):
         rate = rospy.Rate(1.0)
         # Use wall time to avoid sim time pausing effects
         next_switch = time.time()
+        idle_pending = False  # set True after last transmitter completes its ON interval
         while not rospy.is_shutdown():
             now = time.time()
             if now >= next_switch:
-                # Turn off all
-                for ns in self.sequence:
-                    self.set_state(ns, False)
-                # Turn on current
-                current = self.sequence[idx]
-                self.set_state(current, True)
-                rospy.loginfo(f'Active transmitter: {current} (interval {self.interval}s)')
-                idx = (idx + 1) % len(self.sequence)
-                next_switch = now + self.interval
+                # If an idle phase is pending, keep everything OFF for idle_duration
+                if idle_pending and self.idle_duration > 0.0:
+                    for ns in self.sequence:
+                        self.set_state(ns, False)
+                    rospy.loginfo('Idle phase for %.3f seconds', self.idle_duration)
+                    next_switch = now + self.idle_duration
+                    idle_pending = False
+                else:
+                    # Turn off all
+                    for ns in self.sequence:
+                        self.set_state(ns, False)
+                    # Turn on current
+                    if len(self.sequence) == 0:
+                        # Nothing to schedule; wait a bit to avoid busy loop
+                        next_switch = now + 1.0
+                    else:
+                        current = self.sequence[idx]
+                        self.set_state(current, True)
+                        rospy.loginfo(
+                            'Active transmitter: %s (interval %.3fs)', current, self.interval
+                        )
+                        idx = (idx + 1) % len(self.sequence)
+                        # After the last transmitter completes, schedule an idle phase if requested
+                        if idx == 0 and self.idle_duration > 0.0:
+                            idle_pending = True
+                        next_switch = now + self.interval
             rate.sleep()
 
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/lib/libimage_sonar_ros_plugin.pdb"
-  "/home/cgz/catkin_ws/devel/lib/libimage_sonar_ros_plugin.so"
+  "/home/qsk/catkin_ws/devel/lib/libimage_sonar_ros_plugin.pdb"
+  "/home/qsk/catkin_ws/devel/lib/libimage_sonar_ros_plugin.so"
   "CMakeFiles/image_sonar_ros_plugin.dir/src/gazebo_ros_image_sonar.cpp.o"
 )
 

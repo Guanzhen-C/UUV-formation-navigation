@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description
+# Install script for directory: /home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,26 +38,26 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_description/cmake" TYPE FILE FILES
-    "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_descriptionConfig.cmake"
-    "/home/cgz/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_descriptionConfig-version.cmake"
+    "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_descriptionConfig.cmake"
+    "/home/qsk/catkin_ws/build/lauv_gazebo-master/lauv_description/catkin_generated/installspace/lauv_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_description" TYPE FILE FILES "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_description" TYPE FILE FILES "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lauv_description" TYPE DIRECTORY FILES
-    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description/launch"
-    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description/meshes"
-    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description/robots"
-    "/home/cgz/catkin_ws/src/lauv_gazebo-master/lauv_description/urdf"
+    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description/launch"
+    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description/meshes"
+    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description/robots"
+    "/home/qsk/catkin_ws/src/lauv_gazebo-master/lauv_description/urdf"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

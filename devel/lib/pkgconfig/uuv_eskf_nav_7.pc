@@ -1,8 +1,8 @@
-prefix=/home/cgz/catkin_ws/devel
+prefix=/home/qsk/catkin_ws/devel
 
 Name: uuv_eskf_nav_7
 Description: Description of uuv_eskf_nav_7
 Version: 1.0.0
-Cflags: -I/home/cgz/catkin_ws/src/uuv_eskf_nav_7/include
+Cflags: -I/home/qsk/catkin_ws/src/uuv_eskf_nav_7/include
 Libs: -L${prefix}/lib -luuv_eskf_nav_7
 Requires: roscpp rospy std_msgs geometry_msgs sensor_msgs nav_msgs tf2 tf2_ros tf2_geometry_msgs uuv_sensor_ros_plugins_msgs

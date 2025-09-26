@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cgz/catkin_ws/src/uuv_eskf_nav_2/src/eskf_core.cpp" "/home/cgz/catkin_ws/build/uuv_eskf_nav_2/CMakeFiles/uuv_eskf_nav_2.dir/src/eskf_core.cpp.o"
-  "/home/cgz/catkin_ws/src/uuv_eskf_nav_2/src/sensor_manager.cpp" "/home/cgz/catkin_ws/build/uuv_eskf_nav_2/CMakeFiles/uuv_eskf_nav_2.dir/src/sensor_manager.cpp.o"
+  "/home/qsk/catkin_ws/src/uuv_eskf_nav_2/src/eskf_core.cpp" "/home/qsk/catkin_ws/build/uuv_eskf_nav_2/CMakeFiles/uuv_eskf_nav_2.dir/src/eskf_core.cpp.o"
+  "/home/qsk/catkin_ws/src/uuv_eskf_nav_2/src/sensor_manager.cpp" "/home/qsk/catkin_ws/build/uuv_eskf_nav_2/CMakeFiles/uuv_eskf_nav_2.dir/src/sensor_manager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,8 +19,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/cgz/catkin_ws/src/uuv_eskf_nav_2/include"
-  "/home/cgz/catkin_ws/devel/include"
+  "/home/qsk/catkin_ws/src/uuv_eskf_nav_2/include"
+  "/home/qsk/catkin_ws/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"

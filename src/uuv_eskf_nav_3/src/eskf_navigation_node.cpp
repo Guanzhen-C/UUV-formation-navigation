@@ -59,12 +59,16 @@ public:
         // 设置传感器数据回调
         sensor_manager_->setImuCallback(
             std::bind(&EskfNavigationNode::onImuData, this, std::placeholders::_1));
-        sensor_manager_->setDvlCallback(
-            std::bind(&EskfNavigationNode::onDvlData, this, std::placeholders::_1));
+        if (enable_dvl_) {
+            sensor_manager_->setDvlCallback(
+                std::bind(&EskfNavigationNode::onDvlData, this, std::placeholders::_1));
+        }
         sensor_manager_->setDepthCallback(
             std::bind(&EskfNavigationNode::onDepthData, this, std::placeholders::_1));
-        sensor_manager_->setHeadingCallback(
-            std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
+        if (enable_heading_) {
+            sensor_manager_->setHeadingCallback(
+                std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
+        }
         
         // 初始化发布器
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/eskf/odometry/filtered", 10);
@@ -168,6 +172,8 @@ private:
         // 其他参数
         nh_.param<bool>("publish_tf", publish_tf_, true);
         nh_.param<double>("max_initialization_time", max_init_time_, 10.0);
+        nh_.param<bool>("sensors/enable_dvl", enable_dvl_, true);
+        nh_.param<bool>("sensors/enable_heading", enable_heading_, true);
         // 将heading噪声传入ESKF（通过回调构造量测时使用）
         heading_variance_ = heading_noise_std_ * heading_noise_std_;
         
@@ -175,6 +181,7 @@ private:
         ROS_INFO("  噪声参数: gyro_std=%.4f, accel_std=%.4f, dvl_std=%.4f, depth_std=%.4f",
                 noise_params_.gyro_noise_std, noise_params_.accel_noise_std,
                 noise_params_.dvl_noise_std, noise_params_.depth_noise_std);
+        ROS_INFO("  传感器开关: DVL=%s, Heading=%s", enable_dvl_?"ON":"OFF", enable_heading_?"ON":"OFF");
         
         return true;
     }
@@ -506,6 +513,8 @@ private:
     std::string base_link_frame_;
     bool publish_tf_;
     double max_init_time_;
+    bool enable_dvl_ = true;
+    bool enable_heading_ = true;
     
     // ESKF相关
     std::unique_ptr<EskfCore> eskf_;

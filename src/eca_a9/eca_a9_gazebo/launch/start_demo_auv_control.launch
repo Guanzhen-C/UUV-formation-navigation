@@ -1,9 +1,9 @@
 <launch>
   <!-- Vehicle's initial position -->
-  <arg name="x" default="1000"/>
+  <arg name="x" default="47000"/>
   <arg name="y" default="0"/>
-  <arg name="z" default="-1000"/>
-  <arg name="yaw" default="1.57"/>
+  <arg name="z" default="-2000"/>
+  <arg name="yaw" default="1.5708"/>
 
   <arg name="record" default="false"/>
   <arg name="bag_filename" default="recording.bag"/>
@@ -14,8 +14,8 @@
   <!-- Mission latitude in radians for Earth Coriolis force calculation -->
   <arg name="mission_latitude" default="0.3183" doc="Mission latitude in radians (default: 18.25°N Sanya)"/>
   <!-- Expose path radius controls to the included controller launch -->
-  <arg name="dubins_radius" default="1000"/>
-  <arg name="idle_radius" default="1000"/>
+  <arg name="dubins_radius" default="100000"/>
+  <arg name="idle_radius" default="47000"/>
 
   <include file="$(find eca_a9_description)/launch/upload_eca_a9.launch">
     <arg name="x" value="$(arg x)"/>

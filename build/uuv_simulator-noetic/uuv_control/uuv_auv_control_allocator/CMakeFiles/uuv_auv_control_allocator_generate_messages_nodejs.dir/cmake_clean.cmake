@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_auv_control_allocator/msg/AUVCommand.js"
+  "/home/qsk/catkin_ws/devel/share/gennodejs/ros/uuv_auv_control_allocator/msg/AUVCommand.js"
   "CMakeFiles/uuv_auv_control_allocator_generate_messages_nodejs"
 )
 

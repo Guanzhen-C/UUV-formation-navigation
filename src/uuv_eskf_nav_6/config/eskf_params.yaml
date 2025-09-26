@@ -21,17 +21,17 @@ imu:
   # 陀螺仪测量噪声标准差 [rad/s] - 精确匹配URDF中的导航级IMU
   # URDF: gyroscope_noise_density="0.00000029088" (0.29 μrad/s/√Hz)
   # 转换为离散噪声: σ = noise_density * √(sample_rate) = 0.29e-6 * √200 ≈ 4.1e-6
-  gyro_noise_std: 4.1e-6                # 真正的导航级IMU精度
+  gyro_noise_std: 2.9088e-7                # 真正的导航级IMU精度
   
   # 加速度计测量噪声标准差 [m/s²] - 精确匹配URDF中的导航级IMU
   # URDF: accelerometer_noise_density="0.000010" (10 μg/√Hz)
   # 转换为离散噪声: σ = 10e-6 * √200 ≈ 1.4e-4 m/s²
-  accel_noise_std: 1.4e-4               # 真正的导航级IMU精度
+  accel_noise_std: 1e-5               # 真正的导航级IMU精度
   
   # 陀螺仪偏差随机游走标准差 [rad/s] - 匹配0.001°/h稳定性
   # URDF: gyroscope_turn_on_bias_sigma="0.000004848" (0.001°/h)
   # 随机游走: bias_walk = bias_sigma / √(correlation_time)
-  gyro_bias_std: 8.1e-8                 # 对应3600s相关时间
+  gyro_bias_std: 8.1e-11                 # 对应3600s相关时间
   
   # 加速度计偏差随机游走标准差 [m/s²] - 匹配mg级稳定性  
   # URDF: accelerometer_turn_on_bias_sigma="0.0098" (1mg)
@@ -44,7 +44,8 @@ imu:
 dvl:
   # DVL速度测量噪声标准差 [m/s]
   # 直接影响速度观测的权重，值越小越信任DVL测量
-  noise_std: 1.33333
+  # 假设对水速度约4 m/s，±10% 作为 ~3σ → σ≈0.133 m/s
+  noise_std: 13.3333
 
 # ================================  
 # 深度传感器参数
@@ -52,7 +53,7 @@ dvl:
 depth:
   # 深度测量噪声标准差 [m]
   # 直接影响深度观测的权重，值越小越信任深度测量
-  noise_std: 0.05
+  noise_std: 0.5
 
 # ================================
 # 航向量测（可选）
@@ -150,3 +151,10 @@ debug:
   # 状态监控频率 [Hz]
   # 控制导航状态信息的打印频率
   status_report_frequency: 0.1
+
+# ================================
+# 传感器开关
+# ================================
+sensors:
+  enable_dvl: true
+  enable_heading: false
