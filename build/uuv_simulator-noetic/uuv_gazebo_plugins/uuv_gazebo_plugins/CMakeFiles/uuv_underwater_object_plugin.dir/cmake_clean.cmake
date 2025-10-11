@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_underwater_object_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_underwater_object_plugin.so"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_underwater_object_plugin.pdb"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_underwater_object_plugin.so"
   "CMakeFiles/uuv_underwater_object_plugin.dir/src/BuoyantObject.cc.o"
   "CMakeFiles/uuv_underwater_object_plugin.dir/src/HydrodynamicModel.cc.o"
   "CMakeFiles/uuv_underwater_object_plugin.dir/src/UnderwaterObjectPlugin.cc.o"

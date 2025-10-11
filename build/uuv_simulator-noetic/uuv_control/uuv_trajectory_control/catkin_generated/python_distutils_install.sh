@@ -13,21 +13,21 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control"
+echo_and_run cd "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control"
 
 # ensure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/qsk/catkin_ws/install/lib/python3/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/cgz1/catkin_ws/install/lib/python3/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/qsk/catkin_ws/install/lib/python3/dist-packages:/home/qsk/catkin_ws/build/lib/python3/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/qsk/catkin_ws/build" \
+    PYTHONPATH="/home/cgz1/catkin_ws/install/lib/python3/dist-packages:/home/cgz1/catkin_ws/build/lib/python3/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/cgz1/catkin_ws/build" \
     "/usr/bin/python3" \
-    "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/setup.py" \
+    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_trajectory_control/setup.py" \
      \
-    build --build-base "/home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control" \
+    build --build-base "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_trajectory_control" \
     install \
     --root="${DESTDIR-/}" \
-    --install-layout=deb --prefix="/home/qsk/catkin_ws/install" --install-scripts="/home/qsk/catkin_ws/install/bin"
+    --install-layout=deb --prefix="/home/cgz1/catkin_ws/install" --install-scripts="/home/cgz1/catkin_ws/install/bin"

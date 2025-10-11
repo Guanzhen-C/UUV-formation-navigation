@@ -43,309 +43,309 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
 
 # Utility rule file for uuv_control_msgs_generate_messages_py.
 
 # Include the progress variables for this target.
 include uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/progress.make
 
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py
 
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uuv_control_msgs/Trajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uuv_control_msgs/Trajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uuv_control_msgs/TrajectoryPoint"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uuv_control_msgs/TrajectoryPoint"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG uuv_control_msgs/Waypoint"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG uuv_control_msgs/Waypoint"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG uuv_control_msgs/WaypointSet"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG uuv_control_msgs/WaypointSet"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV uuv_control_msgs/AddWaypoint"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV uuv_control_msgs/AddWaypoint"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python code from SRV uuv_control_msgs/ClearWaypoints"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python code from SRV uuv_control_msgs/ClearWaypoints"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python code from SRV uuv_control_msgs/InitCircularTrajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python code from SRV uuv_control_msgs/InitCircularTrajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python code from SRV uuv_control_msgs/InitHelicalTrajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python code from SRV uuv_control_msgs/InitHelicalTrajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/share/std_msgs/msg/String.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python code from SRV uuv_control_msgs/InitWaypointsFromFile"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py: /opt/ros/noetic/share/std_msgs/msg/String.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python code from SRV uuv_control_msgs/InitWaypointsFromFile"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python code from SRV uuv_control_msgs/GetWaypoints"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python code from SRV uuv_control_msgs/GetWaypoints"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python code from SRV uuv_control_msgs/GoTo"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python code from SRV uuv_control_msgs/GoTo"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python code from SRV uuv_control_msgs/GoToIncremental"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python code from SRV uuv_control_msgs/GoToIncremental"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Python code from SRV uuv_control_msgs/Hold"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Python code from SRV uuv_control_msgs/Hold"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Python code from SRV uuv_control_msgs/IsRunningTrajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Python code from SRV uuv_control_msgs/IsRunningTrajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/String.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Python code from SRV uuv_control_msgs/InitWaypointSet"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/String.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Python code from SRV uuv_control_msgs/InitWaypointSet"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Python code from SRV uuv_control_msgs/InitRectTrajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Python code from SRV uuv_control_msgs/InitRectTrajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Python code from SRV uuv_control_msgs/StartTrajectory"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Python code from SRV uuv_control_msgs/StartTrajectory"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Python code from SRV uuv_control_msgs/SwitchToAutomatic"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Python code from SRV uuv_control_msgs/SwitchToAutomatic"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Python code from SRV uuv_control_msgs/SwitchToManual"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Python code from SRV uuv_control_msgs/SwitchToManual"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Python code from SRV uuv_control_msgs/SetPIDParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Python code from SRV uuv_control_msgs/SetPIDParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Python code from SRV uuv_control_msgs/GetPIDParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Python code from SRV uuv_control_msgs/GetPIDParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Python code from SRV uuv_control_msgs/SetSMControllerParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Python code from SRV uuv_control_msgs/SetSMControllerParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python code from SRV uuv_control_msgs/GetSMControllerParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python code from SRV uuv_control_msgs/GetSMControllerParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Python code from SRV uuv_control_msgs/SetMBSMControllerParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Python code from SRV uuv_control_msgs/SetMBSMControllerParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Python code from SRV uuv_control_msgs/GetMBSMControllerParams"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Python code from SRV uuv_control_msgs/GetMBSMControllerParams"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Python code from SRV uuv_control_msgs/ResetController"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv -Iuuv_control_msgs:/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Python code from SRV uuv_control_msgs/ResetController"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Python msg __init__.py for uuv_control_msgs"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg --initpy
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Python msg __init__.py for uuv_control_msgs"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg --initpy
 
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
-/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Python srv __init__.py for uuv_control_msgs"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv --initpy
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
+/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Python srv __init__.py for uuv_control_msgs"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv --initpy
 
 uuv_control_msgs_generate_messages_py: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py
-uuv_control_msgs_generate_messages_py: /home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Waypoint.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_WaypointSet.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_AddWaypoint.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ClearWaypoints.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitCircularTrajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitHelicalTrajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointsFromFile.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetWaypoints.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoTo.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GoToIncremental.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_Hold.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_IsRunningTrajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitRectTrajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_StartTrajectory.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToAutomatic.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SwitchToManual.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetPIDParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetPIDParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetSMControllerParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetSMControllerParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_SetMBSMControllerParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_GetMBSMControllerParams.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_ResetController.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/__init__.py
+uuv_control_msgs_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/__init__.py
 uuv_control_msgs_generate_messages_py: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/build.make
 
 .PHONY : uuv_control_msgs_generate_messages_py
@@ -356,10 +356,10 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_control_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_control_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_py.dir/depend
 

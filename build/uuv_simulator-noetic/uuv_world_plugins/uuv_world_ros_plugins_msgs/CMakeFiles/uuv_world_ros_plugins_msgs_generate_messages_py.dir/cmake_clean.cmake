@@ -1,13 +1,13 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_GetCurrentModel.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_GetOriginSphericalCoord.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentDirection.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentModel.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentVelocity.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetOriginSphericalCoord.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_TransformFromSphericalCoord.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_TransformToSphericalCoord.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/__init__.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_GetCurrentModel.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_GetOriginSphericalCoord.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentDirection.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentModel.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetCurrentVelocity.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_SetOriginSphericalCoord.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_TransformFromSphericalCoord.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/_TransformToSphericalCoord.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_world_ros_plugins_msgs/srv/__init__.py"
   "CMakeFiles/uuv_world_ros_plugins_msgs_generate_messages_py"
 )
 

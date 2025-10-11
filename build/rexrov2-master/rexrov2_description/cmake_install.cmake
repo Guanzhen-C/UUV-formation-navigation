@@ -1,8 +1,8 @@
-# Install script for directory: /home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description
+# Install script for directory: /home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,35 +38,35 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rexrov2_description/cmake" TYPE FILE FILES
-    "/home/qsk/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_descriptionConfig.cmake"
-    "/home/qsk/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_descriptionConfig-version.cmake"
+    "/home/cgz1/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_descriptionConfig.cmake"
+    "/home/cgz1/catkin_ws/build/rexrov2-master/rexrov2_description/catkin_generated/installspace/rexrov2_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rexrov2_description" TYPE FILE FILES "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rexrov2_description" TYPE FILE FILES "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rexrov2_description" TYPE DIRECTORY FILES
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/meshes"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/robots"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/urdf"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/launch"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/meshes"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/robots"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/urdf"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/launch"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rexrov2_description" TYPE DIRECTORY FILES
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/launch"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/meshes"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/robots"
-    "/home/qsk/catkin_ws/src/rexrov2-master/rexrov2_description/urdf"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/launch"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/meshes"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/robots"
+    "/home/cgz1/catkin_ws/src/rexrov2-master/rexrov2_description/urdf"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

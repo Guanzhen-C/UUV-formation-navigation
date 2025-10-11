@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/install
+prefix=/home/cgz1/catkin_ws/install
 
 Name: lauv_description
 Description: Description of lauv_description

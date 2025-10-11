@@ -67,14 +67,14 @@ set(uuv_world_plugins_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(uuv_world_plugins_SOURCE_PREFIX /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins)
-  set(uuv_world_plugins_DEVEL_PREFIX /home/qsk/catkin_ws/devel)
+  set(uuv_world_plugins_SOURCE_PREFIX /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins)
+  set(uuv_world_plugins_DEVEL_PREFIX /home/cgz1/catkin_ws/devel)
   set(uuv_world_plugins_INSTALL_PREFIX "")
   set(uuv_world_plugins_PREFIX ${uuv_world_plugins_DEVEL_PREFIX})
 else()
   set(uuv_world_plugins_SOURCE_PREFIX "")
   set(uuv_world_plugins_DEVEL_PREFIX "")
-  set(uuv_world_plugins_INSTALL_PREFIX /home/qsk/catkin_ws/install)
+  set(uuv_world_plugins_INSTALL_PREFIX /home/cgz1/catkin_ws/install)
   set(uuv_world_plugins_PREFIX ${uuv_world_plugins_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(uuv_world_plugins_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/include " STREQUAL " ")
+if(NOT "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/include " STREQUAL " ")
   set(uuv_world_plugins_INCLUDE_DIRS "")
-  set(_include_dirs "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/include")
+  set(_include_dirs "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world
         message(FATAL_ERROR "Project 'uuv_world_plugins' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'uuv_world_plugins' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'uuv_world_plugins' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_world_plugins/uuv_world_plugins/${idir}'.  ${_report}")
     endif()
     _list_append_unique(uuv_world_plugins_INCLUDE_DIRS ${include})
   endforeach()
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/qsk/catkin_ws/devel/lib;/home/qsk/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/cgz1/catkin_ws/devel/lib;/home/cgz1/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

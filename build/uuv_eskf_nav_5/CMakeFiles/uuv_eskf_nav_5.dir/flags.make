@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=c++17 -O3
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"uuv_eskf_nav_5\" -Duuv_eskf_nav_5_EXPORTS
 
-CXX_INCLUDES = -I/home/qsk/catkin_ws/src/uuv_eskf_nav_5/include -I/home/qsk/catkin_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 
+CXX_INCLUDES = -I/home/cgz1/catkin_ws/src/uuv_eskf_nav_5/include -I/home/cgz1/catkin_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 
 

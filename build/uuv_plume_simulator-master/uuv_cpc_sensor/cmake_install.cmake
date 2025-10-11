@@ -1,8 +1,8 @@
-# Install script for directory: /home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor
+# Install script for directory: /home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/qsk/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,18 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensor.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensor.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_cpc_sensor/cmake" TYPE FILE FILES
-    "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensorConfig.cmake"
-    "/home/qsk/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensorConfig-version.cmake"
+    "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensorConfig.cmake"
+    "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/catkin_generated/installspace/uuv_cpc_sensorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_cpc_sensor" TYPE FILE FILES "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_cpc_sensor" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -59,7 +59,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libuuv_cpc_ros_sensor.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/qsk/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/cgz1/catkin_ws/devel/lib/libuuv_cpc_ros_sensor.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libuuv_cpc_ros_sensor.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libuuv_cpc_ros_sensor.so")
     file(RPATH_CHANGE
@@ -82,12 +82,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor" TYPE EXECUTABLE FILES "/home/qsk/catkin_ws/devel/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor" TYPE EXECUTABLE FILES "/home/cgz1/catkin_ws/devel/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node"
-         OLD_RPATH "/home/qsk/catkin_ws/devel/lib:/opt/ros/noetic/lib:"
+         OLD_RPATH "/home/cgz1/catkin_ws/devel/lib:/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_cpc_sensor/uuv_cpc_ros_sensor_node")
@@ -96,6 +96,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/uuv_cpc_sensor" TYPE DIRECTORY FILES "/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include/uuv_cpc_sensor/" FILES_MATCHING REGEX "/[^/]*\\.hh$" REGEX "/\\.\\~$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/uuv_cpc_sensor" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include/uuv_cpc_sensor/" FILES_MATCHING REGEX "/[^/]*\\.hh$" REGEX "/\\.\\~$" EXCLUDE)
 endif()
 

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/include/uuv_gazebo_ros_plugins/JointStatePublisher.hh
+/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/include/uuv_gazebo_ros_plugins/JointStatePublisher.hh
 string
 -
 vector
@@ -34,7 +34,7 @@ sensor_msgs/JointState.h
 sstream
 -
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/src/JointStatePublisher.cc
+/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/src/JointStatePublisher.cc
 uuv_gazebo_ros_plugins/JointStatePublisher.hh
 -
 

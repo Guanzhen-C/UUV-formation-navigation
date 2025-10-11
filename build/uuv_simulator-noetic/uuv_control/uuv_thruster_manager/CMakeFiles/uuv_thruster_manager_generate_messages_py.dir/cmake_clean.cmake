@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py"
   "CMakeFiles/uuv_thruster_manager_generate_messages_py"
 )
 

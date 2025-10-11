@@ -285,7 +285,6 @@
     <arg name="child_frame_id" value="/eca_a9_9/base_link"/>
   </include>
 
-  
 
   <!-- 启动第一个中层AUV的控制器（不启用内置RViz） -->
   <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
@@ -396,111 +395,7 @@
   </include>
 
 
-  <!-- 手动启动轨迹标记发布器（用于RViz可视化） -->
-  <!-- 海面层轨迹标记发布器 -->
-  
-  
-  <!-- 中层9个AUV轨迹标记发布器 -->
-  <group ns="eca_a9_1">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-  
-  <group ns="eca_a9_2">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_3">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_4">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_5">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_6">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_7">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_8">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-  <group ns="eca_a9_9">
-    <node pkg="uuv_control_utils"
-          type="trajectory_marker_publisher.py"
-          name="trajectory_marker_publisher"
-          output="screen">
-        <remap from="trajectory" to="trajectory"/>
-        <remap from="waypoints" to="waypoints"/>
-    </node>
-  </group>
-
-
-  <!-- 启动RViz显示多层AUV -->
-  <node name="multi_layer_auv_rviz" pkg="rviz" type="rviz" output="screen" 
-        args="-d $(find eca_a9_control)/rviz/multi_layer_eca_a9_control.rviz"/>
-
-  <!-- 
-    删除所有为AUV启动一次性圆周轨迹的 <include> 块。
-    AUV现在将在启动并等待'timeout_idle_mode'秒后，
-    自动进入以'idle_radius'为半径的循环圆周运动。
-   -->
+  <!-- 轨迹标记与RViz可视化已关闭，以降低仿真负载 -->
 
   
   <!-- 初始化多层AUV记录 -->

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_thruster_ros_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_thruster_ros_plugin.so"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_ros_plugin.pdb"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_ros_plugin.so"
   "CMakeFiles/uuv_thruster_ros_plugin.dir/src/ThrusterROSPlugin.cc.o"
 )
 

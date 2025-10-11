@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator/msg/_AUVCommand.py"
-  "/home/qsk/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator/msg/__init__.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator/msg/_AUVCommand.py"
+  "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator/msg/__init__.py"
   "CMakeFiles/uuv_auv_control_allocator_generate_messages_py"
 )
 

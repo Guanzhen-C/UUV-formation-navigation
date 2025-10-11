@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv;/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
+services_str = "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv;/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv;/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv;/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv"
 pkg_name = "uuv_thruster_manager"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

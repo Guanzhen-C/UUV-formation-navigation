@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"uuv_cpc_sensor\"
 
-CXX_INCLUDES = -I/home/qsk/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include -I/home/qsk/catkin_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include -I/home/cgz1/catkin_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

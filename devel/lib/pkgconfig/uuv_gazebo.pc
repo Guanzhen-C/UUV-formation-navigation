@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/devel
+prefix=/home/cgz1/catkin_ws/devel
 
 Name: uuv_gazebo
 Description: Description of uuv_gazebo

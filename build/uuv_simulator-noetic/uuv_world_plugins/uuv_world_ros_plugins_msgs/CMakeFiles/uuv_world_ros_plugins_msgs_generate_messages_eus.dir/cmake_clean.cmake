@@ -1,13 +1,13 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/manifest.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/GetCurrentModel.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/GetOriginSphericalCoord.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentDirection.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentModel.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentVelocity.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetOriginSphericalCoord.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/TransformFromSphericalCoord.l"
-  "/home/qsk/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/TransformToSphericalCoord.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/manifest.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/GetCurrentModel.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/GetOriginSphericalCoord.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentDirection.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentModel.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetCurrentVelocity.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/SetOriginSphericalCoord.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/TransformFromSphericalCoord.l"
+  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_world_ros_plugins_msgs/srv/TransformToSphericalCoord.l"
   "CMakeFiles/uuv_world_ros_plugins_msgs_generate_messages_eus"
 )
 

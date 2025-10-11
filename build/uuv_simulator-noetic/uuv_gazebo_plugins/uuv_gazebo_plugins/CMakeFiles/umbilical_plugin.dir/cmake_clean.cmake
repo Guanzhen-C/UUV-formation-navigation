@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libumbilical_plugin.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libumbilical_plugin.so"
+  "/home/cgz1/catkin_ws/devel/lib/libumbilical_plugin.pdb"
+  "/home/cgz1/catkin_ws/devel/lib/libumbilical_plugin.so"
   "CMakeFiles/umbilical_plugin.dir/src/UmbilicalModel.cc.o"
   "CMakeFiles/umbilical_plugin.dir/src/UmbilicalPlugin.cc.o"
 )

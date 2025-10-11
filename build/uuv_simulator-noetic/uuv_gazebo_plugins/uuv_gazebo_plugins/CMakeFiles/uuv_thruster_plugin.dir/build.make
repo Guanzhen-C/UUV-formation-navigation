@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/depend.make
@@ -58,30 +58,30 @@ include uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uu
 include uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/flags.make
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/flags.make
-uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o -c /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc
+uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o -c /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.i"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc > CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.i
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc > CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.i
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.s"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.s
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterConversionFcn.cc -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.s
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/flags.make
-uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o: /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o -c /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc
+uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o -c /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.i"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc > CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.i
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc > CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.i
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.s"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.s
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/ThrusterPlugin.cc -o CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.s
 
 # Object files for target uuv_thruster_plugin
 uuv_thruster_plugin_OBJECTS = \
@@ -91,78 +91,78 @@ uuv_thruster_plugin_OBJECTS = \
 # External object files for target uuv_thruster_plugin
 uuv_thruster_plugin_EXTERNAL_OBJECTS =
 
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/build.make
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /home/qsk/catkin_ws/devel/lib/libuuv_dynamics.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /home/qsk/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libSimTKsimbody.so.3.6
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libdart.so.6.9.2
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_client.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_gui.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_sensors.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_rendering.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_physics.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_ode.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_transport.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_msgs.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_util.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_common.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_gimpact.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_opcode.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libgazebo_opende_ou.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_program_options.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_iostreams.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libprotobuf.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libsdformat9.so.9.10.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libOgreMain.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libOgreTerrain.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libOgrePaging.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-common3-graphics.so.3.17.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libSimTKmath.so.3.6
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libSimTKcommon.so.3.6
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libblas.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/liblapack.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libblas.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/liblapack.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libdart-external-odelcpsolver.so.6.9.2
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libccd.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libfcl.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libassimp.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/liboctomap.so.1.9.3
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/liboctomath.so.1.9.3
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libboost_atomic.so.1.71.0
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-transport8.so.8.5.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-fuel_tools4.so.4.9.2
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-msgs5.so.5.11.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-math6.so.6.15.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libprotobuf.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libignition-common3.so.3.17.1
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libuuid.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/aarch64-linux-gnu/libuuid.so
-/home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/qsk/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library /home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so"
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/uuv_thruster_plugin.dir/link.txt --verbose=$(VERBOSE)
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/build.make
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /home/cgz1/catkin_ws/devel/lib/libuuv_dynamics.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /home/cgz1/catkin_ws/devel/lib/libuuv_gazebo_plugins_msgs.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libSimTKsimbody.so.3.6
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libdart.so.6.9.2
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_client.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_gui.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_sensors.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_rendering.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_physics.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_ode.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_transport.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_msgs.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_util.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_common.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_gimpact.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_opcode.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libgazebo_opende_ou.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libsdformat9.so.9.10.1
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libOgreMain.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.17.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libSimTKmath.so.3.6
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libSimTKcommon.so.3.6
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libblas.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/liblapack.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libblas.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/liblapack.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libdart-external-odelcpsolver.so.6.9.2
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libccd.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libfcl.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libassimp.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.3
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.3
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.5.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.9.1
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-msgs5.so.5.11.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-math6.so.6.15.1
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3.so.3.17.0
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so: uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library /home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so"
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/uuv_thruster_plugin.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/build: /home/qsk/catkin_ws/devel/lib/libuuv_thruster_plugin.so
+uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/build: /home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so
 
 .PHONY : uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/build
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_plugin.dir/cmake_clean.cmake
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_plugin.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/clean
 
 uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/CMakeFiles/uuv_thruster_plugin.dir/depend
 

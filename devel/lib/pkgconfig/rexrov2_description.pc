@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/devel
+prefix=/home/cgz1/catkin_ws/devel
 
 Name: rexrov2_description
 Description: Description of rexrov2_description

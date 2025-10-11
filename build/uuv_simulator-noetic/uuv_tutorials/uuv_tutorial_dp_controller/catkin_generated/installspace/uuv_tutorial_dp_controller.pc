@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/install
+prefix=/home/cgz1/catkin_ws/install
 
 Name: uuv_tutorial_dp_controller
 Description: Description of uuv_tutorial_dp_controller

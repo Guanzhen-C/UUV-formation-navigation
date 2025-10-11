@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf"
-  "/home/qsk/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf.pdb"
+  "/home/cgz1/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf"
+  "/home/cgz1/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf.pdb"
   "CMakeFiles/uuv_message_to_tf.dir/src/message_to_tf.cc.o"
 )
 

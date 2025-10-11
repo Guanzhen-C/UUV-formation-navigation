@@ -399,6 +399,9 @@ private:
             ROS_WARN_THROTTLE(1.0, "ESKF OWTT更新失败");
             return;
         }
+
+        ROS_INFO_THROTTLE(2.0, "OWTT used by ESKF: self=%s from=%s range=%.2f m t_rx=%.3f",
+                          robot_name_.c_str(), msg->from_ns.c_str(), msg->range, msg->t_rx.toSec());
     }
     
     void publishNavigationResult(double timestamp) {

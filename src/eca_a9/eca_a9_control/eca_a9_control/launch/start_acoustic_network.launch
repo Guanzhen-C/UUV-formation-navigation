@@ -1,7 +1,7 @@
 <launch>
   <!-- Parameters -->
-  <arg name="interval" default="60.0"/>
-  <arg name="cycle_period" default="1800"/>
+  <arg name="interval" default="20.0"/>
+  <arg name="cycle_period" default="180"/>
   <arg name="use_sim_time" default="true"/>
   <param name="use_sim_time" value="$(arg use_sim_time)"/>
 

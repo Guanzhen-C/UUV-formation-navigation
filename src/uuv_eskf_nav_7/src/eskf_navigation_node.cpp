@@ -289,7 +289,7 @@ private:
                              att_uncertainty);
 
             // 周期性发布Method3发送端状态，供RPT插件嵌入到广播
-            //publishMethod3SenderState(ros::Time::now().toSec());
+            publishMethod3SenderState(ros::Time::now().toSec());
         }
     }
     
@@ -398,6 +398,9 @@ private:
             ROS_WARN_THROTTLE(1.0, "ESKF OWTT更新失败");
             return;
         }
+
+        ROS_INFO_THROTTLE(2.0, "OWTT used by ESKF: self=%s from=%s range=%.2f m t_rx=%.3f",
+                          robot_name_.c_str(), msg->from_ns.c_str(), msg->range, msg->t_rx.toSec());
     }
     
     void publishMethod3SenderState(double timestamp) {

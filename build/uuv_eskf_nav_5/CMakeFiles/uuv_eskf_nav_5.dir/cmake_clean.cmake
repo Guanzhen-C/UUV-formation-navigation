@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/qsk/catkin_ws/devel/lib/libuuv_eskf_nav_5.pdb"
-  "/home/qsk/catkin_ws/devel/lib/libuuv_eskf_nav_5.so"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_eskf_nav_5.pdb"
+  "/home/cgz1/catkin_ws/devel/lib/libuuv_eskf_nav_5.so"
   "CMakeFiles/uuv_eskf_nav_5.dir/src/eskf_core.cpp.o"
   "CMakeFiles/uuv_eskf_nav_5.dir/src/sensor_manager.cpp.o"
 )

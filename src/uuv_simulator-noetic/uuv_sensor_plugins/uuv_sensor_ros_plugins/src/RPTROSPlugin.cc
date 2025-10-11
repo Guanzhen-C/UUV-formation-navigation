@@ -92,6 +92,18 @@ void RPTROSPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   // Store default target namespace for subscribing to peer broadcasts
   this->default_target_ns_ = default_target_ns;
+
+  // TX enable gating: default true, override by param and topic
+  if (this->rosNode)
+  {
+    std::string tx_key = this->sensorOutputTopic + std::string("/tx_enable");
+    this->rosNode->param(tx_key, this->tx_enable_, true);
+    this->last_tx_enable_state_ = this->tx_enable_;
+    this->tx_enable_sub_ = this->rosNode->subscribe<std_msgs::Bool>(this->sensorOutputTopic + "/tx_enable", 1, &RPTROSPlugin::onTxEnable, this);
+    // Allow overriding time-proximity dedup threshold
+    std::string rx_sep_key = this->sensorOutputTopic + std::string("/rx_min_separation_sec");
+    this->rosNode->param(rx_sep_key, this->rx_min_separation_sec_, this->rx_min_separation_sec_);
+  }
 }
 
 /////////////////////////////////////////////////
@@ -102,21 +114,23 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
 
   // (TWTT processing removed)
 
-  if (!this->EnableMeasurement(_info))
-    return false;
+  // Rate gate only for broadcast and position publishing; keep RX processing continuous
+  bool meas_allowed = this->EnableMeasurement(_info);
 
   // (TWTT trigger removed)
 
   // Broadcast-only: publish Method3 payload at update rate; receiver will compute arrival by zero-crossing and publish range_owtt.
-  if (this->advertise_enabled_ && this->IsOn() && this->has_method3_state_)
+  bool allow_rate_broadcast = (meas_allowed && this->advertise_enabled_ && this->IsOn() && this->has_method3_state_ && this->tx_enable_);
+  bool allow_pulse_broadcast = (this->pending_pulse_broadcast_ && this->advertise_enabled_ && this->IsOn() && this->has_method3_state_ && this->tx_enable_);
+  if (allow_rate_broadcast || allow_pulse_broadcast)
   {
 #if GAZEBO_MAJOR_VERSION >= 8
     double sim_t = _info.simTime.Double();
 #else
     double sim_t = _info.simTime.Double();
 #endif
-    // Respect update rate: publish once per update tick; throttle optional
-    if (this->last_broadcast_sim_time_ < 0.0 || sim_t > this->last_broadcast_sim_time_)
+    // If pulse requested, bypass rate gate once; otherwise respect update rate
+    if (allow_pulse_broadcast || this->last_broadcast_sim_time_ < 0.0 || sim_t > this->last_broadcast_sim_time_)
     {
       uuv_sensor_ros_plugins_msgs::AcousticBroadcastMethod3 b;
       b.from_ns = this->robotNamespace;
@@ -125,7 +139,11 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
       b.tx_cross_cov_x_p = this->last_method3_state_.cross_cov_x_p;
       if (this->broadcast_pub_)
         this->broadcast_pub_.publish(b);
+      // Consume rate budget as if a regular broadcast happened
       this->last_broadcast_sim_time_ = sim_t;
+      this->pending_pulse_broadcast_ = false;
+      // Also advance measurement timer so next meas_allowed respects update_rate
+      this->lastMeasurementTime = _info.simTime;
     }
   }
 
@@ -162,7 +180,8 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
   this->rosMessage.pos.pos.y = this->position.Y();
   this->rosMessage.pos.pos.z = this->position.Z();
 
-  this->rosSensorOutputPub.publish(this->rosMessage);
+  if (meas_allowed)
+    this->rosSensorOutputPub.publish(this->rosMessage);
 
   // (TWTT gated processing removed)
 
@@ -180,8 +199,19 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
     while (!this->self_pose_buf_.empty() && t - this->self_pose_buf_.front().t > this->self_buf_horizon_)
       this->self_pose_buf_.pop_front();
 
+    // Clean processed_keys_ by horizon
+    while (!this->processed_keys_.empty() && t - this->processed_keys_.front().second > this->processed_horizon_)
+      this->processed_keys_.pop_front();
+
     for (auto &q : this->pending_owtt_)
     {
+      // Skip if this (from_ns,t_tx) was already processed
+      bool already = false;
+      for (const auto &k : this->processed_keys_)
+      {
+        if (k.first == q.from_ns && std::abs(k.second - q.t_tx) < 1e-6) { already = true; break; }
+      }
+      if (already) continue;
       // zero-crossing on diff = c*(t - t_tx) - ||p_self(t) - p_tx(t_tx)||
       double cdt = this->sound_speed_ * (t - q.t_tx);
       double rng = (pose.Pos() - q.p_tx_ttx).Length();
@@ -220,7 +250,13 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
         }
         if (measured_range < 0.0) measured_range = 0.0;
 
-        if (this->owtt_pub_)
+        // Receiver-side time proximity dedup: suppress if too close to last publish from same sender
+        double last_trx = -1.0;
+        auto it_last = this->last_rx_trx_by_sender_.find(q.from_ns);
+        if (it_last != this->last_rx_trx_by_sender_.end()) last_trx = it_last->second;
+        bool separated_ok = (last_trx < 0.0) || ((t_rx - last_trx) >= this->rx_min_separation_sec_);
+
+        if (separated_ok && this->owtt_pub_)
         {
           uuv_sensor_ros_plugins_msgs::AcousticRangeOWTT owtt;
           owtt.from_ns = q.from_ns;
@@ -232,12 +268,15 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
           owtt.tx_pos = q.tx_pos;
           owtt.tx_cross_cov_x_p = q.tx_cross_cov_x_p;
           this->owtt_pub_.publish(owtt);
+          // Mark processed to avoid duplicates
+          this->processed_keys_.push_back({q.from_ns, q.t_tx});
+          this->last_rx_trx_by_sender_[q.from_ns] = t_rx;
         }
       }
       q.prev_t = t; q.prev_diff = diff;
     }
-    // remove processed ones by time horizon (simple cleanup)
-    if (this->pending_owtt_.size() > 50)
+    // Remove processed items whose t_tx is older than current time minus horizon
+    while (!this->pending_owtt_.empty() && (t - this->pending_owtt_.front().t_tx) > this->processed_horizon_)
       this->pending_owtt_.pop_front();
   }
 
@@ -263,7 +302,12 @@ bool RPTROSPlugin::OnUpdate(const common::UpdateInfo& _info)
     this->gazeboSensorOutputPub->Publish(gazeboMessage);
   }
 
-  // Ensure non-void function returns a value
+  // Update measurement time only when throttled outputs are produced
+#if GAZEBO_MAJOR_VERSION >= 8
+  if (meas_allowed) this->lastMeasurementTime = _info.simTime;
+#else
+  if (meas_allowed) this->lastMeasurementTime = _info.simTime;
+#endif
   return true;
 }
 
@@ -289,6 +333,17 @@ void RPTROSPlugin::onBroadcastMethod3(const uuv_sensor_ros_plugins_msgs::Acousti
   q.p_tx_ttx = ignition::math::Vector3d(_msg.tx_pos.pos.pos.x, _msg.tx_pos.pos.pos.y, _msg.tx_pos.pos.pos.z);
   q.has_prev = false; q.prev_t = 0.0; q.prev_diff = 0.0;
   this->pending_owtt_.push_back(q);
+}
+
+/////////////////////////////////////////////////
+void RPTROSPlugin::onTxEnable(const std_msgs::Bool::ConstPtr& _msg)
+{
+  bool new_state = _msg->data;
+  // Rising edge triggers one immediate broadcast pulse
+  if (!this->last_tx_enable_state_ && new_state)
+    this->pending_pulse_broadcast_ = true;
+  this->tx_enable_ = new_state;
+  this->last_tx_enable_state_ = new_state;
 }
 
 /////////////////////////////////////////////////

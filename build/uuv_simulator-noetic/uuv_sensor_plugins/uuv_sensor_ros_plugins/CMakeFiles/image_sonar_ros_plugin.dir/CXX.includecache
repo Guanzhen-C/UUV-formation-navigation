@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/gazebo_ros_image_sonar.hh
+/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/gazebo_ros_image_sonar.hh
 ros/ros.h
 -
 ros/callback_queue.h
@@ -50,7 +50,7 @@ gazebo_plugins/gazebo_ros_camera_utils.h
 opencv2/core.hpp
 -
 
-/home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/gazebo_ros_image_sonar.cpp
+/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/gazebo_ros_image_sonar.cpp
 algorithm
 -
 assert.h

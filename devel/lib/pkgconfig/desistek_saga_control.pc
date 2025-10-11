@@ -1,4 +1,4 @@
-prefix=/home/qsk/catkin_ws/devel
+prefix=/home/cgz1/catkin_ws/devel
 
 Name: desistek_saga_control
 Description: Description of desistek_saga_control

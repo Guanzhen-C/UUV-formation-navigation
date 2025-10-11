@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qsk/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qsk/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
 
 # Utility rule file for uuv_thruster_manager_gennodejs.
 
@@ -63,10 +63,10 @@ uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_ma
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/clean:
-	cd /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_manager_gennodejs.dir/cmake_clean.cmake
+	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_manager_gennodejs.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/depend:
-	cd /home/qsk/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qsk/catkin_ws/src /home/qsk/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/qsk/catkin_ws/build /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/qsk/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_gennodejs.dir/depend
 

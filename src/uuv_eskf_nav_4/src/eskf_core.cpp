@@ -36,20 +36,6 @@ bool EskfCore::initialize(const NominalState& initial_state,
     
     return true;
 }
-double EskfCore::computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position) const {
-    // 基于 ENU 北向位移近似：φ(t) = φ0 + y/(R_M + h)，其中 φ0=mission_latitude_
-    // 这里使用任务区域纬度对应的子午圈半径
-    Eigen::Vector2d rmrn0 = computeEarthRadii(mission_latitude_);
-    double rmh0 = rmrn0[0] + enu_position[2];
-    double denom = (rmh0 > 1.0 ? rmh0 : 1.0); // 避免除零
-    double dphi = enu_position[1] / denom;
-    double phi = mission_latitude_ + dphi;
-    // 限幅，避免 tan(phi) 数值发散
-    const double lim = 1.4844222297453323; // ~85°
-    if (phi > lim) phi = lim;
-    if (phi < -lim) phi = -lim;
-    return phi;
-}
 
 ImuIntegralData ImuIntegralData::fromInstantaneous(
     const ImuData& imu_current,
@@ -192,11 +178,10 @@ void EskfCore::velocityUpdate(
         // 哥氏力项（如果启用地球自转补偿）
         Eigen::Vector3d coriolis_term = Eigen::Vector3d::Zero();
         if (enable_earth_rotation_) {
-            // 使用实时纬度(基于ENU北向位移)计算地球自转角速度和导航系转动角速度（均在ENU下）
+            // 使用实时纬度(ENU北向位移)并在 ENU 中计算
             double current_latitude = computeRealtimeLatitudeRad(state_prev.position);
-            Eigen::Vector3d wie_enu = computeEarthRotationRate(current_latitude);  // ENU
-            Eigen::Vector3d wen_enu = computeNavigationFrameRate(state_prev.velocity, state_prev.position); // ENU
-            // 哥氏力: -2*(w_ie + w_en) × v  （全部在 ENU 坐标系）
+            Eigen::Vector3d wie_enu = computeEarthRotationRate(current_latitude);
+            Eigen::Vector3d wen_enu = computeNavigationFrameRate(state_prev.velocity, state_prev.position);
             coriolis_term = -(2 * wie_enu + wen_enu).cross(state_prev.velocity);
         }
         
@@ -290,13 +275,13 @@ Eigen::Quaterniond EskfCore::navigationFrameRotation(
         return Eigen::Quaterniond::Identity();
     }
     
-    // 计算导航系转动角速度 (ENU)，使用基于北向位移的实时纬度
+    // 计算导航系转动角速度 (参考KF-GINS第67-68行)
     double current_latitude = computeRealtimeLatitudeRad(position);
-    Eigen::Vector3d wie_enu = computeEarthRotationRate(current_latitude);
-    Eigen::Vector3d wen_enu = computeNavigationFrameRate(velocity, position);
+    Eigen::Vector3d wie_n = computeEarthRotationRate(current_latitude);
+    Eigen::Vector3d wen_n = computeNavigationFrameRate(velocity, position);
     
     // 总的导航系转动角速度
-    Eigen::Vector3d omega_nn = wie_enu + wen_enu;
+    Eigen::Vector3d omega_nn = wie_n + wen_n;
     
     // 转动角增量
     Eigen::Vector3d delta_theta_nn = omega_nn * dt;
@@ -393,6 +378,59 @@ bool EskfCore::updateWithDvl(const DvlData& dvl_data) {
     Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
     resetErrorState(G);
     
+    return true;
+}
+
+bool EskfCore::updateWithOwttRange(const OwttData& owtt_data) {
+    if (!initialized_) {
+        std::cerr << "改进ESKF OWTT更新失败: 滤波器未初始化!" << std::endl;
+        return false;
+    }
+
+    // 预测距离和单位方向向量
+    const Eigen::Vector3d& p_i = nominal_state_.position;
+    Eigen::Vector3d diff = p_i - owtt_data.tx_position;
+    double r_pred = diff.norm();
+    if (r_pred < 1e-6) {
+        std::cerr << "OWTT更新失败: 预测距离过小" << std::endl;
+        return false;
+    }
+    Eigen::Vector3d u = diff / r_pred; // 从tx指向self
+
+    // 残差 z - h(x)
+    double innovation = owtt_data.range - r_pred;
+
+    // 方法一：忽略互协，仅使用本地与对端位置方差投影
+    Eigen::MatrixXd H_i = buildOwttObservationMatrix(u);
+    double R_base = owtt_data.variance * 1000;
+    double proj_tx = u.transpose() * owtt_data.tx_position_covariance * u;
+    double Si_local = (H_i * P_ * H_i.transpose())(0,0);
+    double S_scalar = Si_local + proj_tx + R_base;
+    if (!(S_scalar > 0)) S_scalar = (R_base > 0 ? R_base : 1.0);
+    // Mahalanobis gating (3-sigma)
+    double md2 = (innovation * innovation) / S_scalar;
+    if (md2 > 1.0) {
+        return true;
+    }
+    Eigen::Matrix<double, STATE_SIZE, 1> K_local = (P_ * H_i.transpose()) / S_scalar;
+
+    // 更新本地误差状态
+    Eigen::VectorXd delta_error = K_local * innovation; // 15x1
+    error_state_ = delta_error;
+
+    // 协方差更新（Joseph）：P_new = P - K_local * S * K_local^T，其中 S 是标量
+    P_ = P_ - (K_local * S_scalar) * K_local.transpose();
+    // 对称化
+    P_ = 0.5 * (P_ + P_.transpose());
+
+    // 注入与重置
+    injectErrorState(error_state_);
+    Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
+    Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
+    resetErrorState(G);
+
+    // 方法一：不维护跨体互协 P_{x_i,p_j}
+
     return true;
 }
 
@@ -553,6 +591,14 @@ Eigen::MatrixXd EskfCore::buildHeadingObservationMatrix() {
     return H;
 }
 
+Eigen::MatrixXd EskfCore::buildOwttObservationMatrix(const Eigen::Vector3d& unit_vec) {
+    Eigen::MatrixXd H = Eigen::MatrixXd::Zero(1, STATE_SIZE);
+    H(0, StateIndex::DP + 0) = unit_vec.x();
+    H(0, StateIndex::DP + 1) = unit_vec.y();
+    H(0, StateIndex::DP + 2) = unit_vec.z();
+    return H;
+}
+
 void EskfCore::injectErrorState(const Eigen::VectorXd& error_state) {
     // 1. 位置误差注入
     nominal_state_.position += error_state.segment<3>(StateIndex::DP);
@@ -686,7 +732,6 @@ Eigen::MatrixXd EskfCore::buildProcessNoiseMatrix(double dt, const NominalState&
 }
 
 Eigen::Vector3d EskfCore::computeEarthRotationRate(double latitude) const {
-    // 地球自转角速度在 ENU 中的分量: [0, W*cos(phi), W*sin(phi)]
     Eigen::Vector3d wie_enu;
     wie_enu << 0.0, WGS84_WIE * cos(latitude), WGS84_WIE * sin(latitude);
     return wie_enu;
@@ -695,15 +740,13 @@ Eigen::Vector3d EskfCore::computeEarthRotationRate(double latitude) const {
 Eigen::Vector3d EskfCore::computeNavigationFrameRate(
     const Eigen::Vector3d& velocity, 
     const Eigen::Vector3d& position) const {
-    // 使用实时纬度(基于ENU北向位移)，输出 ENU 形式的 w_en
     double phi = computeRealtimeLatitudeRad(position);
-    Eigen::Vector2d rmrn = computeEarthRadii(phi); // [M, N]
+    Eigen::Vector2d rmrn = computeEarthRadii(phi);
     double rmh = rmrn[0] + position[2];
     double rnh = rmrn[1] + position[2];
     double vE = velocity[0];
     double vN = velocity[1];
     Eigen::Vector3d w_en_enu;
-    // ENU: [-v_N/(R_M+h), v_E/(R_N+h), v_E*tan(phi)/(R_N+h)]
     w_en_enu[0] = -vN / rmh;
     w_en_enu[1] =  vE / rnh;
     w_en_enu[2] =  vE * std::tan(phi) / rnh;
@@ -730,97 +773,15 @@ Eigen::Vector2d EskfCore::computeEarthRadii(double latitude) const {
     return Eigen::Vector2d(M, N);
 }
 
-Eigen::MatrixXd EskfCore::buildOwttObservationMatrix(const Eigen::Vector3d& unit_vec) {
-    Eigen::MatrixXd H = Eigen::MatrixXd::Zero(1, STATE_SIZE);
-    H(0, StateIndex::DP + 0) = unit_vec.x();
-    H(0, StateIndex::DP + 1) = unit_vec.y();
-    H(0, StateIndex::DP + 2) = unit_vec.z();
-    return H;
-}
-
-bool EskfCore::updateWithOwttRange(const OwttData& owtt_data) {
-    if (!initialized_) {
-        std::cerr << "改进ESKF OWTT更新失败: 滤波器未初始化!" << std::endl;
-        return false;
-    }
-
-    // 预测距离和单位方向向量
-    const Eigen::Vector3d& p_i = nominal_state_.position;
-    Eigen::Vector3d diff = p_i - owtt_data.tx_position;
-    double r_pred = diff.norm();
-    if (r_pred < 1e-6) {
-        std::cerr << "OWTT更新失败: 预测距离过小" << std::endl;
-        return false;
-    }
-    Eigen::Vector3d u = diff / r_pred; // 从tx指向self
-
-    // 残差 z - h(x)
-    double innovation = owtt_data.range - r_pred;
-
-    // 雅可比 H_i (1x15)，仅对自身位置误差敏感: ∂h/∂δp_i = u^T
-    Eigen::MatrixXd H_i = buildOwttObservationMatrix(u);
-
-    // 方法三：构造紧凑的 S 与 K_aug 所需项
-    // R_eff 基础部分 = 传感器方差
-    double R_base = owtt_data.variance;
-
-    // 发送端位置不确定性投影项 u^T P_{p_j,p_j} u
-    double proj_tx = u.transpose() * owtt_data.tx_position_covariance * u;
-
-    // 局部自有项 H_i P_{ii} H_i^T
-    double Si_local = (H_i * P_ * H_i.transpose())(0,0);
-
-    // 互相关修正项：利用本地维护的 P_{x_i, p_j}
-    Eigen::Matrix<double, STATE_SIZE, 3> P_xi_pj = Eigen::Matrix<double, STATE_SIZE, 3>::Zero();
-    auto it = cross_cov_xi_p_peer_.find(owtt_data.peer_ns);
-    if (it != cross_cov_xi_p_peer_.end())
-        P_xi_pj = it->second;
-
-    // 计算 P_aug H_aug^T = P_{:,p_i} * u + P_{:,p_j} * (-u)
-    // 这里 P_{:,p_i} 即 P_ 对应 δp_i 的列块；P_{:,p_j} 用 P_{x_i,p_j}
-    Eigen::Matrix<double, STATE_SIZE, 1> P_aug_Ht = P_ * H_i.transpose(); // = P_{:,p_i} * u
-    // 加上对端项（注意 H_j = -u^T 对 δp_j）
-    P_aug_Ht -= P_xi_pj * u;
-
-    // 交叉项 u^T P_{p_i,p_j} u（由本地维护的 P_{x_i,p_j} 的位置块得到）
-    Eigen::Matrix3d P_pi_pj = P_xi_pj.block<3,3>(StateIndex::DP, 0);
-    double proj_cross = u.transpose() * P_pi_pj * u;
-    // 新息协方差 S = u^T P_{p_i,p_i} u + u^T P_{p_j,p_j} u - 2 u^T P_{p_i,p_j} u + R
-    double S_scalar = Si_local + proj_tx - 2.0 * proj_cross + R_base;
-    if (!(S_scalar > 0)) S_scalar = R_base > 0 ? R_base : 1.0;
-
-    // 增益前向量（对应增广 K 的本地部分）
-    Eigen::Matrix<double, STATE_SIZE, 1> K_local = P_aug_Ht / S_scalar;
-
-    // 更新本地误差状态
-    Eigen::VectorXd delta_error = K_local * innovation; // 15x1
-    error_state_ = delta_error;
-
-    // 协方差更新（Joseph）：P_new = P - K_local * S * K_local^T，其中 S 是标量
-    P_ = P_ - (K_local * S_scalar) * K_local.transpose();
-    // 对称化
-    P_ = 0.5 * (P_ + P_.transpose());
-
-    // 注入与重置
-    injectErrorState(error_state_);
-    Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
-    Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
-    resetErrorState(G);
-
-    // 互相关更新（维护 P_{x_i,p_j}）: P_{x_i,p_j,new} = P_{x_i,p_j} - K_local * (H_i P_{x_i,p_j} - u^T P_{p_j,p_j})
-    // 推导自方法三的增广协方差更新在位置列块上的等价形式
-    // 首先计算 h_i_pj = H_i * P_{x_i,p_j}，这是 1x3 行向量
-    Eigen::RowVector3d h_i_pj = (H_i * P_xi_pj).row(0);
-    // 等价右项（1x3）: h_i_pj - u^T P_{p_j,p_j}
-    Eigen::RowVector3d rhs = h_i_pj - (u.transpose() * owtt_data.tx_position_covariance);
-    // K_local (15x1) * rhs (1x3) => (15x3)
-    Eigen::Matrix<double, STATE_SIZE, 3> delta_cross = K_local * rhs;
-    Eigen::Matrix<double, STATE_SIZE, 3> P_xi_pj_new = P_xi_pj - delta_cross;
-    // 与本地误差状态重置保持一致：P_{x_i,p_j} <- G * P_{x_i,p_j}
-    P_xi_pj_new = G * P_xi_pj_new;
-    cross_cov_xi_p_peer_[owtt_data.peer_ns] = P_xi_pj_new;
-
-    return true;
-}
-
 } // namespace uuv_eskf_nav
+double uuv_eskf_nav::EskfCore::computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position) const {
+    Eigen::Vector2d rmrn0 = computeEarthRadii(mission_latitude_);
+    double rmh0 = rmrn0[0] + enu_position[2];
+    double denom = (rmh0 > 1.0 ? rmh0 : 1.0);
+    double dphi = enu_position[1] / denom;
+    double phi = mission_latitude_ + dphi;
+    const double lim = 1.4844222297453323;
+    if (phi > lim) phi = lim;
+    if (phi < -lim) phi = -lim;
+    return phi;
+}

@@ -44,10 +44,7 @@ class AcousticRouter(object):
             topic = f'/{tx}/rpt/broadcast_method3'
             sub = rospy.Subscriber(topic, AcousticBroadcastMethod3, self._make_cb(tx), queue_size=50)
             self.subs.append(sub)
-            rospy.loginfo(f'AcousticRouter: subscribed to {topic}')
 
-        # Current active transmitter (enforced externally by scheduler by powering sensors)
-        # Router does not gate by time; it only routes when messages arrive
         rospy.loginfo('AcousticRouter initialized')
 
     def _get_rx_pub(self, rx_ns):
@@ -55,18 +52,16 @@ class AcousticRouter(object):
             if rx_ns not in self.rx_publishers:
                 topic = f'/router_{rx_ns}/rpt/broadcast_method3'
                 self.rx_publishers[rx_ns] = rospy.Publisher(topic, AcousticBroadcastMethod3, queue_size=50)
-                rospy.loginfo(f'AcousticRouter: advertising to {topic}')
             return self.rx_publishers[rx_ns]
 
     def _make_cb(self, tx_ns):
         allowed = self.tx_to_allowed_rx.get(tx_ns, [])
 
         def cb(msg):
-            # Validate from_ns matches tx_ns; if not, forward anyway but warn
-            if msg.from_ns and msg.from_ns.lstrip('/') != tx_ns:
-                rospy.logwarn_throttle(5.0, f'Router got msg from {msg.from_ns} on {tx_ns} subscriber')
             if not allowed:
                 return
+            # Single concise log
+            rospy.loginfo_throttle(5.0, 'Route TX %s -> [%s]', tx_ns, ', '.join(allowed))
             for rx in allowed:
                 pub = self._get_rx_pub(rx)
                 pub.publish(msg)

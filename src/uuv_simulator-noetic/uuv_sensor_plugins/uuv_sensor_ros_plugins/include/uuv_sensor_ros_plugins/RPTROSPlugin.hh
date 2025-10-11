@@ -24,9 +24,11 @@
 #include <uuv_sensor_ros_plugins_msgs/Method3SenderState.h>
 #include <uuv_sensor_ros_plugins_msgs/AcousticBroadcastMethod3.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
+#include <std_msgs/Bool.h>
 #include "SensorRpt.pb.h"
 #include <deque>
 #include <boost/array.hpp>
+#include <map>
 
 namespace gazebo
 {
@@ -88,12 +90,28 @@ namespace gazebo
       bool has_prev = false; double prev_t = 0.0; double prev_diff = 0.0; 
     };
     protected: std::deque<PendingOwtt> pending_owtt_;
+    // Track processed keys to avoid duplicate publish on small-step sign flips
+    protected: std::deque<std::pair<std::string,double>> processed_keys_;
+    protected: double processed_horizon_ = 180.0; // seconds to remember keys
+
+    // Time-proximity deduplication on receiver: suppress publishes closer than threshold per sender
+    protected: std::map<std::string, double> last_rx_trx_by_sender_;
+    protected: double rx_min_separation_sec_ = 1.0; // can be overridden via ROS param
     protected: double last_broadcast_sim_time_ = -1.0;
 
     // Remove TWTT pending queue and tx request handling
     protected: static ignition::math::Vector3d InterpPose(const std::deque<TimedPose>& buf, double t);
     protected: void onMethod3State(const uuv_sensor_ros_plugins_msgs::Method3SenderState& msg);
     protected: void onBroadcastMethod3(const uuv_sensor_ros_plugins_msgs::AcousticBroadcastMethod3& msg);
+
+    // Gating for transmission: allow receiving while disabling broadcast when false
+    protected: bool tx_enable_ = true;
+    protected: ros::Subscriber tx_enable_sub_;
+    protected: void onTxEnable(const std_msgs::Bool::ConstPtr& msg);
+
+    // Single-pulse immediate broadcast upon tx_enable rising edge
+    protected: bool last_tx_enable_state_ = false;
+    protected: bool pending_pulse_broadcast_ = false;
 
     // Latest Method3 sender state provided by ESKF for embedding into OWTT broadcast
     protected: bool has_method3_state_ = false;
