@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorState.h
+/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorState.h
 ros/service_traits.h
 -
 uuv_sensor_ros_plugins_msgs/ChangeSensorStateRequest.h
@@ -14,7 +14,7 @@ uuv_sensor_ros_plugins_msgs/ChangeSensorStateRequest.h
 uuv_sensor_ros_plugins_msgs/ChangeSensorStateResponse.h
 -
 
-/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorStateRequest.h
+/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorStateRequest.h
 string
 -
 vector
@@ -30,7 +30,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorStateResponse.h
+/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChangeSensorStateResponse.h
 string
 -
 vector
@@ -46,7 +46,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.h
+/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/ChemicalParticleConcentration.h
 string
 -
 vector
@@ -66,7 +66,7 @@ std_msgs/Header.h
 geometry_msgs/Vector3.h
 -
 
-/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/Salinity.h
+/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs/Salinity.h
 string
 -
 vector
@@ -84,7 +84,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/CPCROSPlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/CPCROSPlugin.hh
 gazebo/gazebo.hh
 -
 ros/ros.h
@@ -100,7 +100,7 @@ sensor_msgs/PointCloud.h
 uuv_sensor_ros_plugins/ROSBaseModelPlugin.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/Common.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/Common.hh
 string
 -
 Eigen/Dense
@@ -108,7 +108,7 @@ Eigen/Dense
 gazebo/gazebo.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/ROSBaseModelPlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/ROSBaseModelPlugin.hh
 gazebo/common/Plugin.hh
 -
 gazebo/gazebo.hh
@@ -134,7 +134,7 @@ tf/tf.h
 tf/transform_broadcaster.h
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/ROSBasePlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/ROSBasePlugin.hh
 gazebo/common/common.hh
 -
 gazebo/physics/physics.hh
@@ -168,15 +168,15 @@ string
 map
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/CPCROSPlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/CPCROSPlugin.cc
 uuv_sensor_ros_plugins/CPCROSPlugin.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/ROSBaseModelPlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/ROSBaseModelPlugin.cc
 uuv_sensor_ros_plugins/ROSBaseModelPlugin.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/ROSBasePlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/ROSBasePlugin.cc
 uuv_sensor_ros_plugins/ROSBasePlugin.hh
 -
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_eskf_nav
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_eskf_nav
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,33 +38,33 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_nav.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_nav.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_navConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_navConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_navConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/uuv_eskf_navConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_eskf_nav/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_eskf_nav/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/startup_message.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/startup_message.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/enhanced_navigation_evaluator.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_eskf_nav" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_eskf_nav/catkin_generated/installspace/enhanced_navigation_evaluator.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav/launch" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/uuv_eskf_nav/launch/" REGEX "/\\.svn$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav/launch" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/uuv_eskf_nav/launch/" REGEX "/\\.svn$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav/config" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/uuv_eskf_nav/config/" REGEX "/\\.svn$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_eskf_nav/config" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/uuv_eskf_nav/config/" REGEX "/\\.svn$" EXCLUDE)
 endif()
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_sensor_gazebo_msgs.pdb"
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_sensor_gazebo_msgs.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_sensor_gazebo_msgs.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_sensor_gazebo_msgs.so"
   "CMakeFiles/uuv_sensor_gazebo_msgs.dir/SensorDvl.pb.cc.o"
   "CMakeFiles/uuv_sensor_gazebo_msgs.dir/SensorImu.pb.cc.o"
   "CMakeFiles/uuv_sensor_gazebo_msgs.dir/SensorMagnetic.pb.cc.o"

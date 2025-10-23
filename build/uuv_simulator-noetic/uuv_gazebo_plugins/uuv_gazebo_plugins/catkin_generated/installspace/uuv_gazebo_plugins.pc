@@ -1,4 +1,4 @@
-prefix=/home/cgz1/catkin_ws/install
+prefix=/home/cgz/catkin_ws/install
 
 Name: uuv_gazebo_plugins
 Description: Description of uuv_gazebo_plugins

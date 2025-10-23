@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.pdb"
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_thruster_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_thruster_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_thruster_plugin.so"
   "CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterConversionFcn.cc.o"
   "CMakeFiles/uuv_thruster_plugin.dir/src/ThrusterPlugin.cc.o"
 )

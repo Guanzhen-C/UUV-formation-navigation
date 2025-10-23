@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensor.cc" "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor.dir/src/CPCSensor.cc.o"
+  "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/src/CPCSensor.cc" "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_cpc_sensor/CMakeFiles/uuv_cpc_ros_sensor.dir/src/CPCSensor.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,8 +18,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include"
-  "/home/cgz1/catkin_ws/devel/include"
+  "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_cpc_sensor/include"
+  "/home/cgz/catkin_ws/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

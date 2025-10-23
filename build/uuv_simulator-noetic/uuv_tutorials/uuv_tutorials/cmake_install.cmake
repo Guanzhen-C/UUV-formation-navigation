@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorials
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorials
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorials" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorials/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorials" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorials/package.xml")
 endif()
 

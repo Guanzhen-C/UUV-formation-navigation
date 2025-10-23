@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,75 +39,75 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/msg" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/msg/ParticleConcentration.msg"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/msg/Salinity.msg"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/msg/ParticleConcentration.msg"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/msg/Salinity.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/srv" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreateSpheroidPlume.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeLimits.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeConfiguration.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetPlumeConfiguration.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/DeletePlume.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeSourcePosition.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetPlumeSourcePosition.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetNumParticles.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/StorePlumeState.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/LoadPlumeParticles.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentDirection.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentModel.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetCurrentModel.srv"
-    "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentVelocity.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreatePassiveScalarTurbulentPlume.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/CreateSpheroidPlume.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeLimits.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeConfiguration.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetPlumeConfiguration.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/DeletePlume.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetPlumeSourcePosition.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetPlumeSourcePosition.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetNumParticles.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/StorePlumeState.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/LoadPlumeParticles.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentDirection.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentModel.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/GetCurrentModel.srv"
+    "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/srv/SetCurrentVelocity.srv"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/include/uuv_plume_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/include/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_plume_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_plume_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/gennodejs/ros/uuv_plume_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_plume_msgs")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_plume_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_plume_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgs-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgsConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgsConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgsConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_plume_simulator-master/uuv_plume_msgs/catkin_generated/installspace/uuv_plume_msgsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_plume_msgs" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_plume_simulator-master/uuv_plume_msgs/package.xml")
 endif()
 

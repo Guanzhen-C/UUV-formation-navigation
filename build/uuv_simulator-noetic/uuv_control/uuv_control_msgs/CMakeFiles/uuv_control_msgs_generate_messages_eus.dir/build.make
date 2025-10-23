@@ -43,251 +43,251 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for uuv_control_msgs_generate_messages_eus.
 
 # Include the progress variables for this target.
 include uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/progress.make
 
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l
-uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l
+uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l
 
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from uuv_control_msgs/Trajectory.msg"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from uuv_control_msgs/Trajectory.msg"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from uuv_control_msgs/TrajectoryPoint.msg"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from uuv_control_msgs/TrajectoryPoint.msg"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from uuv_control_msgs/Waypoint.msg"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from uuv_control_msgs/Waypoint.msg"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from uuv_control_msgs/WaypointSet.msg"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from uuv_control_msgs/WaypointSet.msg"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from uuv_control_msgs/AddWaypoint.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from uuv_control_msgs/AddWaypoint.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from uuv_control_msgs/ClearWaypoints.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from uuv_control_msgs/ClearWaypoints.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ClearWaypoints.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from uuv_control_msgs/InitCircularTrajectory.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from uuv_control_msgs/InitCircularTrajectory.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from uuv_control_msgs/InitHelicalTrajectory.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from uuv_control_msgs/InitHelicalTrajectory.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/share/std_msgs/msg/String.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from uuv_control_msgs/InitWaypointsFromFile.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/share/std_msgs/msg/String.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from uuv_control_msgs/InitWaypointsFromFile.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from uuv_control_msgs/GetWaypoints.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from uuv_control_msgs/GetWaypoints.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from uuv_control_msgs/GoTo.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from uuv_control_msgs/GoTo.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from uuv_control_msgs/GoToIncremental.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from uuv_control_msgs/GoToIncremental.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoToIncremental.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating EusLisp code from uuv_control_msgs/Hold.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating EusLisp code from uuv_control_msgs/Hold.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/Hold.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating EusLisp code from uuv_control_msgs/IsRunningTrajectory.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating EusLisp code from uuv_control_msgs/IsRunningTrajectory.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/IsRunningTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/String.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating EusLisp code from uuv_control_msgs/InitWaypointSet.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/std_msgs/msg/String.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating EusLisp code from uuv_control_msgs/InitWaypointSet.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating EusLisp code from uuv_control_msgs/InitRectTrajectory.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating EusLisp code from uuv_control_msgs/InitRectTrajectory.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating EusLisp code from uuv_control_msgs/StartTrajectory.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating EusLisp code from uuv_control_msgs/StartTrajectory.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/StartTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating EusLisp code from uuv_control_msgs/SwitchToAutomatic.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating EusLisp code from uuv_control_msgs/SwitchToAutomatic.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToAutomatic.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating EusLisp code from uuv_control_msgs/SwitchToManual.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating EusLisp code from uuv_control_msgs/SwitchToManual.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SwitchToManual.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating EusLisp code from uuv_control_msgs/SetPIDParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating EusLisp code from uuv_control_msgs/SetPIDParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetPIDParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating EusLisp code from uuv_control_msgs/GetPIDParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating EusLisp code from uuv_control_msgs/GetPIDParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetPIDParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating EusLisp code from uuv_control_msgs/SetSMControllerParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating EusLisp code from uuv_control_msgs/SetSMControllerParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp code from uuv_control_msgs/GetSMControllerParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp code from uuv_control_msgs/GetSMControllerParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetSMControllerParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating EusLisp code from uuv_control_msgs/SetMBSMControllerParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating EusLisp code from uuv_control_msgs/SetMBSMControllerParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/SetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating EusLisp code from uuv_control_msgs/GetMBSMControllerParams.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating EusLisp code from uuv_control_msgs/GetMBSMControllerParams.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetMBSMControllerParams.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from uuv_control_msgs/ResetController.srv"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv -Iuuv_control_msgs:/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from uuv_control_msgs/ResetController.srv"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/ResetController.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv
 
-/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp manifest code for uuv_control_msgs"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs uuv_control_msgs std_msgs geometry_msgs
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp manifest code for uuv_control_msgs"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs uuv_control_msgs std_msgs geometry_msgs
 
 uuv_control_msgs_generate_messages_eus: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l
-uuv_control_msgs_generate_messages_eus: /home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Trajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/TrajectoryPoint.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/Waypoint.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/msg/WaypointSet.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/AddWaypoint.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ClearWaypoints.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitCircularTrajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitHelicalTrajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointsFromFile.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetWaypoints.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoTo.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GoToIncremental.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/Hold.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/IsRunningTrajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitWaypointSet.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/InitRectTrajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/StartTrajectory.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToAutomatic.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SwitchToManual.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetPIDParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetPIDParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetSMControllerParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetSMControllerParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/SetMBSMControllerParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/GetMBSMControllerParams.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/srv/ResetController.l
+uuv_control_msgs_generate_messages_eus: /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_control_msgs/manifest.l
 uuv_control_msgs_generate_messages_eus: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/build.make
 
 .PHONY : uuv_control_msgs_generate_messages_eus
@@ -298,10 +298,10 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/clean:
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/depend:
-	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_generate_messages_eus.dir/depend
 

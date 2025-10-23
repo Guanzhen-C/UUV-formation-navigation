@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/lib/uuv_eskf_nav_2/eskf_navigation_node_2"
-  "/home/cgz1/catkin_ws/devel/lib/uuv_eskf_nav_2/eskf_navigation_node_2.pdb"
+  "/home/cgz/catkin_ws/devel/lib/uuv_eskf_nav_2/eskf_navigation_node_2"
+  "/home/cgz/catkin_ws/devel/lib/uuv_eskf_nav_2/eskf_navigation_node_2.pdb"
   "CMakeFiles/eskf_navigation_node_2.dir/src/eskf_navigation_node.cpp.o"
 )
 

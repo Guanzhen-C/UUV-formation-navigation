@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
 include desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/progress.make
 
 desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test:
-	cd /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_description && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/cgz1/catkin_ws/build/test_results/desistek_saga_description/rostest-test_test_urdf_files.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/cgz1/catkin_ws/src/desistek_saga/desistek_saga_description --package=desistek_saga_description --results-filename test_test_urdf_files.xml --results-base-dir \"/home/cgz1/catkin_ws/build/test_results\" /home/cgz1/catkin_ws/src/desistek_saga/desistek_saga_description/test/test_urdf_files.test "
+	cd /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_description && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/cgz/catkin_ws/build/test_results/desistek_saga_description/rostest-test_test_urdf_files.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/cgz/catkin_ws/src/desistek_saga/desistek_saga_description --package=desistek_saga_description --results-filename test_test_urdf_files.xml --results-base-dir \"/home/cgz/catkin_ws/build/test_results\" /home/cgz/catkin_ws/src/desistek_saga/desistek_saga_description/test/test_urdf_files.test "
 
 run_tests_desistek_saga_description_rostest_test_test_urdf_files.test: desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test
 run_tests_desistek_saga_description_rostest_test_test_urdf_files.test: desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/build.make
@@ -67,10 +67,10 @@ desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_descr
 .PHONY : desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/build
 
 desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/clean:
-	cd /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_description && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_description && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/cmake_clean.cmake
 .PHONY : desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/clean
 
 desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/depend:
-	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/desistek_saga/desistek_saga_description /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_description /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/desistek_saga/desistek_saga_description /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_description /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : desistek_saga/desistek_saga_description/CMakeFiles/run_tests_desistek_saga_description_rostest_test_test_urdf_files.test.dir/depend
 

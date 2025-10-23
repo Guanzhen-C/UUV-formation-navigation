@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/GetThrusterCurve.lisp"
-  "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/GetThrusterManagerConfig.lisp"
-  "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/SetThrusterManagerConfig.lisp"
-  "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/ThrusterManagerInfo.lisp"
+  "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/GetThrusterCurve.lisp"
+  "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/GetThrusterManagerConfig.lisp"
+  "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/SetThrusterManagerConfig.lisp"
+  "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_thruster_manager/srv/ThrusterManagerInfo.lisp"
   "CMakeFiles/uuv_thruster_manager_generate_messages_lisp"
 )
 

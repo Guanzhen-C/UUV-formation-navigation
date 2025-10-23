@@ -1,4 +1,4 @@
-prefix=/home/cgz1/catkin_ws/devel
+prefix=/home/cgz/catkin_ws/devel
 
 Name: desistek_saga_gazebo
 Description: Description of desistek_saga_gazebo

@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,24 +38,24 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbances.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbances.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorial_disturbances/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbancesConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbancesConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbancesConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/catkin_generated/installspace/uuv_tutorial_disturbancesConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorial_disturbances" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorial_disturbances" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_tutorial_disturbances" TYPE DIRECTORY FILES
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/launch"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/config"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/launch"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_tutorials/uuv_tutorial_disturbances/config"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

@@ -1,12 +1,12 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetCurrentModel.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoord.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentDirection.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentModel.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentVelocity.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoord.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoord.h"
-  "/home/cgz1/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoord.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetCurrentModel.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/GetOriginSphericalCoord.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentDirection.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentModel.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetCurrentVelocity.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/SetOriginSphericalCoord.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformFromSphericalCoord.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_world_ros_plugins_msgs/TransformToSphericalCoord.h"
   "CMakeFiles/uuv_world_ros_plugins_msgs_generate_messages_cpp"
 )
 

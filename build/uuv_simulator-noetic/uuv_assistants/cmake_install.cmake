@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_assistants
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_assistants
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,54 +38,54 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/safe_execute_install.cmake")
+  include("/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistants.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistants.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_assistants/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistantsConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistantsConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistantsConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/uuv_assistantsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_assistants" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_assistants/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_assistants" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_assistants/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_footprints.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_footprints.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/set_simulation_timer.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/set_simulation_timer.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_world_models.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_world_models.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_vehicle_footprint.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/publish_vehicle_footprint.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/unpause_simulation.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/unpause_simulation.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/create_new_robot_model")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/create_new_robot_model")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/create_thruster_manager_configuration")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_assistants/catkin_generated/installspace/create_thruster_manager_configuration")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_assistants" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_assistants/launch" REGEX "/[^/]*\\~$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_assistants" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_assistants/launch" REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -95,7 +95,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants/uuv_message_to_tf"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE EXECUTABLE FILES "/home/cgz1/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants" TYPE EXECUTABLE FILES "/home/cgz/catkin_ws/devel/lib/uuv_assistants/uuv_message_to_tf")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants/uuv_message_to_tf" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/uuv_assistants/uuv_message_to_tf")
     file(RPATH_CHANGE

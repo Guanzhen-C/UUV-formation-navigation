@@ -1,4 +1,4 @@
-prefix=/home/cgz1/catkin_ws/devel
+prefix=/home/cgz/catkin_ws/devel
 
 Name: uuv_tutorial_seabed_world
 Description: Description of uuv_tutorial_seabed_world

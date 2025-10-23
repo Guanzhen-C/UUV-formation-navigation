@@ -1,4 +1,4 @@
-prefix=/home/cgz1/catkin_ws/devel
+prefix=/home/cgz/catkin_ws/devel
 
 Name: rexrov2_control
 Description: Description of rexrov2_control

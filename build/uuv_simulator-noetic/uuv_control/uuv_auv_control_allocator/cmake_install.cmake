@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,65 +38,65 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/safe_execute_install.cmake")
+  include("/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/msg" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/msg/AUVCommand.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/msg" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/msg/AUVCommand.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/include/uuv_auv_control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/include/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_auv_control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_auv_control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/gennodejs/ros/uuv_auv_control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_auv_control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocator-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocatorConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocatorConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocatorConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/uuv_auv_control_allocatorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_auv_control_allocator" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/control_allocator")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/uuv_auv_control_allocator" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/catkin_generated/installspace/control_allocator")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/launch" REGEX "/[^/]*\\~$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_auv_control_allocator" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/launch" REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

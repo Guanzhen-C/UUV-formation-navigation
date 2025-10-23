@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "roscpp;rospy;std_msgs;geometry_msgs;sensor_msgs;nav_msgs;tf2;tf2_ros;tf2_geometry_msgs;uuv_sensor_ros_plugins_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-luuv_eskf_nav_6".split(';') if "-luuv_eskf_nav_6" != "" else []
 PROJECT_NAME = "uuv_eskf_nav_6"
-PROJECT_SPACE_DIR = "/home/cgz1/catkin_ws/install"
+PROJECT_SPACE_DIR = "/home/cgz/catkin_ws/install"
 PROJECT_VERSION = "1.0.0"

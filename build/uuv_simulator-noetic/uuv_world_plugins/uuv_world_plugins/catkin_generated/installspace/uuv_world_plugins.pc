@@ -1,4 +1,4 @@
-prefix=/home/cgz1/catkin_ws/install
+prefix=/home/cgz/catkin_ws/install
 
 Name: uuv_world_plugins
 Description: Description of uuv_world_plugins

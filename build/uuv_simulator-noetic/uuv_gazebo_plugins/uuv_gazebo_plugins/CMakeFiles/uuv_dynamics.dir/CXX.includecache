@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/Dynamics.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/Dynamics.hh
 map
 -
 string
@@ -14,7 +14,7 @@ string
 sdf/sdf.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/Dynamics.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/Dynamics.cc
 gazebo/gazebo.hh
 -
 uuv_gazebo_plugins/Dynamics.hh

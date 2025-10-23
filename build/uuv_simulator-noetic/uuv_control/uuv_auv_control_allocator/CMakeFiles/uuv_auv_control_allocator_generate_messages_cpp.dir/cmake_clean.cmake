@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/include/uuv_auv_control_allocator/AUVCommand.h"
+  "/home/cgz/catkin_ws/devel/include/uuv_auv_control_allocator/AUVCommand.h"
   "CMakeFiles/uuv_auv_control_allocator_generate_messages_cpp"
 )
 

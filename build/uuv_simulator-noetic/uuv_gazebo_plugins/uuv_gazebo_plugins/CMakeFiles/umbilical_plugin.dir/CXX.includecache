@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/UmbilicalModel.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/UmbilicalModel.hh
 string
 -
 map
@@ -22,7 +22,7 @@ gazebo/physics/Model.hh
 sdf/sdf.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/UmbilicalPlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/include/uuv_gazebo_plugins/UmbilicalPlugin.hh
 memory
 -
 string
@@ -40,11 +40,11 @@ gazebo/transport/TransportTypes.hh
 uuv_gazebo_plugins/UmbilicalModel.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/UmbilicalModel.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/UmbilicalModel.cc
 uuv_gazebo_plugins/UmbilicalModel.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/UmbilicalPlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_plugins/src/UmbilicalPlugin.cc
 uuv_gazebo_plugins/UmbilicalPlugin.hh
 -
 

@@ -1,14 +1,14 @@
 
 "use strict";
 
-let GetThrusterManagerConfig = require('./GetThrusterManagerConfig.js')
-let GetThrusterCurve = require('./GetThrusterCurve.js')
-let ThrusterManagerInfo = require('./ThrusterManagerInfo.js')
 let SetThrusterManagerConfig = require('./SetThrusterManagerConfig.js')
+let GetThrusterCurve = require('./GetThrusterCurve.js')
+let GetThrusterManagerConfig = require('./GetThrusterManagerConfig.js')
+let ThrusterManagerInfo = require('./ThrusterManagerInfo.js')
 
 module.exports = {
-  GetThrusterManagerConfig: GetThrusterManagerConfig,
-  GetThrusterCurve: GetThrusterCurve,
-  ThrusterManagerInfo: ThrusterManagerInfo,
   SetThrusterManagerConfig: SetThrusterManagerConfig,
+  GetThrusterCurve: GetThrusterCurve,
+  GetThrusterManagerConfig: GetThrusterManagerConfig,
+  ThrusterManagerInfo: ThrusterManagerInfo,
 };

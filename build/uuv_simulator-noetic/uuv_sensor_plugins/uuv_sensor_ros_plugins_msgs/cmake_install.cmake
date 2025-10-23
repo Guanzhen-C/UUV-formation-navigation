@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs
+# Install script for directory: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,68 +39,68 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/msg" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Salinity.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeOWTT.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Method3SenderState.msg"
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticBroadcastMethod3.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVLBeam.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovariance.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/PositionWithCovarianceStamped.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/ChemicalParticleConcentration.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Salinity.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticTxRequest.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeTWTT.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticRangeOWTT.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/Method3SenderState.msg"
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/AcousticBroadcastMethod3.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/srv" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/srv" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/srv/ChangeSensorState.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/include/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/common-lisp/ros/uuv_sensor_ros_plugins_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/common-lisp/ros/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_sensor_ros_plugins_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/cmake" TYPE FILE FILES "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/cmake" TYPE FILE FILES "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgs-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgsConfig.cmake"
-    "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgsConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgsConfig.cmake"
+    "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/catkin_generated/installspace/uuv_sensor_ros_plugins_msgsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs" TYPE FILE FILES "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uuv_sensor_ros_plugins_msgs" TYPE FILE FILES "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/package.xml")
 endif()
 

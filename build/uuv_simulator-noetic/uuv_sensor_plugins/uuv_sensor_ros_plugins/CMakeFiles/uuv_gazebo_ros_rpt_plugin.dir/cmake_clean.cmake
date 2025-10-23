@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_gazebo_ros_rpt_plugin.pdb"
-  "/home/cgz1/catkin_ws/devel/lib/libuuv_gazebo_ros_rpt_plugin.so"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_rpt_plugin.pdb"
+  "/home/cgz/catkin_ws/devel/lib/libuuv_gazebo_ros_rpt_plugin.so"
   "CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBaseModelPlugin.cc.o"
   "CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBasePlugin.cc.o"
   "CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/RPTROSPlugin.cc.o"

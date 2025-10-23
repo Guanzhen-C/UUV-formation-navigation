@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for _catkin_empty_exported_target.
 
@@ -63,10 +63,10 @@ desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir
 .PHONY : desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/build
 
 desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	cd /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_control && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
 .PHONY : desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/depend:
-	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/desistek_saga/desistek_saga_control /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_control /home/cgz1/catkin_ws/build/desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/desistek_saga/desistek_saga_control /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control /home/cgz/catkin_ws/build/desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : desistek_saga/desistek_saga_control/CMakeFiles/_catkin_empty_exported_target.dir/depend
 

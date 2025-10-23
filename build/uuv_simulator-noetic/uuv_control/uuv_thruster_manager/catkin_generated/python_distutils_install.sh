@@ -13,21 +13,21 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager"
+echo_and_run cd "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager"
 
 # ensure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/cgz1/catkin_ws/install/lib/python3/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/cgz/catkin_ws/install/lib/python3/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/cgz1/catkin_ws/install/lib/python3/dist-packages:/home/cgz1/catkin_ws/build/lib/python3/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/cgz1/catkin_ws/build" \
+    PYTHONPATH="/home/cgz/catkin_ws/install/lib/python3/dist-packages:/home/cgz/catkin_ws/build/lib/python3/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/cgz/catkin_ws/build" \
     "/usr/bin/python3" \
-    "/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/setup.py" \
+    "/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/setup.py" \
      \
-    build --build-base "/home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager" \
+    build --build-base "/home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager" \
     install \
     --root="${DESTDIR-/}" \
-    --install-layout=deb --prefix="/home/cgz1/catkin_ws/install" --install-scripts="/home/cgz1/catkin_ws/install/bin"
+    --install-layout=deb --prefix="/home/cgz/catkin_ws/install" --install-scripts="/home/cgz/catkin_ws/install/bin"

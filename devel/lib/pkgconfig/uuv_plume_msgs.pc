@@ -1,8 +1,8 @@
-prefix=/home/cgz1/catkin_ws/devel
+prefix=/home/cgz/catkin_ws/devel
 
 Name: uuv_plume_msgs
 Description: Description of uuv_plume_msgs
 Version: 0.3.3
-Cflags: -I/home/cgz1/catkin_ws/devel/include
+Cflags: -I/home/cgz/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: std_msgs geometry_msgs geographic_msgs message_runtime

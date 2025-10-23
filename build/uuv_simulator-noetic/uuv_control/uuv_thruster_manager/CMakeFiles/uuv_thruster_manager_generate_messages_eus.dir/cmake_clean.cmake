@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/manifest.l"
-  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/GetThrusterCurve.l"
-  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/GetThrusterManagerConfig.l"
-  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/SetThrusterManagerConfig.l"
-  "/home/cgz1/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/ThrusterManagerInfo.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/manifest.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/GetThrusterCurve.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/GetThrusterManagerConfig.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/SetThrusterManagerConfig.l"
+  "/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_thruster_manager/srv/ThrusterManagerInfo.l"
   "CMakeFiles/uuv_thruster_manager_generate_messages_eus"
 )
 

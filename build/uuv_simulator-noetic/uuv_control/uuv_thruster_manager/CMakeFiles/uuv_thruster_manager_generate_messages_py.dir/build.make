@@ -43,57 +43,57 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cgz1/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/cgz/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cgz1/catkin_ws/build
+CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 
 # Utility rule file for uuv_thruster_manager_generate_messages_py.
 
 # Include the progress variables for this target.
 include uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/progress.make
 
-uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
-uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
-uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
-uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
-uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py
+uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
+uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
+uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
+uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
+uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py
 
 
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code from SRV uuv_thruster_manager/GetThrusterCurve"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code from SRV uuv_thruster_manager/GetThrusterCurve"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterCurve.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
 
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV uuv_thruster_manager/ThrusterManagerInfo"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV uuv_thruster_manager/ThrusterManagerInfo"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/ThrusterManagerInfo.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
 
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV uuv_thruster_manager/SetThrusterManagerConfig"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV uuv_thruster_manager/SetThrusterManagerConfig"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/SetThrusterManagerConfig.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
 
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py: /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV uuv_thruster_manager/GetThrusterManagerConfig"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV uuv_thruster_manager/GetThrusterManagerConfig"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/srv/GetThrusterManagerConfig.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uuv_thruster_manager -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv
 
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
-/home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for uuv_thruster_manager"
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv --initpy
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for uuv_thruster_manager"
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv --initpy
 
 uuv_thruster_manager_generate_messages_py: uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py
-uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
-uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
-uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
-uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
-uuv_thruster_manager_generate_messages_py: /home/cgz1/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py
+uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterCurve.py
+uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_ThrusterManagerInfo.py
+uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_SetThrusterManagerConfig.py
+uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/_GetThrusterManagerConfig.py
+uuv_thruster_manager_generate_messages_py: /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_thruster_manager/srv/__init__.py
 uuv_thruster_manager_generate_messages_py: uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/build.make
 
 .PHONY : uuv_thruster_manager_generate_messages_py
@@ -104,10 +104,10 @@ uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_ma
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/build
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/clean:
-	cd /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager && $(CMAKE_COMMAND) -P CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/clean
 
 uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/depend:
-	cd /home/cgz1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz1/catkin_ws/src /home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz1/catkin_ws/build /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz1/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cgz/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cgz/catkin_ws/src /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz/catkin_ws/build /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uuv_simulator-noetic/uuv_control/uuv_thruster_manager/CMakeFiles/uuv_thruster_manager_generate_messages_py.dir/depend
 

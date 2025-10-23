@@ -1,8 +1,8 @@
-# Install script for directory: /home/cgz1/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control
+# Install script for directory: /home/cgz/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cgz1/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/cgz/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,29 +38,29 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz1/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cgz/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eca_a9_control/cmake" TYPE FILE FILES
-    "/home/cgz1/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_controlConfig.cmake"
-    "/home/cgz1/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_controlConfig-version.cmake"
+    "/home/cgz/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_controlConfig.cmake"
+    "/home/cgz/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/eca_a9_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eca_a9_control" TYPE FILE FILES "/home/cgz1/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eca_a9_control" TYPE FILE FILES "/home/cgz/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eca_a9_control" TYPE DIRECTORY FILES "/home/cgz1/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control/launch" REGEX "/[^/]*\\~$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eca_a9_control" TYPE DIRECTORY FILES "/home/cgz/catkin_ws/src/eca_a9/eca_a9_control/eca_a9_control/launch" REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/eca_a9_control" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/acoustic_router.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/eca_a9_control" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/acoustic_router.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/eca_a9_control" TYPE PROGRAM FILES "/home/cgz1/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/acoustic_scheduler.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/eca_a9_control" TYPE PROGRAM FILES "/home/cgz/catkin_ws/build/eca_a9/eca_a9_control/eca_a9_control/catkin_generated/installspace/acoustic_scheduler.py")
 endif()
 

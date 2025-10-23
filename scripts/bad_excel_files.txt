@@ -1,2 +1,0 @@
-logs/excel/eca_a9_9/eca_a9_9_eval9_simh0054.xlsx	BadZipFile	Bad magic number for central directory
-logs/excel/eca_a9_9/eca_a9_9_eval9_simh0064.xlsx	BadZipFile	Bad magic number for file header

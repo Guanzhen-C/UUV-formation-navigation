@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/Common.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/Common.hh
 string
 -
 Eigen/Dense
@@ -14,7 +14,7 @@ Eigen/Dense
 gazebo/gazebo.hh
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/UnderwaterCameraROSPlugin.hh
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/include/uuv_sensor_ros_plugins/UnderwaterCameraROSPlugin.hh
 gazebo/gazebo.hh
 -
 ros/ros.h
@@ -30,7 +30,7 @@ uuv_sensor_ros_plugins/Common.hh
 opencv2/opencv.hpp
 -
 
-/home/cgz1/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/UnderwaterCameraROSPlugin.cc
+/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/src/UnderwaterCameraROSPlugin.cc
 uuv_sensor_ros_plugins/UnderwaterCameraROSPlugin.hh
 -
 
