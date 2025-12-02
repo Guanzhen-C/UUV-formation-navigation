@@ -1,0 +1,50 @@
+<launch>
+  <!-- 
+  This launch file is for spawning the RexROV with sonar and keyboard teleop.
+  
+  Remember to first launch Gazebo with an underwater world model
+  Example:
+  >> roslaunch uuv_gazebo ocean_waves.launch
+  -->
+  <arg name="namespace" default="rexrov"/>
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="-85"/>
+  <arg name="yaw" default="0.0"/>
+
+  <include file="$(find uuv_descriptions)/launch/upload_rexrov_default.launch">
+    <arg name="mode" value="default"/>
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="x" value="$(arg x)"/>
+    <arg name="y" value="$(arg y)"/>
+    <arg name="z" value="$(arg z)"/>
+    <arg name="yaw" value="$(arg yaw)"/>
+  </include>
+
+  <include file="$(find uuv_thruster_manager)/launch/thruster_manager.launch">
+    <arg name="uuv_name" value="$(arg namespace)" />
+    <arg name="model_name" value="rexrov" />
+  </include>
+
+  <group ns="$(arg namespace)">
+    <rosparam file="$(find uuv_control_cascaded_pid)/config/rexrov/inertial.yaml" command="load"/>
+    <rosparam file="$(find uuv_control_cascaded_pid)/config/rexrov/vel_pid_control.yaml" command="load"/>
+
+    <node pkg="uuv_control_cascaded_pid" type="AccelerationControl.py" name="acceleration_control"
+            output="screen">
+      <param name="tf_prefix" type="string" value="$(arg namespace)/" />
+    </node>
+
+    <node pkg="uuv_control_cascaded_pid" type="VelocityControl.py" name="velocity_control"
+          output="screen">
+      <remap from="odom" to="/$(arg namespace)/pose_gt"/>
+      <remap from="cmd_accel" to="/$(arg namespace)/cmd_accel"/>
+    </node>
+  </group>
+
+  <include file="$(find uuv_teleop)/launch/uuv_keyboard_teleop.launch">
+    <arg name="uuv_name" value="$(arg namespace)"/>
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_gazebo)/rviz/rexrov_sonar.rviz"/>
+</launch>

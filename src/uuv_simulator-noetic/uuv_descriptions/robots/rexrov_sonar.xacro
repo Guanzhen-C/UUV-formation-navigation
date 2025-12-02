@@ -39,9 +39,20 @@
     </gazebo>
   </xacro:rexrov_base>
 
-  <xacro:forward_multibeam_sonar_m450_130 namespace="$(arg namespace)" parent_link="$(arg namespace)/base_link">
+  <xacro:forward_looking_sonar 
+    namespace="$(arg namespace)" 
+    suffix=""
+    parent_link="$(arg namespace)/base_link"
+    topic="sonar"
+    mass="0.015"
+    update_rate="25"
+    samples="768"
+    fov="2.27"
+    width="768"
+    height="492">
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
     <origin xyz="1.4 0 0.65" rpy="0 0 0"/>
-  </xacro:forward_multibeam_sonar_m450_130>
+  </xacro:forward_looking_sonar>
 
   <!-- Joint state publisher plugin -->
   <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
