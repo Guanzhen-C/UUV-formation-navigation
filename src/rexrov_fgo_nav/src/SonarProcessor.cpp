@@ -17,11 +17,11 @@ SonarProcessor::SonarProcessor(ros::NodeHandle& nh, const std::string& robot_nam
     cloud_pub_ = nh_.advertise<sensor_msgs::PointCloud2>("mbes_cloud", 1);
     odom_pub_ = nh_.advertise<geometry_msgs::PoseWithCovarianceStamped>("mbes_odom", 1);
 
-    // NDT配准参数
-    ndt_.setTransformationEpsilon(0.01);
-    ndt_.setStepSize(0.5);
-    ndt_.setResolution(2.0);
-    ndt_.setMaximumIterations(30);
+    // NDT配准参数 - 优化以提高小位移场景的配准精度
+    ndt_.setTransformationEpsilon(0.001);  // 更严格的收敛条件
+    ndt_.setStepSize(0.1);   // 更小的步长，避免跳过最优解
+    ndt_.setResolution(0.5); // 更细的分辨率，提高小位移精度
+    ndt_.setMaximumIterations(50);  // 更多迭代次数确保收敛
 
     prev_keyframe_cloud_.reset(new PointCloud());
     last_keyframe_pose_ = Eigen::Affine3d::Identity();
@@ -40,6 +40,37 @@ void SonarProcessor::depthCallback(const sensor_msgs::Image::ConstPtr& depth_msg
     PointCloud::Ptr current_cloud_base(new PointCloud());
     std::string base_frame = robot_name_ + "/base_link";
     
+    // [FIX] Hardcoded Static Transform (Optical Frame -> Base Link)
+    // Bypassing TF listener due to persistent sync/tree issues in simulation.
+    // Transform derived from URDF:
+    // Base -> Sonar: xyz(0,0,-0.5) rpy(0, 1.57, 0)
+    // Sonar -> Optical: xyz(0,0,0) rpy(-1.57, 0, -1.57)
+    // Resulting Base -> Optical Rotation Matrix:
+    //  0 -1  0
+    // -1  0  0
+    //  0  0 -1
+    // Translation (in Base frame): (0, 0, -0.5)
+    
+    Eigen::Affine3d transform_base_optical = Eigen::Affine3d::Identity();
+    Eigen::Matrix3d R_base_optical;
+    R_base_optical <<  0, -1,  0,
+                      -1,  0,  0,
+                       0,  0, -1;
+    transform_base_optical.linear() = R_base_optical;
+    transform_base_optical.translation() << 0.0, 0.0, -0.5;
+
+    // We need Optical -> Base (which is Inverse of Base -> Optical if transforming points?)
+    // Actually pcl::transformPointCloud(input, output, transform) applies: output = transform * input
+    // So we need Transform_Base_from_Optical (Pose of Optical in Base frame).
+    // Wait, standard definition: T_A_B transforms point from B to A.
+    // So we need T_Base_Optical. Yes.
+    
+    Eigen::Affine3d transform_eigen = transform_base_optical;
+
+    pcl::transformPointCloud(*current_cloud_optical, *current_cloud_base, transform_eigen);
+    current_cloud_base->header.frame_id = base_frame; // Update frame ID
+
+    /* TF Lookup Commented Out
     try {
         // Wait for transform using Time(0) to get the latest available static transform
         if (!tf_buffer_.canTransform(base_frame, depth_msg->header.frame_id, ros::Time(0), ros::Duration(0.1))) {
@@ -63,12 +94,13 @@ void SonarProcessor::depthCallback(const sensor_msgs::Image::ConstPtr& depth_msg
         ROS_WARN_THROTTLE(2.0, "SonarProcessor TF Error: %s", ex.what());
         return;
     }
+    */
 
     // Downsample for performance
     PointCloud::Ptr filtered_cloud(new PointCloud());
     pcl::VoxelGrid<PointT> sor;
     sor.setInputCloud(current_cloud_base);
-    sor.setLeafSize(0.1f, 0.1f, 0.1f); // Reverted to 0.1 to keep more points (original value)
+    sor.setLeafSize(0.1f, 0.1f, 0.1f); // Revert to 0.1m for better accuracy
     sor.filter(*filtered_cloud);
 
     // Publish filtered cloud to reduce RViz load
@@ -93,7 +125,7 @@ void SonarProcessor::depthCallback(const sensor_msgs::Image::ConstPtr& depth_msg
     ndt_.align(*output_cloud, Eigen::Matrix4f::Identity());
 
     if (!ndt_.hasConverged()) {
-        ROS_WARN_THROTTLE(1.0, "NDT did not converge. Iterations: %d, Score: %f", 
+        ROS_WARN_THROTTLE(1.0, "NDT did not converge. Iterations: %d, Score: %f",
                           ndt_.getFinalNumIteration(), ndt_.getFitnessScore());
         return;
     }
@@ -104,19 +136,62 @@ void SonarProcessor::depthCallback(const sensor_msgs::Image::ConstPtr& depth_msg
 
     double trans = transform_d.translation().norm();
     Eigen::AngleAxisd rot(transform_d.rotation());
-    
-    ROS_WARN_THROTTLE(2.0, "NDT Converged: Trans=%.3f m, Rot=%.3f rad", trans, rot.angle());
+    double fitness_score = ndt_.getFitnessScore();
+
+    ROS_WARN_THROTTLE(2.0, "NDT Converged: Trans=%.3f m, Rot=%.3f rad, Score=%.3f", trans, rot.angle(), fitness_score);
+
+    // ===== 异常值检测 =====
+    // 1. 平移量过大检测 (AUV速度约1m/s，深度相机帧率约10Hz，正常帧间位移应<0.3m)
+    const double max_trans_threshold = 0.5;  // 最大允许平移量(米)
+    // 2. 旋转量过大检测 (正常旋转应很小)
+    const double max_rot_threshold = 0.2;    // 最大允许旋转量(弧度，约11度)
+    // 3. Fitness Score过大检测 (值越小配准越好)
+    const double max_fitness_threshold = 2.0;  // 最大允许fitness score
+
+    bool is_outlier = false;
+    std::string reject_reason;
+
+    if (trans > max_trans_threshold) {
+        is_outlier = true;
+        reject_reason = "translation too large";
+    } else if (rot.angle() > max_rot_threshold) {
+        is_outlier = true;
+        reject_reason = "rotation too large";
+    } else if (fitness_score > max_fitness_threshold) {
+        is_outlier = true;
+        reject_reason = "fitness score too high";
+    }
+
+    if (is_outlier) {
+        ROS_WARN("NDT OUTLIER REJECTED: %s (trans=%.3f, rot=%.3f, score=%.3f)",
+                 reject_reason.c_str(), trans, rot.angle(), fitness_score);
+        return;  // 拒绝这个测量
+    }
 
     // Callback to Factor Graph
     if (odom_callback_) {
-        // Fixed covariance for sonar odometry
+        // ===== 动态协方差调整 =====
+        // 根据fitness score调整协方差，score越大越不可信
+        double base_cov = 0.1;
+        double cov_scale = 1.0 + fitness_score;  // fitness越大，协方差越大（越不可信）
+
+        // 如果平移或旋转接近阈值，也增加协方差
+        double trans_ratio = trans / max_trans_threshold;
+        double rot_ratio = rot.angle() / max_rot_threshold;
+        cov_scale *= (1.0 + std::max(trans_ratio, rot_ratio));
+
+        double adjusted_cov = base_cov * cov_scale;
+
         Eigen::Matrix<double, 6, 6> cov = Eigen::Matrix<double, 6, 6>::Zero();
-        cov(0, 0) = 0.1;  // roll
-        cov(1, 1) = 0.1;  // pitch
-        cov(2, 2) = 0.1;  // yaw
-        cov(3, 3) = 0.1;  // x
-        cov(4, 4) = 0.1;  // y
-        cov(5, 5) = 0.1;  // z
+        cov(0, 0) = adjusted_cov;  // roll
+        cov(1, 1) = adjusted_cov;  // pitch
+        cov(2, 2) = adjusted_cov;  // yaw
+        cov(3, 3) = adjusted_cov;  // x
+        cov(4, 4) = adjusted_cov;  // y
+        cov(5, 5) = adjusted_cov;  // z
+
+        ROS_DEBUG("Sonar cov adjusted: base=%.2f, scale=%.2f, final=%.2f",
+                  base_cov, cov_scale, adjusted_cov);
 
         odom_callback_(transform_d, cov, depth_msg->header.stamp.toSec());
     } else {

@@ -85,25 +85,25 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_Trajectory.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uuv_control_msgs/Trajectory"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg/_TrajectoryPoint.py: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uuv_control_msgs/TrajectoryPoint"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/msg
@@ -192,11 +192,11 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
-/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/Time.msg
 /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /opt/ros/noetic/share/std_msgs/msg/String.msg
+/home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv/_InitWaypointSet.py: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Python code from SRV uuv_control_msgs/InitWaypointSet"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/lib/python3/dist-packages/uuv_control_msgs/srv
 

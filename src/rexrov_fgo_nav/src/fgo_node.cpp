@@ -93,15 +93,8 @@ int main(int argc, char** argv) {
 
     // Sonar -> Graph (Scan Matching Result)
     sonar_processor.setOdomCallback([&](const Eigen::Affine3d& rel_pose, const Eigen::Matrix<double, 6, 6>& cov, double ts) {
-        // Convert Eigen::Affine3d to GTSAM Pose3
         gtsam::Pose3 pose(gtsam::Rot3(rel_pose.rotation()), gtsam::Point3(rel_pose.translation()));
-        
-        // Convert Covariance
-        // Caution: verify order (rot, trans) vs (trans, rot). GTSAM usually (rot, trans).
-        // Assuming identity for now for simplicity in SonarProcessor.
-        
         fgo_graph.addSonarRelativePose(pose, cov, ts);
-        // ROS_INFO("Sonar Factor Added.");
     });
 
     // 3. Main Loop

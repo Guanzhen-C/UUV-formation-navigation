@@ -43,15 +43,13 @@ SlidingWindowGraph::SlidingWindowGraph(ros::NodeHandle& nh) : nh_(nh) {
     // Depth sensor - high precision pressure sensor (sigma = 0.05m)
     depth_noise_ = gtsam::noiseModel::Diagonal::Sigmas((gtsam::Vector(1) << 0.05).finished());
     
-    // Bias Random Walk Noise - 匹配ESKF参数
-    // ESKF: gyro_bias_std = 8.1e-11, accel_bias_std = 1.6e-4
-    // 注意：GTSAM需要乘以sqrt(dt)来转换为离散时间噪声
-    // 对于dt=0.1s, 连续时间噪声密度 = 离散噪声 / sqrt(dt)
-    // ESKF的8.1e-11是连续时间，FGO需要: 8.1e-11 * sqrt(0.1) ≈ 2.56e-11
-    // 但GTSAM数值稳定性要求不能太小，使用1e-9作为折中
+    // Bias Random Walk Noise
+    // 噪声小 = 约束强 = 相信偏置变化小
+    // 噪声大 = 约束弱 = 允许偏置变化大
+    // 六轴IMU航向漂移来自gyro bias，需要让DVL间接校正
     bias_noise_ = gtsam::noiseModel::Diagonal::Sigmas((gtsam::Vector(6) <<
-        1.0e-3, 1.0e-3, 1.0e-3,   // Acc bias random walk (Relaxed for stability)
-        1.0e-5, 1.0e-5, 1.0e-5    // Gyro bias random walk (Relaxed for numerical stability 1e-14 vs 1e-16)
+        1.0e-3, 1.0e-3, 1.0e-3,   // Acc bias random walk
+        1.0e-8, 1.0e-8, 1.0e-8    // Gyro bias random walk (较小，相信偏置稳定)
     ).finished());
 
     // IMU orientation noise (from Gazebo sensor fusion - fairly accurate)

@@ -46,9 +46,10 @@
           args="-1.4 0 -0.312 0 1.5708 0 $(arg robot_name)/base_link $(arg robot_name)/dvl_link 100" />
 
     <!-- Bridge Sonar Optical Frame (Plugin ID -> URDF ID) -->
-    <!-- The Gazebo plugin publishes 'forward_sonar_optical_frame' but URDF has 'rexrov/forward_sonar_mbes_optical_frame' -->
+    <!-- The Gazebo plugin publishes 'forward_sonar_optical_frame' but URDF has 'rexrov/forward_sonar_optical_frame' -->
+    <!-- Confirmed via tf_monitor: The URDF frame does NOT have '_mbes' suffix in this configuration -->
     <node pkg="tf" type="static_transform_publisher" name="sonar_frame_bridge"
-          args="0 0 0 0 0 0 $(arg robot_name)/forward_sonar_mbes_optical_frame forward_sonar_optical_frame 100" />
+          args="0 0 0 0 0 0 $(arg robot_name)/forward_sonar_optical_frame forward_sonar_optical_frame 100" />
   </group>
 
   <!-- 3. Start Controllers (Standard PID Trajectory Controller) -->

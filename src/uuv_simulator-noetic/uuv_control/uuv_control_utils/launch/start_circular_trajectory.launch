@@ -1,15 +1,15 @@
 <launch>
   <arg name="uuv_name" />
   <arg name="start_time" default="-1"/>
-  <arg name="radius" default="10"/>
+  <arg name="radius" default="100"/>
   <arg name="center_x" default="0"/>
   <arg name="center_y" default="0"/>
   <arg name="center_z" default="-20"/>
-  <arg name="n_points" default="50"/>
+  <arg name="n_points" default="500"/>
   <!-- Heading offset given in degrees -->
   <arg name="heading_offset" default="0"/>
   <arg name="duration" default="0"/>
-  <arg name="max_forward_speed" default="0.3"/>
+  <arg name="max_forward_speed" default="1"/>
   <arg name="launch-prefix" default=""/>
   <arg name="respawn" default="false"/>
 
