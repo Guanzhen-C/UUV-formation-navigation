@@ -1,8 +1,0 @@
-prefix=/home/cgz/catkin_ws/devel
-
-Name: lauv_description
-Description: Description of lauv_description
-Version: 0.1.6
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

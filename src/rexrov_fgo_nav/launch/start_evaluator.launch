@@ -1,0 +1,10 @@
+<launch>
+  <arg name="robot_name" default="rexrov"/>
+
+  <node pkg="rexrov_fgo_nav" type="navigation_evaluator.py" name="fgo_navigation_evaluator" output="screen">
+    <param name="robot_name" value="$(arg robot_name)"/>
+    <param name="fgo_odom_topic" value="/$(arg robot_name)/fgo_odom"/>
+    <param name="gt_odom_topic" value="/$(arg robot_name)/pose_gt"/>
+    <param name="rate" value="1.0"/>
+  </node>
+</launch>

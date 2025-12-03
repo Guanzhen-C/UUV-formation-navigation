@@ -7,10 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/cgz/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/cgz/catkin_ws/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/cgz/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LD_LIBRARY_PATH='/home/cgz/catkin_ws/devel/lib:/opt/ros/noetic/lib:/usr/local/cuda-12.4/lib64:/home/cgz/.local/lib/python3.8/site-packages/nvidia/cudnn/lib:/home/cgz/.local/lib/python3.8/site-packages/nvidia/cublas/lib:/home/cgz/.local/lib/python3.8/site-packages/tensorrt_libs'
+export PATH='/opt/ros/noetic/bin:/home/cgz/bin:/usr/local/cuda-12.4/bin:/usr/local/nodejs/bin:/usr/local/nodejs/bin:/usr/local/nodejs/bin:/home/cgz/.local/bin:/home/cgz/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PWD='/home/cgz/catkin_ws/build'
-export PYTHONPATH="/home/cgz/catkin_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/cgz/catkin_ws/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/cgz/catkin_ws/src:$ROS_PACKAGE_PATH"

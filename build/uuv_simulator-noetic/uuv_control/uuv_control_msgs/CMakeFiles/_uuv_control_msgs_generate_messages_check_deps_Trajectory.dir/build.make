@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 include uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_Trajectory.dir/progress.make
 
 uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_Trajectory:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_control_msgs /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg geometry_msgs/Twist:std_msgs/Header:geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:uuv_control_msgs/TrajectoryPoint:geometry_msgs/Accel:geometry_msgs/Vector3
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_control_msgs /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg geometry_msgs/Point:geometry_msgs/Twist:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/Vector3:geometry_msgs/Accel:uuv_control_msgs/TrajectoryPoint
 
 _uuv_control_msgs_generate_messages_check_deps_Trajectory: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_Trajectory
 _uuv_control_msgs_generate_messages_check_deps_Trajectory: uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/_uuv_control_msgs_generate_messages_check_deps_Trajectory.dir/build.make

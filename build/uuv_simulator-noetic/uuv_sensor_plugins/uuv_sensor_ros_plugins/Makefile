@@ -68,40 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -124,6 +90,28 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -134,6 +122,18 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -198,64 +198,19 @@ run_tests_uuv_sensor_ros_plugins_rostest_test_test_urdf_files.test/fast:
 .PHONY : run_tests_uuv_sensor_ros_plugins_rostest_test_test_urdf_files.test/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
 
 # Convenience name for target.
-uuv_sensor_gazebo_msgs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
+_run_tests_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
 
-.PHONY : uuv_sensor_gazebo_msgs
+.PHONY : _run_tests_uuv_sensor_ros_plugins
 
 # fast build rule for target.
-uuv_sensor_gazebo_msgs/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/build
-.PHONY : uuv_sensor_gazebo_msgs/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
-
-# Convenience name for target.
-uuv_gazebo_ros_camera_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
-
-.PHONY : uuv_gazebo_ros_camera_plugin
-
-# fast build rule for target.
-uuv_gazebo_ros_camera_plugin/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/build
-.PHONY : uuv_gazebo_ros_camera_plugin/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
-
-# Convenience name for target.
-uuv_gazebo_ros_base_model_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
-
-.PHONY : uuv_gazebo_ros_base_model_plugin
-
-# fast build rule for target.
-uuv_gazebo_ros_base_model_plugin/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build
-.PHONY : uuv_gazebo_ros_base_model_plugin/fast
+_run_tests_uuv_sensor_ros_plugins/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/build
+.PHONY : _run_tests_uuv_sensor_ros_plugins/fast
 
 # Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_ros_plugins_xacro_generated_to_devel_space_.dir/rule:
@@ -273,34 +228,19 @@ uuv_sensor_ros_plugins_xacro_generated_to_devel_space_/fast:
 .PHONY : uuv_sensor_ros_plugins_xacro_generated_to_devel_space_/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
 
 # Convenience name for target.
-clean_test_results_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
+image_sonar_ros_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
 
-.PHONY : clean_test_results_uuv_sensor_ros_plugins
+.PHONY : image_sonar_ros_plugin
 
 # fast build rule for target.
-clean_test_results_uuv_sensor_ros_plugins/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/build
-.PHONY : clean_test_results_uuv_sensor_ros_plugins/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
+image_sonar_ros_plugin/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/build
+.PHONY : image_sonar_ros_plugin/fast
 
 # Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins_rostest.dir/rule:
@@ -318,124 +258,79 @@ run_tests_uuv_sensor_ros_plugins_rostest/fast:
 .PHONY : run_tests_uuv_sensor_ros_plugins_rostest/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
 
 # Convenience name for target.
-uuv_gazebo_ros_imu_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
+gazebo_plugins_gencfg: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
 
-.PHONY : uuv_gazebo_ros_imu_plugin
+.PHONY : gazebo_plugins_gencfg
 
 # fast build rule for target.
-uuv_gazebo_ros_imu_plugin/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build
-.PHONY : uuv_gazebo_ros_imu_plugin/fast
+gazebo_plugins_gencfg/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build
+.PHONY : gazebo_plugins_gencfg/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
 
 # Convenience name for target.
-bond_generate_messages_py: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/rule
+uuv_sensor_gazebo_msgs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/rule
 
-.PHONY : bond_generate_messages_py
+.PHONY : uuv_sensor_gazebo_msgs
 
 # fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
+uuv_sensor_gazebo_msgs/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_sensor_gazebo_msgs.dir/build
+.PHONY : uuv_sensor_gazebo_msgs/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
 
 # Convenience name for target.
-bond_generate_messages_nodejs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/rule
+clean_test_results_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/rule
 
-.PHONY : bond_generate_messages_nodejs
+.PHONY : clean_test_results_uuv_sensor_ros_plugins
 
 # fast build rule for target.
-bond_generate_messages_nodejs/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_nodejs.dir/build
-.PHONY : bond_generate_messages_nodejs/fast
+clean_test_results_uuv_sensor_ros_plugins/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/clean_test_results_uuv_sensor_ros_plugins.dir/build
+.PHONY : clean_test_results_uuv_sensor_ros_plugins/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
 
 # Convenience name for target.
-nodelet_generate_messages_nodejs: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
+uuv_gazebo_ros_base_model_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/rule
 
-.PHONY : nodelet_generate_messages_nodejs
+.PHONY : uuv_gazebo_ros_base_model_plugin
 
 # fast build rule for target.
-nodelet_generate_messages_nodejs/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
-.PHONY : nodelet_generate_messages_nodejs/fast
+uuv_gazebo_ros_base_model_plugin/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build
+.PHONY : uuv_gazebo_ros_base_model_plugin/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
 
 # Convenience name for target.
-run_tests_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
+_run_tests_uuv_sensor_ros_plugins_rostest: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
 
-.PHONY : run_tests_uuv_sensor_ros_plugins
+.PHONY : _run_tests_uuv_sensor_ros_plugins_rostest
 
 # fast build rule for target.
-run_tests_uuv_sensor_ros_plugins/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/build
-.PHONY : run_tests_uuv_sensor_ros_plugins/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
+_run_tests_uuv_sensor_ros_plugins_rostest/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/build
+.PHONY : _run_tests_uuv_sensor_ros_plugins_rostest/fast
 
 # Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/rule:
@@ -453,34 +348,19 @@ uuv_gazebo_ros_magnetometer_plugin/fast:
 .PHONY : uuv_gazebo_ros_magnetometer_plugin/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
 
 # Convenience name for target.
-gazebo_plugins_gencfg: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
+uuv_gazebo_ros_base_sensor_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
 
-.PHONY : gazebo_plugins_gencfg
+.PHONY : uuv_gazebo_ros_base_sensor_plugin
 
 # fast build rule for target.
-gazebo_plugins_gencfg/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build
-.PHONY : gazebo_plugins_gencfg/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
+uuv_gazebo_ros_base_sensor_plugin/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build
+.PHONY : uuv_gazebo_ros_base_sensor_plugin/fast
 
 # Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/rule:
@@ -528,21 +408,6 @@ uuv_gazebo_ros_subsea_pressure_plugin/fast:
 .PHONY : uuv_gazebo_ros_subsea_pressure_plugin/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/rule:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/rule
 .PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/rule
@@ -558,19 +423,49 @@ uuv_gazebo_ros_dvl_plugin/fast:
 .PHONY : uuv_gazebo_ros_dvl_plugin/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
 
 # Convenience name for target.
-_run_tests_uuv_sensor_ros_plugins_rostest: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/rule
+run_tests_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/rule
 
-.PHONY : _run_tests_uuv_sensor_ros_plugins_rostest
+.PHONY : run_tests_uuv_sensor_ros_plugins
 
 # fast build rule for target.
-_run_tests_uuv_sensor_ros_plugins_rostest/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins_rostest.dir/build
-.PHONY : _run_tests_uuv_sensor_ros_plugins_rostest/fast
+run_tests_uuv_sensor_ros_plugins/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/run_tests_uuv_sensor_ros_plugins.dir/build
+.PHONY : run_tests_uuv_sensor_ros_plugins/fast
+
+# Convenience name for target.
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
+
+# Convenience name for target.
+uuv_gazebo_ros_imu_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/rule
+
+.PHONY : uuv_gazebo_ros_imu_plugin
+
+# fast build rule for target.
+uuv_gazebo_ros_imu_plugin/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build
+.PHONY : uuv_gazebo_ros_imu_plugin/fast
+
+# Convenience name for target.
+uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
+.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
+
+# Convenience name for target.
+uuv_gazebo_ros_camera_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/rule
+
+.PHONY : uuv_gazebo_ros_camera_plugin
+
+# fast build rule for target.
+uuv_gazebo_ros_camera_plugin/fast:
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_camera_plugin.dir/build
+.PHONY : uuv_gazebo_ros_camera_plugin/fast
 
 # Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/rule:
@@ -588,21 +483,6 @@ uuv_gazebo_ros_cpc_plugin/fast:
 .PHONY : uuv_gazebo_ros_cpc_plugin/fast
 
 # Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
-
-# Convenience name for target.
-uuv_gazebo_ros_base_sensor_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/rule
-
-.PHONY : uuv_gazebo_ros_base_sensor_plugin
-
-# fast build rule for target.
-uuv_gazebo_ros_base_sensor_plugin/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build
-.PHONY : uuv_gazebo_ros_base_sensor_plugin/fast
-
-# Convenience name for target.
 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/rule:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/rule
 .PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/rule
@@ -616,36 +496,6 @@ uuv_gazebo_ros_rpt_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ro
 uuv_gazebo_ros_rpt_plugin/fast:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build
 .PHONY : uuv_gazebo_ros_rpt_plugin/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
-
-# Convenience name for target.
-image_sonar_ros_plugin: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/rule
-
-.PHONY : image_sonar_ros_plugin
-
-# fast build rule for target.
-image_sonar_ros_plugin/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/image_sonar_ros_plugin.dir/build
-.PHONY : image_sonar_ros_plugin/fast
-
-# Convenience name for target.
-uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
-.PHONY : uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
-
-# Convenience name for target.
-_run_tests_uuv_sensor_ros_plugins: uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/rule
-
-.PHONY : _run_tests_uuv_sensor_ros_plugins
-
-# fast build rule for target.
-_run_tests_uuv_sensor_ros_plugins/fast:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/_run_tests_uuv_sensor_ros_plugins.dir/build
-.PHONY : _run_tests_uuv_sensor_ros_plugins/fast
 
 SensorDvl.pb.o: SensorDvl.pb.cc.o
 
@@ -951,11 +801,11 @@ src/ROSBaseModelPlugin.o: src/ROSBaseModelPlugin.cc.o
 # target to build an object file
 src/ROSBaseModelPlugin.cc.o:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBaseModelPlugin.cc.o
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBaseModelPlugin.cc.o
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBaseModelPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBaseModelPlugin.cc.o
 .PHONY : src/ROSBaseModelPlugin.cc.o
@@ -967,11 +817,11 @@ src/ROSBaseModelPlugin.i: src/ROSBaseModelPlugin.cc.i
 # target to preprocess a source file
 src/ROSBaseModelPlugin.cc.i:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBaseModelPlugin.cc.i
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBaseModelPlugin.cc.i
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBaseModelPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBaseModelPlugin.cc.i
 .PHONY : src/ROSBaseModelPlugin.cc.i
@@ -983,11 +833,11 @@ src/ROSBaseModelPlugin.s: src/ROSBaseModelPlugin.cc.s
 # target to generate assembly for a file
 src/ROSBaseModelPlugin.cc.s:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBaseModelPlugin.cc.s
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBaseModelPlugin.cc.s
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBaseModelPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBaseModelPlugin.cc.s
 .PHONY : src/ROSBaseModelPlugin.cc.s
@@ -999,14 +849,14 @@ src/ROSBasePlugin.o: src/ROSBasePlugin.cc.o
 # target to build an object file
 src/ROSBasePlugin.cc.o:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBasePlugin.cc.o
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBasePlugin.cc.o
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBasePlugin.cc.o
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBasePlugin.cc.o
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBasePlugin.cc.o
 .PHONY : src/ROSBasePlugin.cc.o
 
@@ -1017,14 +867,14 @@ src/ROSBasePlugin.i: src/ROSBasePlugin.cc.i
 # target to preprocess a source file
 src/ROSBasePlugin.cc.i:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBasePlugin.cc.i
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBasePlugin.cc.i
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBasePlugin.cc.i
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBasePlugin.cc.i
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBasePlugin.cc.i
 .PHONY : src/ROSBasePlugin.cc.i
 
@@ -1035,14 +885,14 @@ src/ROSBasePlugin.s: src/ROSBasePlugin.cc.s
 # target to generate assembly for a file
 src/ROSBasePlugin.cc.s:
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_model_plugin.dir/src/ROSBasePlugin.cc.s
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_magnetometer_plugin.dir/src/ROSBasePlugin.cc.s
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_pose_gt_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_subsea_pressure_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_dvl_plugin.dir/src/ROSBasePlugin.cc.s
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_imu_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_cpc_plugin.dir/src/ROSBasePlugin.cc.s
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBasePlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_rpt_plugin.dir/src/ROSBasePlugin.cc.s
 .PHONY : src/ROSBasePlugin.cc.s
 
@@ -1052,8 +902,8 @@ src/ROSBaseSensorPlugin.o: src/ROSBaseSensorPlugin.cc.o
 
 # target to build an object file
 src/ROSBaseSensorPlugin.cc.o:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.o
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBaseSensorPlugin.cc.o
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.o
 .PHONY : src/ROSBaseSensorPlugin.cc.o
 
 src/ROSBaseSensorPlugin.i: src/ROSBaseSensorPlugin.cc.i
@@ -1062,8 +912,8 @@ src/ROSBaseSensorPlugin.i: src/ROSBaseSensorPlugin.cc.i
 
 # target to preprocess a source file
 src/ROSBaseSensorPlugin.cc.i:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.i
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBaseSensorPlugin.cc.i
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.i
 .PHONY : src/ROSBaseSensorPlugin.cc.i
 
 src/ROSBaseSensorPlugin.s: src/ROSBaseSensorPlugin.cc.s
@@ -1072,8 +922,8 @@ src/ROSBaseSensorPlugin.s: src/ROSBaseSensorPlugin.cc.s
 
 # target to generate assembly for a file
 src/ROSBaseSensorPlugin.cc.s:
-	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.s
 	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_base_sensor_plugin.dir/src/ROSBaseSensorPlugin.cc.s
+	cd /home/cgz/catkin_ws/build && $(MAKE) -f uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/build.make uuv_simulator-noetic/uuv_sensor_plugins/uuv_sensor_ros_plugins/CMakeFiles/uuv_gazebo_ros_gps_plugin.dir/src/ROSBaseSensorPlugin.cc.s
 .PHONY : src/ROSBaseSensorPlugin.cc.s
 
 src/RPTROSPlugin.o: src/RPTROSPlugin.cc.o
@@ -1191,44 +1041,34 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... list_install_components"
+	@echo "... _run_tests_uuv_sensor_ros_plugins_rostest_test_test_urdf_files.test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... _run_tests_uuv_sensor_ros_plugins_rostest_test_test_urdf_files.test"
 	@echo "... run_tests_uuv_sensor_ros_plugins_rostest_test_test_urdf_files.test"
-	@echo "... uuv_sensor_gazebo_msgs"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... uuv_gazebo_ros_camera_plugin"
-	@echo "... uuv_gazebo_ros_base_model_plugin"
+	@echo "... _run_tests_uuv_sensor_ros_plugins"
+	@echo "... list_install_components"
 	@echo "... uuv_sensor_ros_plugins_xacro_generated_to_devel_space_"
-	@echo "... clean_test_results_uuv_sensor_ros_plugins"
-	@echo "... nodelet_generate_messages_eus"
+	@echo "... image_sonar_ros_plugin"
+	@echo "... install"
 	@echo "... run_tests_uuv_sensor_ros_plugins_rostest"
-	@echo "... uuv_gazebo_ros_imu_plugin"
-	@echo "... bond_generate_messages_py"
-	@echo "... bond_generate_messages_nodejs"
-	@echo "... nodelet_generate_messages_nodejs"
-	@echo "... run_tests_uuv_sensor_ros_plugins"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... bond_generate_messages_eus"
-	@echo "... uuv_gazebo_ros_magnetometer_plugin"
 	@echo "... gazebo_plugins_gencfg"
-	@echo "... nodelet_generate_messages_lisp"
+	@echo "... uuv_sensor_gazebo_msgs"
+	@echo "... clean_test_results_uuv_sensor_ros_plugins"
+	@echo "... uuv_gazebo_ros_base_model_plugin"
+	@echo "... _run_tests_uuv_sensor_ros_plugins_rostest"
+	@echo "... uuv_gazebo_ros_magnetometer_plugin"
+	@echo "... uuv_gazebo_ros_base_sensor_plugin"
+	@echo "... test"
 	@echo "... uuv_gazebo_ros_gps_plugin"
+	@echo "... install/local"
 	@echo "... uuv_gazebo_ros_pose_gt_plugin"
 	@echo "... uuv_gazebo_ros_subsea_pressure_plugin"
-	@echo "... nodelet_generate_messages_py"
 	@echo "... uuv_gazebo_ros_dvl_plugin"
-	@echo "... _run_tests_uuv_sensor_ros_plugins_rostest"
+	@echo "... run_tests_uuv_sensor_ros_plugins"
+	@echo "... uuv_gazebo_ros_imu_plugin"
+	@echo "... uuv_gazebo_ros_camera_plugin"
 	@echo "... uuv_gazebo_ros_cpc_plugin"
-	@echo "... uuv_gazebo_ros_base_sensor_plugin"
 	@echo "... uuv_gazebo_ros_rpt_plugin"
-	@echo "... image_sonar_ros_plugin"
-	@echo "... _run_tests_uuv_sensor_ros_plugins"
 	@echo "... SensorDvl.pb.o"
 	@echo "... SensorDvl.pb.i"
 	@echo "... SensorDvl.pb.s"

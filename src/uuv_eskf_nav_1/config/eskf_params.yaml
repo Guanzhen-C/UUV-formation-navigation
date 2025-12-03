@@ -156,5 +156,5 @@ debug:
 # 传感器开关
 # ================================
 sensors:
-  enable_dvl: false
+  enable_dvl: true
   enable_heading: false

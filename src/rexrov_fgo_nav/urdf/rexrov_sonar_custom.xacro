@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!-- Custom RexROV with High Precision DVL and Down-Looking MBES -->
+<robot name="rexrov" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  <xacro:arg name="debug" default="0"/>
+  <xacro:arg name="namespace" default="rexrov"/>
+  <xacro:arg name="inertial_reference_frame" default="world"/>
+
+  <!-- ============================================================== -->
+  <!-- Include Base Macros (without sensors)                          -->
+  <!-- ============================================================== -->
+  <xacro:include filename="$(find uuv_descriptions)/urdf/common.urdf.xacro"/>
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/sensor_snippets.xacro"/>
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/>
+  <xacro:include filename="$(find uuv_descriptions)/urdf/rexrov.gazebo.xacro"/>
+
+  <!-- ============================================================== -->
+  <!-- Vehicle Parameters from rexrov_base.xacro                      -->
+  <!-- ============================================================== -->
+  <xacro:property name="namespace" value="$(arg namespace)"/>
+  <xacro:property name="visual_mesh_file" value="file://$(find uuv_descriptions)/meshes/RexROV_no_props.dae"/>
+  <xacro:property name="prop_mesh_file" value="file://$(find uuv_descriptions)/meshes/prop.dae"/>
+  <xacro:property name="mass" value="1862.87"/>
+
+  <!-- Base Link -->
+  <link name="${namespace}/base_link">
+    <inertial>
+      <mass value="${mass}"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="525.39" ixy="1.44" ixz="33.41" iyy="794.20" iyz="2.6" izz="691.23"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="${visual_mesh_file}" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <!-- bottom plate -->
+    <collision>
+      <origin xyz="0 0 -0.75" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.56 1.50 0.10"/>
+      </geometry>
+    </collision>
+    <!-- top plate -->
+    <collision>
+      <origin xyz="0 0 0.60" rpy="0 0 0"/>
+      <geometry><box size="2.56 1.50 0.40"/></geometry>
+    </collision>
+    <!-- left / right sides -->
+    <collision>
+      <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
+      <geometry><box size="2.20 0.10 1.10"/></geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.20 -0.70 -0.15" rpy="0 0 0"/>
+      <geometry><box size="2.20 0.10 1.10"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Hydrodynamic Plugin -->
+  <gazebo>
+    <plugin name="uuv_plugin" filename="libuuv_underwater_object_ros_plugin.so">
+      <fluid_density>1028.0</fluid_density>
+      <flow_velocity_topic>hydrodynamics/current_velocity</flow_velocity_topic>
+      <debug>$(arg debug)</debug>
+      <xacro:rexrov_hydro_model namespace="${namespace}"/>
+    </plugin>
+  </gazebo>
+
+  <!-- ============================================================== -->
+  <!-- Actuators (from rexrov_actuators.xacro)                        -->
+  <!-- ============================================================== -->
+  <xacro:include filename="$(find uuv_descriptions)/urdf/rexrov_actuators.xacro"/>
+
+  <!-- ============================================================== -->
+  <!-- Custom High Precision Sensors                                  -->
+  <!-- ============================================================== -->
+
+  <!-- High Precision DVL for Bottom-Track Mode -->
+  <!-- Real bottom-track DVL: ±0.1% velocity accuracy -->
+  <!-- 3-sigma = 0.01 m/s (10x better than default 0.1) -->
+  <xacro:dvl_plugin_macro
+    namespace="${namespace}"
+    suffix=""
+    parent_link="${namespace}/base_link"
+    reference_frame="$(arg inertial_reference_frame)"
+    update_rate="7"
+    topic="dvl"
+    noise_sigma="0"
+    noise_amplitude="0"
+    relative_velocity_three_sigma="0.01"
+    scale="1">
+    <origin xyz="-1.4 0 -0.312" rpy="0 ${pi/2} 0"/>
+  </xacro:dvl_plugin_macro>
+
+  <!-- Magnetometer -->
+  <xacro:default_magnetometer namespace="${namespace}" parent_link="${namespace}/base_link"/>
+
+  <!-- Pressure (Depth) Sensor -->
+  <xacro:default_pressure_macro namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="-1.32 0.5 0.85" rpy="0 0 0"/>
+  </xacro:default_pressure_macro>
+
+  <!-- High Precision IMU (same as ECA A9 config) -->
+  <xacro:imu_plugin_macro
+    namespace="${namespace}"
+    imu_suffix=""
+    parent_link="${namespace}/base_link"
+    imu_topic="imu"
+    mass_imu_sensor="0.015"
+    gyroscope_noise_density="0.00000029088"
+    gyroscope_random_walk="0.00000029088"
+    gyroscope_bias_correlation_time="3600.0"
+    gyroscope_turn_on_bias_sigma="0.000004848"
+    accelerometer_noise_density="0.000010"
+    accelerometer_random_walk="0.000010"
+    accelerometer_bias_correlation_time="3600.0"
+    accelerometer_turn_on_bias_sigma="0.0098"
+    orientation_noise="0.001"
+    enable_local_ned_frame="false"
+    reference_frame="world"
+    update_rate="200">
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:imu_plugin_macro>
+
+  <!-- Ground Truth Pose Sensor (for evaluation) -->
+  <xacro:default_pose_3d_macro
+    namespace="${namespace}"
+    parent_link="${namespace}/base_link"
+    inertial_reference_frame="$(arg inertial_reference_frame)" />
+
+  <!-- ============================================================== -->
+  <!-- Custom Down-Looking MBES (100m range)                          -->
+  <!-- ============================================================== -->
+  <xacro:macro name="no_collision">
+    <collision>
+      <geometry>
+        <cylinder length="${0.000001}" radius="${0.000001}" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${0.5*pi} 0"/>
+    </collision>
+  </xacro:macro>
+
+  <xacro:property name="mbes_suffix" value="_mbes"/>
+  <xacro:property name="mbes_topic" value="mbes"/>
+  <xacro:property name="mbes_fov" value="2.09"/>
+  <xacro:property name="mbes_width" value="512"/>
+  <xacro:property name="mbes_height" value="512"/>
+  <xacro:property name="mbes_update_rate" value="10"/>
+  <xacro:property name="mbes_range_near" value="0.5"/>
+  <xacro:property name="mbes_range_far" value="100.0"/>
+
+  <!-- MBES Sensor Link -->
+  <link name="${namespace}/forward_sonar${mbes_suffix}_link">
+    <inertial>
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+      <mass value="0.015" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.02"/>
+      </geometry>
+    </visual>
+    <xacro:no_collision/>
+  </link>
+
+  <joint name="${namespace}_forward_sonar${mbes_suffix}_joint" type="fixed">
+    <!-- Mounted at bottom, looking DOWN (Pitch = pi/2) -->
+    <origin xyz="0 0 -0.5" rpy="0 1.5708 0"/>
+    <parent link="${namespace}/base_link" />
+    <child link="${namespace}/forward_sonar${mbes_suffix}_link" />
+  </joint>
+
+  <gazebo reference="${namespace}/forward_sonar${mbes_suffix}_link">
+    <sensor name="${namespace}/image_sonar" type="depth">
+      <camera>
+        <horizontal_fov>${mbes_fov}</horizontal_fov>
+        <image>
+          <width>${mbes_width}</width>
+          <height>${mbes_height}</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>${mbes_range_near}</near>
+          <far>${mbes_range_far}</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_depth_camera.so" name="forward_sonar${mbes_suffix}_controller">
+        <cameraName>depth</cameraName>
+        <imageTopicName>image_raw_color</imageTopicName>
+        <cameraInfoTopicName>camera_info_color</cameraInfoTopicName>
+        <depthImageTopicName>image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>points</pointCloudTopicName>
+        <frameName>${namespace}/forward_sonar${mbes_suffix}_optical_frame</frameName>
+        <updateRate>${mbes_update_rate}</updateRate>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>${mbes_update_rate}</update_rate>
+    </sensor>
+  </gazebo>
+
+  <joint name="${namespace}/forward_sonar${mbes_suffix}_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    <parent link="${namespace}/forward_sonar${mbes_suffix}_link"/>
+    <child link="${namespace}/forward_sonar${mbes_suffix}_optical_frame"/>
+  </joint>
+
+  <link name="${namespace}/forward_sonar${mbes_suffix}_optical_frame"/>
+
+  <!-- Joint State Publisher -->
+  <xacro:default_joint_state_publisher namespace="${namespace}" update_rate="50"/>
+
+</robot>

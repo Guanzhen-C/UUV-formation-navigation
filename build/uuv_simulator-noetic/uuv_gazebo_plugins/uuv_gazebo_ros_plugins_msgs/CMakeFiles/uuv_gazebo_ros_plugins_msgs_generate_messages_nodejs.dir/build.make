@@ -113,9 +113,9 @@ uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.js: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from uuv_gazebo_ros_plugins_msgs/GetModelProperties.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.srv -Iuuv_gazebo_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_gazebo_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_gazebo_ros_plugins_msgs/srv
 

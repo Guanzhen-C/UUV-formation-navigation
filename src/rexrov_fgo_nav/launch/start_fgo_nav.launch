@@ -1,0 +1,40 @@
+<launch>
+  <!--
+  Step 3: 启动 FGO 导航节点
+
+  注意: 在启动此 launch 之前，需要先:
+    1. roslaunch rexrov_fgo_nav start_simulation.launch
+    2. 发送运动指令 (如螺旋轨迹)
+
+  使用方法:
+    roslaunch rexrov_fgo_nav start_fgo_nav.launch
+    roslaunch rexrov_fgo_nav start_fgo_nav.launch enable_evaluator:=true
+  -->
+
+  <arg name="robot_name" default="rexrov"/>
+  <arg name="enable_evaluator" default="true"/>
+  <arg name="enable_rviz" default="false"/>
+
+  <!-- FGO Navigation Node -->
+  <group ns="$(arg robot_name)">
+    <node pkg="rexrov_fgo_nav" type="fgo_node" name="fgo_nav_node" output="screen">
+      <param name="robot_name" value="$(arg robot_name)"/>
+    </node>
+  </group>
+
+  <!-- Navigation Error Evaluator -->
+  <group if="$(arg enable_evaluator)">
+    <node pkg="rexrov_fgo_nav" type="navigation_evaluator.py" name="fgo_navigation_evaluator" output="screen">
+      <param name="robot_name" value="$(arg robot_name)"/>
+      <param name="fgo_odom_topic" value="/$(arg robot_name)/fgo_odom"/>
+      <param name="gt_odom_topic" value="/$(arg robot_name)/pose_gt"/>
+      <param name="rate" value="1.0"/>
+    </node>
+  </group>
+
+  <!-- Optional: RViz Visualization -->
+  <group if="$(arg enable_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rexrov_fgo_nav)/config/fgo_demo.rviz"/>
+  </group>
+
+</launch>

@@ -46,14 +46,6 @@ ros/message_operations.h
 geometry_msgs/PoseStamped.h
 -
 
-/home/cgz/catkin_ws/src/uuv_eskf_nav_8/include/uuv_eskf_nav/eskf_core.h
-eskf_types.h
-/home/cgz/catkin_ws/src/uuv_eskf_nav_8/include/uuv_eskf_nav/eskf_types.h
-unordered_map
--
-string
--
-
 /home/cgz/catkin_ws/src/uuv_eskf_nav_8/include/uuv_eskf_nav/eskf_types.h
 Eigen/Dense
 -
@@ -80,14 +72,6 @@ uuv_sensor_ros_plugins_msgs/DVL.h
 memory
 -
 functional
--
-
-/home/cgz/catkin_ws/src/uuv_eskf_nav_8/src/eskf_core.cpp
-uuv_eskf_nav/eskf_core.h
-/home/cgz/catkin_ws/src/uuv_eskf_nav_8/src/uuv_eskf_nav/eskf_core.h
-iostream
--
-cmath
 -
 
 /home/cgz/catkin_ws/src/uuv_eskf_nav_8/src/sensor_manager.cpp

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 
+  RexROV FGO Navigation Integration Demo 
+  1. Starts Simulation & PID Controller (PID demo)
+  2. Starts Helical Trajectory
+  3. Starts FGO Navigation Node (Initialized with Ground Truth)
+  4. Starts Navigation Evaluator
+  -->
+
+  <!-- Arguments -->
+  <arg name="robot_name" default="rexrov"/>
+  <arg name="n_turns" default="2"/>
+  <arg name="radius" default="15"/>
+  <arg name="center_z" default="-30"/>
+  <arg name="enable_rviz" default="true"/>
+
+  <!-- 1. Start Simulation with PID Controller and Teleop -->
+  <!-- Using custom simulation launch that includes our custom sensor suite -->
+  <include file="$(find rexrov_fgo_nav)/launch/start_simulation.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+      <arg name="radius" value="$(arg radius)"/>
+      <arg name="depth" value="$(arg center_z)"/>
+  </include>
+  
+  <!-- 2. Start Helical Trajectory Generator -->
+  <include file="$(find uuv_control_utils)/launch/start_helical_trajectory.launch">
+    <arg name="uuv_name" value="$(arg robot_name)"/>
+    <arg name="radius" value="$(arg radius)"/>
+    <arg name="center_z" value="$(arg center_z)"/>
+    <arg name="n_turns" value="$(arg n_turns)"/>
+    <arg name="delta_z" value="5.0"/>
+    <arg name="duration" value="200"/>
+  </include>
+
+  <!-- 3. FGO Navigation Node -->
+  <!-- This node listens to GT topics on startup to initialize state (see fgo_node.cpp) -->
+  <group ns="$(arg robot_name)">
+    <node pkg="rexrov_fgo_nav" type="fgo_node" name="fgo_nav_node" output="screen">
+      <param name="robot_name" value="$(arg robot_name)"/>
+    </node>
+  </group>
+
+  <!-- 4. Navigation Evaluator -->
+  <node pkg="rexrov_fgo_nav" type="navigation_evaluator.py" name="fgo_navigation_evaluator" output="screen">
+      <param name="robot_name" value="$(arg robot_name)"/>
+      <param name="fgo_odom_topic" value="/$(arg robot_name)/fgo_odom"/>
+      <param name="gt_odom_topic" value="/$(arg robot_name)/pose_gt"/>
+      <param name="rate" value="1.0"/>
+  </node>
+
+  <!-- Optional: RViz -->
+  <group if="$(arg enable_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rexrov_fgo_nav)/config/fgo_demo.rviz"/>
+  </group>
+
+</launch>

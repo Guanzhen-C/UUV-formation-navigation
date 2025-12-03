@@ -31,18 +31,46 @@
     <origin xyz="-1.32 0 0.8" rpy="0 0 0"/>
   </xacro:default_rpt>
 
-  <!-- Pressure  -->
-  <xacro:default_pressure_macro namespace="${namespace}" parent_link="${namespace}/base_link">
-    <origin xyz="-1.32 0.5 0.85" rpy="0 0 0"/>
-  </xacro:default_pressure_macro>
-
-  <!-- IMU  -->
-  <xacro:default_imu_macro
+  <!-- Pressure (High Precision - noise reduced from 3.0 kPa to 0.5 kPa, ~0.05m) -->
+  <xacro:pressure_plugin_macro
     namespace="${namespace}"
+    suffix=""
     parent_link="${namespace}/base_link"
-    inertial_reference_frame="${inertial_reference_frame}">
+    topic="pressure"
+    mass="0.015"
+    update_rate="10"
+    range="30000"
+    noise_sigma="0.5"
+    noise_amplitude="0.0"
+    estimateDepth="false"
+    standardPressure="101.325"
+    kPaPerM="9.80638">
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    <origin xyz="-1.32 0.5 0.85" rpy="0 0 0"/>
+  </xacro:pressure_plugin_macro>
+
+  <!-- IMU (High Precision Config copied from ECA A9) -->
+  <xacro:imu_plugin_macro
+    namespace="${namespace}"
+    imu_suffix=""
+    parent_link="${namespace}/base_link"
+    imu_topic="imu"
+    mass_imu_sensor="0.015"
+    gyroscope_noise_density="0.00000029088"
+    gyroscope_random_walk="0.00000029088"
+    gyroscope_bias_correlation_time="3600.0"
+    gyroscope_turn_on_bias_sigma="0.000004848"
+    accelerometer_noise_density="0.000010"
+    accelerometer_random_walk="0.000010"
+    accelerometer_bias_correlation_time="3600.0"
+    accelerometer_turn_on_bias_sigma="0.0098"
+    orientation_noise="0.001"
+    enable_local_ned_frame="false"
+    reference_frame="world"
+    update_rate="200">
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
     <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:default_imu_macro>
+  </xacro:imu_plugin_macro>
 
   <!-- Mount a camera -->
   <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="">

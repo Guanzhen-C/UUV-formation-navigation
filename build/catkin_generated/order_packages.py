@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
 source_root_dir = '/home/cgz/catkin_ws/src'
-whitelisted_packages = ''.split(';') if '' != '' else []
+whitelisted_packages = 'rexrov_fgo_nav'.split(';') if 'rexrov_fgo_nav' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/opt/ros/noetic'.split(';') if '/opt/ros/noetic' != '' else []
+underlay_workspaces = '/home/cgz/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/cgz/catkin_ws/devel;/opt/ros/noetic' != '' else []

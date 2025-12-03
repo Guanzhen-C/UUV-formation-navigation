@@ -1,8 +1,0 @@
-prefix=/home/cgz/catkin_ws/install
-
-Name: uuv_plume_msgs
-Description: Description of uuv_plume_msgs
-Version: 0.3.3
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: std_msgs geometry_msgs geographic_msgs message_runtime
