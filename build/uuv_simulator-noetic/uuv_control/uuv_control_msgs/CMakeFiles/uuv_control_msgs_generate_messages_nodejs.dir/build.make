@@ -83,50 +83,50 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Trajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from uuv_control_msgs/Trajectory.msg"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Trajectory.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Accel.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Twist.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/TrajectoryPoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from uuv_control_msgs/TrajectoryPoint.msg"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/TrajectoryPoint.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Waypoint.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Waypoint.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Waypoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Waypoint.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/Waypoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from uuv_control_msgs/Waypoint.msg"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg/WaypointSet.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from uuv_control_msgs/WaypointSet.msg"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/WaypointSet.msg -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/msg
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/AddWaypoint.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from uuv_control_msgs/AddWaypoint.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/AddWaypoint.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
@@ -137,38 +137,38 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitCircularTrajectory.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitCircularTrajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitCircularTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitCircularTrajectory.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitCircularTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from uuv_control_msgs/InitCircularTrajectory.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitCircularTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitHelicalTrajectory.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitHelicalTrajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitHelicalTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitHelicalTrajectory.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitHelicalTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from uuv_control_msgs/InitHelicalTrajectory.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitHelicalTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointsFromFile.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointsFromFile.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointsFromFile.js: /opt/ros/noetic/share/std_msgs/msg/String.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointsFromFile.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointsFromFile.js: /opt/ros/noetic/share/std_msgs/msg/String.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from uuv_control_msgs/InitWaypointsFromFile.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointsFromFile.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GetWaypoints.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Javascript code from uuv_control_msgs/GetWaypoints.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GetWaypoints.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/GoTo.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Javascript code from uuv_control_msgs/GoTo.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/GoTo.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
@@ -190,18 +190,18 @@ uuv_simulator-noetic/uuv_control/uuv_control_msgs/CMakeFiles/uuv_control_msgs_ge
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /opt/ros/noetic/share/std_msgs/msg/String.msg
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitWaypointSet.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg/Waypoint.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Javascript code from uuv_control_msgs/InitWaypointSet.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitWaypointSet.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitRectTrajectory.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitRectTrajectory.js: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv
-/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitRectTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitRectTrajectory.js: /opt/ros/noetic/share/std_msgs/msg/Time.msg
+/home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv/InitRectTrajectory.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Javascript code from uuv_control_msgs/InitRectTrajectory.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_control_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/srv/InitRectTrajectory.srv -Iuuv_control_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_control_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_control_msgs -o /home/cgz/catkin_ws/devel/share/gennodejs/ros/uuv_control_msgs/srv
 
