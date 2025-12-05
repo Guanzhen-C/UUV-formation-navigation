@@ -1,0 +1,14 @@
+<launch>
+    <!-- 1. Start the Real Terrain World -->
+    <include file="$(find uuv_eskf_nav)/launch/start_real_world.launch">
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- 2. USER RESPONSIBILITY: Run your own control launch file -->
+    <!-- Example: roslaunch my_pkg start_demo_auv_control.launch -->
+    
+    <!-- 3. Start the Terrain Matching Node -->
+    <node pkg="uuv_eskf_nav" type="terrain_matching_node.py" name="terrain_matcher" output="screen" ns="eca_a9">
+        <param name="map_path" value="$(find uuv_eskf_nav)/terrain_with_noise.asc"/>
+    </node>
+</launch>

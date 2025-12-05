@@ -1044,9 +1044,9 @@ class DPControllerLocalPlanner(object):
             self._idle_circle_center = np.array([0.0, 0.0, pose.pos[2]])
             self._idle_z = pose.pos[2]
 
-        phi = lambda u: 2 * np.pi * u * 17  + pose.rot[2] - np.pi / 2
+        phi = lambda u: 2 * np.pi * u * 18  + pose.rot[2] - np.pi / 2
         # Keep the starting point aligned with the current bearing when using 17 turns
-        u = lambda angle: (angle - pose.rot[2] + np.pi / 2) / (2 * np.pi * 17)
+        u = lambda angle: (angle - pose.rot[2] + np.pi / 2) / (2 * np.pi * 18)
 
         vec = pose.pos - self._idle_circle_center
         vec /= np.linalg.norm(vec)

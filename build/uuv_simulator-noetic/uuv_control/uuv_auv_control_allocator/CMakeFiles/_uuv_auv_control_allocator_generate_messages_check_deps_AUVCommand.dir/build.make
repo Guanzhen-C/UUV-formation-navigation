@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/cgz/catkin_ws/build
 include uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/_uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand.dir/progress.make
 
 uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/_uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand:
-	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_auv_control_allocator /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/msg/AUVCommand.msg std_msgs/Header:geometry_msgs/Wrench:geometry_msgs/Vector3
+	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uuv_auv_control_allocator /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/msg/AUVCommand.msg std_msgs/Header:geometry_msgs/Vector3:geometry_msgs/Wrench
 
 _uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand: uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/_uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand
 _uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand: uuv_simulator-noetic/uuv_control/uuv_auv_control_allocator/CMakeFiles/_uuv_auv_control_allocator_generate_messages_check_deps_AUVCommand.dir/build.make

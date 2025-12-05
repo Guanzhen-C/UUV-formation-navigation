@@ -44,7 +44,7 @@
       topic="${namespace}/dvl/state"/>
 
     <!-- Side scan sonar left -->
-    <xacro:if value="${0}">
+    <xacro:if value="${1}">
     <xacro:sidescan_sonar namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
       <origin xyz="0.41225 0.1498 -0.04615" rpy="${0.5*pi} ${-5*d2r+pi/3.0} ${0.5*pi}" />
     </xacro:sidescan_sonar>
@@ -58,7 +58,7 @@
     </xacro:if>
 
     <!-- Side scan sonar right -->
-    <xacro:if value="${0}">
+    <xacro:if value="${1}">
     <xacro:sidescan_sonar
       namespace="${namespace}" parent_link="${namespace}/base_link" suffix="right">
       <origin xyz="0.41225 -0.1498 -0.04615" rpy="${0.5*pi} ${-5*d2r+pi/3.0} ${-0.5*pi}" />
@@ -141,7 +141,7 @@
       topic="${namespace}/imu/state"/>
 
     <!-- Mount a camera -->
-    <xacro:if value="${0}">
+    <xacro:if value="${1}">
     <xacro:regular_camera_plugin_macro
         namespace="${namespace}"
         suffix=""
@@ -184,6 +184,84 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:default_chemical_concentration_sensor>
     </xacro:if>
+
+    <!-- Custom Down-Looking MBES (100m range) -->
+  <xacro:macro name="no_collision">
+    <collision>
+      <geometry>
+        <cylinder length="${0.000001}" radius="${0.000001}" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${0.5*pi} 0"/>
+    </collision>
+  </xacro:macro>
+
+  <xacro:property name="mbes_suffix" value="_mbes"/>
+  <xacro:property name="mbes_topic" value="mbes"/>
+  <xacro:property name="mbes_fov" value="2.09"/>
+  <xacro:property name="mbes_width" value="512"/>
+  <xacro:property name="mbes_height" value="512"/>
+  <xacro:property name="mbes_update_rate" value="10"/>
+  <xacro:property name="mbes_range_near" value="0.5"/>
+  <xacro:property name="mbes_range_far" value="100.0"/>
+
+  <!-- MBES Sensor Link -->
+  <link name="${namespace}/forward_sonar${mbes_suffix}_link">
+    <inertial>
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+      <mass value="0.015" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.02"/>
+      </geometry>
+    </visual>
+    <xacro:no_collision/>
+  </link>
+
+  <joint name="${namespace}_forward_sonar${mbes_suffix}_joint" type="fixed">
+    <!-- Mounted at bottom, looking DOWN (Pitch = pi/2) -->
+    <origin xyz="0.6 0 -0.12" rpy="0 1.5708 0"/>
+    <parent link="${namespace}/base_link" />
+    <child link="${namespace}/forward_sonar${mbes_suffix}_link" />
+  </joint>
+
+  <gazebo reference="${namespace}/forward_sonar${mbes_suffix}_link">
+    <sensor name="${namespace}/image_sonar" type="depth">
+      <camera>
+        <horizontal_fov>${mbes_fov}</horizontal_fov>
+        <image>
+          <width>${mbes_width}</width>
+          <height>${mbes_height}</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>${mbes_range_near}</near>
+          <far>${mbes_range_far}</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_depth_camera.so" name="forward_sonar${mbes_suffix}_controller">
+        <cameraName>depth</cameraName>
+        <imageTopicName>image_raw_color</imageTopicName>
+        <cameraInfoTopicName>camera_info_color</cameraInfoTopicName>
+        <depthImageTopicName>image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>points</pointCloudTopicName>
+        <frameName>${namespace}/forward_sonar${mbes_suffix}_optical_frame</frameName>
+        <updateRate>${mbes_update_rate}</updateRate>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>${mbes_update_rate}</update_rate>
+    </sensor>
+  </gazebo>
+
+  <joint name="${namespace}/forward_sonar${mbes_suffix}_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    <parent link="${namespace}/forward_sonar${mbes_suffix}_link"/>
+    <child link="${namespace}/forward_sonar${mbes_suffix}_optical_frame"/>
+  </joint>
+
+  <link name="${namespace}/forward_sonar${mbes_suffix}_optical_frame"/>
 
     <!-- Acoustic modem (removed) -->
 </robot>

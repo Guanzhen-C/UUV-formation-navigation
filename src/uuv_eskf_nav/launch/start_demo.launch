@@ -1,0 +1,24 @@
+<launch>
+    <!-- 1. Start the Real Terrain World -->
+    <include file="$(find uuv_eskf_nav)/launch/start_real_world.launch">
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- 2. Spawn the ECA A9 AUV -->
+    <!-- Start deep enough (-2600m) to see the seafloor -->
+    <include file="$(find eca_a9_gazebo)/launch/upload_eca_a9.launch">
+        <arg name="x" value="0"/>
+        <arg name="y" value="0"/>
+        <arg name="z" value="-2600"/>
+        <arg name="yaw" value="0"/>
+    </include>
+
+    <!-- 3. Start the Terrain Matching Node -->
+    <node pkg="uuv_eskf_nav" type="terrain_matching_node.py" name="terrain_matcher" output="screen" ns="eca_a9">
+        <!-- Path to the ASC map file -->
+        <param name="map_path" value="$(find uuv_eskf_nav)/gebco_2025_n40.4838_s39.4745_w131.501_e132.4997.asc"/>
+    </node>
+
+    <!-- Optional: RViz for visualization -->
+    <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find uuv_eskf_nav)/config/terrain_nav.rviz"/> -->
+</launch>

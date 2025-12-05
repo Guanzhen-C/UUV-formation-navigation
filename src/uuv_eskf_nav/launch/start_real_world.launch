@@ -1,0 +1,58 @@
+<launch>
+    <arg name="gui" default="true"/>
+    <arg name="paused" default="false"/>
+    <arg name="set_timeout" default="false"/>
+    <arg name="timeout" default="0.0"/>
+
+    <!-- ESSENTIAL: Add our model path so Gazebo can find 'model://real_terrain' -->
+    <env name="GAZEBO_MODEL_PATH" value="$(find uuv_eskf_nav)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find uuv_eskf_nav)/launch/real_terrain.world"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="true"/>
+    </include>
+
+    <include file="$(find uuv_assistants)/launch/publish_world_ned_frame.launch"/>
+    
+    <!-- Publish auxiliary world models (walls, deep seafloor) -->
+    <!-- Removed the old sand_heightmap mesh publisher -->
+    <node name="publish_world_models"
+        pkg="uuv_assistants"
+        type="publish_world_models.py"
+        output="screen">
+        <rosparam subst_value="true">
+            meshes:
+                seafloor:
+                    plane: [200000, 200000, 0.1]
+                    pose:
+                        position: [0, 0, -4000]
+                north:
+                    plane: [0.1, 200000, 4000]
+                    pose:
+                        position: [100000, 0, -2000]
+                south:
+                    plane: [0.1, 200000, 4000]
+                    pose:
+                        position: [-100000, 0, -2000]
+                west:
+                    plane: [200000, 0.1, 4000]
+                    pose:
+                        position: [0, -100000, -2000]
+                east:
+                    plane: [200000, 0.1, 4000]
+                    pose:
+                        position: [0, 100000, -2000]
+        </rosparam>
+    </node>
+
+    <group if="$(arg set_timeout)">
+        <include file="$(find uuv_assistants)/launch/set_simulation_timer.launch">
+            <arg name="timeout" value="$(arg timeout)"/>
+        </include>
+    </group>
+</launch>

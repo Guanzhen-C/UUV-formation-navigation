@@ -77,8 +77,8 @@ uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.msg
-/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.l: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.l: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from uuv_gazebo_ros_plugins_msgs/UnderwaterObjectModel.msg"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.msg -Iuuv_gazebo_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_gazebo_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/msg
 
@@ -114,9 +114,9 @@ uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/CMakeFiles/u
 
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.srv
-/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg/UnderwaterObjectModel.msg
 /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.l: /opt/ros/noetic/share/geometry_msgs/msg/Inertia.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cgz/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from uuv_gazebo_ros_plugins_msgs/GetModelProperties.srv"
 	cd /home/cgz/catkin_ws/build/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs && ../../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/srv/GetModelProperties.srv -Iuuv_gazebo_ros_plugins_msgs:/home/cgz/catkin_ws/src/uuv_simulator-noetic/uuv_gazebo_plugins/uuv_gazebo_ros_plugins_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p uuv_gazebo_ros_plugins_msgs -o /home/cgz/catkin_ws/devel/share/roseus/ros/uuv_gazebo_ros_plugins_msgs/srv
 

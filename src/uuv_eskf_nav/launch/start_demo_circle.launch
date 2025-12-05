@@ -1,0 +1,41 @@
+<launch>
+    <!-- Arguments for initial position -->
+    <arg name="x" default="100"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="-2600"/>
+    <arg name="yaw" default="1.5708"/>
+
+    <!-- 1. Start the Real Terrain World -->
+    <include file="$(find uuv_eskf_nav)/launch/start_real_world.launch">
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- 2. Spawn the ECA A9 AUV AND Start the Controller (Merged from your file) -->
+    <!-- Note: We use the logic from your provided snippet but integrated here -->
+    
+    <!-- Upload Robot Description -->
+    <include file="$(find eca_a9_description)/launch/upload_eca_a9.launch">
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="z" value="$(arg z)"/>
+        <arg name="yaw" value="$(arg yaw)"/>
+    </include>
+
+    <!-- Start Controller (Geometric Tracking) -->
+    <!-- It will likely make the robot circle around (0,0) or current pos with radius 100 -->
+    <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+        <arg name="dubins_radius" value="25"/>
+        <arg name="idle_radius" value="100"/>
+        <arg name="max_forward_speed" value="1.5"/> 
+    </include>
+
+    <!-- 3. Start the Terrain Matching Node -->
+    <node pkg="uuv_eskf_nav" type="terrain_matching_node.py" name="terrain_matcher" output="screen" ns="eca_a9">
+        <param name="map_path" value="$(find uuv_eskf_nav)/terrain_with_noise.asc"/>
+    </node>
+    
+    <!-- Optional: Start RViz to see the PF particles and path -->
+    <!-- You might need to create a config file first, but default rviz works too -->
+    <!-- <node pkg="rviz" type="rviz" name="rviz" /> -->
+
+</launch>
