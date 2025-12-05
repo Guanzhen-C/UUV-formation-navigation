@@ -202,7 +202,7 @@ class TerrainMatchingNode:
             y = msg.pose.pose.position.y
             rospy.loginfo(f"Initializing PF at ({x:.2f}, {y:.2f})")
             # Init PF
-            self.pf = ParticleFilter(200, [x, y], [10.0, 10.0], self.map_server) # 10m initial uncertainty
+            self.pf = ParticleFilter(2000, [x, y], [10.0, 10.0], self.map_server) # 10m initial uncertainty
             self.last_pos = np.array([x, y])
             self.last_odom_time = msg.header.stamp
             return
