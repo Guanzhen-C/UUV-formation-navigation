@@ -40,7 +40,7 @@
     <!-- CUSTOM TERRAIN -->
     <!-- We need to add the model path to GAZEBO_MODEL_PATH env var -->
     <include>
-      <uri>model://real_terrain</uri>
+      <uri>model://high_res_terrain</uri>
       <pose>0 0 0 0 0 0</pose>
     </include>
 

@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find uuv_eskf_nav)/terrain_with_noise.asc"/>
+    <arg name="map_file" default="$(find uuv_eskf_nav)/high_res_terrain.asc"/>
     <arg name="robot_name" default="eca_a9"/>
 
     <group ns="$(arg robot_name)">

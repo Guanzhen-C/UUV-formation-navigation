@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="high_res_terrain">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <heightmap>
+            <uri>model://high_res_terrain/terrain.png</uri>
+            <size>1000.0 1000.0 50.0</size>
+            <pos>0 0 -95.0</pos>
+          </heightmap>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <heightmap>
+            <use_terrain_paging>false</use_terrain_paging>
+            <texture>
+              <diffuse>file://media/materials/textures/dirt_diffuse.png</diffuse>
+              <normal>file://media/materials/textures/flat_normal.png</normal>
+              <size>100</size>
+            </texture>
+            <uri>model://high_res_terrain/terrain.png</uri>
+            <size>1000.0 1000.0 50.0</size>
+            <pos>0 0 -95.0</pos>
+          </heightmap>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
