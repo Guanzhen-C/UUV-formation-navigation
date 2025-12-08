@@ -65,6 +65,13 @@ public:
             sensor_manager_->setHeadingCallback(
                 std::bind(&EskfNavigationNode::onHeadingData, this, std::placeholders::_1));
         }
+        if (enable_terrain_nav_) {
+            sensor_manager_->setTerrainPoseCallback(
+                std::bind(&EskfNavigationNode::onTerrainData, this, 
+                          std::placeholders::_1, std::placeholders::_2, 
+                          std::placeholders::_3, std::placeholders::_4, 
+                          std::placeholders::_5));
+        }
         
         // 初始化发布器
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/eskf/odometry/filtered", 10);
@@ -165,6 +172,7 @@ private:
         nh_.param<double>("max_initialization_time", max_init_time_, 10.0);
         nh_.param<bool>("sensors/enable_dvl", enable_dvl_, true);
         nh_.param<bool>("sensors/enable_heading", enable_heading_, true);
+        nh_.param<bool>("sensors/enable_terrain_nav", enable_terrain_nav_, false);
         // 将heading噪声传入ESKF（通过回调构造量测时使用）
         heading_variance_ = heading_noise_std_ * heading_noise_std_;
         
@@ -172,7 +180,8 @@ private:
         ROS_INFO("  噪声参数: gyro_std=%.4f, accel_std=%.4f, dvl_std=%.4f, depth_std=%.4f",
                 noise_params_.gyro_noise_std, noise_params_.accel_noise_std,
                 noise_params_.dvl_noise_std, noise_params_.depth_noise_std);
-        ROS_INFO("  传感器开关: DVL=%s, Heading=%s", enable_dvl_?"ON":"OFF", enable_heading_?"ON":"OFF");
+        ROS_INFO("  传感器开关: DVL=%s, Heading=%s, TerrainNav=%s", 
+                 enable_dvl_?"ON":"OFF", enable_heading_?"ON":"OFF", enable_terrain_nav_?"ON":"OFF");
         
         return true;
     }
@@ -355,6 +364,19 @@ private:
             return;
         }
     }
+
+    void onTerrainData(double x, double y, double var_x, double var_y, double timestamp) {
+        if (!is_initialized_ || !eskf_->isInitialized()) return;
+        
+        // 地形匹配位置更新
+        // 构造PositionXYData (需要先在eskf_types.h定义，或直接传参)
+        // 假设 eskf_core.h 已有 updateWithPositionXY(x, y, var_x, var_y, timestamp)
+        if (!eskf_->updateWithPositionXY(x, y, var_x, var_y, timestamp)) {
+            ROS_WARN_THROTTLE(1.0, "ESKF地形位置更新失败");
+            return;
+        }
+        ROS_DEBUG("地形位置更新: [%.2f, %.2f]", x, y);
+    }
     
     void publishNavigationResult(double timestamp) {
         if (!eskf_->isInitialized()) return;
@@ -439,6 +461,7 @@ private:
     double max_init_time_;
     bool enable_dvl_ = true;
     bool enable_heading_ = true;
+    bool enable_terrain_nav_ = false;
     
     // ESKF相关
     std::unique_ptr<EskfCore> eskf_;

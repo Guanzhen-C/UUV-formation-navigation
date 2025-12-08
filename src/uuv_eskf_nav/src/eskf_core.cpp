@@ -729,4 +729,49 @@ double EskfCore::computeRealtimeLatitudeRad(const Eigen::Vector3d& enu_position)
     return phi;
 }
 
+bool EskfCore::updateWithPositionXY(double x, double y, double var_x, double var_y, double timestamp) {
+    if (!initialized_) return false;
+
+    // 1. 观测模型: h(x) = [p_x, p_y]^T
+    // 雅可比 H = [I_{2x2} 0 ...]
+    Eigen::MatrixXd H = Eigen::MatrixXd::Zero(2, STATE_SIZE);
+    H(0, StateIndex::DP + 0) = 1.0;
+    H(1, StateIndex::DP + 1) = 1.0;
+
+    // 2. 计算残差
+    Eigen::Vector2d z_meas(x, y);
+    Eigen::Vector2d z_pred = nominal_state_.position.head<2>();
+    Eigen::Vector2d innovation = z_meas - z_pred;
+
+    // 3. 观测噪声协方差
+    Eigen::Matrix2d R;
+    R << var_x, 0.0,
+         0.0, var_y;
+
+    // 4. 卡尔曼更新
+    Eigen::MatrixXd PHt = P_ * H.transpose();
+    Eigen::MatrixXd S = H * P_ * H.transpose() + R;
+    
+    Eigen::LLT<Eigen::MatrixXd> llt_solver(S);
+    if (llt_solver.info() != Eigen::Success) {
+        std::cerr << "地形位置新息协方差矩阵不可逆!" << std::endl;
+        return false;
+    }
+    
+    Eigen::MatrixXd K = llt_solver.solve(PHt.transpose()).transpose();
+    Eigen::VectorXd delta_error = K * innovation;
+    error_state_ = delta_error;
+    
+    Eigen::MatrixXd I_KH = Eigen::MatrixXd::Identity(STATE_SIZE, STATE_SIZE) - K * H;
+    P_ = I_KH * P_ * I_KH.transpose() + K * R * K.transpose();
+    
+    // 5. 注入与重置
+    injectErrorState(error_state_);
+    Eigen::Vector3d delta_theta = error_state_.segment<3>(StateIndex::DTHETA);
+    Eigen::MatrixXd G = buildErrorResetMatrix(delta_theta);
+    resetErrorState(G);
+    
+    return true;
+}
+
 } // namespace uuv_eskf_nav

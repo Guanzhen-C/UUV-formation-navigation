@@ -167,6 +167,7 @@ class TerrainMatchingNode:
         # Publishers
         self.pose_pub = rospy.Publisher('terrain_nav/pose', PoseWithCovarianceStamped, queue_size=10)
         self.error_pub = rospy.Publisher('terrain_nav/error_norm', Float32, queue_size=10)
+        self.eskf_error_pub = rospy.Publisher('eskf/error_norm', Float32, queue_size=10)
         
         # Subscribers
         rospy.Subscriber('pressure', FluidPressure, self.pressure_cb)
@@ -203,6 +204,11 @@ class TerrainMatchingNode:
         cur_x = msg.pose.pose.position.x
         cur_y = msg.pose.pose.position.y
         cur_pos = np.array([cur_x, cur_y])
+        
+        # Calculate and Publish ESKF Error
+        #if self.current_gt_pos is not None:
+        #   eskf_error = np.linalg.norm(cur_pos - self.current_gt_pos)
+        #   self.eskf_error_pub.publish(Float32(eskf_error))
 
         # 1. Init PF if needed
         if self.pf is None:
@@ -290,9 +296,16 @@ class TerrainMatchingNode:
                 
                 # Error Calculation (Validation)
                 if self.current_gt_pos is not None:
+                    # 1. PF Error
                     est_pos = np.array([mean[0], mean[1]])
                     error = np.linalg.norm(est_pos - self.current_gt_pos)
                     self.error_pub.publish(Float32(error))
+                    
+                    # 2. ESKF Error (using last received ESKF pose)
+                    if self.last_eskf_pos is not None:
+                        eskf_error = np.linalg.norm(self.last_eskf_pos - self.current_gt_pos)
+                        self.eskf_error_pub.publish(Float32(eskf_error))
+                    
                     print(f"\r[PF] Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Particles: {self.pf.N}", end="")
                 
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):

@@ -86,6 +86,17 @@ public:
     bool updateWithHeading(const HeadingData& heading_data);
 
     /**
+     * @brief 地形匹配位置(XY)量测更新
+     * @param x X位置
+     * @param y Y位置
+     * @param var_x X方差
+     * @param var_y Y方差
+     * @param timestamp 时间戳
+     * @return true if successful
+     */
+    bool updateWithPositionXY(double x, double y, double var_x, double var_y, double timestamp);
+
+    /**
      * @brief 获取当前误差状态协方差
      * @return 15x15协方差矩阵
      */

@@ -28,15 +28,34 @@ SensorManager::SensorManager(ros::NodeHandle& nh, const std::string& robot_name)
     // 选择订阅原始DVL数据以获得完整控制权
     std::string dvl_topic = "/" + robot_name_ + "/dvl";           // 原始DVL数据
     std::string pressure_topic = "/" + robot_name_ + "/pressure"; // 原始压力传感器数据
+    std::string terrain_topic = "/terrain_nav/pose";              // 地形匹配定位结果
     
     imu_sub_ = nh_.subscribe(imu_topic, 100, &SensorManager::imuRawCallback, this);
     dvl_sub_ = nh_.subscribe(dvl_topic, 100, &SensorManager::dvlRawCallback, this);
     pressure_sub_ = nh_.subscribe(pressure_topic, 100, &SensorManager::pressureRawCallback, this);
+    terrain_pose_sub_ = nh_.subscribe(terrain_topic, 10, &SensorManager::terrainPoseCallback, this);
     
     ROS_INFO("传感器话题订阅成功:");
     ROS_INFO("  IMU: %s", imu_topic.c_str());
     ROS_INFO("  DVL: %s", dvl_topic.c_str());  
     ROS_INFO("  压力传感器: %s", pressure_topic.c_str());
+    ROS_INFO("  地形匹配: %s", terrain_topic.c_str());
+}
+
+void SensorManager::terrainPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg) {
+    if (!terrain_callback_) return;
+    
+    double x = msg->pose.pose.position.x;
+    double y = msg->pose.pose.position.y;
+    double var_x = msg->pose.covariance[0];
+    double var_y = msg->pose.covariance[7];
+    double timestamp = msg->header.stamp.toSec();
+    
+    // 如果方差为0，设置一个默认值
+    if (var_x <= 1e-6) var_x = 100.0;
+    if (var_y <= 1e-6) var_y = 100.0;
+    
+    terrain_callback_(x, y, var_x, var_y, timestamp);
 }
 
 void SensorManager::imuRawCallback(const sensor_msgs::Imu::ConstPtr& msg) {

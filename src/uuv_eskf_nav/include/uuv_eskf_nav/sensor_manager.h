@@ -31,6 +31,8 @@ public:
     using DvlCallback = std::function<void(const DvlData&)>;  
     using DepthCallback = std::function<void(const DepthData&)>;
     using HeadingCallback = std::function<void(const HeadingData&)>;
+    // 地形匹配回调: x, y, var_x, var_y, timestamp
+    using PositionCallback = std::function<void(double, double, double, double, double)>;
 
     /**
      * @brief 构造函数
@@ -76,6 +78,13 @@ public:
     }
 
     /**
+     * @brief 设置地形匹配定位回调
+     */
+    void setTerrainPoseCallback(const PositionCallback& callback) {
+        terrain_callback_ = callback;
+    }
+
+    /**
      * @brief 获取传感器数据统计信息
      */
     void printStatistics() const;
@@ -105,6 +114,11 @@ private:
      * @param msg 压力传感器消息
      */
     void pressureRawCallback(const sensor_msgs::FluidPressure::ConstPtr& msg);
+
+    /**
+     * @brief 地形匹配定位回调
+     */
+    void terrainPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg);
 
     /**
      * @brief 使用IMU四元数近似为航向量测（可选）
@@ -149,12 +163,14 @@ private:
     ros::Subscriber imu_sub_;
     ros::Subscriber dvl_sub_;  
     ros::Subscriber pressure_sub_;
+    ros::Subscriber terrain_pose_sub_;
 
     // 回调函数
     ImuCallback imu_callback_;
     DvlCallback dvl_callback_;
     DepthCallback depth_callback_;
     HeadingCallback heading_callback_;
+    PositionCallback terrain_callback_;
 
     // 传感器数据统计
     struct SensorStats {
