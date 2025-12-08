@@ -1,6 +1,6 @@
 <launch>
     <!-- Arguments for initial position -->
-    <arg name="x" default="100"/>
+    <arg name="x" default="40000"/>
     <arg name="y" default="0"/>
     <arg name="z" default="-2600"/>
     <arg name="yaw" default="1.5708"/>
@@ -24,15 +24,13 @@
     <!-- Start Controller (Geometric Tracking) -->
     <!-- It will likely make the robot circle around (0,0) or current pos with radius 100 -->
     <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
-        <arg name="dubins_radius" value="25"/>
-        <arg name="idle_radius" value="100"/>
+        <arg name="dubins_radius" value="10000"/>
+        <arg name="idle_radius" value="40000"/>
         <arg name="max_forward_speed" value="1.5"/> 
     </include>
 
-    <!-- 3. Start the Terrain Matching Node -->
-    <node pkg="uuv_eskf_nav" type="terrain_matching_node.py" name="terrain_matcher" output="screen" ns="eca_a9">
-        <param name="map_path" value="$(find uuv_eskf_nav)/terrain_with_noise.asc"/>
-    </node>
+    <!-- 3. Terrain Matching Node Removed (Start manually after ESKF) -->
+    <!-- rosrun uuv_eskf_nav terrain_matching_node.py -->
     
     <!-- Optional: Start RViz to see the PF particles and path -->
     <!-- You might need to create a config file first, but default rviz works too -->

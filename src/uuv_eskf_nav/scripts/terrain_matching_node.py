@@ -141,6 +141,9 @@ class TerrainMatchingNode:
         # Params
         asc_path = rospy.get_param('~map_path', '/home/cgz/catkin_ws/src/uuv_eskf_nav/gebco_2025_n40.4838_s39.4745_w131.501_e132.4997.asc')
         self.robot_name = rospy.get_namespace().strip('/')
+        # TF frames
+        self.world_frame = rospy.get_param('~world_frame', 'odom') # ESKF usually outputs in 'odom' frame
+        self.base_frame = f"{self.robot_name}/base_link"
         
         # Load Map
         self.map_server = TerrainMapServer(asc_path)
@@ -150,8 +153,7 @@ class TerrainMatchingNode:
         
         # Filter State
         self.pf = None
-        self.last_odom_time = None
-        self.last_pos = None # [x, y]
+        self.last_eskf_pos = None # [x, y]
         self.current_depth = 0.0
         self.lock = threading.Lock()
         
@@ -168,9 +170,12 @@ class TerrainMatchingNode:
         
         # Subscribers
         rospy.Subscriber('pressure', FluidPressure, self.pressure_cb)
-        rospy.Subscriber('pose_gt', Odometry, self.gt_cb) # Handle GT for init and error calc
-        # Note: We use the SAME topic for Odom (Prediction) as GT in this demo.
-        # In real system, separate Odom (DVL) and GT.
+        
+        # Navigation Input (ESKF)
+        rospy.Subscriber('/eskf/odometry/filtered', Odometry, self.eskf_cb)
+        
+        # Ground Truth Input (ONLY for verification)
+        rospy.Subscriber('pose_gt', Odometry, self.gt_cb)
         
         # Sensor Subs
         rospy.Subscriber('sss_left', LaserScan, self.sss_left_cb)
@@ -179,51 +184,42 @@ class TerrainMatchingNode:
         # Timer for Update Loop (1Hz - 5Hz)
         rospy.Timer(rospy.Duration(0.5), self.update_loop)
 
-        rospy.loginfo("Terrain Matching Node Initialized.")
+        rospy.loginfo("Terrain Matching Node Initialized (Waiting for ESKF).")
 
     def pressure_cb(self, msg):
         # Use project standard conversion
-        # msg.fluid_pressure is in kPa
         if msg.fluid_pressure >= ATM_PRESSURE_KPA:
             depth = (msg.fluid_pressure - ATM_PRESSURE_KPA) / KPA_PER_METER
         else:
             depth = 0.0
-            
-        # ROS coordinate: Depth is negative Z
         self.current_depth = -depth
 
     def gt_cb(self, msg):
-        # 1. Update GT for error calc
+        """ Ground Truth callback - ONLY for error calculation """
         self.current_gt_pos = np.array([msg.pose.pose.position.x, msg.pose.pose.position.y])
-        
-        # 2. Init PF if needed
+
+    def eskf_cb(self, msg):
+        """ ESKF Callback - Drives Prediction and Initialization """
+        cur_x = msg.pose.pose.position.x
+        cur_y = msg.pose.pose.position.y
+        cur_pos = np.array([cur_x, cur_y])
+
+        # 1. Init PF if needed
         if self.pf is None:
-            x = msg.pose.pose.position.x
-            y = msg.pose.pose.position.y
-            rospy.loginfo(f"Initializing PF at ({x:.2f}, {y:.2f})")
-            # Init PF
-            self.pf = ParticleFilter(2000, [x, y], [10.0, 10.0], self.map_server) # 10m initial uncertainty
-            self.last_pos = np.array([x, y])
-            self.last_odom_time = msg.header.stamp
+            rospy.loginfo(f"Initializing PF using ESKF pose at ({cur_x:.2f}, {cur_y:.2f})")
+            # Increase initial uncertainty because ESKF start might be drifted
+            self.pf = ParticleFilter(2000, [cur_x, cur_y], [20.0, 20.0], self.map_server)
+            self.last_eskf_pos = cur_pos
             return
 
-        # 3. Predict step (Simulating DVL using GT delta)
-        cur_pos = np.array([msg.pose.pose.position.x, msg.pose.pose.position.y])
-        
-        if self.last_pos is not None:
-            delta = cur_pos - self.last_pos
+        # 2. Predict step
+        if self.last_eskf_pos is not None:
+            delta = cur_pos - self.last_eskf_pos
             # Only update if moved enough
             if np.linalg.norm(delta) > 0.1:
                 with self.lock:
                     self.pf.predict(delta[0], delta[1])
-                self.last_pos = cur_pos
-                
-    # Removed old odom_cb and merged into gt_cb for simplicity in this demo node.
-    # def odom_cb(self, msg): ...
-    
-    def init_pose_cb(self, msg):
-        # Merged into gt_cb
-        pass
+                self.last_eskf_pos = cur_pos
 
     def sss_left_cb(self, msg):
         self.sss_left_data = msg
@@ -231,27 +227,17 @@ class TerrainMatchingNode:
         self.sss_right_data = msg
 
     def laserscan_to_points(self, msg, sensor_frame_id):
-        """ Convert LaserScan to (N,3) points in SENSOR frame """
         angles = np.arange(msg.angle_min, msg.angle_max, msg.angle_increment)
-        # Make sure shapes match (sometimes one extra point)
         n = min(len(angles), len(msg.ranges))
         angles = angles[:n]
         ranges = np.array(msg.ranges[:n])
-        
-        # Filter valid ranges
         valid = (ranges > msg.range_min) & (ranges < msg.range_max)
         ranges = ranges[valid]
         angles = angles[valid]
-        
-        if len(ranges) == 0:
-            return np.empty((0, 3))
-
-        # Polar to Cartesian (Sensor Frame)
-        # Assuming Laser scans in XY plane of the sensor link
+        if len(ranges) == 0: return np.empty((0, 3))
         x = ranges * np.cos(angles)
         y = ranges * np.sin(angles)
         z = np.zeros_like(x)
-        
         points = np.column_stack((x, y, z))
         return points
 
@@ -261,19 +247,15 @@ class TerrainMatchingNode:
         # Aggregate observations
         obs_points_body = []
         
-        # Helper to process a scan
         def process_scan(scan_msg, frame_id):
             if scan_msg is None: return
             points_sensor = self.laserscan_to_points(scan_msg, frame_id)
             if len(points_sensor) == 0: return
-            
-            # Transform Sensor -> Base Link (Body)
             try:
-                (trans_v, rot_v) = self.tf_listener.lookupTransform(f"{self.robot_name}/base_link", frame_id, rospy.Time(0))
+                # Transform Sensor -> Body
+                (trans_v, rot_v) = self.tf_listener.lookupTransform(self.base_frame, frame_id, rospy.Time(0))
                 R_bs = trans.quaternion_matrix(rot_v)[:3, :3]
                 T_bs = np.array(trans_v)
-                
-                # P_b = R_bs * P_s + T_bs
                 points_body = np.dot(points_sensor, R_bs.T) + T_bs
                 obs_points_body.append(points_body)
             except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
@@ -282,52 +264,39 @@ class TerrainMatchingNode:
         process_scan(self.sss_left_data, f"{self.robot_name}/sonarleft_link")
         process_scan(self.sss_right_data, f"{self.robot_name}/sonarright_link")
         
-        if not obs_points_body:
-            return
-            
-        all_obs_body = np.vstack(obs_points_body) # (N_total, 3)
-        
-        # Get Orientation (R_wb) from TF (World -> Base)
+        if not obs_points_body: return
+        all_obs_body = np.vstack(obs_points_body)
+
+        # Get Orientation from ESKF (odom -> base_link)
         try:
-            (trans_v, rot_v) = self.tf_listener.lookupTransform("world", f"{self.robot_name}/base_link", rospy.Time(0))
+            (trans_v, rot_v) = self.tf_listener.lookupTransform(self.world_frame, self.base_frame, rospy.Time(0))
             R_wb = trans.quaternion_matrix(rot_v)[:3, :3]
             
-            # Run PF Update
             with self.lock:
                 self.pf.update(all_obs_body, self.current_depth, R_wb)
-                
-                # Publish Result
                 mean, cov = self.pf.get_estimate()
                 
+                # Publish Pose
                 out_msg = PoseWithCovarianceStamped()
                 out_msg.header.stamp = rospy.Time.now()
-                out_msg.header.frame_id = "world"
+                out_msg.header.frame_id = "world" # Our map is always 'world' fixed
                 out_msg.pose.pose.position.x = mean[0]
                 out_msg.pose.pose.position.y = mean[1]
-                # Z is not estimated, use current depth or map depth
                 out_msg.pose.pose.position.z = self.current_depth 
-                
-                # Identity orientation (we don't estimate it)
                 out_msg.pose.pose.orientation.w = 1.0
-                
-                # Covariance (6x6)
-                # We only fill X, Y diagonal
                 out_msg.pose.covariance[0] = cov[0,0]
                 out_msg.pose.covariance[7] = cov[1,1]
-                # Rest is 0 or default
-                
                 self.pose_pub.publish(out_msg)
                 
-                # Error Calculation
+                # Error Calculation (Validation)
                 if self.current_gt_pos is not None:
                     est_pos = np.array([mean[0], mean[1]])
                     error = np.linalg.norm(est_pos - self.current_gt_pos)
                     self.error_pub.publish(Float32(error))
-                    # Print to console (throttle to avoid spam)
-                    # rospy.loginfo_throttle(1.0, f"PF Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m")
                     print(f"\r[PF] Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Particles: {self.pf.N}", end="")
                 
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+            # rospy.logwarn_throttle(5.0, f"Waiting for TF: {self.world_frame} -> {self.base_frame}")
             pass
 
 if __name__ == "__main__":

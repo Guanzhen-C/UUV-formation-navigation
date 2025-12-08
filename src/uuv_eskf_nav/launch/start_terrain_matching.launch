@@ -1,0 +1,12 @@
+<launch>
+    <arg name="map_file" default="$(find uuv_eskf_nav)/terrain_with_noise.asc"/>
+    <arg name="robot_name" default="eca_a9"/>
+
+    <group ns="$(arg robot_name)">
+        <node pkg="uuv_eskf_nav" type="terrain_matching_node.py" name="terrain_matcher" output="screen">
+            <param name="map_path" value="$(arg map_file)"/>
+            <!-- The node will look for /eskf/odometry/filtered inside or outside namespace depending on remapping -->
+            <!-- Our node code subscribes to "/eskf/odometry/filtered" (absolute), so it's fine. -->
+        </node>
+    </group>
+</launch>
