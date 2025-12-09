@@ -64,17 +64,24 @@ class TerrainMapServerGPU:
         self.elevation_tensor = torch.from_numpy(elevation_grid).float().to(self.device)
         self.elevation_tensor = self.elevation_tensor.unsqueeze(0).unsqueeze(0) # (1, 1, H, W)
         
-        # Resolution
-        lat_min = self.header['yllcorner']
-        avg_lat = lat_min + (self.nrows * self.cellsize) / 2.0
-        self.resolution_y = 111320.0 * self.cellsize
-        self.resolution_x = 111320.0 * self.cellsize * math.cos(math.radians(avg_lat))
-        
+        xll = self.header['xllcorner']
+        yll = self.header['yllcorner']
+        is_geographic = (-180.0 <= xll <= 180.0) and (-90.0 <= yll <= 90.0) and (self.cellsize <= 1.0)
+        if is_geographic:
+            lat_min = yll
+            avg_lat = lat_min + (self.nrows * self.cellsize) / 2.0
+            self.resolution_y = 111320.0 * self.cellsize
+            self.resolution_x = 111320.0 * self.cellsize * math.cos(math.radians(avg_lat))
+        else:
+            self.resolution_x = self.cellsize
+            self.resolution_y = self.cellsize
+
         self.real_width = self.ncols * self.resolution_x
         self.real_height = self.nrows * self.resolution_y
 
-        print(f"[GPU] Map Loaded on {self.device}: {self.ncols}x{self.nrows}")
-        print(f"Resolution: {self.resolution_x:.2f}m x {self.resolution_y:.2f}m")
+        coord_msg = "GEOGRAPHIC" if is_geographic else "METRIC"
+        print(f"[GPU] Map Loaded on {self.device}: {self.ncols}x{self.nrows} ({coord_msg})")
+        print(f"Resolution: {self.resolution_x:.3f}m x {self.resolution_y:.3f}m")
 
     def get_elevation_batch(self, x_metric, y_metric):
         """
@@ -109,4 +116,3 @@ class TerrainMapServerGPU:
         
         # Reshape back to input shape
         return sampled.view(x_metric.shape)
-

@@ -3,7 +3,8 @@ import rospy
 import numpy as np
 import tf
 import tf.transformations as trans
-from sensor_msgs.msg import LaserScan, FluidPressure
+from sensor_msgs.msg import PointCloud2, FluidPressure
+from sensor_msgs import point_cloud2 as pc2
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32
@@ -19,6 +20,7 @@ class ParticleFilterGPU:
         self.N = num_particles
         self.map = map_server
         self.device = device
+        self.last_n_eff = float(self.N)
         
         # State: [x, y] on GPU
         self.particles = torch.zeros((self.N, 2), device=self.device, dtype=torch.float32)
@@ -32,48 +34,44 @@ class ParticleFilterGPU:
         self.particles[:, 1] = torch.normal(init_mean[1], init_std[1], (self.N,), device=self.device)
         
         # Parameters
-        self.process_noise = 2.0
-        self.sigma_z = 0.5 # Measurement noise (Stricter)
+        self.process_noise = 0.15  # Reduced process noise for more stability
+        self.sigma_z = 3.0  # Increased to account for larger observed residuals 
 
     def predict(self, dx, dy):
         # Add delta
         self.particles[:, 0] += dx
         self.particles[:, 1] += dy
         
-        # Add noise
-        noise = torch.normal(0.0, self.process_noise, (self.N, 2), device=self.device)
+        # Adaptive noise based on movement magnitude - higher noise during larger movements
+        movement_magnitude = np.sqrt(dx**2 + dy**2)  # Use numpy since dx, dy are numpy values
+        adaptive_noise = self.process_noise * (1.0 + 0.5 * np.tanh(movement_magnitude))
+        
+        # Add noise - ensure noise is a tensor on the correct device
+        noise = torch.normal(0.0, adaptive_noise, (self.N, 2), device=self.device)
         self.particles += noise
 
-    def update(self, obs_points_body, current_depth, R_wb_np):
+    def update(self, obs_offsets_np, z_meas_np):
         """
-        obs_points_body: (M, 3) numpy array
-        current_depth: float
-        R_wb_np: (3, 3) numpy array
+        obs_offsets_np: (M, 2) numpy array of relative XY
+        z_meas_np: (M, ) numpy array of absolute depths
         """
-        if len(obs_points_body) == 0: return
+        if len(z_meas_np) == 0: return
 
         # 1. Pre-process Observation (CPU -> GPU)
-        # Ensure float32
-        obs_body_tensor = torch.from_numpy(obs_points_body).float().to(self.device) # (M, 3)
-        R_wb_tensor = torch.from_numpy(R_wb_np).float().to(self.device) # (3, 3)
+        dx_obs = torch.from_numpy(obs_offsets_np[:, 0]).float().to(self.device) # (M,)
+        dy_obs = torch.from_numpy(obs_offsets_np[:, 1]).float().to(self.device) # (M,)
+        z_meas = torch.from_numpy(z_meas_np).float().to(self.device)            # (M,)
         
-        # (M, 3) @ (3, 3).T -> (M, 3)
-        obs_rel = torch.matmul(obs_body_tensor, R_wb_tensor.t())
+        # Calculate mean of measurements for bias removal
+        meas_mean = torch.mean(z_meas)
         
-        dx_obs = obs_rel[:, 0] # (M,)
-        dy_obs = obs_rel[:, 1] # (M,)
-        dz_obs = obs_rel[:, 2] # (M,)
-        
-        # Z_meas = Depth + dz
-        z_meas = current_depth + dz_obs # (M,)
+        # Remove bias for relative matching
+        z_meas_rel = z_meas - meas_mean
         
         # 2. Construct Query Grid (Broadcasting)
-        # We want to query map at: Particle_pos + Obs_offset
-        # shape: (N, M)
-        # qx[i, j] = p_x[i] + dx[j]
-        
-        qx = self.particles[:, 0].view(-1, 1) + dx_obs.view(1, -1) # (N, M)
-        qy = self.particles[:, 1].view(-1, 1) + dy_obs.view(1, -1) # (N, M)
+        # qx[i, j] = p_x[i] + dx[j] -> (N, M)
+        qx = self.particles[:, 0].view(-1, 1) + dx_obs.view(1, -1) 
+        qy = self.particles[:, 1].view(-1, 1) + dy_obs.view(1, -1)
         
         # Flatten for grid_sample: (N*M, )
         qx_flat = qx.view(-1)
@@ -83,20 +81,38 @@ class ParticleFilterGPU:
         z_map_flat = self.map.get_elevation_batch(qx_flat, qy_flat)
         z_map = z_map_flat.view(self.N, -1) # (N, M)
         
-        # 4. Calculate Likelihood
-        # Error = Z_meas - Z_map
-        # z_meas is (M,), broadcasts to (N, M)
-        diff = z_meas.view(1, -1) - z_map
+        # Calculate map mean for each particle to allow for bias
+        z_map_means = torch.mean(z_map, dim=1, keepdim=True)  # (N, 1)
         
-        # Mean Squared Error per particle
-        # Handle outliers? (e.g. map nodata). get_elevation_batch returns min_elev for OOB.
-        # Let's assume valid.
+        # Use relative matching with per-particle bias
+        z_map_rel = z_map - z_map_means  # (N, M) - (N, 1) -> (N, M)
+        
+        # 4. Calculate likelihood with improved robustness
+        diff = z_meas_rel.view(1, -1) - z_map_rel  # (1, M) - (N, M) -> (N, M)
+        
+        # Calculate Absolute Difference MSE
         mse = torch.mean(diff**2, dim=1) # (N,)
         
-        # Gaussian Likelihood
-        lik = torch.exp(-mse / (2 * self.sigma_z**2))
+        # Calculate MAE as well for robustness
+        mae = torch.mean(torch.abs(diff), dim=1) # (N,)
         
-        # Avoid zero
+        # Calculate terrain feature sensitivity based on local variance
+        local_terrain_var = torch.var(z_meas_rel)
+        # Use adaptive weighting: higher MSE weight when terrain has more variation
+        mse_weight = 0.6 + 0.3 * torch.tanh(local_terrain_var)  # Range [0.6, 0.9]
+        mae_weight = 1.0 - mse_weight
+        
+        # Combine MSE and MAE for more robust likelihood
+        combined_error = mse_weight * mse + mae_weight * mae
+        
+        # Adaptive likelihood calculation based on terrain feature
+        # When terrain has low variation, make matching less sensitive
+        terrain_variation = torch.std(z_meas_rel)
+        # Increase sigma to account for larger observed residuals
+        adaptive_sigma = self.sigma_z * (1.5 + 0.5 * (1.0 - torch.tanh(terrain_variation)))  # Higher base sigma to account for larger residuals
+        
+        # Gaussian Likelihood with adaptive sigma
+        lik = torch.exp(-combined_error / (2 * adaptive_sigma**2))
         lik += 1e-30
         
         # Update weights
@@ -105,12 +121,56 @@ class ParticleFilterGPU:
         
         # 5. Resample
         n_eff = 1.0 / torch.sum(self.weights**2)
-        if n_eff < self.N / 2.0:
+        self.last_n_eff = n_eff.item()
+        
+        # Stats for logging (Raw residuals)
+        self.last_residual_stats = {
+            'mean': torch.mean(diff).item(), 
+            'std': torch.std(diff).item()
+        }
+        
+        # Calculate and store diff statistics for logging
+        # Use the diff from the best particle or overall
+        overall_diff = diff.mean(dim=1)  # Average across measurements for each particle
+        self.last_diff_stats = {
+            'mean': overall_diff.mean().item(),
+            'std': overall_diff.std().item()
+        }
+        
+        # Adaptive resampling threshold based on terrain characteristics
+        terrain_variation = torch.std(z_meas_rel)
+        # Increase thresholds to prevent over-resampling
+        adaptive_threshold = 0.7 * self.N if terrain_variation > 0.5 else 0.5 * self.N  # Higher threshold for more stable resampling
+        
+        if n_eff < adaptive_threshold:
             self.resample()
+        else:
+            # Even without resampling, maintain diversity with small noise injection
+            # Add small noise periodically to maintain exploration
+            if np.random.random() < 0.05:  # 5% chance to add noise
+                noise = torch.normal(0.0, self.process_noise * 0.2, (self.N, 2), device=self.device)
+                self.particles += noise
 
     def resample(self):
-        indices = torch.multinomial(self.weights, self.N, replacement=True)
+        # Use systematic resampling for better particle diversity
+        cumulative_weights = torch.cumsum(self.weights, dim=0)
+        cumulative_weights[-1] = 1.0  # Ensure sum is exactly 1
+        
+        # Systematic resampling
+        u = torch.arange(self.N, dtype=torch.float32, device=self.device) / self.N
+        offset = torch.rand(1, device=self.device) / self.N
+        u = u + offset
+        
+        # Find indices using searchsorted
+        indices = torch.searchsorted(cumulative_weights, u, right=True)
+        indices = torch.clamp(indices, 0, self.N - 1)  # Ensure valid indices
+        
+        # Add more significant noise to resampled particles to maintain diversity
         self.particles = self.particles[indices]
+        # Increase noise level to better explore the state space after resampling
+        noise = torch.normal(0.0, self.process_noise * 0.8, (self.N, 2), device=self.device)
+        self.particles += noise
+        
         self.weights = torch.ones(self.N, device=self.device) / self.N
 
     def get_estimate(self):
@@ -119,25 +179,16 @@ class ParticleFilterGPU:
         
         # Covariance
         diff = self.particles - mean
-        # Weighted Covariance
-        # cov = (weights * diff.T) @ diff
-        # Manual calculation for 2x2
-        # w_diff = diff * torch.sqrt(self.weights.view(-1, 1)) # broadcasting
-        # cov = torch.matmul(w_diff.t(), w_diff) 
-        # Or simple:
         cov_xx = torch.sum(self.weights * diff[:, 0]**2)
         cov_yy = torch.sum(self.weights * diff[:, 1]**2)
-        # Ignore xy for now
         
-        # Return to CPU
         return mean.cpu().numpy(), np.array([[cov_xx.item(), 0], [0, cov_yy.item()]])
 
 class TerrainMatchingNodeGPU:
     def __init__(self):
         rospy.init_node('terrain_matching_node_gpu')
         
-        # Params
-        asc_path = rospy.get_param('~map_path', '/home/cgz/catkin_ws/src/uuv_eskf_nav/terrain_with_noise.asc')
+        asc_path = rospy.get_param('~map_path', '/home/cgz/catkin_ws/src/uuv_eskf_nav/gazebo_terrain.asc')
         self.robot_name = rospy.get_namespace().strip('/')
         self.world_frame = rospy.get_param('~world_frame', 'odom')
         self.base_frame = f"{self.robot_name}/base_link"
@@ -145,7 +196,6 @@ class TerrainMatchingNodeGPU:
         # Check GPU
         if not torch.cuda.is_available():
             rospy.logerr("CUDA not available! Falling back to CPU or dying.")
-            # self.device = 'cpu' # Could fallback
         self.device = 'cuda'
         
         # Load Map (GPU)
@@ -154,12 +204,12 @@ class TerrainMatchingNodeGPU:
         self.tf_listener = tf.TransformListener()
         self.pf = None
         self.last_eskf_pos = None
+        self.last_orientation = None
         self.current_depth = 0.0
         self.lock = threading.Lock()
         self.current_gt_pos = None
 
-        self.sss_left_data = None
-        self.sss_right_data = None
+        self.mbes_data = None
         
         self.pose_pub = rospy.Publisher('terrain_nav/pose', PoseWithCovarianceStamped, queue_size=10)
         self.error_pub = rospy.Publisher('terrain_nav/error_norm', Float32, queue_size=10)
@@ -168,14 +218,14 @@ class TerrainMatchingNodeGPU:
         rospy.Subscriber('pressure', FluidPressure, self.pressure_cb)
         rospy.Subscriber('/eskf/odometry/filtered', Odometry, self.eskf_cb)
         rospy.Subscriber('pose_gt', Odometry, self.gt_cb)
-        rospy.Subscriber('sss_left', LaserScan, self.sss_left_cb)
-        rospy.Subscriber('sss_right', LaserScan, self.sss_right_cb)
         
-        rospy.Timer(rospy.Duration(0.5), self.update_loop) # 2Hz is enough, but GPU can do 50Hz if you want
+        # MBES Subscriber
+        rospy.Subscriber('/eca_a9/depth/points', PointCloud2, self.mbes_cb)
+        
+        rospy.Timer(rospy.Duration(0.5), self.update_loop)
 
-        rospy.loginfo(f"Terrain Matching Node (GPU) Initialized on {self.device}.")
+        rospy.loginfo(f"Terrain Matching Node (GPU - MBES) Initialized on {self.device}.")
 
-    # ... Copy callbacks from CPU version, mostly identical ...
     def pressure_cb(self, msg):
         if msg.fluid_pressure >= ATM_PRESSURE_KPA:
             depth = (msg.fluid_pressure - ATM_PRESSURE_KPA) / KPA_PER_METER
@@ -190,11 +240,13 @@ class TerrainMatchingNodeGPU:
         cur_x = msg.pose.pose.position.x
         cur_y = msg.pose.pose.position.y
         cur_pos = np.array([cur_x, cur_y])
+        quat = msg.pose.pose.orientation
+        self.last_orientation = [quat.x, quat.y, quat.z, quat.w]
 
         if self.pf is None:
-            rospy.loginfo(f"Initializing GPU PF at ({cur_x:.2f}, {cur_y:.2f}) with 100000 particles")
-            # 100,000 Particles!
-            self.pf = ParticleFilterGPU(100000, [cur_x, cur_y], [20.0, 20.0], self.map_server, self.device)
+            self.num_particles = rospy.get_param('~num_particles', 1000)
+            rospy.loginfo(f"Initializing GPU PF at ({cur_x:.2f}, {cur_y:.2f}) with {self.num_particles} particles")
+            self.pf = ParticleFilterGPU(self.num_particles, [cur_x, cur_y], [20.0, 20.0], self.map_server, self.device)
             self.last_eskf_pos = cur_pos
             return
 
@@ -205,51 +257,57 @@ class TerrainMatchingNodeGPU:
                     self.pf.predict(delta[0], delta[1])
                 self.last_eskf_pos = cur_pos
 
-    def sss_left_cb(self, msg): self.sss_left_data = msg
-    def sss_right_cb(self, msg): self.sss_right_data = msg
-
-    def laserscan_to_points(self, msg):
-        angles = np.arange(msg.angle_min, msg.angle_max, msg.angle_increment)
-        n = min(len(angles), len(msg.ranges))
-        ranges = np.array(msg.ranges[:n])
-        valid = (ranges > msg.range_min) & (ranges < msg.range_max)
-        ranges = ranges[valid]
-        angles = angles[valid]
-        if len(ranges) == 0: return np.empty((0, 3))
-        x = ranges * np.cos(angles)
-        y = ranges * np.sin(angles)
-        z = np.zeros_like(x)
-        return np.column_stack((x, y, z))
+    def mbes_cb(self, msg):
+        self.mbes_data = msg
 
     def update_loop(self, event):
         if self.pf is None: return
+        if self.mbes_data is None: return
         
-        obs_points_body = []
-        def process_scan(scan_msg, frame_id):
-            if scan_msg is None: return
-            points_sensor = self.laserscan_to_points(scan_msg)
-            if len(points_sensor) == 0: return
-            try:
-                (trans_v, rot_v) = self.tf_listener.lookupTransform(self.base_frame, frame_id, rospy.Time(0))
-                R_bs = trans.quaternion_matrix(rot_v)[:3, :3]
-                T_bs = np.array(trans_v)
-                points_body = np.dot(points_sensor, R_bs.T) + T_bs
-                obs_points_body.append(points_body)
-            except:
-                pass
-
-        process_scan(self.sss_left_data, f"{self.robot_name}/sonarleft_link")
-        process_scan(self.sss_right_data, f"{self.robot_name}/sonarright_link")
+        # 1. Parse MBES
+        gen = pc2.read_points(self.mbes_data, field_names=("x", "y", "z"), skip_nans=True)
+        pts_optical = np.array(list(gen))
+        if len(pts_optical) == 0: return
         
-        if not obs_points_body: return
-        all_obs_body = np.vstack(obs_points_body)
+        # Additional filtering: Remove points where z is exactly 0 (which may indicate no return)
+        # This can happen when sonar beams don't hit terrain within range
+        non_zero_mask = pts_optical[:, 2] != 0.0
+        pts_optical = pts_optical[non_zero_mask]
+        if len(pts_optical) == 0: return
+        
+        # Use all available MBES points for better terrain matching
+        # Only downsample if the number of points is extremely large (memory concerns)
+        original_count = len(pts_optical)
+        if len(pts_optical) > 10000:  # Only downsample if more than 10000 points
+            indices = np.random.choice(len(pts_optical), 10000, replace=False)
+            pts_optical = pts_optical[indices]
+            rospy.loginfo(f"Downsampled from {original_count} to {len(pts_optical)} points")
+        
+        # 2. Transform Optical -> Body
+        try:
+            (t, r) = self.tf_listener.lookupTransform(f"{self.robot_name}/base_link", self.mbes_data.header.frame_id, rospy.Time(0))
+            R_ob = trans.quaternion_matrix(r)[:3, :3]
+            T_ob = np.array(t)
+            pts_body = np.dot(pts_optical, R_ob.T) + T_ob
+        except:
+            return
 
         try:
-            (trans_v, rot_v) = self.tf_listener.lookupTransform(self.world_frame, self.base_frame, rospy.Time(0))
-            R_wb = trans.quaternion_matrix(rot_v)[:3, :3]
+            # 3. Transform Body -> World (Orientation from ESKF/Last Known)
+            # Using ESKF orientation (consistent with 'real' nav)
+            # Note: In CPU version we used GT orientation for debugging.
+            # Here we use 'last_orientation' from ESKF/Odom callback.
+            if self.last_orientation is None: return
             
+            R_wb = trans.quaternion_matrix(self.last_orientation)[:3, :3]
+            pts_rotated = np.dot(pts_body, R_wb.T)
+            
+            # 4. Prepare Measurement
+            z_meas = self.current_depth + pts_rotated[:, 2] # Absolute depths
+            obs_offsets = pts_rotated[:, :2] # Relative XY
+
             with self.lock:
-                self.pf.update(all_obs_body, self.current_depth, R_wb)
+                self.pf.update(obs_offsets, z_meas)
                 mean, cov = self.pf.get_estimate()
                 
                 out_msg = PoseWithCovarianceStamped()
@@ -268,12 +326,24 @@ class TerrainMatchingNodeGPU:
                     error = np.linalg.norm(est_pos - self.current_gt_pos)
                     self.error_pub.publish(Float32(error))
                     
-                    if self.last_eskf_pos is not None:
-                        eskf_error = np.linalg.norm(self.last_eskf_pos - self.current_gt_pos)
-                        self.eskf_error_pub.publish(Float32(eskf_error))
+                    res_info = ""
+                    res_stats = getattr(self.pf, "last_residual_stats", None)
+                    if res_stats:
+                        res_info = f" | ResRaw[Mean:{res_stats['mean']:.1f} Std:{res_stats['std']:.1f}]"
                     
-                    print(f"\r[GPU-PF] Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Particles: {self.pf.N}", end="")
+                # Calculate Meas Stats using actual filtered count
+                meas_mean = np.mean(z_meas)
+                meas_std = np.std(z_meas)
+                meas_info = f" | Meas[N:{len(z_meas)} Mean:{meas_mean:.1f} Std:{meas_std:.1f}]"
                 
+                # Add diff stats if available
+                diff_info = ""
+                if hasattr(self.pf, 'last_diff_stats'):
+                    diff_mean = self.pf.last_diff_stats['mean']
+                    diff_std = self.pf.last_diff_stats['std']
+                    diff_info = f" | Diff[Mean:{diff_mean:.1f} Std:{diff_std:.1f}]"
+                
+                print(f"\r[GPU-PF] Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Neff: {self.pf.last_n_eff:.0f}{res_info}{meas_info}{diff_info}")                
         except Exception as e:
             rospy.logerr_throttle(1.0, f"GPU PF Update Error: {e}")
             pass
