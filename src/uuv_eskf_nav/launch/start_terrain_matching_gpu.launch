@@ -1,10 +1,11 @@
 <launch>
-    <arg name="map_file" default="$(find uuv_eskf_nav)/high_res_terrain.asc"/>
+    <arg name="map_file" default="$(find uuv_eskf_nav)/gazebo_terrain.asc"/>
     <arg name="robot_name" default="eca_a9"/>
 
     <group ns="$(arg robot_name)">
         <node pkg="uuv_eskf_nav" type="terrain_matching_node_gpu.py" name="terrain_matcher_gpu" output="screen">
             <param name="map_path" value="$(arg map_file)"/>
+            <param name="num_particles" value="2000"/>
             <!-- Note: This GPU node uses PyTorch and requires CUDA -->
         </node>
     </group>

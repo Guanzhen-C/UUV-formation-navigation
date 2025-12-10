@@ -3,7 +3,7 @@
     <arg name="x" default="400"/>
     <arg name="y" default="0"/>
     <arg name="z" default="-50"/>
-    <arg name="yaw" default="1.5708"/>
+    <arg name="yaw" default="1.57"/>
 
     <!-- 1. Start the Real Terrain World -->
     <include file="$(find uuv_eskf_nav)/launch/start_real_world.launch">
@@ -24,7 +24,7 @@
     <!-- Start Controller (Geometric Tracking) -->
     <!-- It will likely make the robot circle around (0,0) or current pos with radius 100 -->
     <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
-        <arg name="dubins_radius" value="10000"/>
+        <arg name="dubins_radius" value="100"/>
         <arg name="idle_radius" value="400"/>
         <arg name="max_forward_speed" value="1.5"/> 
     </include>

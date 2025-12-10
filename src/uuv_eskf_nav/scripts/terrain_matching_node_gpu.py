@@ -33,9 +33,10 @@ class ParticleFilterGPU:
         self.particles[:, 0] = torch.normal(init_mean[0], init_std[0], (self.N,), device=self.device)
         self.particles[:, 1] = torch.normal(init_mean[1], init_std[1], (self.N,), device=self.device)
         
-        # Parameters
-        self.process_noise = 0.15  # Reduced process noise for more stability
-        self.sigma_z = 3.0  # Increased to account for larger observed residuals 
+        # Parameters - Adjusted for better stability with more particles
+        # Increase process noise slightly to improve exploration with more particles
+        self.process_noise = 0.12  # Increased from 0.08 to improve exploration with 2000 particles
+        self.sigma_z = 1.8  # Increased from 1.5 to account for measurement uncertainty with more particles 
 
     def predict(self, dx, dy):
         # Add delta
@@ -99,27 +100,49 @@ class ParticleFilterGPU:
         # Calculate terrain feature sensitivity based on local variance
         local_terrain_var = torch.var(z_meas_rel)
         # Use adaptive weighting: higher MSE weight when terrain has more variation
-        mse_weight = 0.6 + 0.3 * torch.tanh(local_terrain_var)  # Range [0.6, 0.9]
+        mse_weight = 0.7 + 0.2 * torch.tanh(local_terrain_var)  # Emphasize MSE for better precision
         mae_weight = 1.0 - mse_weight
         
         # Combine MSE and MAE for more robust likelihood
         combined_error = mse_weight * mse + mae_weight * mae
         
-        # Adaptive likelihood calculation based on terrain feature
-        # When terrain has low variation, make matching less sensitive
+        # IMPLEMENT IMPROVED ADAPTIVE SIGMA FOR MORE PARTICLES
         terrain_variation = torch.std(z_meas_rel)
-        # Increase sigma to account for larger observed residuals
-        adaptive_sigma = self.sigma_z * (1.5 + 0.5 * (1.0 - torch.tanh(terrain_variation)))  # Higher base sigma to account for larger residuals
+        
+        # Adjust sigma based on number of particles (more particles need more conservative matching)
+        base_sigma_adjustment = 1.0 + 0.3 * (self.N / 1000.0 - 1.0)  # Increase sigma for more particles
+        adaptive_sigma = self.sigma_z * base_sigma_adjustment * (1.0 + 0.3 * (1.0 - torch.tanh(terrain_variation)))
         
         # Gaussian Likelihood with adaptive sigma
         lik = torch.exp(-combined_error / (2 * adaptive_sigma**2))
         lik += 1e-30
         
+        # IMPLEMENT IMPROVED ROBUSTNESS FOR MORE PARTICLES:
+        # Cap the likelihood ratio to prevent extreme weight concentration
+        max_lik = torch.max(lik)
+        min_lik = torch.min(lik)
+        mean_lik = torch.mean(lik)
+        lik_ratio = max_lik / (min_lik + 1e-30)
+        
+        # Calculate weight entropy to measure distribution uniformity
+        normalized_weights = self.weights / (torch.sum(self.weights) + 1e-30)
+        weight_entropy = -torch.sum(normalized_weights * torch.log(normalized_weights + 1e-30))
+        max_entropy = torch.log(torch.tensor(self.N, dtype=torch.float32))
+        entropy_ratio = weight_entropy / max_entropy  # Between 0 and 1 (1 = uniform)
+        
+        # If the likelihood ratio is too high or entropy is too low, indicating potential divergence, adjust
+        if lik_ratio > 1e4 or entropy_ratio < 0.1:  # Reduced threshold for more particles
+            # Apply soft likelihood normalization to prevent extreme weights
+            # Use a more conservative approach with more particles
+            min_val = mean_lik * 0.0001  # More conservative minimum
+            max_val = mean_lik * 1000   # More conservative maximum
+            lik = torch.clamp(lik, min=min_val, max=max_val)
+        
         # Update weights
         self.weights *= lik
         self.weights /= torch.sum(self.weights)
         
-        # 5. Resample
+        # 5. Resample with enhanced stability measures for more particles
         n_eff = 1.0 / torch.sum(self.weights**2)
         self.last_n_eff = n_eff.item()
         
@@ -137,19 +160,51 @@ class ParticleFilterGPU:
             'std': overall_diff.std().item()
         }
         
-        # Adaptive resampling threshold based on terrain characteristics
+        # IMPLEMENT ENHANCED RESAMPLING STRATEGY FOR MORE PARTICLES
+        # Use a more conservative resampling threshold with more particles
         terrain_variation = torch.std(z_meas_rel)
-        # Increase thresholds to prevent over-resampling
-        adaptive_threshold = 0.7 * self.N if terrain_variation > 0.5 else 0.5 * self.N  # Higher threshold for more stable resampling
+        # Lower resampling threshold for more particles (allow more particles to survive before resampling)
+        adaptive_threshold = 0.3 * self.N if terrain_variation > 0.5 else 0.2 * self.N
         
-        if n_eff < adaptive_threshold:
+        # Also resample if weights are too concentrated (potential divergence)
+        weight_concentration = torch.max(self.weights) / (torch.mean(self.weights) + 1e-30)
+        
+        # Check for weight degeneracy with more conservative metrics for more particles
+        if n_eff < adaptive_threshold or weight_concentration > 50:
+            # Add diversity before resampling
+            noise_before_resample = torch.normal(0.0, self.process_noise * 0.2, (self.N, 2), device=self.device)
+            self.particles += noise_before_resample
+            
             self.resample()
+            
+            # After resampling, reduce the impact of the measurement to avoid over-correction
+            # This helps when we have many particles and measurements might be misleading
         else:
-            # Even without resampling, maintain diversity with small noise injection
-            # Add small noise periodically to maintain exploration
-            if np.random.random() < 0.05:  # 5% chance to add noise
-                noise = torch.normal(0.0, self.process_noise * 0.2, (self.N, 2), device=self.device)
+            # Even without resampling, maintain diversity with noise injection
+            # Adjust noise injection frequency based on number of particles
+            noise_freq = min(0.15, 0.05 + 0.1 * (self.N / 2000.0))  # Scale with number of particles
+            if np.random.random() < noise_freq:
+                # Use adaptive noise based on current weight distribution
+                if weight_concentration > 30:  # High concentration
+                    noise_scale = self.process_noise * 0.3
+                elif weight_concentration < 5:  # Low concentration
+                    noise_scale = self.process_noise * 0.05
+                else:  # Moderate concentration
+                    noise_scale = self.process_noise * 0.15
+                noise = torch.normal(0.0, noise_scale, (self.N, 2), device=self.device)
                 self.particles += noise
+
+        # ADD ENHANCED DIVERGENCE DETECTION AND RECOVERY FOR MORE PARTICLES
+        # If effective sample size is very low or weight entropy is low, we might be diverging
+        if n_eff < 0.05 * self.N or entropy_ratio < 0.05:
+            print(f"[GPU-PF] Critical: Low effective sample size ({n_eff:.0f}/{self.N}) or low entropy, restarting with diversity")
+            # Reinitialize particles with increased spread around current estimate
+            current_mean = torch.sum(self.particles * self.weights.view(-1, 1), dim=0)
+            # Add significant noise to escape potential local minima
+            restart_noise = torch.normal(0.0, self.process_noise * 2.0, (self.N, 2), device=self.device)
+            self.particles = current_mean + restart_noise
+            # Reset weights to uniform
+            self.weights = torch.ones(self.N, device=self.device, dtype=torch.float32) / self.N
 
     def resample(self):
         # Use systematic resampling for better particle diversity
@@ -167,8 +222,17 @@ class ParticleFilterGPU:
         
         # Add more significant noise to resampled particles to maintain diversity
         self.particles = self.particles[indices]
-        # Increase noise level to better explore the state space after resampling
-        noise = torch.normal(0.0, self.process_noise * 0.8, (self.N, 2), device=self.device)
+        # Adjust noise level based on terrain features and particle distribution
+        if hasattr(self, 'last_n_eff'):
+            # If effective sample size was low, use higher noise to increase diversity
+            if self.last_n_eff < 0.3 * self.N:
+                noise_scale = self.process_noise * 1.0  # Higher noise when diversity is low
+            else:
+                noise_scale = self.process_noise * 0.5  # Lower noise for better accuracy
+        else:
+            noise_scale = self.process_noise * 0.5
+            
+        noise = torch.normal(0.0, noise_scale, (self.N, 2), device=self.device)
         self.particles += noise
         
         self.weights = torch.ones(self.N, device=self.device) / self.N
@@ -217,7 +281,7 @@ class TerrainMatchingNodeGPU:
         
         rospy.Subscriber('pressure', FluidPressure, self.pressure_cb)
         rospy.Subscriber('/eskf/odometry/filtered', Odometry, self.eskf_cb)
-        rospy.Subscriber('pose_gt', Odometry, self.gt_cb)
+        rospy.Subscriber(f'/{self.robot_name}/pose_gt', Odometry, self.gt_cb)
         
         # MBES Subscriber
         rospy.Subscriber('/eca_a9/depth/points', PointCloud2, self.mbes_cb)
@@ -225,6 +289,16 @@ class TerrainMatchingNodeGPU:
         rospy.Timer(rospy.Duration(0.5), self.update_loop)
 
         rospy.loginfo(f"Terrain Matching Node (GPU - MBES) Initialized on {self.device}.")
+
+    def pressure_cb(self, msg):
+        if msg.fluid_pressure >= ATM_PRESSURE_KPA:
+            depth = (msg.fluid_pressure - ATM_PRESSURE_KPA) / KPA_PER_METER
+        else:
+            depth = 0.0
+        self.current_depth = -depth
+
+    def gt_cb(self, msg):
+        self.current_gt_pos = np.array([msg.pose.pose.position.x, msg.pose.pose.position.y])
 
     def pressure_cb(self, msg):
         if msg.fluid_pressure >= ATM_PRESSURE_KPA:
@@ -246,7 +320,7 @@ class TerrainMatchingNodeGPU:
         if self.pf is None:
             self.num_particles = rospy.get_param('~num_particles', 1000)
             rospy.loginfo(f"Initializing GPU PF at ({cur_x:.2f}, {cur_y:.2f}) with {self.num_particles} particles")
-            self.pf = ParticleFilterGPU(self.num_particles, [cur_x, cur_y], [20.0, 20.0], self.map_server, self.device)
+            self.pf = ParticleFilterGPU(self.num_particles, [cur_x, cur_y], [5.0, 5.0], self.map_server, self.device)
             self.last_eskf_pos = cur_pos
             return
 
@@ -343,7 +417,15 @@ class TerrainMatchingNodeGPU:
                     diff_std = self.pf.last_diff_stats['std']
                     diff_info = f" | Diff[Mean:{diff_mean:.1f} Std:{diff_std:.1f}]"
                 
-                print(f"\r[GPU-PF] Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Neff: {self.pf.last_n_eff:.0f}{res_info}{meas_info}{diff_info}")                
+                # Get ground truth position if available
+                gt_info = ""
+                if self.current_gt_pos is not None:
+                    gt_info = f" | GT[Pos:({self.current_gt_pos[0]:.2f}, {self.current_gt_pos[1]:.2f})]"
+                
+                # Get current ROS time for timestamp
+                current_time = rospy.get_time()
+                
+                print(f"\r[GPU-PF] Time:{current_time:.2f} | Error: {error:.2f} m | StdDev: {np.sqrt(cov[0,0]):.2f} m | Neff: {self.pf.last_n_eff:.0f}{res_info}{meas_info}{diff_info}{gt_info}")                
         except Exception as e:
             rospy.logerr_throttle(1.0, f"GPU PF Update Error: {e}")
             pass

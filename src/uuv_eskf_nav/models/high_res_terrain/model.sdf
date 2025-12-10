@@ -6,9 +6,9 @@
       <collision name="collision">
         <geometry>
           <heightmap>
-            <uri>model://high_res_terrain/terrain.png</uri>
-            <size>1000.0 1000.0 50.0</size>
-            <pos>0 0 -95.0</pos>
+            <uri>model://high_res_terrain/gazebo_terrain.png</uri>
+            <size>1000.0 1000.0 39.6660</size>
+            <pos>0 0 -110.9542</pos>
           </heightmap>
         </geometry>
       </collision>
@@ -21,9 +21,9 @@
               <normal>file://media/materials/textures/flat_normal.png</normal>
               <size>100</size>
             </texture>
-            <uri>model://high_res_terrain/terrain.png</uri>
-            <size>1000.0 1000.0 50.0</size>
-            <pos>0 0 -95.0</pos>
+            <uri>model://high_res_terrain/gazebo_terrain.png</uri>
+            <size>1000.0 1000.0 39.6660</size>
+            <pos>0 0 -110.9542</pos>
           </heightmap>
         </geometry>
       </visual>

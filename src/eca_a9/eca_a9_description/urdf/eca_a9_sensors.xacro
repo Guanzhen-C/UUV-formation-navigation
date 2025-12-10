@@ -197,9 +197,9 @@
 
   <xacro:property name="mbes_suffix" value="_mbes"/>
   <xacro:property name="mbes_topic" value="mbes"/>
-  <xacro:property name="mbes_fov" value="2.09"/>
-  <xacro:property name="mbes_width" value="512"/>
-  <xacro:property name="mbes_height" value="512"/>
+  <xacro:property name="mbes_fov" value="1.047"/>
+  <xacro:property name="mbes_width" value="64"/>
+  <xacro:property name="mbes_height" value="64"/>
   <xacro:property name="mbes_update_rate" value="10"/>
   <xacro:property name="mbes_range_near" value="0.5"/>
   <xacro:property name="mbes_range_far" value="100.0"/>
