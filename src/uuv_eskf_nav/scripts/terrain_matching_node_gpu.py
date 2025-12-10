@@ -36,7 +36,7 @@ class ParticleFilterGPU:
         # Parameters - Adjusted for better stability with more particles
         # Increase process noise slightly to improve exploration with more particles
         self.process_noise = 0.12  # Increased from 0.08 to improve exploration with 2000 particles
-        self.sigma_z = 1.8  # Increased from 1.5 to account for measurement uncertainty with more particles 
+        self.sigma_z = 5 #1.8  # Increased from 1.5 to account for measurement uncertainty with more particles 
 
     def predict(self, dx, dy):
         # Add delta

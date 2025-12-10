@@ -1,0 +1,34 @@
+<launch>
+    <!-- Arguments for initial position -->
+    <!-- Start at bottom-left corner of the lawnmower pattern -->
+    <arg name="x" default="-400"/>
+    <arg name="y" default="-400"/>
+    <arg name="z" default="-30"/>
+    <arg name="yaw" default="1.57"/> <!-- Face North -->
+
+    <!-- 1. Start the Real Terrain World -->
+    <include file="$(find uuv_eskf_nav)/launch/start_real_world.launch">
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- 2. Spawn the ECA A9 AUV -->
+    <include file="$(find eca_a9_description)/launch/upload_eca_a9.launch">
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="z" value="$(arg z)"/>
+        <arg name="yaw" value="$(arg yaw)"/>
+    </include>
+
+    <!-- 3. Start the Controller -->
+    <!-- This starts the path tracking controller but waits for input -->
+    <include file="$(find eca_a9_control)/launch/start_geometric_tracking_control.launch">
+        <!-- idle_radius is used if no trajectory is received. We set it small or irrelevant -->
+        <arg name="idle_radius" value="50"/>
+        <arg name="max_forward_speed" value="1.5"/> 
+    </include>
+
+    <!-- 4. Send Lawnmower Trajectory -->
+    <!-- We use a small delay to ensure controller is ready, though node logic handles waiting -->
+    <node pkg="uuv_eskf_nav" type="send_lawnmower_path.py" name="lawnmower_sender" output="screen" />
+
+</launch>

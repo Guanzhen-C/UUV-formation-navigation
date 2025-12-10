@@ -1,0 +1,290 @@
+298
+744000000 [GPU-PF] Time:277.57 | Error: 2.43 m | StdDev: 4.92 m | Neff: 1547 | ResRaw[Mean:-17.9 Std:14.6] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:-17.9 Std:2.4] | GT[Pos:(212.26, 338.70)]
+299
+760000000 [GPU-PF] Time:277.99 | Error: 4.88 m | StdDev: 4.88 m | Neff: 805 | ResRaw[Mean:-17.0 Std:14.7] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:-17.0 Std:2.4] | GT[Pos:(211.70, 339.10)]
+300
+780000000 [GPU-PF] Time:278.51 | Error: 6.95 m | StdDev: 4.82 m | Neff: 354 | ResRaw[Mean:-16.1 Std:14.8] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-16.1 Std:2.4] | GT[Pos:(211.08, 339.54)]
+301
+808000000 [GPU-PF] Time:278.98 | Error: 8.91 m | StdDev: 4.74 m | Neff: 1724 | ResRaw[Mean:-11.7 Std:14.5] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:-11.7 Std:2.3] | GT[Pos:(210.47, 339.99)]
+302
+836000000 [GPU-PF] Time:279.49 | Error: 10.59 m | StdDev: 4.66 m | Neff: 1221 | ResRaw[Mean:-11.6 Std:14.4] | Meas[N:4096 Mean:-105.3 Std:0.2] | Diff[Mean:-11.6 Std:2.3] | GT[Pos:(209.86, 340.45)]
+303
+736000000 [GPU-PF] Time:279.98 | Error: 11.85 m | StdDev: 4.56 m | Neff: 839 | ResRaw[Mean:-10.2 Std:14.3] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:-10.2 Std:2.3] | GT[Pos:(209.32, 340.86)]
+304
+738000000 [GPU-PF] Time:280.48 | Error: 12.73 m | StdDev: 4.46 m | Neff: 579 | ResRaw[Mean:-9.8 Std:14.2] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:-9.8 Std:2.3] | GT[Pos:(208.66, 341.36)]
+305
+756000000 [GPU-PF] Time:280.98 | Error: 13.58 m | StdDev: 4.38 m | Neff: 420 | ResRaw[Mean:-8.2 Std:14.0] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:-8.2 Std:2.3] | GT[Pos:(208.06, 341.81)]
+306
+748000000 [GPU-PF] Time:281.49 | Error: 14.28 m | StdDev: 4.31 m | Neff: 312 | ResRaw[Mean:-7.7 Std:13.9] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:-7.7 Std:2.3] | GT[Pos:(207.46, 342.25)]
+307
+754000000 [GPU-PF] Time:281.99 | Error: 14.86 m | StdDev: 4.24 m | Neff: 1939 | ResRaw[Mean:-4.4 Std:12.8] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-4.4 Std:1.4] | GT[Pos:(206.85, 342.69)]
+308
+670000000 [GPU-PF] Time:282.48 | Error: 15.41 m | StdDev: 4.14 m | Neff: 1802 | ResRaw[Mean:-3.5 Std:12.7] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-3.5 Std:1.4] | GT[Pos:(206.31, 343.07)]
+309
+690000000 [GPU-PF] Time:282.98 | Error: 15.81 m | StdDev: 4.07 m | Neff: 1627 | ResRaw[Mean:-3.2 Std:12.6] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:-3.2 Std:1.4] | GT[Pos:(205.64, 343.53)]
+310
+716000000 [GPU-PF] Time:283.49 | Error: 16.23 m | StdDev: 3.96 m | Neff: 1443 | ResRaw[Mean:-2.9 Std:12.6] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-2.9 Std:1.4] | GT[Pos:(205.02, 343.94)]
+311
+724000000 [GPU-PF] Time:283.98 | Error: 16.72 m | StdDev: 3.88 m | Neff: 1261 | ResRaw[Mean:-2.8 Std:12.5] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:-2.8 Std:1.5] | GT[Pos:(204.46, 344.29)]
+312
+744000000 [GPU-PF] Time:284.49 | Error: 17.00 m | StdDev: 3.76 m | Neff: 1095 | ResRaw[Mean:-2.5 Std:12.5] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:-2.5 Std:1.5] | GT[Pos:(203.76, 344.71)]
+313
+772000000 [GPU-PF] Time:284.99 | Error: 17.32 m | StdDev: 3.66 m | Neff: 946 | ResRaw[Mean:-2.3 Std:12.5] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-2.3 Std:1.5] | GT[Pos:(203.11, 345.08)]
+314
+688000000 [GPU-PF] Time:285.48 | Error: 17.68 m | StdDev: 3.54 m | Neff: 818 | ResRaw[Mean:-2.1 Std:12.5] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:-2.1 Std:1.5] | GT[Pos:(202.52, 345.40)]
+315
+682000000 [GPU-PF] Time:285.98 | Error: 18.01 m | StdDev: 3.48 m | Neff: 703 | ResRaw[Mean:-2.2 Std:12.5] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-2.2 Std:1.5] | GT[Pos:(201.86, 345.75)]
+316
+688000000 [GPU-PF] Time:286.48 | Error: 18.28 m | StdDev: 3.44 m | Neff: 604 | ResRaw[Mean:-2.1 Std:12.5] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-2.1 Std:1.5] | GT[Pos:(201.19, 346.08)]
+317
+680000000 [GPU-PF] Time:286.98 | Error: 18.64 m | StdDev: 3.40 m | Neff: 518 | ResRaw[Mean:-1.8 Std:12.5] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:-1.8 Std:1.6] | GT[Pos:(200.51, 346.41)]
+318
+670000000 [GPU-PF] Time:287.48 | Error: 18.94 m | StdDev: 3.39 m | Neff: 442 | ResRaw[Mean:-2.5 Std:12.5] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:-2.5 Std:1.6] | GT[Pos:(199.83, 346.73)]
+319
+690000000 [GPU-PF] Time:288.01 | Error: 19.18 m | StdDev: 3.43 m | Neff: 375 | ResRaw[Mean:-3.1 Std:12.6] | Meas[N:4096 Mean:-105.4 Std:0.2] | Diff[Mean:-3.1 Std:1.6] | GT[Pos:(199.07, 347.08)]
+320
+690000000 [GPU-PF] Time:288.48 | Error: 19.67 m | StdDev: 3.43 m | Neff: 1976 | ResRaw[Mean:-1.3 Std:11.3] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:-1.3 Std:1.1] | GT[Pos:(198.45, 347.36)]
+321
+682000000 [GPU-PF] Time:288.98 | Error: 19.93 m | StdDev: 3.43 m | Neff: 1908 | ResRaw[Mean:-2.1 Std:11.4] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-2.1 Std:1.1] | GT[Pos:(197.76, 347.67)]
+322
+672000000 [GPU-PF] Time:289.48 | Error: 20.29 m | StdDev: 3.42 m | Neff: 1805 | ResRaw[Mean:-2.3 Std:11.4] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:-2.3 Std:1.1] | GT[Pos:(197.07, 347.98)]
+323
+682000000 [GPU-PF] Time:289.98 | Error: 20.69 m | StdDev: 3.43 m | Neff: 1680 | ResRaw[Mean:-1.9 Std:11.4] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-1.9 Std:1.2] | GT[Pos:(196.32, 348.32)]
+324
+706000000 [GPU-PF] Time:290.48 | Error: 21.02 m | StdDev: 3.44 m | Neff: 1536 | ResRaw[Mean:-2.3 Std:11.4] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:-2.3 Std:1.2] | GT[Pos:(195.70, 348.61)]
+325
+726000000 [GPU-PF] Time:290.98 | Error: 21.42 m | StdDev: 3.45 m | Neff: 1391 | ResRaw[Mean:-1.9 Std:11.4] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:-1.9 Std:1.2] | GT[Pos:(195.02, 348.93)]
+326
+736000000 [GPU-PF] Time:291.48 | Error: 21.73 m | StdDev: 3.45 m | Neff: 1245 | ResRaw[Mean:-2.2 Std:11.3] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:-2.2 Std:1.2] | GT[Pos:(194.35, 349.27)]
+327
+626000000 [GPU-PF] Time:291.98 | Error: 22.07 m | StdDev: 3.51 m | Neff: 1112 | ResRaw[Mean:-1.4 Std:11.2] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:-1.4 Std:1.3] | GT[Pos:(193.68, 349.61)]
+328
+616000000 [GPU-PF] Time:292.48 | Error: 22.29 m | StdDev: 3.51 m | Neff: 995 | ResRaw[Mean:-0.8 Std:11.1] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:-0.8 Std:1.3] | GT[Pos:(193.01, 349.97)]
+329
+604000000 [GPU-PF] Time:292.98 | Error: 22.62 m | StdDev: 3.56 m | Neff: 885 | ResRaw[Mean:-1.2 Std:11.0] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:-1.2 Std:1.3] | GT[Pos:(192.35, 350.34)]
+330
+590000000 [GPU-PF] Time:293.48 | Error: 22.83 m | StdDev: 3.59 m | Neff: 794 | ResRaw[Mean:-0.4 Std:10.9] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-0.4 Std:1.3] | GT[Pos:(191.70, 350.72)]
+331
+600000000 [GPU-PF] Time:293.98 | Error: 22.97 m | StdDev: 3.63 m | Neff: 713 | ResRaw[Mean:0.0 Std:10.8] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:0.0 Std:1.3] | GT[Pos:(190.98, 351.16)]
+332
+590000000 [GPU-PF] Time:294.48 | Error: 23.27 m | StdDev: 3.65 m | Neff: 648 | ResRaw[Mean:0.7 Std:10.6] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:0.7 Std:1.4] | GT[Pos:(190.40, 351.52)]
+333
+588000000 [GPU-PF] Time:294.98 | Error: 23.41 m | StdDev: 3.67 m | Neff: 590 | ResRaw[Mean:1.0 Std:10.5] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:1.0 Std:1.4] | GT[Pos:(189.76, 351.93)]
+334
+572000000 [GPU-PF] Time:295.48 | Error: 23.50 m | StdDev: 3.71 m | Neff: 539 | ResRaw[Mean:1.8 Std:10.5] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:1.8 Std:1.4] | GT[Pos:(189.12, 352.35)]
+335
+560000000 [GPU-PF] Time:295.98 | Error: 23.66 m | StdDev: 3.77 m | Neff: 492 | ResRaw[Mean:2.1 Std:10.5] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:2.1 Std:1.4] | GT[Pos:(188.49, 352.76)]
+336
+578000000 [GPU-PF] Time:296.48 | Error: 23.68 m | StdDev: 3.80 m | Neff: 449 | ResRaw[Mean:3.0 Std:10.5] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:3.0 Std:1.4] | GT[Pos:(187.80, 353.22)]
+337
+568000000 [GPU-PF] Time:296.98 | Error: 23.70 m | StdDev: 3.83 m | Neff: 409 | ResRaw[Mean:3.7 Std:10.5] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:3.7 Std:1.5] | GT[Pos:(187.23, 353.60)]
+338
+568000000 [GPU-PF] Time:297.48 | Error: 23.66 m | StdDev: 3.91 m | Neff: 372 | ResRaw[Mean:4.0 Std:10.6] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:4.0 Std:1.5] | GT[Pos:(186.61, 354.01)]
+339
+558000000 [GPU-PF] Time:297.98 | Error: 23.58 m | StdDev: 3.90 m | Neff: 1966 | ResRaw[Mean:4.4 Std:9.4] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:4.4 Std:1.0] | GT[Pos:(185.98, 354.41)]
+344
+414000000 [GPU-PF] Time:298.48 | Error: 23.50 m | StdDev: 3.91 m | Neff: 1872 | ResRaw[Mean:4.9 Std:9.5] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:4.9 Std:1.1] | GT[Pos:(185.35, 354.81)]
+345
+434000000 [GPU-PF] Time:298.98 | Error: 23.44 m | StdDev: 3.90 m | Neff: 1742 | ResRaw[Mean:4.7 Std:9.7] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:4.7 Std:1.1] | GT[Pos:(184.72, 355.19)]
+346
+434000000 [GPU-PF] Time:299.48 | Error: 23.28 m | StdDev: 3.92 m | Neff: 1590 | ResRaw[Mean:4.8 Std:9.8] | Meas[N:4096 Mean:-105.3 Std:0.2] | Diff[Mean:4.8 Std:1.1] | GT[Pos:(184.02, 355.60)]
+347
+432000000 [GPU-PF] Time:299.98 | Error: 23.16 m | StdDev: 3.94 m | Neff: 1415 | ResRaw[Mean:5.8 Std:9.9] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:5.8 Std:1.1] | GT[Pos:(183.44, 355.93)]
+348
+422000000 [GPU-PF] Time:300.48 | Error: 23.02 m | StdDev: 3.93 m | Neff: 1244 | ResRaw[Mean:5.6 Std:9.9] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:5.6 Std:1.2] | GT[Pos:(182.78, 356.28)]
+349
+446000000 [GPU-PF] Time:300.98 | Error: 22.99 m | StdDev: 3.98 m | Neff: 1080 | ResRaw[Mean:5.7 Std:10.0] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:5.7 Std:1.2] | GT[Pos:(182.12, 356.61)]
+350
+452000000 [GPU-PF] Time:301.48 | Error: 22.82 m | StdDev: 3.98 m | Neff: 927 | ResRaw[Mean:6.0 Std:10.0] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:6.0 Std:1.2] | GT[Pos:(181.45, 356.94)]
+351
+450000000 [GPU-PF] Time:301.98 | Error: 22.66 m | StdDev: 4.03 m | Neff: 794 | ResRaw[Mean:5.9 Std:10.0] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:5.9 Std:1.3] | GT[Pos:(180.77, 357.25)]
+352
+440000000 [GPU-PF] Time:302.48 | Error: 22.53 m | StdDev: 4.04 m | Neff: 677 | ResRaw[Mean:6.1 Std:10.0] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:6.1 Std:1.3] | GT[Pos:(180.09, 357.55)]
+353
+430000000 [GPU-PF] Time:302.98 | Error: 22.38 m | StdDev: 4.10 m | Neff: 589 | ResRaw[Mean:5.3 Std:9.9] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:5.3 Std:1.3] | GT[Pos:(179.39, 357.84)]
+354
+424000000 [GPU-PF] Time:303.48 | Error: 22.34 m | StdDev: 4.12 m | Neff: 518 | ResRaw[Mean:5.1 Std:9.9] | Meas[N:4096 Mean:-105.3 Std:0.2] | Diff[Mean:5.1 Std:1.3] | GT[Pos:(178.69, 358.12)]
+355
+444000000 [GPU-PF] Time:303.98 | Error: 22.33 m | StdDev: 4.17 m | Neff: 454 | ResRaw[Mean:5.6 Std:9.8] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:5.6 Std:1.4] | GT[Pos:(177.99, 358.39)]
+356
+468000000 [GPU-PF] Time:304.48 | Error: 22.21 m | StdDev: 4.14 m | Neff: 400 | ResRaw[Mean:5.8 Std:9.8] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:5.8 Std:1.4] | GT[Pos:(177.28, 358.66)]
+357
+492000000 [GPU-PF] Time:304.98 | Error: 22.09 m | StdDev: 4.23 m | Neff: 361 | ResRaw[Mean:4.9 Std:9.8] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:4.9 Std:1.4] | GT[Pos:(176.58, 358.93)]
+358
+496000000 [GPU-PF] Time:305.48 | Error: 22.04 m | StdDev: 4.23 m | Neff: 1988 | ResRaw[Mean:3.3 Std:8.7] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:3.3 Std:1.1] | GT[Pos:(175.87, 359.20)]
+359
+490000000 [GPU-PF] Time:305.99 | Error: 21.94 m | StdDev: 4.22 m | Neff: 1957 | ResRaw[Mean:3.4 Std:8.7] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:3.4 Std:1.1] | GT[Pos:(175.09, 359.49)]
+360
+492000000 [GPU-PF] Time:306.48 | Error: 22.05 m | StdDev: 4.26 m | Neff: 1913 | ResRaw[Mean:3.3 Std:8.7] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:3.3 Std:1.1] | GT[Pos:(174.46, 359.74)]
+361
+502000000 [GPU-PF] Time:306.98 | Error: 21.99 m | StdDev: 4.27 m | Neff: 1854 | ResRaw[Mean:3.9 Std:8.7] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:3.9 Std:1.2] | GT[Pos:(173.76, 360.02)]
+362
+500000000 [GPU-PF] Time:307.48 | Error: 21.96 m | StdDev: 4.27 m | Neff: 1790 | ResRaw[Mean:3.5 Std:8.7] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:3.5 Std:1.2] | GT[Pos:(173.06, 360.31)]
+363
+516000000 [GPU-PF] Time:307.98 | Error: 21.91 m | StdDev: 4.26 m | Neff: 1716 | ResRaw[Mean:3.8 Std:8.7] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:3.8 Std:1.2] | GT[Pos:(172.37, 360.61)]
+364
+548000000 [GPU-PF] Time:308.48 | Error: 21.84 m | StdDev: 4.28 m | Neff: 1632 | ResRaw[Mean:4.2 Std:8.7] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:4.2 Std:1.2] | GT[Pos:(171.68, 360.92)]
+365
+540000000 [GPU-PF] Time:308.98 | Error: 21.84 m | StdDev: 4.27 m | Neff: 1548 | ResRaw[Mean:3.7 Std:8.8] | Meas[N:4096 Mean:-105.3 Std:0.2] | Diff[Mean:3.7 Std:1.3] | GT[Pos:(171.00, 361.24)]
+366
+432000000 [GPU-PF] Time:309.48 | Error: 21.64 m | StdDev: 4.26 m | Neff: 1445 | ResRaw[Mean:4.9 Std:8.8] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:4.9 Std:1.3] | GT[Pos:(170.25, 361.61)]
+367
+422000000 [GPU-PF] Time:309.98 | Error: 21.61 m | StdDev: 4.23 m | Neff: 1339 | ResRaw[Mean:4.8 Std:8.9] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:4.8 Std:1.3] | GT[Pos:(169.65, 361.92)]
+368
+328000000 [GPU-PF] Time:310.48 | Error: 21.45 m | StdDev: 4.22 m | Neff: 1220 | ResRaw[Mean:5.3 Std:9.1] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:5.3 Std:1.3] | GT[Pos:(168.97, 362.28)]
+369
+344000000 [GPU-PF] Time:310.98 | Error: 21.35 m | StdDev: 4.24 m | Neff: 1095 | ResRaw[Mean:5.6 Std:9.3] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:5.6 Std:1.4] | GT[Pos:(168.31, 362.65)]
+370
+356000000 [GPU-PF] Time:311.48 | Error: 21.17 m | StdDev: 4.20 m | Neff: 964 | ResRaw[Mean:6.1 Std:9.6] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:6.1 Std:1.4] | GT[Pos:(167.65, 363.02)]
+371
+270000000 [GPU-PF] Time:311.98 | Error: 20.95 m | StdDev: 4.13 m | Neff: 825 | ResRaw[Mean:7.1 Std:9.9] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:7.1 Std:1.4] | GT[Pos:(166.99, 363.40)]
+372
+262000000 [GPU-PF] Time:312.48 | Error: 20.75 m | StdDev: 4.10 m | Neff: 697 | ResRaw[Mean:7.1 Std:10.2] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:7.1 Std:1.5] | GT[Pos:(166.33, 363.78)]
+373
+268000000 [GPU-PF] Time:312.98 | Error: 20.53 m | StdDev: 4.05 m | Neff: 572 | ResRaw[Mean:8.3 Std:10.6] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:8.3 Std:1.5] | GT[Pos:(165.68, 364.16)]
+374
+298000000 [GPU-PF] Time:313.48 | Error: 20.32 m | StdDev: 4.02 m | Neff: 459 | ResRaw[Mean:8.9 Std:11.0] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:8.9 Std:1.6] | GT[Pos:(164.96, 364.57)]
+375
+304000000 [GPU-PF] Time:313.98 | Error: 20.10 m | StdDev: 4.00 m | Neff: 363 | ResRaw[Mean:9.1 Std:11.4] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:9.1 Std:1.6] | GT[Pos:(164.38, 364.90)]
+376
+302000000 [GPU-PF] Time:314.48 | Error: 19.92 m | StdDev: 3.96 m | Neff: 1928 | ResRaw[Mean:6.9 Std:9.8] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:6.9 Std:1.1] | GT[Pos:(163.73, 365.26)]
+377
+322000000 [GPU-PF] Time:314.98 | Error: 19.76 m | StdDev: 3.98 m | Neff: 1750 | ResRaw[Mean:7.1 Std:10.1] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:7.1 Std:1.1] | GT[Pos:(163.07, 365.61)]
+378
+338000000 [GPU-PF] Time:315.48 | Error: 19.64 m | StdDev: 3.96 m | Neff: 1511 | ResRaw[Mean:7.6 Std:10.3] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:7.6 Std:1.2] | GT[Pos:(162.42, 365.95)]
+379
+330000000 [GPU-PF] Time:315.98 | Error: 19.50 m | StdDev: 3.99 m | Neff: 1252 | ResRaw[Mean:8.2 Std:10.5] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:8.2 Std:1.2] | GT[Pos:(161.75, 366.28)]
+380
+344000000 [GPU-PF] Time:340.63 | Error: 32.40 m | StdDev: 4.05 m | Neff: 993 | ResRaw[Mean:8.8 Std:10.7] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:8.8 Std:1.2] | GT[Pos:(126.97, 378.97)]
+381
+336000000 [GPU-PF] Time:340.64 | Error: 33.36 m | StdDev: 4.11 m | Neff: 582 | ResRaw[Mean:7.8 Std:12.3] | Meas[N:4096 Mean:-105.2 Std:3.3] | Diff[Mean:7.8 Std:1.3] | GT[Pos:(126.97, 378.97)]
+382
+354000000 [GPU-PF] Time:341.14 | Error: 19.60 m | StdDev: 6.29 m | Neff: 1370 | ResRaw[Mean:15.4 Std:14.6] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:15.4 Std:2.4] | GT[Pos:(126.25, 379.20)]
+383
+354000000 [GPU-PF] Time:341.64 | Error: 20.19 m | StdDev: 6.21 m | Neff: 626 | ResRaw[Mean:15.6 Std:14.7] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:15.6 Std:2.4] | GT[Pos:(125.53, 379.45)]
+384
+360000000 [GPU-PF] Time:342.14 | Error: 20.92 m | StdDev: 6.12 m | Neff: 237 | ResRaw[Mean:16.5 Std:14.9] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:16.5 Std:2.5] | GT[Pos:(124.82, 379.70)]
+385
+348000000 [GPU-PF] Time:342.64 | Error: 21.92 m | StdDev: 5.80 m | Neff: 1632 | ResRaw[Mean:12.9 Std:13.1] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:12.9 Std:1.8] | GT[Pos:(124.10, 379.97)]
+386
+338000000 [GPU-PF] Time:343.14 | Error: 22.95 m | StdDev: 5.36 m | Neff: 1052 | ResRaw[Mean:14.0 Std:13.5] | Meas[N:4096 Mean:-104.2 Std:0.2] | Diff[Mean:14.0 Std:1.9] | GT[Pos:(123.40, 380.25)]
+387
+332000000 [GPU-PF] Time:343.64 | Error: 23.95 m | StdDev: 4.97 m | Neff: 658 | ResRaw[Mean:13.8 Std:13.8] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:13.8 Std:1.9] | GT[Pos:(122.69, 380.53)]
+389
+692000000 [GPU-PF] Time:344.14 | Error: 24.87 m | StdDev: 4.65 m | Neff: 419 | ResRaw[Mean:14.8 Std:14.2] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:14.8 Std:1.9] | GT[Pos:(121.99, 380.82)]
+390
+712000000 [GPU-PF] Time:344.66 | Error: 25.76 m | StdDev: 4.43 m | Neff: 282 | ResRaw[Mean:15.1 Std:14.5] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:15.1 Std:2.0] | GT[Pos:(121.29, 381.12)]
+391
+696000000 [GPU-PF] Time:345.14 | Error: 26.47 m | StdDev: 4.25 m | Neff: 1866 | ResRaw[Mean:12.8 Std:13.1] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:12.8 Std:1.1] | GT[Pos:(120.59, 381.42)]
+392
+686000000 [GPU-PF] Time:345.64 | Error: 27.08 m | StdDev: 4.15 m | Neff: 1594 | ResRaw[Mean:13.8 Std:13.5] | Meas[N:4096 Mean:-104.1 Std:0.2] | Diff[Mean:13.8 Std:1.1] | GT[Pos:(119.90, 381.71)]
+393
+690000000 [GPU-PF] Time:346.14 | Error: 27.67 m | StdDev: 4.09 m | Neff: 1299 | ResRaw[Mean:13.8 Std:13.8] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:13.8 Std:1.2] | GT[Pos:(119.21, 382.00)]
+394
+714000000 [GPU-PF] Time:346.64 | Error: 28.24 m | StdDev: 4.13 m | Neff: 1018 | ResRaw[Mean:13.7 Std:14.1] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:13.7 Std:1.2] | GT[Pos:(118.52, 382.29)]
+395
+702000000 [GPU-PF] Time:347.14 | Error: 28.86 m | StdDev: 4.21 m | Neff: 756 | ResRaw[Mean:14.5 Std:14.4] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:14.5 Std:1.3] | GT[Pos:(117.83, 382.56)]
+396
+700000000 [GPU-PF] Time:347.64 | Error: 29.49 m | StdDev: 4.29 m | Neff: 522 | ResRaw[Mean:15.1 Std:14.6] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:15.1 Std:1.3] | GT[Pos:(117.14, 382.83)]
+397
+694000000 [GPU-PF] Time:348.14 | Error: 30.12 m | StdDev: 4.50 m | Neff: 343 | ResRaw[Mean:14.5 Std:14.8] | Meas[N:4096 Mean:-105.6 Std:0.2] | Diff[Mean:14.5 Std:1.4] | GT[Pos:(116.44, 383.08)]
+398
+694000000 [GPU-PF] Time:348.64 | Error: 30.78 m | StdDev: 4.63 m | Neff: 1884 | ResRaw[Mean:13.8 Std:14.0] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:13.8 Std:0.9] | GT[Pos:(115.74, 383.32)]
+399
+716000000 [GPU-PF] Time:349.14 | Error: 31.45 m | StdDev: 4.81 m | Neff: 1593 | ResRaw[Mean:14.0 Std:14.1] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:14.0 Std:0.9] | GT[Pos:(115.04, 383.55)]
+400
+746000000 [GPU-PF] Time:349.64 | Error: 32.13 m | StdDev: 4.99 m | Neff: 1239 | ResRaw[Mean:14.3 Std:14.2] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:14.3 Std:0.9] | GT[Pos:(114.33, 383.76)]
+401
+772000000 [GPU-PF] Time:350.14 | Error: 32.78 m | StdDev: 5.16 m | Neff: 921 | ResRaw[Mean:13.7 Std:14.2] | Meas[N:4096 Mean:-105.5 Std:0.2] | Diff[Mean:13.7 Std:1.0] | GT[Pos:(113.61, 383.96)]
+402
+768000000 [GPU-PF] Time:350.64 | Error: 33.39 m | StdDev: 5.32 m | Neff: 655 | ResRaw[Mean:14.4 Std:14.2] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:14.4 Std:1.0] | GT[Pos:(112.89, 384.14)]
+403
+780000000 [GPU-PF] Time:351.14 | Error: 33.99 m | StdDev: 5.52 m | Neff: 457 | ResRaw[Mean:13.8 Std:14.2] | Meas[N:4096 Mean:-105.4 Std:0.2] | Diff[Mean:13.8 Std:1.0] | GT[Pos:(112.16, 384.31)]
+404
+806000000 [GPU-PF] Time:351.64 | Error: 34.52 m | StdDev: 5.78 m | Neff: 310 | ResRaw[Mean:13.8 Std:14.1] | Meas[N:4096 Mean:-105.5 Std:0.2] | Diff[Mean:13.8 Std:1.1] | GT[Pos:(111.43, 384.47)]
+405
+728000000 [GPU-PF] Time:352.14 | Error: 35.08 m | StdDev: 5.98 m | Neff: 1896 | ResRaw[Mean:13.0 Std:13.2] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:13.0 Std:0.8] | GT[Pos:(110.69, 384.62)]
+406
+748000000 [GPU-PF] Time:352.65 | Error: 35.57 m | StdDev: 6.22 m | Neff: 1633 | ResRaw[Mean:13.3 Std:13.1] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:13.3 Std:0.9] | GT[Pos:(109.95, 384.77)]
+407
+774000000 [GPU-PF] Time:353.14 | Error: 36.04 m | StdDev: 6.41 m | Neff: 1302 | ResRaw[Mean:12.4 Std:13.0] | Meas[N:4096 Mean:-105.4 Std:0.2] | Diff[Mean:12.4 Std:0.9] | GT[Pos:(109.20, 384.90)]
+408
+774000000 [GPU-PF] Time:353.65 | Error: 36.53 m | StdDev: 6.62 m | Neff: 953 | ResRaw[Mean:12.9 Std:13.0] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:12.9 Std:0.9] | GT[Pos:(108.46, 385.04)]
+409
+782000000 [GPU-PF] Time:354.14 | Error: 36.96 m | StdDev: 6.78 m | Neff: 659 | ResRaw[Mean:12.2 Std:12.9] | Meas[N:4096 Mean:-105.4 Std:0.2] | Diff[Mean:12.2 Std:1.0] | GT[Pos:(107.71, 385.17)]
+410
+776000000 [GPU-PF] Time:354.64 | Error: 37.39 m | StdDev: 6.93 m | Neff: 426 | ResRaw[Mean:12.6 Std:12.8] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:12.6 Std:1.0] | GT[Pos:(106.97, 385.31)]
+411
+770000000 [GPU-PF] Time:355.14 | Error: 37.84 m | StdDev: 7.17 m | Neff: 256 | ResRaw[Mean:12.8 Std:12.8] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:12.8 Std:1.0] | GT[Pos:(106.23, 385.45)]
+412
+794000000 [GPU-PF] Time:355.64 | Error: 38.29 m | StdDev: 7.20 m | Neff: 1881 | ResRaw[Mean:11.1 Std:11.8] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:11.1 Std:1.0] | GT[Pos:(105.49, 385.59)]
+413
+780000000 [GPU-PF] Time:356.14 | Error: 38.77 m | StdDev: 7.14 m | Neff: 1581 | ResRaw[Mean:11.4 Std:11.8] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:11.4 Std:1.0] | GT[Pos:(104.75, 385.75)]
+414
+808000000 [GPU-PF] Time:356.64 | Error: 39.29 m | StdDev: 6.94 m | Neff: 1228 | ResRaw[Mean:11.5 Std:11.9] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:11.5 Std:1.0] | GT[Pos:(104.02, 385.92)]
+415
+798000000 [GPU-PF] Time:357.14 | Error: 39.80 m | StdDev: 6.64 m | Neff: 918 | ResRaw[Mean:11.4 Std:12.0] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:11.4 Std:1.0] | GT[Pos:(103.28, 386.09)]
+416
+828000000 [GPU-PF] Time:357.64 | Error: 40.31 m | StdDev: 6.33 m | Neff: 675 | ResRaw[Mean:11.5 Std:12.1] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:11.5 Std:1.1] | GT[Pos:(102.55, 386.29)]
+417
+848000000 [GPU-PF] Time:358.14 | Error: 40.81 m | StdDev: 6.06 m | Neff: 489 | ResRaw[Mean:12.1 Std:12.3] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:12.1 Std:1.1] | GT[Pos:(101.82, 386.49)]
+418
+842000000 [GPU-PF] Time:358.64 | Error: 41.28 m | StdDev: 5.82 m | Neff: 355 | ResRaw[Mean:12.2 Std:12.6] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:12.2 Std:1.1] | GT[Pos:(101.10, 386.71)]
+419
+838000000 [GPU-PF] Time:359.14 | Error: 41.85 m | StdDev: 5.60 m | Neff: 1912 | ResRaw[Mean:11.1 Std:11.7] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:11.1 Std:0.8] | GT[Pos:(100.37, 386.94)]
+420
+838000000 [GPU-PF] Time:359.64 | Error: 42.33 m | StdDev: 5.48 m | Neff: 1695 | ResRaw[Mean:11.7 Std:12.1] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:11.7 Std:0.9] | GT[Pos:(99.65, 387.17)]
+421
+854000000 [GPU-PF] Time:360.14 | Error: 42.83 m | StdDev: 5.47 m | Neff: 1415 | ResRaw[Mean:12.6 Std:12.4] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:12.6 Std:0.9] | GT[Pos:(98.93, 387.42)]
+422
+890000000 [GPU-PF] Time:360.64 | Error: 43.30 m | StdDev: 5.62 m | Neff: 1133 | ResRaw[Mean:12.3 Std:12.8] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:12.3 Std:0.9] | GT[Pos:(98.21, 387.67)]
+423
+902000000 [GPU-PF] Time:361.14 | Error: 43.85 m | StdDev: 5.91 m | Neff: 875 | ResRaw[Mean:12.7 Std:13.1] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:12.7 Std:1.0] | GT[Pos:(97.50, 387.93)]
+424
+928000000 [GPU-PF] Time:361.64 | Error: 44.40 m | StdDev: 6.33 m | Neff: 653 | ResRaw[Mean:12.9 Std:13.3] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:12.9 Std:1.0] | GT[Pos:(96.79, 388.18)]
+425
+928000000 [GPU-PF] Time:362.14 | Error: 44.99 m | StdDev: 7.13 m | Neff: 456 | ResRaw[Mean:14.2 Std:13.6] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:14.2 Std:1.1] | GT[Pos:(96.08, 388.43)]
+426
+926000000 [GPU-PF] Time:362.64 | Error: 45.58 m | StdDev: 8.21 m | Neff: 311 | ResRaw[Mean:13.7 Std:13.8] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:13.7 Std:1.1] | GT[Pos:(95.37, 388.68)]
+427
+942000000 [GPU-PF] Time:363.14 | Error: 46.18 m | StdDev: 9.71 m | Neff: 1861 | ResRaw[Mean:13.3 Std:13.2] | Meas[N:4096 Mean:-104.5 Std:0.2] | Diff[Mean:13.3 Std:0.9] | GT[Pos:(94.67, 388.91)]
+428
+950000000 [GPU-PF] Time:363.64 | Error: 46.82 m | StdDev: 11.51 m | Neff: 1432 | ResRaw[Mean:13.9 Std:13.4] | Meas[N:4096 Mean:-104.2 Std:0.2] | Diff[Mean:13.9 Std:1.0] | GT[Pos:(93.96, 389.14)]
+429
+936000000 [GPU-PF] Time:364.14 | Error: 47.65 m | StdDev: 13.21 m | Neff: 866 | ResRaw[Mean:13.4 Std:13.5] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:13.4 Std:1.1] | GT[Pos:(93.25, 389.36)]
+430
+952000000 [GPU-PF] Time:388.41 | Error: 70.04 m | StdDev: 14.18 m | Neff: 435 | ResRaw[Mean:14.4 Std:13.5] | Meas[N:4096 Mean:-104.0 Std:0.2] | Diff[Mean:14.4 Std:1.1] | GT[Pos:(57.45, 395.59)]
+431
+974000000 [GPU-PF] Time:388.42 | Error: 68.08 m | StdDev: 11.56 m | Neff: 116 | ResRaw[Mean:13.4 Std:15.1] | Meas[N:4096 Mean:-105.1 Std:3.2] | Diff[Mean:13.4 Std:1.2] | GT[Pos:(57.45, 395.59)]
+432
+962000000 [GPU-PF] Time:388.92 | Error: 56.29 m | StdDev: 9.13 m | Neff: 1514 | ResRaw[Mean:9.5 Std:13.7] | Meas[N:4096 Mean:-104.6 Std:0.2] | Diff[Mean:9.5 Std:3.9] | GT[Pos:(56.70, 395.66)]
+438 [GPU-PF] Time:389.42 | Error: 58.47 m | StdDev: 8.03 m | Neff: 1012 | ResRaw[Mean:9.0 Std:13.7] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:9.0 Std:4.0] | GT[Pos:(55.95, 395.74)]
+439 [GPU-PF] Time:389.92 | Error: 60.04 m | StdDev: 7.94 m | Neff: 650 | ResRaw[Mean:8.9 Std:13.7] | Meas[N:4096 Mean:-104.9 Std:0.2] | Diff[Mean:8.9 Std:4.1] | GT[Pos:(55.21, 395.84)]
+439
+932000000 [GPU-PF] Time:390.42 | Error: 61.29 m | StdDev: 7.99 m | Neff: 411 | ResRaw[Mean:8.9 Std:13.7] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:8.9 Std:4.1] | GT[Pos:(54.46, 395.94)]
+440
+930000000 [GPU-PF] Time:390.92 | Error: 62.51 m | StdDev: 8.13 m | Neff: 263 | ResRaw[Mean:8.7 Std:13.7] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:8.7 Std:4.2] | GT[Pos:(53.71, 396.06)]
+441
+916000000 [GPU-PF] Time:391.42 | Error: 63.41 m | StdDev: 8.21 m | Neff: 1904 | ResRaw[Mean:2.9 Std:10.6] | Meas[N:4096 Mean:-105.6 Std:0.2] | Diff[Mean:2.9 Std:1.7] | GT[Pos:(52.96, 396.20)]
+442
+914000000 [GPU-PF] Time:391.92 | Error: 64.22 m | StdDev: 8.26 m | Neff: 1684 | ResRaw[Mean:3.1 Std:10.5] | Meas[N:4096 Mean:-105.1 Std:0.2] | Diff[Mean:3.1 Std:1.7] | GT[Pos:(52.21, 396.34)]
+443
+936000000 [GPU-PF] Time:392.44 | Error: 64.90 m | StdDev: 8.28 m | Neff: 1446 | ResRaw[Mean:2.6 Std:10.4] | Meas[N:4096 Mean:-105.4 Std:0.2] | Diff[Mean:2.6 Std:1.8] | GT[Pos:(51.39, 396.51)]
+444
+954000000 [GPU-PF] Time:392.93 | Error: 65.50 m | StdDev: 8.21 m | Neff: 1217 | ResRaw[Mean:2.8 Std:10.3] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:2.8 Std:1.8] | GT[Pos:(50.72, 396.65)]
+445
+962000000 [GPU-PF] Time:393.42 | Error: 66.03 m | StdDev: 8.11 m | Neff: 1026 | ResRaw[Mean:2.5 Std:10.2] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:2.5 Std:1.8] | GT[Pos:(49.98, 396.82)]
+446
+994000000 [GPU-PF] Time:393.92 | Error: 66.45 m | StdDev: 7.96 m | Neff: 866 | ResRaw[Mean:2.5 Std:10.1] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:2.5 Std:1.7] | GT[Pos:(49.24, 396.98)]
+447
+998000000 [GPU-PF] Time:394.42 | Error: 66.85 m | StdDev: 7.80 m | Neff: 743 | ResRaw[Mean:1.8 Std:9.9] | Meas[N:4096 Mean:-105.2 Std:0.2] | Diff[Mean:1.8 Std:1.7] | GT[Pos:(48.51, 397.15)]
+449 [GPU-PF] Time:394.92 | Error: 67.23 m | StdDev: 7.68 m | Neff: 639 | ResRaw[Mean:2.0 Std:9.8] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:2.0 Std:1.7] | GT[Pos:(47.78, 397.31)]
+450 [GPU-PF] Time:395.42 | Error: 67.53 m | StdDev: 7.56 m | Neff: 550 | ResRaw[Mean:2.3 Std:9.7] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:2.3 Std:1.7] | GT[Pos:(47.05, 397.46)]
+451 [GPU-PF] Time:395.92 | Error: 67.83 m | StdDev: 7.40 m | Neff: 482 | ResRaw[Mean:1.7 Std:9.5] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:1.7 Std:1.7] | GT[Pos:(46.32, 397.61)]
+452 [GPU-PF] Time:396.42 | Error: 68.10 m | StdDev: 7.32 m | Neff: 427 | ResRaw[Mean:1.4 Std:9.4] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:1.4 Std:1.6] | GT[Pos:(45.59, 397.74)]
+453 [GPU-PF] Time:396.92 | Error: 68.34 m | StdDev: 7.14 m | Neff: 379 | ResRaw[Mean:1.8 Std:9.3] | Meas[N:4096 Mean:-104.3 Std:0.2] | Diff[Mean:1.8 Std:1.6] | GT[Pos:(44.86, 397.87)]
+454 [GPU-PF] Time:397.42 | Error: 68.55 m | StdDev: 6.99 m | Neff: 1985 | ResRaw[Mean:-0.7 Std:6.7] | Meas[N:4096 Mean:-104.8 Std:0.2] | Diff[Mean:-0.7 Std:0.8] | GT[Pos:(44.13, 397.98)]
+455 [GPU-PF] Time:397.92 | Error: 68.71 m | StdDev: 6.86 m | Neff: 1950 | ResRaw[Mean:-1.1 Std:6.6] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-1.1 Std:0.8] | GT[Pos:(43.40, 398.07)]
+456 [GPU-PF] Time:398.42 | Error: 68.90 m | StdDev: 6.71 m | Neff: 1898 | ResRaw[Mean:-0.4 Std:6.6] | Meas[N:4096 Mean:-104.4 Std:0.2] | Diff[Mean:-0.4 Std:0.8] | GT[Pos:(42.66, 398.15)]
+457 [GPU-PF] Time:398.92 | Error: 69.10 m | StdDev: 6.58 m | Neff: 1843 | ResRaw[Mean:-1.1 Std:6.6] | Meas[N:4096 Mean:-105.0 Std:0.2] | Diff[Mean:-1.1 Std:0.8] | GT[Pos:(41.92, 398.22)]
+458 [GPU-PF] Time:399.42 | Error: 69.27 m | StdDev: 6.44 m | Neff: 1780 | ResRaw[Mean:-0.8 Std:6.6] | Meas[N:4096 Mean:-104.7 Std:0.2] | Diff[Mean:-0.8 Std:0.8] | GT[Pos:(41.17, 398.27)]
