@@ -5,7 +5,7 @@
     <group ns="$(arg robot_name)">
         <node pkg="uuv_eskf_nav" type="terrain_matching_node_gpu.py" name="terrain_matcher_gpu" output="screen">
             <param name="map_path" value="$(arg map_file)"/>
-            <param name="num_particles" value="1000"/>
+            <param name="num_particles" value="2000"/>
             <!-- Note: This GPU node uses PyTorch and requires CUDA -->
         </node>
     </group>

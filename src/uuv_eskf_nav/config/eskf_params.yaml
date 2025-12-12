@@ -158,4 +158,4 @@ debug:
 sensors:
   enable_dvl: true
   enable_heading: false
-  enable_terrain_nav: true
+  enable_terrain_nav: false

@@ -28,7 +28,7 @@ SensorManager::SensorManager(ros::NodeHandle& nh, const std::string& robot_name)
     // 选择订阅原始DVL数据以获得完整控制权
     std::string dvl_topic = "/" + robot_name_ + "/dvl";           // 原始DVL数据
     std::string pressure_topic = "/" + robot_name_ + "/pressure"; // 原始压力传感器数据
-    std::string terrain_topic = "/terrain_nav/pose";              // 地形匹配定位结果
+    std::string terrain_topic = "/" + robot_name_ + "/terrain_nav/pose"; // 地形匹配位置数据
     
     imu_sub_ = nh_.subscribe(imu_topic, 100, &SensorManager::imuRawCallback, this);
     dvl_sub_ = nh_.subscribe(dvl_topic, 100, &SensorManager::dvlRawCallback, this);
